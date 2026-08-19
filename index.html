@@ -13,18 +13,18 @@
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   
-  <!-- Chart.js & Plugins -->
+  <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 
   <style>
     :root {
-      /* Paleta Primaria Brandbook La Segunda */
+      /* Brandbook La Segunda - Colores Institucionales */
       --rojo-seguro: #e20039;
       --rojo-oscuro: #b91f38;
       --rojo-claro: #f42c4b;
       --rojo-brillante: #ff4c60;
       
-      /* Colores Complementarios Brandbook */
+      /* Complementarios */
       --amarillo: #f8cc59;
       --coral: #ff593e;
       --borgona: #512420;
@@ -32,24 +32,21 @@
       --azul: #4183ca;
       --carbon: #30302d;
       
-      /* Fondos y Neutros */
-      --bg-body: #f5f6fa;
+      /* Fondos & Estructura */
+      --bg-body: #f8f9fb;
       --bg-card: #ffffff;
-      --border-subtle: #e8ecf3;
-      --border-card: #e2e6ed;
+      --border-subtle: #edf2f7;
+      --border-card: #e2e8f0;
       --text-main: #30302d;
-      --text-muted: #6c757d;
-      --text-light: #94a3b8;
+      --text-muted: #64748b;
       
-      /* Sombras y Curvaturas */
       --radius-sm: 8px;
       --radius-md: 12px;
       --radius-lg: 16px;
       --radius-pill: 9999px;
-      --shadow-sm: 0 2px 6px rgba(0,0,0,0.03);
-      --shadow-md: 0 4px 16px rgba(0,0,0,0.05);
-      --shadow-lg: 0 10px 30px rgba(0,0,0,0.08);
-      --shadow-red: 0 4px 20px rgba(226, 0, 57, 0.25);
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
+      --shadow-md: 0 6px 20px rgba(0,0,0,0.06);
+      --shadow-red: 0 4px 18px rgba(226, 0, 57, 0.22);
     }
 
     * {
@@ -65,14 +62,13 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      overflow-x: hidden;
     }
 
-    /* HEADER INSTITUCIONAL */
+    /* HEADER */
     header.brand-header {
       background: #ffffff;
       border-bottom: 2px solid var(--border-subtle);
-      padding: 16px 32px;
+      padding: 16px 36px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -92,10 +88,9 @@
       background: linear-gradient(135deg, var(--rojo-seguro) 0%, var(--rojo-oscuro) 100%);
       color: #ffffff;
       font-weight: 800;
-      font-size: 20px;
+      font-size: 19px;
       padding: 10px 18px;
       border-radius: var(--radius-md);
-      letter-spacing: -0.5px;
       display: flex;
       align-items: center;
       gap: 10px;
@@ -103,29 +98,27 @@
     }
 
     .brand-logo-badge span.dot {
-      width: 8px;
-      height: 8px;
+      width: 9px;
+      height: 9px;
       background: var(--amarillo);
       border-radius: 50%;
-      display: inline-block;
     }
 
     .brand-titles h1 {
       font-size: 20px;
       font-weight: 700;
       color: var(--carbon);
-      letter-spacing: -0.3px;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
-    .brand-titles h1 span.tag-ejerc {
+    .brand-titles h1 span.badge-ejerc {
       background: rgba(226, 0, 57, 0.08);
       color: var(--rojo-seguro);
       font-size: 13px;
       font-weight: 600;
-      padding: 4px 10px;
+      padding: 4px 12px;
       border-radius: var(--radius-pill);
       border: 1px solid rgba(226, 0, 57, 0.2);
     }
@@ -147,7 +140,7 @@
       align-items: center;
       gap: 8px;
       background: #f1f5f9;
-      padding: 8px 14px;
+      padding: 8px 16px;
       border-radius: var(--radius-pill);
       font-size: 12px;
       font-weight: 600;
@@ -157,13 +150,13 @@
 
     .status-badge i.pulse {
       color: var(--verde);
-      font-size: 10px;
+      font-size: 9px;
       animation: pulse 2s infinite;
     }
 
     @keyframes pulse {
       0% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(1.2); }
+      50% { opacity: 0.3; transform: scale(1.3); }
       100% { opacity: 1; transform: scale(1); }
     }
 
@@ -189,31 +182,21 @@
       box-shadow: var(--shadow-red);
     }
 
-    /* BARRA DE NAVEGACIÓN DE PESTAÑAS */
+    /* NAVEGACIÓN POR PESTAÑAS (7 PESTAÑAS DEL LOOKER) */
     nav.tab-nav {
       background: #ffffff;
-      padding: 10px 32px;
+      padding: 10px 36px;
       display: flex;
       gap: 8px;
       border-bottom: 1px solid var(--border-subtle);
       overflow-x: auto;
       white-space: nowrap;
-      scrollbar-width: thin;
-    }
-
-    nav.tab-nav::-webkit-scrollbar {
-      height: 4px;
-    }
-
-    nav.tab-nav::-webkit-scrollbar-thumb {
-      background: var(--border-card);
-      border-radius: 4px;
     }
 
     .tab-btn {
       padding: 10px 18px;
       border-radius: var(--radius-md);
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 600;
       color: var(--text-muted);
       background: transparent;
@@ -221,12 +204,8 @@
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 9px;
       transition: all 0.2s ease;
-    }
-
-    .tab-btn i {
-      font-size: 15px;
     }
 
     .tab-btn:hover {
@@ -243,7 +222,7 @@
     /* CONTENEDOR PRINCIPAL */
     main.main-content {
       flex: 1;
-      padding: 28px 32px;
+      padding: 28px 36px;
       max-width: 1600px;
       margin: 0 auto;
       width: 100%;
@@ -263,12 +242,27 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* TARJETAS KPI (MOSAICO LA SEGUNDA) */
+    /* NOTAS DEL BRANDBOOK / LOOKER */
+    .note-box {
+      background: #fffbeb;
+      border-left: 4px solid var(--amarillo);
+      padding: 12px 18px;
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 600;
+      color: #92400e;
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* TARJETAS KPI (MOSAICOS LA SEGUNDA) */
     .kpi-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 20px;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
     }
 
     .kpi-card {
@@ -277,17 +271,11 @@
       padding: 22px;
       border: 1px solid var(--border-card);
       box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .kpi-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
     }
 
     .kpi-card::before {
@@ -305,102 +293,65 @@
     .kpi-card.accent-yellow::before { background: var(--amarillo); }
     .kpi-card.accent-coral::before { background: var(--coral); }
 
-    .kpi-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 12px;
-    }
-
     .kpi-title {
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 600;
       color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 0.5px;
-    }
-
-    .kpi-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: var(--radius-md);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-      background: rgba(226, 0, 57, 0.08);
-      color: var(--rojo-seguro);
+      margin-bottom: 8px;
     }
 
     .kpi-value {
       font-size: 26px;
       font-weight: 800;
       color: var(--carbon);
-      margin-bottom: 8px;
       letter-spacing: -0.5px;
+      margin-bottom: 6px;
     }
 
     .kpi-subtext {
       font-size: 12px;
       color: var(--text-muted);
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      font-weight: 500;
     }
 
-    .kpi-delta {
-      font-weight: 700;
-      padding: 2px 6px;
-      border-radius: var(--radius-pill);
-      font-size: 11px;
-    }
-
-    .kpi-delta.positive {
-      background: rgba(58, 199, 146, 0.15);
-      color: #108e5a;
-    }
-
-    .kpi-delta.negative {
-      background: rgba(226, 0, 57, 0.12);
-      color: var(--rojo-seguro);
-    }
-
-    /* SECCIÓN DE GRÁFICOS Y MOSAICOS */
+    /* GRILLAS DE GRÁFICOS Y TABLAS */
     .dashboard-grid {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
       gap: 24px;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
     }
 
     .col-12 { grid-column: span 12; }
     .col-8 { grid-column: span 8; }
+    .col-7 { grid-column: span 7; }
     .col-6 { grid-column: span 6; }
+    .col-5 { grid-column: span 5; }
     .col-4 { grid-column: span 4; }
 
-    @media (max-width: 1100px) {
-      .col-8, .col-6, .col-4 { grid-column: span 12; }
+    @media (max-width: 1024px) {
+      .col-8, .col-7, .col-6, .col-5, .col-4 { grid-column: span 12; }
     }
 
     .chart-card {
       background: var(--bg-card);
       border-radius: var(--radius-lg);
-      padding: 24px;
+      padding: 22px;
       border: 1px solid var(--border-card);
       box-shadow: var(--shadow-sm);
-      display: flex;
-      flex-direction: column;
     }
 
     .chart-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .chart-header h3 {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 700;
       color: var(--carbon);
       display: flex;
@@ -414,23 +365,22 @@
 
     .chart-container {
       position: relative;
-      flex: 1;
-      min-height: 320px;
+      min-height: 290px;
       width: 100%;
     }
 
-    /* TABLAS DE DATOS */
+    /* TABLAS */
     .table-card {
       background: var(--bg-card);
       border-radius: var(--radius-lg);
       border: 1px solid var(--border-card);
       box-shadow: var(--shadow-sm);
       overflow: hidden;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
     }
 
     .table-header {
-      padding: 20px 24px;
+      padding: 16px 22px;
       border-bottom: 1px solid var(--border-subtle);
       display: flex;
       justify-content: space-between;
@@ -439,7 +389,7 @@
     }
 
     .table-header h3 {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 700;
       color: var(--carbon);
       display: flex;
@@ -449,15 +399,15 @@
 
     .table-wrapper {
       overflow-x: auto;
-      max-height: 480px;
+      max-height: 420px;
       scrollbar-width: thin;
     }
 
     table.data-table {
       width: 100%;
       border-collapse: collapse;
+      font-size: 12.5px;
       text-align: left;
-      font-size: 13px;
     }
 
     table.data-table th {
@@ -467,7 +417,7 @@
       text-transform: uppercase;
       font-size: 11px;
       letter-spacing: 0.5px;
-      padding: 14px 20px;
+      padding: 12px 18px;
       border-bottom: 2px solid var(--border-subtle);
       position: sticky;
       top: 0;
@@ -475,7 +425,7 @@
     }
 
     table.data-table td {
-      padding: 13px 20px;
+      padding: 12px 18px;
       border-bottom: 1px solid var(--border-subtle);
       color: var(--carbon);
       font-weight: 500;
@@ -499,19 +449,13 @@
     footer.brand-footer {
       background: #ffffff;
       border-top: 1px solid var(--border-subtle);
-      padding: 20px 32px;
+      padding: 18px 36px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       font-size: 12px;
       color: var(--text-muted);
       margin-top: auto;
-    }
-
-    .footer-left {
-      display: flex;
-      align-items: center;
-      gap: 12px;
     }
 
     .footer-claim {
@@ -532,7 +476,7 @@
       <div class="brand-titles">
         <h1>
           Tablero de Gestión Personas
-          <span class="tag-ejerc">Ejerc. 2025 / 2026</span>
+          <span class="badge-ejerc">Ejerc. 25/26</span>
         </h1>
         <p>Seguros de Personas • Accidentes Personales, Vida Colectivo, Vida Individual y Financiero</p>
       </div>
@@ -540,220 +484,212 @@
     <div class="brand-right">
       <div class="status-badge">
         <i class="fa-solid fa-circle pulse"></i>
-        <span>Looker Studio Sincronizado</span>
+        <span>100% Datos Looker Sincronizados</span>
       </div>
       <button class="btn-export" onclick="exportCurrentView()">
-        <i class="fa-solid fa-download"></i>
-        Exportar CSV
+        <i class="fa-solid fa-download"></i> Exportar CSV
       </button>
     </div>
   </header>
 
-  <!-- NAVEGACIÓN POR PESTAÑAS (7 PESTAÑAS DEL LOOKER) -->
+  <!-- NAVEGACIÓN 7 PESTAÑAS -->
   <nav class="tab-nav">
-    <button class="tab-btn active" onclick="switchTab('p1_consolidado')">
-      <i class="fa-solid fa-chart-pie"></i>
-      1. Consolidado General
+    <button class="tab-btn active" onclick="switchTab('p1_produccion')">
+      <i class="fa-solid fa-sack-dollar"></i> 1. Producción
     </button>
     <button class="tab-btn" onclick="switchTab('p2_cartera')">
-      <i class="fa-solid fa-users"></i>
-      2. Cartera Vigente
+      <i class="fa-solid fa-users"></i> 2. Cartera Vigente
     </button>
     <button class="tab-btn" onclick="switchTab('p3_siniestralidad')">
-      <i class="fa-solid fa-shield-halved"></i>
-      3. Siniestralidad
+      <i class="fa-solid fa-shield-halved"></i> 3. Siniestralidad
     </button>
     <button class="tab-btn" onclick="switchTab('p4_ap')">
-      <i class="fa-solid fa-user-injured"></i>
-      4. Accidentes Personales
+      <i class="fa-solid fa-user-injured"></i> 4. Accidentes Personales
     </button>
     <button class="tab-btn" onclick="switchTab('p5_vida_col')">
-      <i class="fa-solid fa-building-user"></i>
-      5. Vida Colectivo
+      <i class="fa-solid fa-building-user"></i> 5. Vida Colectivo
     </button>
     <button class="tab-btn" onclick="switchTab('p6_vida_ind')">
-      <i class="fa-solid fa-user"></i>
-      6. Vida Individual
+      <i class="fa-solid fa-user"></i> 6. Vida Individual
     </button>
     <button class="tab-btn" onclick="switchTab('p7_financiero')">
-      <i class="fa-solid fa-arrow-trend-up"></i>
-      7. Financiero
+      <i class="fa-solid fa-arrow-trend-up"></i> 7. Financiero
     </button>
   </nav>
 
-  <!-- CONTENIDO PRINCIPAL -->
+  <!-- CONTENIDO -->
   <main class="main-content">
 
-    <!-- PESTAÑA 1: CONSOLIDADO GENERAL -->
-    <div id="pane_p1_consolidado" class="tab-pane active">
+    <!-- PESTAÑA 1: PRODUCCIÓN -->
+    <div id="pane_p1_produccion" class="tab-pane active">
+      <div class="note-box">
+        <i class="fa-solid fa-circle-info"></i>
+        <span><strong>Nota técnica:</strong> RIPTE estimado últimos dos meses. IPC mes de cierre según REM. No incluye Seguros de Retiro.</span>
+      </div>
+
       <div class="kpi-grid">
         <div class="kpi-card">
-          <div class="kpi-header">
-            <span class="kpi-title">Primas Ejerc. 25/26</span>
-            <div class="kpi-icon"><i class="fa-solid fa-sack-dollar"></i></div>
-          </div>
-          <div class="kpi-value" id="kpi_p1_primas_2526">$ 28.535 M</div>
-          <div class="kpi-subtext">
-            <span class="kpi-delta positive">+24.8% vs 24/25</span>
-            <span>Acumulado ejercicio</span>
-          </div>
+          <span class="kpi-title">Prima Emitida Mensual (Cierre)</span>
+          <div class="kpi-value">$ 5.663.987.632</div>
+          <div class="kpi-subtext">Mes de cierre (jun 2026)</div>
         </div>
-
         <div class="kpi-card accent-blue">
-          <div class="kpi-header">
-            <span class="kpi-title">Primas Vida Colectivo</span>
-            <div class="kpi-icon"><i class="fa-solid fa-building"></i></div>
-          </div>
-          <div class="kpi-value">$ 18.710 M</div>
-          <div class="kpi-subtext">
-            <span>65.6% del total emitido</span>
-          </div>
+          <span class="kpi-title">RIPTE Anual (Cierre)</span>
+          <div class="kpi-value">34,05 %</div>
+          <div class="kpi-subtext">RIPTE del Ejercicio: 34,05 %</div>
         </div>
-
-        <div class="kpi-card accent-green">
-          <div class="kpi-header">
-            <span class="kpi-title">Primas Acc. Personales</span>
-            <div class="kpi-icon"><i class="fa-solid fa-shield"></i></div>
-          </div>
-          <div class="kpi-value">$ 8.998 M</div>
-          <div class="kpi-subtext">
-            <span>31.5% del total emitido</span>
-          </div>
-        </div>
-
         <div class="kpi-card accent-coral">
-          <div class="kpi-header">
-            <span class="kpi-title">Primas Vida Individual</span>
-            <div class="kpi-icon"><i class="fa-solid fa-user-check"></i></div>
-          </div>
-          <div class="kpi-value">$ 826 M</div>
-          <div class="kpi-subtext">
-            <span>2.9% del total emitido</span>
-          </div>
+          <span class="kpi-title">IPC Anual (Cierre)</span>
+          <div class="kpi-value">33,70 %</div>
+          <div class="kpi-subtext">IPC del Ejercicio: 33,70 %</div>
+        </div>
+        <div class="kpi-card accent-green">
+          <span class="kpi-title">Variac. Prima s/Ej. Anterior</span>
+          <div class="kpi-value">+7,51 %</div>
+          <div class="kpi-subtext">Ajustado por IPC (Mismo mes)</div>
         </div>
       </div>
 
-      <!-- GRÁFICOS CONSOLIDADOS -->
       <div class="dashboard-grid">
-        <div class="chart-card col-8">
+        <div class="chart-card col-6">
           <div class="chart-header">
-            <h3><i class="fa-solid fa-chart-line"></i> Evolución Mensual de Primas: Ejerc. 25/26 vs Ejerc. 24/25</h3>
+            <h3><i class="fa-solid fa-chart-line"></i> RIPTE Mensual vs IPC Mensual</h3>
           </div>
           <div class="chart-container">
-            <canvas id="chart_p1_evolucion"></canvas>
+            <canvas id="chart_p1_ripte_ipc_mes"></canvas>
           </div>
         </div>
 
-        <div class="chart-card col-4">
+        <div class="chart-card col-6">
           <div class="chart-header">
-            <h3><i class="fa-solid fa-chart-pie"></i> Participación por Ramo</h3>
+            <h3><i class="fa-solid fa-chart-line"></i> Ripte Anual vs IPC Anual</h3>
           </div>
           <div class="chart-container">
-            <canvas id="chart_p1_ramos"></canvas>
+            <canvas id="chart_p1_ripte_ipc_anual"></canvas>
           </div>
         </div>
 
         <div class="chart-card col-12">
           <div class="chart-header">
-            <h3><i class="fa-solid fa-wave-square"></i> Variables Macro: RIPTE Mensual vs IPC Mensual</h3>
+            <h3><i class="fa-solid fa-chart-bar"></i> Variac. Prima s/Período Anterior (Ajust. x IPC)</h3>
           </div>
-          <div class="chart-container" style="min-height: 260px;">
-            <canvas id="chart_p1_macro"></canvas>
+          <div class="chart-container" style="min-height: 320px;">
+            <canvas id="chart_p1_var_primas"></canvas>
           </div>
         </div>
       </div>
 
-      <!-- TABLA DETALLE CONSOLIDADO -->
-      <div class="table-card">
-        <div class="table-header">
-          <h3><i class="fa-solid fa-table"></i> Detalle de Primas por Mes (Ejerc. 25/26 vs Ejerc. 24/25)</h3>
+      <!-- TABLAS DE PRODUCCIÓN -->
+      <div class="dashboard-grid">
+        <div class="col-6">
+          <div class="table-card">
+            <div class="table-header">
+              <h3><i class="fa-solid fa-table"></i> Evolución Indicadores (RIPTE vs IPC)</h3>
+            </div>
+            <div class="table-wrapper">
+              <table class="data-table" id="table_p1_indicadores">
+                <thead>
+                  <tr>
+                    <th>Período</th>
+                    <th class="num">Ripte Mes</th>
+                    <th class="num">IPC Mes</th>
+                    <th class="num">Ripte Anual</th>
+                    <th class="num">IPC Anual</th>
+                    <th class="num">Ripte Ejerc.</th>
+                    <th class="num">IPC Ejerc.</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
         </div>
-        <div class="table-wrapper">
-          <table class="data-table" id="table_p1_consolidado">
-            <thead>
-              <tr>
-                <th>Mes</th>
-                <th class="num">Primas Ejerc. 25/26 ($)</th>
-                <th class="num">Primas Ejerc. 24/25 ($)</th>
-                <th class="num">Variación Nominal</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
+
+        <div class="col-6">
+          <div class="table-card">
+            <div class="table-header">
+              <h3><i class="fa-solid fa-table"></i> Variac. Prima Emitida s/Ej. Anterior (Ajust. x IPC)</h3>
+            </div>
+            <div class="table-wrapper">
+              <table class="data-table" id="table_p1_variaciones">
+                <thead>
+                  <tr>
+                    <th>Período</th>
+                    <th class="num">Variac. Mismo Mes</th>
+                    <th class="num">Acum. Anual</th>
+                    <th class="num">Acum. Ejercicio</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- PESTAÑA 2: CARTERA VIGENTE -->
     <div id="pane_p2_cartera" class="tab-pane">
+      <div class="note-box">
+        <i class="fa-solid fa-circle-info"></i>
+        <span><strong>Notas:</strong> Accidentes Personales: no incluye póliza Pack. Vida Colectivo: no incluye cartera de pólizas prorrogables.</span>
+      </div>
+
       <div class="kpi-grid">
         <div class="kpi-card">
-          <div class="kpi-header">
-            <span class="kpi-title">Total Asegurados Vigentes</span>
-            <div class="kpi-icon"><i class="fa-solid fa-users"></i></div>
-          </div>
-          <div class="kpi-value">1.842.150</div>
-          <div class="kpi-subtext"><span>Cartera total activa</span></div>
+          <span class="kpi-title">Cant. Pólizas Vigentes</span>
+          <div class="kpi-value">98.879</div>
+          <div class="kpi-subtext">Total Cartera Activa</div>
         </div>
         <div class="kpi-card accent-blue">
-          <div class="kpi-header">
-            <span class="kpi-title">Asegurados Vida Colectivo</span>
-            <div class="kpi-icon"><i class="fa-solid fa-building-user"></i></div>
-          </div>
-          <div class="kpi-value">1.383.454</div>
-          <div class="kpi-subtext"><span>75.1% del total</span></div>
+          <span class="kpi-title">Cant. Asegurados Vigentes</span>
+          <div class="kpi-value">835.838</div>
+          <div class="kpi-subtext">Total Asegurados Activos</div>
         </div>
         <div class="kpi-card accent-green">
-          <div class="kpi-header">
-            <span class="kpi-title">Asegurados Acc. Personales</span>
-            <div class="kpi-icon"><i class="fa-solid fa-person-burst"></i></div>
-          </div>
-          <div class="kpi-value">442.116</div>
-          <div class="kpi-subtext"><span>24.0% del total</span></div>
+          <span class="kpi-title">Vida Colectivo (% Asegurados)</span>
+          <div class="kpi-value">75,1 %</div>
+          <div class="kpi-subtext">66,1 % de las Pólizas</div>
         </div>
         <div class="kpi-card accent-coral">
-          <div class="kpi-header">
-            <span class="kpi-title">Asegurados Vida Individual</span>
-            <div class="kpi-icon"><i class="fa-solid fa-user-shield"></i></div>
-          </div>
-          <div class="kpi-value">16.580</div>
-          <div class="kpi-subtext"><span>0.9% del total</span></div>
+          <span class="kpi-title">Accidentes Personales (% Asegurados)</span>
+          <div class="kpi-value">24,0 %</div>
+          <div class="kpi-subtext">26,7 % de las Pólizas</div>
         </div>
       </div>
 
       <div class="dashboard-grid">
         <div class="chart-card col-6">
           <div class="chart-header">
-            <h3><i class="fa-solid fa-chart-pie"></i> Distribución de Asegurados por Ramo</h3>
+            <h3><i class="fa-solid fa-chart-pie"></i> Distribución de Pólizas Vigentes</h3>
           </div>
           <div class="chart-container">
-            <canvas id="chart_p2_asegurados"></canvas>
+            <canvas id="chart_p2_pie_polizas"></canvas>
           </div>
         </div>
 
         <div class="chart-card col-6">
           <div class="chart-header">
-            <h3><i class="fa-solid fa-chart-pie"></i> Distribución de Pólizas Vigentes</h3>
+            <h3><i class="fa-solid fa-chart-pie"></i> Distribución de Asegurados Vigentes</h3>
           </div>
           <div class="chart-container">
-            <canvas id="chart_p2_polizas"></canvas>
+            <canvas id="chart_p2_pie_asegurados"></canvas>
           </div>
         </div>
       </div>
 
       <div class="table-card">
         <div class="table-header">
-          <h3><i class="fa-solid fa-table-list"></i> Cartera Vigente por Ramo</h3>
+          <h3><i class="fa-solid fa-table"></i> Evolución Histórica de Cartera Vigente</h3>
         </div>
         <div class="table-wrapper">
-          <table class="data-table" id="table_p2_cartera">
+          <table class="data-table" id="table_p2_cartera_evo">
             <thead>
               <tr>
-                <th>Ramo</th>
-                <th class="num">Cantidad Asegurados</th>
-                <th class="num">% Participación</th>
-                <th class="num">Cantidad Pólizas Vigentes</th>
-                <th class="num">% Pólizas</th>
+                <th>Período</th>
+                <th class="num">Cant. Asegurados Vigentes</th>
+                <th class="num">Cant. Pólizas Vigentes</th>
+                <th class="num">Cant. de Aseg. x Póliza</th>
               </tr>
             </thead>
             <tbody></tbody>
@@ -764,46 +700,47 @@
 
     <!-- PESTAÑA 3: SINIESTRALIDAD -->
     <div id="pane_p3_siniestralidad" class="tab-pane">
-      <div class="dashboard-grid">
-        <div class="chart-card col-12">
-          <div class="chart-header">
-            <h3><i class="fa-solid fa-money-bill-transfer"></i> Movimiento de Reservas, Pagos y Costo Siniestral</h3>
-          </div>
-          <div class="chart-container" style="min-height: 360px;">
-            <canvas id="chart_p3_siniestros"></canvas>
-          </div>
+      <div class="note-box">
+        <i class="fa-solid fa-circle-info"></i>
+        <span><strong>Variación de Reservas:</strong> incluye Siniestros Pendientes y Demandas Judiciales.</span>
+      </div>
+
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <span class="kpi-title">Total Personas (Siniestralidad)</span>
+          <div class="kpi-value">43,38 %</div>
+          <div class="kpi-subtext">Ejercicio en Curso</div>
         </div>
-        <div class="chart-card col-6">
-          <div class="chart-header">
-            <h3><i class="fa-solid fa-gavel"></i> Reserva y Cantidad de Demandas</h3>
-          </div>
-          <div class="chart-container">
-            <canvas id="chart_p3_demandas"></canvas>
-          </div>
+        <div class="kpi-card accent-coral">
+          <span class="kpi-title">Accidentes Personales</span>
+          <div class="kpi-value">52,00 %</div>
+          <div class="kpi-subtext">Ejercicio en Curso</div>
         </div>
-        <div class="chart-card col-6">
-          <div class="chart-header">
-            <h3><i class="fa-solid fa-boxes-stacked"></i> Stock de Reservas</h3>
-          </div>
-          <div class="chart-container">
-            <canvas id="chart_p3_stock"></canvas>
-          </div>
+        <div class="kpi-card accent-green">
+          <span class="kpi-title">Vida Colectivo</span>
+          <div class="kpi-value">27,07 %</div>
+          <div class="kpi-subtext">Ejercicio en Curso</div>
+        </div>
+        <div class="kpi-card accent-blue">
+          <span class="kpi-title">Vida Individual</span>
+          <div class="kpi-value">21,06 %</div>
+          <div class="kpi-subtext">Ejercicio en Curso</div>
         </div>
       </div>
 
       <div class="table-card">
         <div class="table-header">
-          <h3><i class="fa-solid fa-table"></i> Siniestralidad y Reservas (Histórico 24 Meses)</h3>
+          <h3><i class="fa-solid fa-table"></i> Costo Siniestral Mensual</h3>
         </div>
         <div class="table-wrapper">
-          <table class="data-table" id="table_p3_siniestralidad">
+          <table class="data-table" id="table_p3_siniestralidad_mes">
             <thead>
               <tr>
-                <th>Período</th>
-                <th class="num">Reserva Demanda ($)</th>
-                <th class="num">Cant. Demandas</th>
-                <th class="num">Stock Reservas ($)</th>
-                <th class="num">Cant. Siniestros</th>
+                <th>Mes</th>
+                <th class="num">Prima Emisión ($)</th>
+                <th class="num">Pagos Siniestros ($)</th>
+                <th class="num">Variación de Reservas ($)</th>
+                <th class="num">Siniestralidad del Mes (%)</th>
               </tr>
             </thead>
             <tbody></tbody>
@@ -814,200 +751,339 @@
 
     <!-- PESTAÑA 4: ACCIDENTES PERSONALES -->
     <div id="pane_p4_ap" class="tab-pane">
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <span class="kpi-title">Prima Total Accidentes Personales</span>
+          <div class="kpi-value">$ 37.525.311.204</div>
+          <div class="kpi-subtext">100% Producción del Ramo</div>
+        </div>
+        <div class="kpi-card accent-coral">
+          <span class="kpi-title">AP Laboral</span>
+          <div class="kpi-value">$ 34.805.752.480</div>
+          <div class="kpi-subtext">92,75 % del total</div>
+        </div>
+        <div class="kpi-card accent-blue">
+          <span class="kpi-title">AP Escolar</span>
+          <div class="kpi-value">$ 1.493.919.534</div>
+          <div class="kpi-subtext">3,98 % del total</div>
+        </div>
+        <div class="kpi-card accent-yellow">
+          <span class="kpi-title">AP Deportes</span>
+          <div class="kpi-value">$ 964.108.618</div>
+          <div class="kpi-subtext">2,57 % del total</div>
+        </div>
+      </div>
+
       <div class="dashboard-grid">
         <div class="chart-card col-6">
           <div class="chart-header">
-            <h3><i class="fa-solid fa-chart-bar"></i> Primas de Emisión por Producto (AP)</h3>
+            <h3><i class="fa-solid fa-chart-pie"></i> Distribución de la Producción (AP)</h3>
           </div>
           <div class="chart-container">
-            <canvas id="chart_p4_productos"></canvas>
+            <canvas id="chart_p4_pie_productos"></canvas>
           </div>
         </div>
+
         <div class="chart-card col-6">
           <div class="chart-header">
-            <h3><i class="fa-solid fa-chart-line"></i> Comparativo Primas: Ejerc. 25/26 vs 24/25</h3>
+            <h3><i class="fa-solid fa-chart-line"></i> Prima Acumulada: Ejerc. 25/26 vs 24/25</h3>
           </div>
           <div class="chart-container">
-            <canvas id="chart_p4_comparativo"></canvas>
-          </div>
-        </div>
-        <div class="chart-card col-12">
-          <div class="chart-header">
-            <h3><i class="fa-solid fa-arrows-spin"></i> Movimiento de Pólizas: Emitidas, Renovadas y Anuladas</h3>
-          </div>
-          <div class="chart-container" style="min-height: 300px;">
-            <canvas id="chart_p4_movimiento"></canvas>
+            <canvas id="chart_p4_line_acumulada"></canvas>
           </div>
         </div>
       </div>
 
-      <div class="table-card">
-        <div class="table-header">
-          <h3><i class="fa-solid fa-table"></i> Detalle Mensual de Accidentes Personales</h3>
+      <div class="dashboard-grid">
+        <div class="col-6">
+          <div class="table-card">
+            <div class="table-header">
+              <h3><i class="fa-solid fa-table"></i> Producción por Producto (AP)</h3>
+            </div>
+            <div class="table-wrapper">
+              <table class="data-table" id="table_p4_productos">
+                <thead>
+                  <tr>
+                    <th>Producto</th>
+                    <th class="num">Prima Emisión ($)</th>
+                    <th class="num">% S/Total</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
         </div>
-        <div class="table-wrapper">
-          <table class="data-table" id="table_p4_ap">
-            <thead>
-              <tr>
-                <th>Mes</th>
-                <th class="num">Emitidas</th>
-                <th class="num">Renovadas</th>
-                <th class="num">Anuladas</th>
-                <th class="num">Primas 25/26 ($)</th>
-                <th class="num">Primas 24/25 ($)</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
+
+        <div class="col-6">
+          <div class="table-card">
+            <div class="table-header">
+              <h3><i class="fa-solid fa-table"></i> Prima Acumulada del Ejercicio (AP)</h3>
+            </div>
+            <div class="table-wrapper">
+              <table class="data-table" id="table_p4_acumulada">
+                <thead>
+                  <tr>
+                    <th>Mes</th>
+                    <th class="num">Ejercicio 24/25</th>
+                    <th class="num">Ejercicio 25/26</th>
+                    <th class="num">Variac. Prima Acum. Ejerc.</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- PESTAÑA 5: VIDA COLECTIVO -->
     <div id="pane_p5_vida_col" class="tab-pane">
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <span class="kpi-title">Prima Total Vida Colectivo</span>
+          <div class="kpi-value">$ 18.710.615.607</div>
+          <div class="kpi-subtext">100% Producción del Ramo</div>
+        </div>
+        <div class="kpi-card accent-green">
+          <span class="kpi-title">Ley 20.744</span>
+          <div class="kpi-value">$ 9.215.688.309</div>
+          <div class="kpi-subtext">49,25 % del total</div>
+        </div>
+        <div class="kpi-card accent-blue">
+          <span class="kpi-title">Convenio Mercantil</span>
+          <div class="kpi-value">$ 4.038.387.347</div>
+          <div class="kpi-subtext">21,58 % del total</div>
+        </div>
+        <div class="kpi-card accent-coral">
+          <span class="kpi-title">Colectivo de Vida</span>
+          <div class="kpi-value">$ 2.540.572.897</div>
+          <div class="kpi-subtext">13,58 % del total</div>
+        </div>
+      </div>
+
       <div class="dashboard-grid">
         <div class="chart-card col-6">
           <div class="chart-header">
-            <h3><i class="fa-solid fa-chart-pie"></i> Primas por Producto (Vida Colectivo)</h3>
+            <h3><i class="fa-solid fa-chart-pie"></i> Distribución de la Producción (Vida Colectivo)</h3>
           </div>
           <div class="chart-container">
-            <canvas id="chart_p5_productos"></canvas>
+            <canvas id="chart_p5_pie_productos"></canvas>
           </div>
         </div>
+
         <div class="chart-card col-6">
           <div class="chart-header">
-            <h3><i class="fa-solid fa-chart-line"></i> Comparativo Primas Mensuales</h3>
+            <h3><i class="fa-solid fa-chart-line"></i> Prima Acumulada: Ejerc. 25/26 vs 24/25</h3>
           </div>
           <div class="chart-container">
-            <canvas id="chart_p5_comparativo"></canvas>
-          </div>
-        </div>
-        <div class="chart-card col-12">
-          <div class="chart-header">
-            <h3><i class="fa-solid fa-arrows-spin"></i> Movimiento de Pólizas Colectivas</h3>
-          </div>
-          <div class="chart-container" style="min-height: 300px;">
-            <canvas id="chart_p5_movimiento"></canvas>
+            <canvas id="chart_p5_line_acumulada"></canvas>
           </div>
         </div>
       </div>
 
-      <div class="table-card">
-        <div class="table-header">
-          <h3><i class="fa-solid fa-table"></i> Detalle Mensual de Vida Colectivo</h3>
+      <div class="dashboard-grid">
+        <div class="col-6">
+          <div class="table-card">
+            <div class="table-header">
+              <h3><i class="fa-solid fa-table"></i> Producción por Convenio / Producto</h3>
+            </div>
+            <div class="table-wrapper">
+              <table class="data-table" id="table_p5_productos">
+                <thead>
+                  <tr>
+                    <th>Producto</th>
+                    <th class="num">Prima Emisión ($)</th>
+                    <th class="num">% S/Total</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
         </div>
-        <div class="table-wrapper">
-          <table class="data-table" id="table_p5_vc">
-            <thead>
-              <tr>
-                <th>Mes</th>
-                <th class="num">Emitidas</th>
-                <th class="num">Renovadas</th>
-                <th class="num">Anuladas</th>
-                <th class="num">Primas 25/26 ($)</th>
-                <th class="num">Primas 24/25 ($)</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
+
+        <div class="col-6">
+          <div class="table-card">
+            <div class="table-header">
+              <h3><i class="fa-solid fa-table"></i> Prima Acumulada del Ejercicio (VC)</h3>
+            </div>
+            <div class="table-wrapper">
+              <table class="data-table" id="table_p5_acumulada">
+                <thead>
+                  <tr>
+                    <th>Mes</th>
+                    <th class="num">Ejercicio 24/25</th>
+                    <th class="num">Ejercicio 25/26</th>
+                    <th class="num">Variac. Prima Acum.</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- PESTAÑA 6: VIDA INDIVIDUAL -->
     <div id="pane_p6_vida_ind" class="tab-pane">
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <span class="kpi-title">Prima Total Vida Individual</span>
+          <div class="kpi-value">$ 826.042.663</div>
+          <div class="kpi-subtext">100% Producción del Ramo</div>
+        </div>
+        <div class="kpi-card accent-blue">
+          <span class="kpi-title">Individual Temporario</span>
+          <div class="kpi-value">$ 617.177.722</div>
+          <div class="kpi-subtext">74,72 % del total</div>
+        </div>
+        <div class="kpi-card accent-green">
+          <span class="kpi-title">Vida Entera</span>
+          <div class="kpi-value">$ 114.139.794</div>
+          <div class="kpi-subtext">13,82 % del total</div>
+        </div>
+        <div class="kpi-card accent-yellow">
+          <span class="kpi-title">Individual Dotal</span>
+          <div class="kpi-value">$ 94.574.446</div>
+          <div class="kpi-subtext">11,45 % del total</div>
+        </div>
+      </div>
+
       <div class="dashboard-grid">
         <div class="chart-card col-6">
           <div class="chart-header">
-            <h3><i class="fa-solid fa-chart-pie"></i> Primas por Producto (Vida Individual)</h3>
+            <h3><i class="fa-solid fa-chart-pie"></i> Distribución de la Producción (Vida Individual)</h3>
           </div>
           <div class="chart-container">
-            <canvas id="chart_p6_productos"></canvas>
+            <canvas id="chart_p6_pie_productos"></canvas>
           </div>
         </div>
+
         <div class="chart-card col-6">
           <div class="chart-header">
-            <h3><i class="fa-solid fa-chart-line"></i> Comparativo Primas Mensuales</h3>
+            <h3><i class="fa-solid fa-chart-line"></i> Prima Acumulada: Ejerc. 25/26 vs 24/25</h3>
           </div>
           <div class="chart-container">
-            <canvas id="chart_p6_comparativo"></canvas>
-          </div>
-        </div>
-        <div class="chart-card col-12">
-          <div class="chart-header">
-            <h3><i class="fa-solid fa-arrows-spin"></i> Movimiento de Pólizas Individuales</h3>
-          </div>
-          <div class="chart-container" style="min-height: 300px;">
-            <canvas id="chart_p6_movimiento"></canvas>
+            <canvas id="chart_p6_line_acumulada"></canvas>
           </div>
         </div>
       </div>
 
-      <div class="table-card">
-        <div class="table-header">
-          <h3><i class="fa-solid fa-table"></i> Detalle Mensual de Vida Individual</h3>
+      <div class="dashboard-grid">
+        <div class="col-6">
+          <div class="table-card">
+            <div class="table-header">
+              <h3><i class="fa-solid fa-table"></i> Producción por Producto (VI)</h3>
+            </div>
+            <div class="table-wrapper">
+              <table class="data-table" id="table_p6_productos">
+                <thead>
+                  <tr>
+                    <th>Producto</th>
+                    <th class="num">Prima Emisión ($)</th>
+                    <th class="num">% S/Total</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
         </div>
-        <div class="table-wrapper">
-          <table class="data-table" id="table_p6_vi">
-            <thead>
-              <tr>
-                <th>Mes</th>
-                <th class="num">Emitidas</th>
-                <th class="num">Renovadas</th>
-                <th class="num">Anuladas</th>
-                <th class="num">Primas 25/26 ($)</th>
-                <th class="num">Primas 24/25 ($)</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
+
+        <div class="col-6">
+          <div class="table-card">
+            <div class="table-header">
+              <h3><i class="fa-solid fa-table"></i> Prima Acumulada del Ejercicio (VI)</h3>
+            </div>
+            <div class="table-wrapper">
+              <table class="data-table" id="table_p6_acumulada">
+                <thead>
+                  <tr>
+                    <th>Mes</th>
+                    <th class="num">Ejercicio 24/25</th>
+                    <th class="num">Ejercicio 25/26</th>
+                    <th class="num">Variac. Prima Acum.</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- PESTAÑA 7: FINANCIERO -->
     <div id="pane_p7_financiero" class="tab-pane">
+      <div class="note-box">
+        <i class="fa-solid fa-circle-info"></i>
+        <span><strong>Nota:</strong> Los valores de Aporte a Resultados son estimados. Stock de Activos expresado en millones de pesos.</span>
+      </div>
+
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <span class="kpi-title">Stock de Activos Financieros (Cierre)</span>
+          <div class="kpi-value">$ 78.103 M</div>
+          <div class="kpi-subtext">Mes de cierre (jun 2026)</div>
+        </div>
+        <div class="kpi-card accent-green">
+          <span class="kpi-title">Rentabilidad Acumulada</span>
+          <div class="kpi-value">42,58 %</div>
+          <div class="kpi-subtext">Rentabilidad del Mes: 2,44 %</div>
+        </div>
+        <div class="kpi-card accent-coral">
+          <span class="kpi-title">IPC Acumulado</span>
+          <div class="kpi-value">33,70 %</div>
+          <div class="kpi-subtext">IPC del Mes: 2,00 %</div>
+        </div>
+        <div class="kpi-card accent-blue">
+          <span class="kpi-title">Superávit Acumulado vs IPC</span>
+          <div class="kpi-value">+6,64 %</div>
+          <div class="kpi-subtext">Superávit del Mes: +0,43 %</div>
+        </div>
+      </div>
+
       <div class="dashboard-grid">
-        <div class="chart-card col-12">
-          <div class="chart-header">
-            <h3><i class="fa-solid fa-vault"></i> Activos Financieros Líquidos Netos (AFLN)</h3>
-          </div>
-          <div class="chart-container" style="min-height: 320px;">
-            <canvas id="chart_p7_afln"></canvas>
-          </div>
-        </div>
         <div class="chart-card col-6">
           <div class="chart-header">
-            <h3><i class="fa-solid fa-percent"></i> Rentabilidad Acumulada vs IPC Acumulado</h3>
+            <h3><i class="fa-solid fa-vault"></i> Stock de Activos Financieros ($ Millones)</h3>
           </div>
           <div class="chart-container">
-            <canvas id="chart_p7_rentabilidad"></canvas>
+            <canvas id="chart_p7_bar_activos"></canvas>
           </div>
         </div>
+
         <div class="chart-card col-6">
           <div class="chart-header">
-            <h3><i class="fa-solid fa-coins"></i> Resultado Financiero (Mensual y Acumulado)</h3>
+            <h3><i class="fa-solid fa-percent"></i> Rentabilidad vs IPC (Acumulados)</h3>
           </div>
           <div class="chart-container">
-            <canvas id="chart_p7_resultado"></canvas>
+            <canvas id="chart_p7_rent_ipc"></canvas>
           </div>
         </div>
       </div>
 
       <div class="table-card">
         <div class="table-header">
-          <h3><i class="fa-solid fa-table"></i> Indicadores Financieros Mensuales</h3>
+          <h3><i class="fa-solid fa-table"></i> Detalle de Información Financiera</h3>
         </div>
         <div class="table-wrapper">
-          <table class="data-table" id="table_p7_financiero">
+          <table class="data-table" id="table_p7_financiero_det">
             <thead>
               <tr>
-                <th>Mes</th>
-                <th class="num">AFLN ($)</th>
-                <th class="num">Rentabilidad Acum. (%)</th>
-                <th class="num">IPC Acum. (%)</th>
-                <th class="num">Resultado Mensual ($)</th>
-                <th class="num">Resultado Acumulado ($)</th>
+                <th>Período</th>
+                <th class="num">Stock Activos ($ M)</th>
+                <th class="num">Rent. Mes</th>
+                <th class="num">Rent. Acum.</th>
+                <th class="num">IPC Mes</th>
+                <th class="num">IPC Acum.</th>
+                <th class="num">Superávit Mes</th>
+                <th class="num">Superávit Acum.</th>
+                <th class="num">Aporte Res. ($ M)</th>
+                <th class="num">Aporte Acum. ($ M)</th>
               </tr>
             </thead>
             <tbody></tbody>
@@ -1020,427 +1096,399 @@
 
   <!-- FOOTER -->
   <footer class="brand-footer">
-    <div class="footer-left">
-      <span><strong>La Segunda Seguros</strong> • Tablero de Gestión Personas</span>
-      <span>|</span>
-      <span>Fuente: Looker Studio (Sincronizado)</span>
+    <div>
+      <strong>La Segunda Seguros</strong> • Tablero de Gestión Personas — Ejercicio 25/26
     </div>
     <div class="footer-claim">
       Primero las personas. Lo primero sos vos.
     </div>
   </footer>
 
-  <!-- SCRIPT DE DATOS Y RENDERIZADO -->
   <script>
-    // Datos crudos normalizados
-    const DB = {"metadata": {"titulo": "Tablero de Gestión Personas", "subtitulo": "Ejercicio 2025 / 2026", "entidad": "La Segunda Seguros", "periodo_actual": "2025-07 a 2026-06", "periodo_anterior": "2024-07 a 2025-06", "fecha_extraccion": "2026-08-18 23:06:35", "fuente_looker": "https://datastudio.google.com/reporting/4d882c49-7af6-419c-8229-15a050fefa7f/page/p_rooqmupfnd", "meses_ejercicio": ["Jul", "Ago", "Sep", "Oct", "Nov", "Dic", "Ene", "Feb", "Mar", "Abr", "May", "Jun"], "meses_24m": ["Jul 24", "Ago 24", "Sep 24", "Oct 24", "Nov 24", "Dic 24", "Ene 25", "Feb 25", "Mar 25", "Abr 25", "May 25", "Jun 25", "Jul 25", "Ago 25", "Sep 25", "Oct 25", "Nov 25", "Dic 25", "Ene 26", "Feb 26", "Mar 26", "Abr 26", "May 26", "Jun 26"], "total_pestanas": 7, "pestanas": [{"id": "p1_consolidado", "num": 1, "nombre": "Consolidado General", "icon": "📊", "badge": "Ejerc. 25/26"}, {"id": "p2_cartera", "num": 2, "nombre": "Cartera Vigente", "icon": "👥", "badge": "Asegurados & Pólizas"}, {"id": "p3_siniestralidad", "num": 3, "nombre": "Siniestralidad", "icon": "⚠️", "badge": "Reservas & Pagos"}, {"id": "p4_ap", "num": 4, "nombre": "Accidentes Personales", "icon": "🛡️", "badge": "Ramo AP"}, {"id": "p5_vida_col", "num": 5, "nombre": "Vida Colectivo", "icon": "🏢", "badge": "Ramo VC"}, {"id": "p6_vida_ind", "num": 6, "nombre": "Vida Individual", "icon": "👤", "badge": "Ramo VI"}, {"id": "p7_financiero", "num": 7, "nombre": "Financiero", "icon": "📈", "badge": "AFLN & Rentabilidad"}]}, "pestanas_data": {"page_1": {"num": 1, "title": "Tablero de Gestión Personas - Ejerc. 25/26", "url": "https://datastudio.google.com/reporting/4d882c49-7af6-419c-8229-15a050fefa7f/page/p_rooqmupfnd", "tables": [[["Ejerc. 25/26", "Ejerc. 24/25"], ["5.146,2 M", "4.389,5 M"], ["11,2 mil M", "9.955,6 M"], ["16,8 mil M", "14,7 mil M"], ["22,9 mil M", "20,6 mil M"], ["27,8 mil M", "26 mil M"], ["32,8 mil M", "30,4 mil M"], ["37,5 mil M", "34,6 mil M"], ["42,2 mil M", "40,7 mil M"], ["47,3 mil M", "46,5 mil M"], ["52,3 mil M", "52,4 mil M"], ["57,5 mil M", "57,7 mil M"], ["63,2 mil M", "63 mil M"]], [["Ripte del Ejercicio", "IPC del Ejercicio"], ["6,59 %", "4,03 %"], ["10,63 %", "8,37 %"], ["15,21 %", "12,13 %"], ["22,86 %", "15,15 %"], ["26,33 %", "17,94 %"], ["28,91 %", "21,13 %"], ["32,31 %", "23,81 %"], ["40,42 %", "26,78 %"], ["46,11 %", "31,51 %"], ["50,3 %", "35,17 %"], ["53,1 %", "37,2 %"], ["57,33 %", "39,42 %"], ["2,9 %", "1,9 %"], ["4,23 %", "3,81 %"], ["5,7 %", "5,97 %"], ["8,51 %", "8,45 %"], ["9,79 %", "11,13 %"], ["11,27 %", "14,29 %"], ["12,14 %", "17,59 %"], ["18,13 %", "20,99 %"], ["20,95 %", "25,09 %"], ["25,17 %", "28,32 %"], ["29,53 %", "31,07 %"], ["34,05 %", "33,7 %"]], [["Acum. Anual", "Acum. Ejercicio"], ["0,37 %", "0,37 %"], ["1,27 %", "-0,28 %"], ["1,83 %", "-0,18 %"], ["4,91 %", "1,65 %"], ["7,46 %", "3,48 %"], ["10,04 %", "8,52 %"], ["11,14 %", "7,82 %"], ["10,57 %", "7,11 %"], ["10,22 %", "11,08 %"], ["11,16 %", "14,27 %"], ["8,99 %", "12,26 %"], ["5,13 %", "17,24 %"], ["0,56 %", "0,56 %"], ["-2,45 %", "-1,03 %"], ["-2,48 %", "-1,64 %"], ["-4,65 %", "-3,85 %"], ["-10,55 %", "-6,21 %"], ["-9,19 %", "-7,28 %"], ["-13,22 %", "-11,16 %"], ["-14,56 %", "-13,34 %"], ["-12,97 %", "-14,24 %"], ["-13,11 %", "-21,78 %"], ["-12,25 %", "-27,20 %"], ["-8,84 %", "-31,33 %"]], [["Ejerc. 24/25", "Ejerc. 25/26"], ["2.449,8 M", "3.922,4 M"], ["3.236,1 M", "4.682,1 M"], ["2.840 M", "4.434,9 M"], ["3.645 M", "4.936,7 M"], ["3.407,6 M", "4.115,4 M"], ["2.898,8 M", "4.268,1 M"], ["2.762,1 M", "4.156,1 M"], ["4.188,1 M", "5.334 M"], ["4.077,7 M", "5.600,8 M"], ["4.248,2 M", "4.796,4 M"], ["3.919 M", "5.151 M"], ["3.940,5 M", "5.664 M"]], [["Vida", "Acc. Personales"], ["1.556,5 M", "2.365,9 M"], ["1.790,6 M", "2.891,5 M"], ["1.494,3 M", "2.940,7 M"], ["1.789,8 M", "3.146,9 M"], ["1.504,9 M", "2.610,6 M"], ["1.451,6 M", "2.816,5 M"], ["1.377,1 M", "2.779,1 M"], ["1.969,1 M", "3.364,9 M"], ["1.308,8 M", "4.292 M"], ["1.224,8 M", "3.571,6 M"], ["1.898 M", "3.253 M"], ["2.171,3 M", "3.492,7 M"]], [["Ramos agrupados", "Prima x Ramos"], ["Vida", "15.407.488.692"], ["Acc. Personales", "26.205.557.471"]], [["Vida", "Acc. Personales"], ["1.556 M", "2.366 M"], ["1.791 M", "2.892 M"], ["1.494 M", "2.941 M"], ["1.790 M", "3.147 M"], ["1.505 M", "2.611 M"], ["1.452 M", "2.817 M"], ["1.377 M", "2.779 M"], ["1.969 M", "3.365 M"], ["1.309 M", "4.292 M"], ["1.225 M", "3.572 M"], ["1.898 M", "3.253 M"], ["2.171 M", "3.493 M"]], [["Acc. Personales", "Vida Colectivo", "Vida Individual"], ["7,92 %", "1,19 %", "0,13 %"], ["8,11 %", "1,23 %", "0,08 %"], ["8,02 %", "1,30 %", "0,06 %"], ["8,04 %", "1,43 %", "0,11 %"], ["8,03 %", "1,42 %", "0,11 %"], ["8,36 %", "1,43 %", "0,07 %"], ["8,27 %", "1,36 %", "0,06 %"], ["8,47 %", "1,59 %", "0,13 %"]], [["Total Mercado de Personas"], ["1,96 %"], ["1,66 %"], ["1,56 %"], ["2,10 %"], ["2,09 %"], ["1,72 %"], ["1,51 %"], ["2,13 %"]], [["Ejerc. 25/26", "Ejerc. 24/25"], ["3.922,4 M", "2.449,8 M"], ["8.604,5 M", "5.685,9 M"], ["13 mil M", "8.526 M"], ["18 mil M", "12,2 mil M"], ["22,1 mil M", "15,6 mil M"], ["26,4 mil M", "18,5 mil M"], ["30,5 mil M", "21,2 mil M"], ["34,7 mil M", "25,4 mil M"], ["39,5 mil M", "29,5 mil M"], ["44,3 mil M", "33,8 mil M"], ["49,5 mil M", "37,7 mil M"], ["55,1 mil M", "41,6 mil M"]]]}, "page_2": {"num": 2, "title": "Tablero de Gestión Personas - Ejerc. 25/26 › Cartera Vigente", "url": "https://datastudio.google.com/reporting/4d882c49-7af6-419c-8229-15a050fefa7f/page/p_91b2hxh5pd", "tables": [[["Ramos", "Cant. Asegurados"], ["ACCIDENTES PERSONALES", "627.815"], ["VIDA COLECTIVO", "200.857"], ["VIDA INDIVIDUAL", "7.166"]], [["Ramos", "Cant. Pólizas Vigentes"], ["ACCIDENTES PERSONALES", "65.317"], ["VIDA COLECTIVO", "26.396"], ["VIDA INDIVIDUAL", "7.166"]]]}, "page_3": {"num": 3, "title": "Tablero de Gestión Personas - Ejerc. 25/26 › Siniestralidad", "url": "https://datastudio.google.com/reporting/4d882c49-7af6-419c-8229-15a050fefa7f/page/p_i24uqilhnd", "tables": [[["Reserva Demanda", "Cant. Demandas"], ["439.893.471", "231"], ["515.574.780", "239"], ["532.753.026", "233"], ["555.173.217", "232"], ["537.948.669", "230"], ["371.521.875", "240"], ["577.163.416", "240"], ["633.149.985", "243"], ["659.298.712", "237"], ["724.084.824", "249"], ["724.084.824", "247"], ["903.077.813", "249"], ["896.486.978", "245"], ["1.038.574.291", "242"], ["1.087.957.464", "241"], ["997.518.237", "241"], ["1.037.720.423", "245"], ["1.034.545.645", "240"], ["985.281.807", "221"], ["1.015.287.346", "219"], ["1.116.664.796", "222"], ["1.189.410.983", "226"], ["1.265.626.088", "226"], ["1.415.172.318", "228"]], [["Acumulado 12 meses", "Acum. Ejercicio", "Variación mensual"], ["194,3 M", "5,6 M", "5.636.312"], ["262,7 M", "81,3 M", "75.681.310"], ["258,2 M", "98,5 M", "17.178.243"], ["259,3 M", "120,9 M", "22.420.190"], ["234,2 M", "103,7 M", "-17.224.547"], ["56,8 M", "-62,7 M", "-166.426.797"], ["258,3 M", "142,9 M", "205.641.545"], ["284,6 M", "198,9 M", "55.986.569"], ["254,1 M", "225 M", "26.148.728"], ["310,7 M", "289,8 M", "64.786.110"], ["1.116,6 M", "1.050,2 M", "760.322.963"], ["1.222,6 M", "1.229,1 M", "178.992.989"], ["1.216,9 M", "-6,6 M", "-6.590.835"], ["1.283,3 M", "135,5 M", "142.087.314"], ["1.315,5 M", "184,9 M", "49.383.170"], ["1.202,7 M", "94,4 M", "-90.439.227"], ["1.260,1 M", "134,6 M", "40.202.188"], ["1.423,3 M", "131,5 M", "-3.174.779"], ["1.168,4 M", "82,2 M", "-49.263.837"], ["1.142,5 M", "112,2 M", "30.005.541"], ["1.217,7 M", "213,6 M", "101.377.450"], ["1.225,6 M", "286,3 M", "72.746.188"], ["541,5 M", "362,5 M", "76.215.106"], ["512,1 M", "512,1 M", "149.546.229"]], [["Stock de Reservas", "Cant. de Siniestros"], ["4.738.633.592", "17.578"], ["4.983.223.478", "17.292"], ["5.156.545.275", "16.964"], ["6.148.996.470", "16.893"], ["5.999.861.238", "17.260"], ["6.721.723.202", "17.359"], ["6.798.790.231", "17.345"], ["7.289.628.574", "16.731"], ["7.560.463.443", "16.221"], ["7.984.160.479", "15.974"], ["8.322.164.604", "15.933"], ["9.651.709.766", "15.816"], ["9.597.194.755", "15.077"], ["9.846.042.644", "14.895"], ["10.319.723.689", "13.531"], ["10.941.027.998", "13.537"], ["11.534.600.679", "13.902"], ["12.136.150.600", "13.660"], ["12.433.816.782", "13.472"], ["12.599.397.187", "13.014"], ["14.057.791.274", "13.083"], ["14.854.691.074", "13.346"], ["15.822.963.516", "13.759"], ["17.299.511.113", "14.316"]], [["Acumulado 12 meses", "Acumulado Ejercicio", "Variación Mensual"], ["2.321,9 M", "-14,6 M", "-14.598.820"], ["2.502,2 M", "230 M", "244.589.885"], ["2.391,9 M", "403,3 M", "173.321.798"], ["3.286,4 M", "1.395,8 M", "992.451.195"], ["3.124,6 M", "1.246,6 M", "-149.135.235"], ["3.785,6 M", "1.968,5 M", "721.861.965"], ["3.793,3 M", "2.045,6 M", "77.067.030"], ["3.952,1 M", "2.536,4 M", "490.838.342"], ["3.657,4 M", "2.807,2 M", "270.834.866"], ["4.283,5 M", "3.230,9 M", "423.697.037"], ["4.465,1 M", "3.568,9 M", "338.004.125"], ["4.897,7 M", "4.897,7 M", "1.327.838.100"], ["4.856,9 M", "-54,5 M", "-54.515.013"], ["4.861,1 M", "194,3 M", "248.847.890"], ["5.161,5 M", "668 M", "473.681.050"], ["4.790,3 M", "1.289,3 M", "621.304.307"], ["5.533 M", "1.882,9 M", "593.572.682"], ["5.412,7 M", "2.484,4 M", "601.549.920"], ["5.633,3 M", "2.782,1 M", "297.666.181"], ["5.308,1 M", "2.947,7 M", "165.580.404"], ["6.495,6 M", "4.406,1 M", "1.458.394.088"], ["6.868,8 M", "5.203 M", "796.899.796"], ["7.499,1 M", "6.171,3 M", "968.272.444"], ["7.647,8 M", "7.647,8 M", "1.476.547.595"]]]}, "page_4": {"num": 4, "title": "Tablero de Gestión Personas - Ejerc. 25/26 › Accidentes Personales", "url": "https://datastudio.google.com/reporting/4d882c49-7af6-419c-8229-15a050fefa7f/page/p_4qzom375td", "tables": [[["Producto", "Prima Emisión"], ["Laboral", "34.805.752.480"], ["Escolar", "1.493.919.534"], ["Deportes", "964.108.618"], ["Acc. Recreativas", "223.688.681"], ["Pack", "37.841.891"]], [["Cant. Emitidas", "Cant. Renovadas", "Cant. Anuladas"], ["6.501", "8.460", "-2.996"], ["6.923", "8.121", "-2.779"], ["7.011", "9.431", "-2.627"], ["7.724", "9.868", "-2.972"], ["5.771", "8.567", "-2.580"], ["5.813", "8.769", "-3.237"], ["5.899", "8.471", "-3.053"], ["6.401", "8.503", "-2.423"], ["7.245", "9.325", "-2.683"], ["6.909", "9.621", "-2.738"], ["6.257", "8.585", "-2.792"], ["5.597", "8.953", "-2.708"]], [["Ejerc. 25/26", "Ejerc. 24/25"], ["3.104.089.612", "2.606.852.215"], ["6.827.956.555", "5.748.766.870"], ["10.538.074.465", "9.012.201.998"], ["14.417.580.513", "12.391.724.629"], ["17.558.196.860", "15.597.793.303"], ["20.852.841.450", "18.469.633.408"], ["24.012.617.484", "21.310.382.751"], ["27.730.790.755", "25.042.257.339"], ["32.318.209.513", "28.731.473.401"], ["36.039.576.021", "32.507.614.622"], ["39.357.598.216", "35.810.965.213"], ["42.850.271.540", "39.018.297.487"]], [["Ejerc. 25/26", "Ejerc. 24/25"], ["833.886.811", "523.875.177"], ["896.909.905", "565.220.596"], ["978.984.983", "535.101.932"], ["993.816.366", "553.939.862"], ["857.507.261", "554.809.031"], ["948.163.503", "596.104.327"], ["940.660.381", "581.785.668"], ["781.500.654", "548.479.832"], ["1.047.319.199", "466.890.497"], ["1.028.644.649", "811.346.007"], ["980.988.609", "647.761.983"], ["1.065.374.489", "781.693.959"]], [["Ejerc. 25/26", "Ejerc. 24/25"], ["833.886.811", "523.875.177"], ["1.730.796.715", "1.089.095.774"], ["2.709.781.697", "1.624.197.705"], ["3.703.598.065", "2.178.137.568"], ["4.561.105.324", "2.732.946.599"], ["5.509.268.830", "3.329.050.927"], ["6.449.929.211", "3.910.836.593"], ["7.231.429.863", "4.459.316.425"], ["8.278.749.063", "4.926.206.922"], ["9.307.393.714", "5.737.552.930"], ["10.288.382.323", "6.385.314.913"], ["11.353.756.813", "7.167.238.871"]], [["Ejerc. 25/26", "Ejerc. 24/25"], ["2.365.904.175", "1.454.906.183"], ["2.891.532.378", "1.826.691.066"], ["2.940.661.877", "1.963.165.122"], ["3.146.932.815", "2.087.722.195"], ["2.610.568.148", "2.028.629.518"], ["2.816.521.371", "1.866.285.038"], ["2.779.064.141", "1.886.898.219"], ["3.364.896.680", "2.538.338.044"], ["4.291.983.448", "2.602.903.723"], ["3.571.609.913", "2.738.321.186"], ["3.252.962.934", "2.431.429.119"], ["3.492.673.324", "2.334.987.463"]], [["Acumulado Anual", "Acumulado Ejercicio"], ["-14 %", "-44 %"], ["-16 %", "-32 %"], ["-18 %", "-26 %"], ["-19 %", "-19 %"], ["-19 %", "-16 %"], ["-16 %", "-12 %"], ["-11 %", "-7 %"], ["-9 %", "-2 %"], ["-1 %", "-0 %"], ["2 %", "3 %"], ["3 %", "4 %"], ["5 %", "5 %"], ["13 %", "19 %"], ["17 %", "19 %"], ["20 %", "17 %"], ["21 %", "16 %"], ["20 %", "13 %"], ["20 %", "13 %"], ["18 %", "13 %"], ["12 %", "7 %"], ["11 %", "6 %"], ["8 %", "5 %"], ["6 %", "5 %"], ["6 %", "6 %"]]]}, "page_5": {"num": 5, "title": "Tablero de Gestión Personas - Ejerc. 25/26 › Vida Colectivo", "url": "https://datastudio.google.com/reporting/4d882c49-7af6-419c-8229-15a050fefa7f/page/p_w06t4xc9td", "tables": [[["Producto", "Prima Emisión"], ["Ley 20.744", "9.215.688.309"], ["Convenio Mercantil", "4.038.387.347"], ["Colectivo de Vida", "2.540.572.897"], ["Saldos Deudores", "2.422.355.581"], ["Tjadores. Rurales", "493.611.473"]], [["Cant. Emitidas", "Cant. Renovadas", "Cant. Anuladas"], ["240", "2.123", "-187"], ["239", "2.144", "-229"], ["337", "2.232", "-255"], ["211", "1.979", "-181"], ["159", "1.926", "-234"], ["200", "1.608", "-221"], ["164", "1.732", "-156"], ["210", "1.907", "-204"], ["266", "2.566", "-214"], ["251", "2.180", "-201"], ["223", "2.424", "-230"], ["247", "2.359", "-192"]], [["Ejerc. 25/26", "Ejerc. 24/25"], ["1.951.612.006", "1.702.361.428"], ["4.134.608.055", "3.998.435.513"], ["5.975.199.397", "5.413.397.371"], ["8.063.168.761", "7.880.266.539"], ["9.772.715.680", "9.969.080.466"], ["11.412.614.426", "11.516.589.357"], ["12.931.971.451", "12.808.847.292"], ["15.066.572.763", "15.213.435.411"], ["16.421.478.161", "17.270.860.125"], ["17.617.492.209", "19.258.242.756"], ["19.499.050.775", "21.241.817.047"], ["21.523.328.746", "23.345.269.715"]], [["Ejerc. 25/26", "Ejerc. 24/25"], ["442.685.155", "260.024.683"], ["237.234.540", "290.876.847"], ["541.770.259", "261.887.624"], ["492.989.877", "287.266.868"], ["211.231.413", "298.417.971"], ["361.787.998", "260.392.815"], ["881.180.542", "341.281.920"], ["284.317.790", "397.180.379"], ["242.353.755", "190.204.998"], ["482.829.264", "397.430.954"], ["306.987.154", "429.072.969"], ["215.773.145", "316.859.809"]], [["Ejerc. 25/26", "Ejerc. 24/25"], ["442.685.155", "260.024.683"], ["679.919.694", "550.901.531"], ["1.221.689.954", "812.789.154"], ["1.714.679.830", "1.100.056.021"], ["1.925.911.243", "1.398.473.992"], ["2.287.699.241", "1.658.866.808"], ["3.168.879.783", "2.000.148.726"], ["3.453.197.571", "2.397.329.106"], ["3.695.551.326", "2.587.534.104"], ["4.178.380.590", "2.984.965.056"], ["4.485.367.745", "3.414.038.025"], ["4.701.140.890", "3.730.897.833"]], [["Ejerc. 25/26", "Ejerc. 24/25"], ["1.487.497.970", "950.102.256"], ["1.695.066.944", "1.334.924.232"], ["1.458.863.821", "851.190.128"], ["1.693.694.821", "1.523.924.554"], ["1.421.023.216", "1.321.690.215"], ["1.401.914.452", "1.005.659.294"], ["1.336.294.277", "858.350.704"], ["1.931.785.409", "1.635.547.327"], ["1.267.647.854", "1.451.603.364"], ["1.147.883.611", "1.441.178.080"], ["1.844.665.261", "1.460.008.606"], ["2.024.277.971", "1.573.309.932"]], [["Acumulado Anual", "Acumulado Ejercicio"], ["-1 %", "3 %"], ["-7 %", "-19 %"], ["-5 %", "-14 %"], ["-3 %", "-4 %"], ["-7 %", "-8 %"], ["-8 %", "-9 %"], ["-6 %", "-6 %"], ["-13 %", "-12 %"], ["-9 %", "-9 %"], ["-8 %", "-8 %"], ["-10 %", "-8 %"], ["-6 %", "-6 %"], ["-5 %", "15 %"], ["-2 %", "3 %"], ["-0 %", "10 %"], ["-4 %", "2 %"], ["-3 %", "-2 %"], ["-2 %", "-1 %"], ["-2 %", "1 %"], ["0 %", "-3 %"], ["-4 %", "-7 %"], ["-8 %", "-10 %"], ["-7 %", "-10 %"], ["-9 %", "-9 %"]]]}, "page_6": {"num": 6, "title": "Tablero de Gestión Personas - Ejerc. 25/26 › Vida Individual", "url": "https://datastudio.google.com/reporting/4d882c49-7af6-419c-8229-15a050fefa7f/page/p_5gt90kf9td", "tables": [[["Producto", "Prima Emisión"], ["Individual Temporario", "617.177.722"], ["Individual Vida Entera", "114.139.794"], ["Individual Dotal", "94.574.446"], ["Individual Temp. Ajust.", "150.701"]], [["Cant. Emitidas", "Cant. Renovadas", "Cant. Anuladas"], ["1.123", "", "-501"], ["551", "", "-162"], ["214", "", "-206"], ["635", "", "-179"], ["408", "", "-118"], ["469", "", "-173"], ["695", "", "-258"], ["122", "", "-206"], ["464", "", "-149"], ["952", "", "-166"], ["114", "", "-143"], ["1.091", "", "-141"]], [["Ejerc. 25/26", "Ejerc. 24/25"], ["90.531.017", "80.281.166"], ["213.530.789", "208.411.362"], ["258.212.535", "251.100.359"], ["376.687.630", "305.075.745"], ["477.547.671", "395.676.082"], ["535.680.333", "437.016.709"], ["582.036.810", "462.409.158"], ["623.221.449", "483.272.643"], ["667.213.399", "516.164.185"], ["747.320.771", "610.948.988"], ["801.747.364", "648.422.161"], ["948.783.700", "691.451.201"]], [["Ejerc. 25/26", "Ejerc. 24/25"], ["0", "200.000"], ["0", "47.575.000"], ["10.002.850", "7.140.570"], ["25.687.147", "8.105.700"], ["9.479.557", "16.705.456"], ["100.000", "60.000"], ["0", "0"], ["", "180.000"], ["50.000", "26.661.232"], ["", "0"], ["71.249.987", "20.000"], ["", "1.000.000"]], [["Ejerc. 25/26", "Ejerc. 24/25"], ["", "200.000"], ["", "47.775.000"], ["10.002.850", "54.915.570"], ["35.689.997", "63.021.270"], ["45.169.554", "79.726.726"], ["45.269.554", "79.786.726"], ["45.269.554", "79.786.726"], ["45.269.554", "79.966.726"], ["45.319.554", "106.627.958"], ["45.319.554", "106.627.958"], ["116.569.542", "106.647.958"], ["116.569.542", "107.647.958"]], [["Ejerc. 25/26", "Ejerc. 24/25"], ["69.001.782", "44.805.596"], ["95.507.661", "74.494.158"], ["35.415.022", "25.680.164"], ["96.103.254", "33.343.647"], ["83.837.687", "57.327.069"], ["49.696.372", "26.865.490"], ["40.771.125", "16.866.312"], ["37.271.543", "14.190.879"], ["41.158.814", "23.206.425"], ["76.883.662", "68.734.516"], ["53.359.404", "27.582.105"], ["147.036.337", "32.184.234"]], [["Acumulado Anual", "Acumulado Ejercicio"], ["-9 %", "-27 %"], ["-20 %", "-33 %"], ["-10 %", "-19 %"], ["-19 %", "-27 %"], ["-19 %", "-22 %"], ["-22 %", "-25 %"], ["-22 %", "-24 %"], ["-21 %", "-23 %"], ["-21 %", "-22 %"], ["-19 %", "-18 %"], ["-21 %", "-20 %"], ["-18 %", "-18 %"], ["-14 %", "13 %"], ["-7 %", "2 %"], ["-11 %", "3 %"], ["4 %", "23 %"], ["5 %", "21 %"], ["12 %", "23 %"], ["16 %", "26 %"], ["15 %", "24 %"], ["16 %", "24 %"], ["13 %", "18 %"], ["20 %", "20 %"], ["34 %", "34 %"]]]}, "page_7": {"num": 7, "title": "Tablero de Gestión Personas - Ejerc. 25/26 › Financiero", "url": "https://datastudio.google.com/reporting/4d882c49-7af6-419c-8229-15a050fefa7f/page/p_0vsczaqqnd", "tables": [[["AFLN"], ["$ 37.196"], ["$ 37.685"], ["$ 38.332"], ["$ 39.983"], ["$ 42.170"], ["$ 43.583"], ["$ 44.832"], ["$ 45.097"], ["$ 46.433"], ["$ 47.736"], ["$ 49.523"], ["$ 51.362"], ["$ 52.413"], ["$ 53.452"], ["$ 54.340"], ["$ 57.337"], ["$ 58.877"], ["$ 60.572"], ["$ 62.584"], ["$ 65.002"], ["$ 68.440"], ["$ 71.447"], ["$ 74.172"], ["$ 78.103"]], [["IPC Acumulado", "Rentabilidad Acumulada"], ["4,03 %", "1,6 %"], ["8,37 %", "2,93 %"], ["12,13 %", "4,72 %"], ["15,15 %", "9,19 %"], ["18,6 %", "16,08 %"], ["21,13 %", "19,99 %"], ["23,81 %", "23,86 %"], ["26,78 %", "24,68 %"], ["31,51 %", "27,29 %"], ["35,17 %", "30,86 %"], ["38,14 %", "35,28 %"], ["39,67 %", "37,99 %"], ["1,9 %", "2,49 %"], ["4,04 %", "4,24 %"], ["5,97 %", "5,84 %"], ["8,45 %", "12,19 %"], ["11,16 %", "14,63 %"], ["13,69 %", "17,61 %"], ["17,59 %", "21,26 %"], ["20,99 %", "25,38 %"], ["25,09 %", "30,81 %"], ["28,32 %", "35,35 %"], ["31,27 %", "39,18 %"], ["33,7 %", "42,58 %"]], [["Acumulado", "Mensual"], ["$ -868", "-868"], ["$ -1,9 mil", "-1.035"], ["$ -2,55 mil", "-644"], ["$ -1,93 mil", "615"], ["$ -578", "1.355"], ["$ -51", "284"], ["$ 396", "447"], ["$ -370", "-766"], ["$ -1,11 mil", "-734"], ["$ -1,13 mil", "-28"], ["$ -562", "572"], ["$ -116", "101"], ["$ 303", "303"], ["$ 98", "-204"], ["$ -75", "-291"], ["$ 1,97 mil", "2.049"], ["$ 1,79 mil", "-184"], ["$ 1,98 mil", "178"], ["$ 1,79 mil", "133"], ["$ 2,11 mil", "318"], ["$ 2,74 mil", "627"], ["$ 3,36 mil", "618"], ["$ 3,74 mil", "384"], ["$ 4,19 mil", "337"]]]}}};
+    const DB = {"metadata": {"titulo": "Tablero de Gestión Personas", "subtitulo": "Ejercicio 2025 / 2026", "entidad": "La Segunda Personas", "fuente": "Looker Studio - Tablero de Gestión Personas (4d882c49-7af6-419c-8229-15a050fefa7f)", "periodo_actual": "Ejerc. 25/26 (Jul 2025 - Jun 2026)", "periodo_anterior": "Ejerc. 24/25 (Jul 2024 - Jun 2025)", "total_pestanas": 7, "pestanas": [{"id": "p1_produccion", "num": 1, "nombre": "Producción", "icon": "fa-sack-dollar"}, {"id": "p2_cartera", "num": 2, "nombre": "Cartera Vigente", "icon": "fa-users"}, {"id": "p3_siniestralidad", "num": 3, "nombre": "Siniestralidad", "icon": "fa-shield-halved"}, {"id": "p4_ap", "num": 4, "nombre": "Accidentes Personales", "icon": "fa-user-injured"}, {"id": "p5_vida_col", "num": 5, "nombre": "Vida Colectivo", "icon": "fa-building-user"}, {"id": "p6_vida_ind", "num": 6, "nombre": "Vida Individual", "icon": "fa-user"}, {"id": "p7_financiero", "num": 7, "nombre": "Financiero", "icon": "fa-arrow-trend-up"}]}, "p1_produccion": {"indicadores": [{"periodo": "jun 2026", "ripte_mes": 3.49, "ipc_mes": 2.0, "ripte_anual": 34.05, "ipc_anual": 33.7, "ripte_ejerc": 34.05, "ipc_ejerc": 33.7}, {"periodo": "may 2026", "ripte_mes": 3.49, "ipc_mes": 2.15, "ripte_anual": 33.11, "ipc_anual": 33.2, "ripte_ejerc": 29.53, "ipc_ejerc": 31.07}, {"periodo": "abr 2026", "ripte_mes": 3.49, "ipc_mes": 2.58, "ripte_anual": 31.01, "ipc_anual": 32.35, "ripte_ejerc": 25.17, "ipc_ejerc": 28.32}, {"periodo": "mar 2026", "ripte_mes": 2.38, "ipc_mes": 3.38, "ripte_anual": 30.23, "ipc_anual": 32.61, "ripte_ejerc": 20.95, "ipc_ejerc": 25.09}, {"periodo": "feb 2026", "ripte_mes": 5.35, "ipc_mes": 2.9, "ripte_anual": 32.36, "ipc_anual": 33.05, "ripte_ejerc": 18.13, "ipc_ejerc": 20.99}, {"periodo": "ene 2026", "ripte_mes": 0.78, "ipc_mes": 2.88, "ripte_anual": 33.34, "ipc_anual": 32.41, "ripte_ejerc": 12.14, "ipc_ejerc": 17.59}, {"periodo": "dic 2025", "ripte_mes": 2.12, "ipc_mes": 2.8, "ripte_anual": 35.1, "ipc_anual": 31.9, "ripte_ejerc": 11.27, "ipc_ejerc": 14.3}, {"periodo": "nov 2025", "ripte_mes": 1.95, "ipc_mes": 2.5, "ripte_anual": 36.2, "ipc_anual": 31.5, "ripte_ejerc": 8.96, "ipc_ejerc": 11.18}, {"periodo": "oct 2025", "ripte_mes": 2.3, "ipc_mes": 2.7, "ripte_anual": 38.4, "ipc_anual": 32.1, "ripte_ejerc": 6.88, "ipc_ejerc": 8.47}, {"periodo": "sept 2025", "ripte_mes": 2.1, "ipc_mes": 3.5, "ripte_anual": 41.2, "ipc_anual": 33.8, "ripte_ejerc": 4.48, "ipc_ejerc": 5.62}, {"periodo": "ago 2025", "ripte_mes": 2.32, "ipc_mes": 2.08, "ripte_anual": 44.1, "ipc_anual": 33.2, "ripte_ejerc": 2.32, "ipc_ejerc": 2.08}], "variaciones_prima": [{"periodo": "jun 2026", "var_mismo_mes": 7.51, "acum_anual": 0.37, "acum_ejercicio": 0.37}, {"periodo": "may 2026", "var_mismo_mes": -1.32, "acum_anual": 1.27, "acum_ejercicio": -0.28}, {"periodo": "abr 2026", "var_mismo_mes": -14.69, "acum_anual": 1.83, "acum_ejercicio": -0.18}, {"periodo": "mar 2026", "var_mismo_mes": -11.21, "acum_anual": 4.91, "acum_ejercicio": 1.65}, {"periodo": "feb 2026", "var_mismo_mes": -24.84, "acum_anual": 7.46, "acum_ejercicio": 3.48}, {"periodo": "ene 2026", "var_mismo_mes": 13.64, "acum_anual": 10.04, "acum_ejercicio": 8.52}, {"periodo": "dic 2025", "var_mismo_mes": 11.14, "acum_anual": 8.52, "acum_ejercicio": 7.82}, {"periodo": "nov 2025", "var_mismo_mes": 10.57, "acum_anual": 7.11, "acum_ejercicio": 10.22}, {"periodo": "oct 2025", "var_mismo_mes": -11.08, "acum_anual": 11.16, "acum_ejercicio": 14.27}, {"periodo": "sept 2025", "var_mismo_mes": -8.99, "acum_anual": 12.26, "acum_ejercicio": 5.13}, {"periodo": "ago 2025", "var_mismo_mes": -17.24, "acum_anual": 8.84, "acum_ejercicio": 31.33}], "prima_emitida_cierre": 5663987632}, "p2_cartera": {"kpis": {"cant_polizas_vigentes": 98879, "cant_asegurados_vigentes": 835838}, "distribucion_polizas": [{"ramo": "Vida Colectivo", "pct": 66.1, "color": "#e20039"}, {"ramo": "Accidentes Personales", "pct": 26.7, "color": "#4183ca"}, {"ramo": "Vida Individual", "pct": 7.2, "color": "#f8cc59"}], "distribucion_asegurados": [{"ramo": "Vida Colectivo", "pct": 75.1, "color": "#e20039"}, {"ramo": "Accidentes Personales", "pct": 24.0, "color": "#4183ca"}, {"ramo": "Vida Individual", "pct": 0.9, "color": "#3ac792"}], "evolucion": [{"periodo": "jun 2026", "asegurados": 627815, "polizas": 65317, "aseg_x_poliza": 10}, {"periodo": "may 2026", "asegurados": 629831, "polizas": 65570, "aseg_x_poliza": 10}, {"periodo": "abr 2026", "asegurados": 362517, "polizas": 65328, "aseg_x_poliza": 6}, {"periodo": "mar 2026", "asegurados": 379936, "polizas": 64336, "aseg_x_poliza": 6}, {"periodo": "feb 2026", "asegurados": 322763, "polizas": 63102, "aseg_x_poliza": 5}, {"periodo": "ene 2026", "asegurados": 323961, "polizas": 62885, "aseg_x_poliza": 5}, {"periodo": "dic 2025", "asegurados": 322101, "polizas": 63092, "aseg_x_poliza": 5}, {"periodo": "nov 2025", "asegurados": 319716, "polizas": 64545, "aseg_x_poliza": 5}, {"periodo": "oct 2025", "asegurados": 383203, "polizas": 64651, "aseg_x_poliza": 6}, {"periodo": "sept 2025", "asegurados": 381185, "polizas": 64060, "aseg_x_poliza": 6}, {"periodo": "ago 2025", "asegurados": 325969, "polizas": 63278, "aseg_x_poliza": 5}, {"periodo": "jul 2025", "asegurados": 385688, "polizas": 63377, "aseg_x_poliza": 6}, {"periodo": "jun 2025", "asegurados": 386767, "polizas": 63536, "aseg_x_poliza": 6}, {"periodo": "may 2025", "asegurados": 386014, "polizas": 63763, "aseg_x_poliza": 6}]}, "p3_siniestralidad": {"kpis_ejercicio": {"total_personas": 43.38, "accidentes_personales": 52.0, "vida_colectivo": 27.07, "vida_individual": 21.06}, "mensual": [{"mes": "jun 2026", "prima": 3492.7, "pagos": 1065.4, "var_reservas": 1643.39, "siniestralidad": 77.56}, {"mes": "may 2026", "prima": 3253.0, "pagos": 981.0, "var_reservas": 1027.19, "siniestralidad": 61.73}, {"mes": "abr 2026", "prima": 3571.6, "pagos": 1028.6, "var_reservas": 869.65, "siniestralidad": 53.15}, {"mes": "mar 2026", "prima": 4292.0, "pagos": 1047.3, "var_reservas": 1559.77, "siniestralidad": 60.74}, {"mes": "feb 2026", "prima": 3364.9, "pagos": 781.5, "var_reservas": 195.59, "siniestralidad": 29.04}, {"mes": "ene 2026", "prima": 2779.1, "pagos": 940.7, "var_reservas": 248.4, "siniestralidad": 42.79}, {"mes": "dic 2025", "prima": 2816.5, "pagos": 948.2, "var_reservas": 598.38, "siniestralidad": 54.91}]}, "p4_ap": {"total_prima": 37525311204, "productos": [{"producto": "Laboral", "prima": 34805752480, "pct": 92.75}, {"producto": "Escolar", "prima": 1493919534, "pct": 3.98}, {"producto": "Deportes", "prima": 964108618, "pct": 2.57}, {"producto": "Acc. Recreativas", "prima": 223688681, "pct": 0.6}, {"producto": "Pack", "prima": 37841891, "pct": 0.1}], "acumulado_ejercicio": [{"mes": "julio", "ejerc_2425": 1455, "ejerc_2526": 2366, "variac": 63}, {"mes": "agosto", "ejerc_2425": 3282, "ejerc_2526": 5257, "variac": 60}, {"mes": "septiembre", "ejerc_2425": 5245, "ejerc_2526": 8198, "variac": 56}, {"mes": "octubre", "ejerc_2425": 7332, "ejerc_2526": 11000, "variac": 55}, {"mes": "noviembre", "ejerc_2425": 9361, "ejerc_2526": 14000, "variac": 49}, {"mes": "diciembre", "ejerc_2425": 11000, "ejerc_2526": 17000, "variac": 49}, {"mes": "enero", "ejerc_2425": 13000, "ejerc_2526": 20000, "variac": 49}, {"mes": "febrero", "ejerc_2425": 16000, "ejerc_2526": 23000, "variac": 46}, {"mes": "marzo", "ejerc_2425": 18000, "ejerc_2526": 27000, "variac": 49}, {"mes": "abril", "ejerc_2425": 21000, "ejerc_2526": 31000, "variac": 47}, {"mes": "mayo", "ejerc_2425": 23000, "ejerc_2526": 34000, "variac": 45}, {"mes": "junio", "ejerc_2425": 26000, "ejerc_2526": 38000, "variac": 46}]}, "p5_vida_col": {"total_prima": 18710615607, "productos": [{"producto": "Ley 20.744", "prima": 9215688309, "pct": 49.25}, {"producto": "Convenio Mercantil", "prima": 4038387347, "pct": 21.58}, {"producto": "Colectivo de Vida", "prima": 2540572897, "pct": 13.58}, {"producto": "Saldos Deudores", "prima": 2422355581, "pct": 12.95}, {"producto": "Tjadores. Rurales", "prima": 493611473, "pct": 2.64}], "acumulado_ejercicio": [{"mes": "julio", "ejerc_2425": 950, "ejerc_2526": 1487, "variac": 57}, {"mes": "agosto", "ejerc_2425": 2285, "ejerc_2526": 3183, "variac": 39}, {"mes": "septiembre", "ejerc_2425": 3136, "ejerc_2526": 4641, "variac": 48}, {"mes": "octubre", "ejerc_2425": 4660, "ejerc_2526": 6335, "variac": 36}, {"mes": "noviembre", "ejerc_2425": 5982, "ejerc_2526": 7756, "variac": 30}, {"mes": "diciembre", "ejerc_2425": 6987, "ejerc_2526": 9158, "variac": 31}, {"mes": "enero", "ejerc_2425": 7846, "ejerc_2526": 10000, "variac": 34}, {"mes": "febrero", "ejerc_2425": 9481, "ejerc_2526": 12000, "variac": 31}, {"mes": "marzo", "ejerc_2425": 11000, "ejerc_2526": 14000, "variac": 25}, {"mes": "abril", "ejerc_2425": 12000, "ejerc_2526": 15000, "variac": 20}, {"mes": "mayo", "ejerc_2425": 14000, "ejerc_2526": 17000, "variac": 21}, {"mes": "junio", "ejerc_2425": 15000, "ejerc_2526": 19000, "variac": 21}]}, "p6_vida_ind": {"total_prima": 826042663, "productos": [{"producto": "Temporario", "prima": 617177722, "pct": 74.72}, {"producto": "Vida Entera", "prima": 114139794, "pct": 13.82}, {"producto": "Dotal", "prima": 94574446, "pct": 11.45}, {"producto": "Temp. Ajust.", "prima": 150701, "pct": 0.02}], "acumulado_ejercicio": [{"mes": "julio", "ejerc_2425": 45, "ejerc_2526": 69, "variac": 54}, {"mes": "agosto", "ejerc_2425": 119, "ejerc_2526": 165, "variac": 38}, {"mes": "septiembre", "ejerc_2425": 145, "ejerc_2526": 200, "variac": 38}, {"mes": "octubre", "ejerc_2425": 178, "ejerc_2526": 296, "variac": 66}, {"mes": "noviembre", "ejerc_2425": 236, "ejerc_2526": 380, "variac": 61}, {"mes": "diciembre", "ejerc_2425": 263, "ejerc_2526": 430, "variac": 64}, {"mes": "enero", "ejerc_2425": 279, "ejerc_2526": 470, "variac": 68}, {"mes": "febrero", "ejerc_2425": 294, "ejerc_2526": 508, "variac": 73}, {"mes": "marzo", "ejerc_2425": 317, "ejerc_2526": 549, "variac": 73}, {"mes": "abril", "ejerc_2425": 386, "ejerc_2526": 626, "variac": 62}, {"mes": "mayo", "ejerc_2425": 413, "ejerc_2526": 679, "variac": 64}, {"mes": "junio", "ejerc_2425": 445, "ejerc_2526": 826, "variac": 86}]}, "p7_financiero": {"indicadores": [{"periodo": "jun 2026", "stock_activos": 78103, "rent_mes": 2.44, "rent_acum": 42.58, "ipc_mes": 2.0, "ipc_acum": 33.7, "sup_mes": 0.43, "sup_acum": 6.64, "aporte_mes": 337, "aporte_acum": 4189}, {"periodo": "may 2026", "stock_activos": 74172, "rent_mes": 2.47, "rent_acum": 39.18, "ipc_mes": 2.15, "ipc_acum": 31.07, "sup_mes": 0.31, "sup_acum": 6.03, "aporte_mes": 342, "aporte_acum": 3852}, {"periodo": "abr 2026", "stock_activos": 71447, "rent_mes": 2.75, "rent_acum": 35.83, "ipc_mes": 2.58, "ipc_acum": 28.32, "sup_mes": 0.16, "sup_acum": 5.48, "aporte_mes": 247, "aporte_acum": 3510}, {"periodo": "mar 2026", "stock_activos": 68440, "rent_mes": 3.11, "rent_acum": 32.2, "ipc_mes": 3.38, "ipc_acum": 25.09, "sup_mes": -0.26, "sup_acum": 4.58, "aporte_mes": 212, "aporte_acum": 3263}, {"periodo": "feb 2026", "stock_activos": 65002, "rent_mes": 3.08, "rent_acum": 28.21, "ipc_mes": 2.9, "ipc_acum": 20.99, "sup_mes": 0.17, "sup_acum": 3.63, "aporte_mes": 285, "aporte_acum": 3051}, {"periodo": "ene 2026", "stock_activos": 62584, "rent_mes": 2.96, "rent_acum": 24.38, "ipc_mes": 2.88, "ipc_acum": 17.59, "sup_mes": 0.08, "sup_acum": 3.12, "aporte_mes": 245, "aporte_acum": 2766}]}};
 
-    // Paleta de Colores Brandbook La Segunda
     const BRAND = {
       rojoSeguro: '#e20039',
       rojoOscuro: '#b91f38',
       rojoClaro: '#f42c4b',
-      rojoBrillante: '#ff4c60',
       amarillo: '#f8cc59',
       coral: '#ff593e',
-      borgona: '#512420',
       verde: '#3ac792',
       azul: '#4183ca',
       carbon: '#30302d',
-      gridColor: '#e8ecf3'
+      grid: '#edf2f7'
     };
 
-    // Formateador de moneda argentina
     function fmtMoney(num) {
-      if (num === null || num === undefined || isNaN(num)) return '-';
-      return '$ ' + Math.round(num).toLocaleString('es-AR');
-    }
-
-    function fmtNum(num) {
-      if (num === null || num === undefined || isNaN(num)) return '-';
-      return Number(num).toLocaleString('es-AR');
+      if (num === null || num === undefined) return '-';
+      return '$ ' + Number(num).toLocaleString('es-AR');
     }
 
     function fmtPct(num) {
-      if (num === null || num === undefined || isNaN(num)) return '-';
-      return num.toLocaleString('es-AR', { minimumFractionDigits: 1, maximumFractionDigits: 2 }) + ' %';
+      if (num === null || num === undefined) return '-';
+      return Number(num).toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' %';
     }
 
-    // Control de Pestañas
+    function fmtNum(num) {
+      if (num === null || num === undefined) return '-';
+      return Number(num).toLocaleString('es-AR');
+    }
+
     function switchTab(tabId) {
-      document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.classList.remove('active');
-        if (btn.getAttribute('onclick').includes(tabId)) {
-          btn.classList.add('active');
-        }
+      document.querySelectorAll('.tab-btn').forEach(b => {
+        b.classList.remove('active');
+        if (b.getAttribute('onclick').includes(tabId)) b.classList.add('active');
       });
-
-      document.querySelectorAll('.tab-pane').forEach(pane => {
-        pane.classList.remove('active');
-      });
-
-      const activePane = document.getElementById('pane_' + tabId);
-      if (activePane) activePane.classList.add('active');
+      document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+      const active = document.getElementById('pane_' + tabId);
+      if (active) active.classList.add('active');
     }
 
-    // Exportar CSV
     function exportCurrentView() {
-      const activePane = document.querySelector('.tab-pane.active');
-      const table = activePane.querySelector('table');
+      const active = document.querySelector('.tab-pane.active');
+      const table = active.querySelector('table');
       if (!table) return alert('No hay tabla activa para exportar.');
-      
       let csv = '';
-      table.querySelectorAll('tr').forEach(row => {
-        const cols = Array.from(row.querySelectorAll('th, td')).map(c => '"' + c.innerText.replace(/"/g, '""') + '"');
+      table.querySelectorAll('tr').forEach(r => {
+        const cols = Array.from(r.querySelectorAll('th, td')).map(c => '"' + c.innerText.replace(/"/g, '""') + '"');
         csv += cols.join(',') + '\n';
       });
-
       const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
       const url = URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.setAttribute('href', url);
-      link.setAttribute('download', 'tablero_personas_' + new Date().toISOString().slice(0,10) + '.csv');
-      link.click();
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'tablero_personas_' + new Date().toISOString().slice(0,10) + '.csv';
+      a.click();
     }
 
-    // INICIALIZACIÓN DE GRÁFICOS Y TABLAS
     document.addEventListener('DOMContentLoaded', () => {
-      const meses = DB.metadata.meses_ejercicio;
-      const meses24 = DB.metadata.meses_24m;
-
       // ----------------------------------------------------
-      // PESTAÑA 1: CONSOLIDADO
+      // PESTAÑA 1: PRODUCCIÓN
       // ----------------------------------------------------
-      const p1_tables = DB.pestanas_data.page_1.tables;
-      
-      // Primas Ejerc 25/26 vs 24/25
-      const p1_primas_2526 = [833886811, 896909905, 978984983, 993816366, 857507261, 948163503, 940660381, 1024500000, 1150000000, 1200000000, 1310000000, 1420000000];
-      const p1_primas_2425 = [523875177, 565220596, 535101932, 553939862, 554809031, 596104327, 581785668, 640000000, 710000000, 780000000, 850000000, 920000000];
+      const p1_ind = DB.p1_produccion.indicadores;
+      const p1_var = DB.p1_produccion.variaciones_prima;
 
-      new Chart(document.getElementById('chart_p1_evolucion'), {
-        type: 'line',
-        data: {
-          labels: meses,
-          datasets: [
-            {
-              label: 'Ejerc. 25/26',
-              data: p1_primas_2526,
-              borderColor: BRAND.rojoSeguro,
-              backgroundColor: 'rgba(226, 0, 57, 0.1)',
-              borderWidth: 3,
-              fill: true,
-              tension: 0.3,
-              pointRadius: 4,
-              pointBackgroundColor: BRAND.rojoSeguro
-            },
-            {
-              label: 'Ejerc. 24/25',
-              data: p1_primas_2425,
-              borderColor: BRAND.azul,
-              backgroundColor: 'transparent',
-              borderWidth: 2,
-              borderDash: [5, 5],
-              tension: 0.3,
-              pointRadius: 3,
-              pointBackgroundColor: BRAND.azul
-            }
-          ]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { position: 'top', labels: { font: { family: 'Sora', weight: 600 } } },
-            tooltip: { callbacks: { label: ctx => ctx.dataset.label + ': ' + fmtMoney(ctx.raw) } }
-          },
-          scales: {
-            y: { grid: { color: BRAND.gridColor }, ticks: { callback: v => '$ ' + (v/1e6).toFixed(0) + ' M' } },
-            x: { grid: { display: false } }
-          }
-        }
-      });
-
-      // Participación por Ramo
-      new Chart(document.getElementById('chart_p1_ramos'), {
-        type: 'doughnut',
-        data: {
-          labels: ['Vida Colectivo', 'Accidentes Personales', 'Vida Individual'],
-          datasets: [{
-            data: [18710415607, 8998246830, 826042663],
-            backgroundColor: [BRAND.rojoSeguro, BRAND.azul, BRAND.amarillo],
-            borderWidth: 2,
-            borderColor: '#ffffff'
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { position: 'bottom', labels: { font: { family: 'Sora', weight: 500 } } },
-            tooltip: { callbacks: { label: ctx => ctx.label + ': ' + fmtMoney(ctx.raw) } }
-          },
-          cutout: '68%'
-        }
-      });
-
-      // Macro: RIPTE vs IPC
-      new Chart(document.getElementById('chart_p1_macro'), {
-        type: 'bar',
-        data: {
-          labels: meses24,
-          datasets: [
-            {
-              label: 'IPC Mensual (%)',
-              data: [4.0, 4.2, 3.5, 2.7, 2.4, 2.7, 2.2, 2.4, 2.8, 3.1, 2.5, 2.0, 1.9, 1.8, 1.7, 1.6, 1.5, 1.4, 1.3, 1.2, 1.1, 1.0, 1.0, 0.9],
-              backgroundColor: BRAND.coral,
-              borderRadius: 4
-            },
-            {
-              label: 'RIPTE Mensual (%)',
-              data: [4.5, 4.0, 3.8, 3.2, 3.0, 2.9, 2.5, 2.7, 3.0, 3.2, 2.8, 2.3, 2.1, 2.0, 1.9, 1.8, 1.6, 1.5, 1.4, 1.3, 1.2, 1.1, 1.0, 1.0],
-              backgroundColor: BRAND.azul,
-              borderRadius: 4
-            }
-          ]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { position: 'top', labels: { font: { family: 'Sora', weight: 600 } } }
-          },
-          scales: {
-            y: { grid: { color: BRAND.gridColor }, ticks: { callback: v => v + ' %' } },
-            x: { grid: { display: false } }
-          }
-        }
-      });
-
-      // Llenar tabla consolidada
-      const tbodyP1 = document.querySelector('#table_p1_consolidado tbody');
-      meses.forEach((m, idx) => {
-        const v25 = p1_primas_2526[idx];
-        const v24 = p1_primas_2425[idx];
-        const diff = v25 - v24;
-        const pct = ((diff / v24) * 100).toFixed(1);
+      // Tabla Indicadores
+      const tbP1Ind = document.querySelector('#table_p1_indicadores tbody');
+      p1_ind.forEach(r => {
         const tr = document.createElement('tr');
         tr.innerHTML = `
-          <td><strong>${m}</strong></td>
-          <td class="num">${fmtMoney(v25)}</td>
-          <td class="num">${fmtMoney(v24)}</td>
-          <td class="num" style="color: ${diff >= 0 ? '#108e5a' : '#e20039'};">
-            ${diff >= 0 ? '+' : ''}${fmtMoney(diff)} (${pct}%)
-          </td>
+          <td><strong>${r.periodo}</strong></td>
+          <td class="num">${fmtPct(r.ripte_mes)}</td>
+          <td class="num">${fmtPct(r.ipc_mes)}</td>
+          <td class="num">${fmtPct(r.ripte_anual)}</td>
+          <td class="num">${fmtPct(r.ipc_anual)}</td>
+          <td class="num">${fmtPct(r.ripte_ejerc)}</td>
+          <td class="num">${fmtPct(r.ipc_ejerc)}</td>
         `;
-        tbodyP1.appendChild(tr);
+        tbP1Ind.appendChild(tr);
+      });
+
+      // Tabla Variaciones
+      const tbP1Var = document.querySelector('#table_p1_variaciones tbody');
+      p1_var.forEach(r => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><strong>${r.periodo}</strong></td>
+          <td class="num" style="color: ${r.var_mismo_mes >= 0 ? '#108e5a' : '#e20039'};">
+            ${r.var_mismo_mes >= 0 ? '+' : ''}${fmtPct(r.var_mismo_mes)}
+          </td>
+          <td class="num">${fmtPct(r.acum_anual)}</td>
+          <td class="num">${fmtPct(r.acum_ejercicio)}</td>
+        `;
+        tbP1Var.appendChild(tr);
+      });
+
+      // Gráficos P1
+      const p1_labels = p1_ind.map(x => x.periodo).reverse();
+      new Chart(document.getElementById('chart_p1_ripte_ipc_mes'), {
+        type: 'line',
+        data: {
+          labels: p1_labels,
+          datasets: [
+            { label: 'RIPTE Mes (%)', data: p1_ind.map(x => x.ripte_mes).reverse(), borderColor: BRAND.azul, borderWidth: 3, tension: 0.3 },
+            { label: 'IPC Mes (%)', data: p1_ind.map(x => x.ipc_mes).reverse(), borderColor: BRAND.rojoSeguro, borderWidth: 3, tension: 0.3 }
+          ]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
+
+      new Chart(document.getElementById('chart_p1_ripte_ipc_anual'), {
+        type: 'line',
+        data: {
+          labels: p1_labels,
+          datasets: [
+            { label: 'Ripte Anual (%)', data: p1_ind.map(x => x.ripte_anual).reverse(), borderColor: BRAND.azul, borderWidth: 3, tension: 0.3 },
+            { label: 'IPC Anual (%)', data: p1_ind.map(x => x.ipc_anual).reverse(), borderColor: BRAND.rojoSeguro, borderWidth: 3, tension: 0.3 }
+          ]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
+
+      new Chart(document.getElementById('chart_p1_var_primas'), {
+        type: 'bar',
+        data: {
+          labels: p1_var.map(x => x.periodo).reverse(),
+          datasets: [
+            { label: 'Acum. Anual (%)', data: p1_var.map(x => x.acum_anual).reverse(), backgroundColor: BRAND.azul },
+            { label: 'Acum. Ejercicio (%)', data: p1_var.map(x => x.acum_ejercicio).reverse(), backgroundColor: BRAND.rojoSeguro }
+          ]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
       });
 
       // ----------------------------------------------------
       // PESTAÑA 2: CARTERA VIGENTE
       // ----------------------------------------------------
-      new Chart(document.getElementById('chart_p2_asegurados'), {
+      const p2_pol = DB.p2_cartera.distribucion_polizas;
+      const p2_aseg = DB.p2_cartera.distribucion_asegurados;
+      const p2_evo = DB.p2_cartera.evolucion;
+
+      new Chart(document.getElementById('chart_p2_pie_polizas'), {
         type: 'doughnut',
         data: {
-          labels: ['Vida Colectivo (75.1%)', 'Accidentes Personales (24.0%)', 'Vida Individual (0.9%)'],
-          datasets: [{
-            data: [1383454, 442116, 16580],
-            backgroundColor: [BRAND.rojoSeguro, BRAND.azul, BRAND.verde]
-          }]
+          labels: p2_pol.map(x => `${x.ramo} (${x.pct}%)`),
+          datasets: [{ data: p2_pol.map(x => x.pct), backgroundColor: p2_pol.map(x => x.color) }]
         },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: { legend: { position: 'bottom' } },
-          cutout: '65%'
-        }
+        options: { responsive: true, maintainAspectRatio: false, cutout: '65%' }
       });
 
-      new Chart(document.getElementById('chart_p2_polizas'), {
+      new Chart(document.getElementById('chart_p2_pie_asegurados'), {
         type: 'doughnut',
         data: {
-          labels: ['Vida Colectivo (66.1%)', 'Accidentes Personales (26.7%)', 'Vida Individual (7.2%)'],
-          datasets: [{
-            data: [128450, 51920, 13980],
-            backgroundColor: [BRAND.rojoOscuro, BRAND.coral, BRAND.amarillo]
-          }]
+          labels: p2_aseg.map(x => `${x.ramo} (${x.pct}%)`),
+          datasets: [{ data: p2_aseg.map(x => x.pct), backgroundColor: p2_aseg.map(x => x.color) }]
         },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: { legend: { position: 'bottom' } },
-          cutout: '65%'
-        }
+        options: { responsive: true, maintainAspectRatio: false, cutout: '65%' }
       });
 
-      const tbodyP2 = document.querySelector('#table_p2_cartera tbody');
-      const carteraData = [
-        { ramo: 'Vida Colectivo', asegurados: 1383454, pctAseg: '75.1%', polizas: 128450, pctPol: '66.1%' },
-        { ramo: 'Accidentes Personales', asegurados: 442116, pctAseg: '24.0%', polizas: 51920, pctPol: '26.7%' },
-        { ramo: 'Vida Individual', asegurados: 16580, pctAseg: '0.9%', polizas: 13980, pctPol: '7.2%' }
-      ];
-      carteraData.forEach(r => {
+      const tbP2 = document.querySelector('#table_p2_cartera_evo tbody');
+      p2_evo.forEach(r => {
         const tr = document.createElement('tr');
         tr.innerHTML = `
-          <td><strong>${r.ramo}</strong></td>
+          <td><strong>${r.periodo}</strong></td>
           <td class="num">${fmtNum(r.asegurados)}</td>
-          <td class="num">${r.pctAseg}</td>
           <td class="num">${fmtNum(r.polizas)}</td>
-          <td class="num">${r.pctPol}</td>
+          <td class="num">${r.aseg_x_poliza}</td>
         `;
-        tbodyP2.appendChild(tr);
+        tbP2.appendChild(tr);
       });
 
       // ----------------------------------------------------
       // PESTAÑA 3: SINIESTRALIDAD
       // ----------------------------------------------------
-      new Chart(document.getElementById('chart_p3_siniestros'), {
-        type: 'bar',
-        data: {
-          labels: meses24,
-          datasets: [
-            { label: 'Pagos ($)', data: [515000000, 885000000, 726000000, 1569000000, 388000000, 940000000, 1100000000, 890000000, 950000000, 1200000000, 1050000000, 1150000000, 980000000, 1020000000, 1100000000, 1250000000, 990000000, 1080000000, 1120000000, 1300000000, 1200000000, 1180000000, 1250000000, 1310000000], backgroundColor: BRAND.rojoSeguro },
-            { label: 'Movim. Reservas ($)', data: [320000000, 410000000, 390000000, 600000000, 290000000, 480000000, 520000000, 450000000, 470000000, 590000000, 510000000, 540000000, 460000000, 490000000, 530000000, 580000000, 470000000, 510000000, 540000000, 620000000, 570000000, 560000000, 590000000, 620000000], backgroundColor: BRAND.azul }
-          ]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: { tooltip: { callbacks: { label: ctx => ctx.dataset.label + ': ' + fmtMoney(ctx.raw) } } },
-          scales: { y: { ticks: { callback: v => '$ ' + (v/1e6).toFixed(0) + ' M' } } }
-        }
+      const p3_mensual = DB.p3_siniestralidad.mensual;
+      const tbP3 = document.querySelector('#table_p3_siniestralidad_mes tbody');
+      p3_mensual.forEach(r => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><strong>${r.mes}</strong></td>
+          <td class="num">${fmtMoney(r.prima)} M</td>
+          <td class="num">${fmtMoney(r.pagos)} M</td>
+          <td class="num">${fmtMoney(r.var_reservas)} M</td>
+          <td class="num" style="font-weight: 700; color: var(--rojo-seguro);">${fmtPct(r.siniestralidad)}</td>
+        `;
+        tbP3.appendChild(tr);
       });
 
       // ----------------------------------------------------
       // PESTAÑA 4: ACCIDENTES PERSONALES
       // ----------------------------------------------------
-      new Chart(document.getElementById('chart_p4_productos'), {
-        type: 'bar',
+      const p4_prod = DB.p4_ap.productos;
+      const p4_acum = DB.p4_ap.acumulado_ejercicio;
+
+      new Chart(document.getElementById('chart_p4_pie_productos'), {
+        type: 'doughnut',
         data: {
-          labels: ['AP 24 Horas', 'AP Laboral', 'AP Escolar', 'AP Deportivo', 'Otros AP'],
-          datasets: [{
-            label: 'Prima Emisión ($)',
-            data: [4520100000, 2810400000, 940300000, 510200000, 217246830],
-            backgroundColor: [BRAND.rojoSeguro, BRAND.azul, BRAND.verde, BRAND.amarillo, BRAND.coral],
-            borderRadius: 6
-          }]
+          labels: p4_prod.map(x => `${x.producto} (${x.pct}%)`),
+          datasets: [{ data: p4_prod.map(x => x.prima), backgroundColor: [BRAND.coral, BRAND.azul, BRAND.amarillo, BRAND.verde, BRAND.rojoSeguro] }]
         },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: { tooltip: { callbacks: { label: ctx => fmtMoney(ctx.raw) } } },
-          scales: { y: { ticks: { callback: v => '$ ' + (v/1e6).toFixed(0) + ' M' } } }
-        }
+        options: { responsive: true, maintainAspectRatio: false, cutout: '65%' }
       });
 
-      new Chart(document.getElementById('chart_p4_movimiento'), {
-        type: 'bar',
+      new Chart(document.getElementById('chart_p4_line_acumulada'), {
+        type: 'line',
         data: {
-          labels: meses,
+          labels: p4_acum.map(x => x.mes),
           datasets: [
-            { label: 'Emitidas', data: [6501, 6923, 7011, 7724, 5771, 5813, 5899, 6401, 7245, 6909, 7100, 7350], backgroundColor: BRAND.verde },
-            { label: 'Renovadas', data: [12500, 13100, 13400, 14200, 11800, 12000, 12200, 12900, 13800, 13400, 13900, 14200], backgroundColor: BRAND.azul },
-            { label: 'Anuladas', data: [-1200, -1350, -1100, -1450, -980, -1050, -1120, -1190, -1300, -1250, -1280, -1310], backgroundColor: BRAND.rojoSeguro }
+            { label: 'Ejercicio 25/26 (M)', data: p4_acum.map(x => x.ejerc_2526), borderColor: BRAND.rojoSeguro, backgroundColor: 'rgba(226, 0, 57, 0.1)', fill: true, borderWidth: 3 },
+            { label: 'Ejercicio 24/25 (M)', data: p4_acum.map(x => x.ejerc_2425), borderColor: BRAND.azul, borderWidth: 2, borderDash: [5, 5] }
           ]
         },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          scales: { y: { stacked: false } }
-        }
+        options: { responsive: true, maintainAspectRatio: false }
+      });
+
+      const tbP4Prod = document.querySelector('#table_p4_productos tbody');
+      p4_prod.forEach(r => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><strong>${r.producto}</strong></td>
+          <td class="num">${fmtMoney(r.prima)}</td>
+          <td class="num">${fmtPct(r.pct)}</td>
+        `;
+        tbP4Prod.appendChild(tr);
+      });
+
+      const tbP4Acum = document.querySelector('#table_p4_acumulada tbody');
+      p4_acum.forEach(r => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><strong>${r.mes}</strong></td>
+          <td class="num">${fmtNum(r.ejerc_2425)} M</td>
+          <td class="num">${fmtNum(r.ejerc_2526)} M</td>
+          <td class="num" style="color: #108e5a; font-weight: 700;">+${r.variac} %</td>
+        `;
+        tbP4Acum.appendChild(tr);
       });
 
       // ----------------------------------------------------
       // PESTAÑA 5: VIDA COLECTIVO
       // ----------------------------------------------------
-      new Chart(document.getElementById('chart_p5_productos'), {
+      const p5_prod = DB.p5_vida_col.productos;
+      const p5_acum = DB.p5_vida_col.acumulado_ejercicio;
+
+      new Chart(document.getElementById('chart_p5_pie_productos'), {
         type: 'doughnut',
         data: {
-          labels: ['Ley 20.744 ($ 9.215 M)', 'Convenio Mercantil ($ 4.038 M)', 'Colectivo de Vida ($ 2.540 M)', 'Saldos Deudores ($ 2.422 M)', 'Tjadores. Rurales ($ 493 M)'],
-          datasets: [{
-            data: [9215688309, 4038387347, 2540572897, 2422355581, 493611473],
-            backgroundColor: [BRAND.rojoSeguro, BRAND.azul, BRAND.verde, BRAND.amarillo, BRAND.coral]
-          }]
+          labels: p5_prod.map(x => `${x.producto} (${x.pct}%)`),
+          datasets: [{ data: p5_prod.map(x => x.prima), backgroundColor: [BRAND.verde, BRAND.azul, BRAND.rojoSeguro, BRAND.amarillo, BRAND.coral] }]
         },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: { legend: { position: 'bottom' } }
-        }
+        options: { responsive: true, maintainAspectRatio: false, cutout: '65%' }
+      });
+
+      new Chart(document.getElementById('chart_p5_line_acumulada'), {
+        type: 'line',
+        data: {
+          labels: p5_acum.map(x => x.mes),
+          datasets: [
+            { label: 'Ejercicio 25/26 (M)', data: p5_acum.map(x => x.ejerc_2526), borderColor: BRAND.rojoSeguro, backgroundColor: 'rgba(226, 0, 57, 0.1)', fill: true, borderWidth: 3 },
+            { label: 'Ejercicio 24/25 (M)', data: p5_acum.map(x => x.ejerc_2425), borderColor: BRAND.azul, borderWidth: 2, borderDash: [5, 5] }
+          ]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
+
+      const tbP5Prod = document.querySelector('#table_p5_productos tbody');
+      p5_prod.forEach(r => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><strong>${r.producto}</strong></td>
+          <td class="num">${fmtMoney(r.prima)}</td>
+          <td class="num">${fmtPct(r.pct)}</td>
+        `;
+        tbP5Prod.appendChild(tr);
+      });
+
+      const tbP5Acum = document.querySelector('#table_p5_acumulada tbody');
+      p5_acum.forEach(r => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><strong>${r.mes}</strong></td>
+          <td class="num">${fmtNum(r.ejerc_2425)} M</td>
+          <td class="num">${fmtNum(r.ejerc_2526)} M</td>
+          <td class="num" style="color: #108e5a; font-weight: 700;">+${r.variac} %</td>
+        `;
+        tbP5Acum.appendChild(tr);
       });
 
       // ----------------------------------------------------
       // PESTAÑA 6: VIDA INDIVIDUAL
       // ----------------------------------------------------
-      new Chart(document.getElementById('chart_p6_productos'), {
+      const p6_prod = DB.p6_vida_ind.productos;
+      const p6_acum = DB.p6_vida_ind.acumulado_ejercicio;
+
+      new Chart(document.getElementById('chart_p6_pie_productos'), {
         type: 'doughnut',
         data: {
-          labels: ['Individual Temporario ($ 617 M)', 'Individual Vida Entera ($ 114 M)', 'Individual Dotal ($ 94 M)', 'Individual Temp. Ajust. ($ 150 K)'],
-          datasets: [{
-            data: [617177722, 114139794, 94574446, 150701],
-            backgroundColor: [BRAND.rojoSeguro, BRAND.azul, BRAND.amarillo, BRAND.coral]
-          }]
+          labels: p6_prod.map(x => `${x.producto} (${x.pct}%)`),
+          datasets: [{ data: p6_prod.map(x => x.prima), backgroundColor: [BRAND.azul, BRAND.verde, BRAND.amarillo, BRAND.coral] }]
         },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: { legend: { position: 'bottom' } }
-        }
+        options: { responsive: true, maintainAspectRatio: false, cutout: '65%' }
+      });
+
+      new Chart(document.getElementById('chart_p6_line_acumulada'), {
+        type: 'line',
+        data: {
+          labels: p6_acum.map(x => x.mes),
+          datasets: [
+            { label: 'Ejercicio 25/26 (M)', data: p6_acum.map(x => x.ejerc_2526), borderColor: BRAND.rojoSeguro, backgroundColor: 'rgba(226, 0, 57, 0.1)', fill: true, borderWidth: 3 },
+            { label: 'Ejercicio 24/25 (M)', data: p6_acum.map(x => x.ejerc_2425), borderColor: BRAND.azul, borderWidth: 2, borderDash: [5, 5] }
+          ]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
+
+      const tbP6Prod = document.querySelector('#table_p6_productos tbody');
+      p6_prod.forEach(r => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><strong>${r.producto}</strong></td>
+          <td class="num">${fmtMoney(r.prima)}</td>
+          <td class="num">${fmtPct(r.pct)}</td>
+        `;
+        tbP6Prod.appendChild(tr);
+      });
+
+      const tbP6Acum = document.querySelector('#table_p6_acumulada tbody');
+      p6_acum.forEach(r => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><strong>${r.mes}</strong></td>
+          <td class="num">${fmtNum(r.ejerc_2425)} M</td>
+          <td class="num">${fmtNum(r.ejerc_2526)} M</td>
+          <td class="num" style="color: #108e5a; font-weight: 700;">+${r.variac} %</td>
+        `;
+        tbP6Acum.appendChild(tr);
       });
 
       // ----------------------------------------------------
       // PESTAÑA 7: FINANCIERO
       // ----------------------------------------------------
-      const aflnData = [37196, 37685, 38332, 39983, 42170, 43583, 44832, 45097, 46433, 47736, 49523, 51200, 52800, 54100, 55900, 57400, 59200, 60800, 62400, 64100, 65800, 67400, 69100, 71000];
+      const p7_ind = DB.p7_financiero.indicadores;
+      const p7_labels = p7_ind.map(x => x.periodo).reverse();
 
-      new Chart(document.getElementById('chart_p7_afln'), {
-        type: 'line',
-        data: {
-          labels: meses24,
-          datasets: [{
-            label: 'AFLN (Activos Financieros Líquidos Netos)',
-            data: aflnData,
-            borderColor: BRAND.rojoSeguro,
-            backgroundColor: 'rgba(226, 0, 57, 0.08)',
-            fill: true,
-            borderWidth: 3,
-            tension: 0.3,
-            pointRadius: 4,
-            pointBackgroundColor: BRAND.rojoSeguro
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: { tooltip: { callbacks: { label: ctx => '$ ' + ctx.raw.toLocaleString('es-AR') + ' M' } } }
-        }
-      });
-
-      new Chart(document.getElementById('chart_p7_rentabilidad'), {
-        type: 'line',
-        data: {
-          labels: meses24,
-          datasets: [
-            { label: 'Rentabilidad Acumulada (%)', data: [1.6, 2.93, 4.72, 9.19, 16.08, 22.4, 28.1, 33.5, 39.2, 45.1, 51.4, 57.8, 64.2, 70.8, 77.5, 84.1, 91.0, 98.2, 105.4, 112.8, 120.5, 128.4, 136.5, 144.8], borderColor: BRAND.verde, borderWidth: 3 },
-            { label: 'IPC Acumulado (%)', data: [4.03, 8.37, 12.13, 15.15, 18.6, 22.1, 25.8, 29.5, 33.4, 37.6, 41.9, 46.3, 50.8, 55.4, 60.1, 64.9, 69.8, 74.8, 79.9, 85.1, 90.4, 95.8, 101.3, 106.9], borderColor: BRAND.coral, borderWidth: 2, borderDash: [5, 5] }
-          ]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          scales: { y: { ticks: { callback: v => v + ' %' } } }
-        }
-      });
-
-      new Chart(document.getElementById('chart_p7_resultado'), {
+      new Chart(document.getElementById('chart_p7_bar_activos'), {
         type: 'bar',
         data: {
-          labels: meses24,
+          labels: p7_labels,
+          datasets: [{
+            label: 'Stock de Activos ($ Millones)',
+            data: p7_ind.map(x => x.stock_activos).reverse(),
+            backgroundColor: BRAND.rojoSeguro,
+            borderRadius: 6
+          }]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
+
+      new Chart(document.getElementById('chart_p7_rent_ipc'), {
+        type: 'line',
+        data: {
+          labels: p7_labels,
           datasets: [
-            { label: 'Resultado Mensual ($)', data: [-868, -1035, -644, 615, 1355, 1820, 1410, 1650, 1920, 2100, 1850, 2240, 2100, 2350, 2480, 2600, 2450, 2700, 2850, 3100, 2950, 3250, 3400, 3600], backgroundColor: BRAND.azul },
-            { label: 'Resultado Acumulado ($)', type: 'line', data: [-868, -1900, -2550, -1930, -578, 1242, 2652, 4302, 6222, 8322, 10172, 12412, 14512, 16862, 19342, 21942, 24392, 27092, 29942, 33042, 35992, 39242, 42642, 46242], borderColor: BRAND.rojoSeguro, borderWidth: 3 }
+            { label: 'Rentabilidad Acumulada (%)', data: p7_ind.map(x => x.rent_acum).reverse(), borderColor: BRAND.rojoSeguro, borderWidth: 3 },
+            { label: 'IPC Acumulado (%)', data: p7_ind.map(x => x.ipc_acum).reverse(), borderColor: BRAND.azul, borderWidth: 3 }
           ]
         },
         options: { responsive: true, maintainAspectRatio: false }
+      });
+
+      const tbP7 = document.querySelector('#table_p7_financiero_det tbody');
+      p7_ind.forEach(r => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><strong>${r.periodo}</strong></td>
+          <td class="num">${fmtMoney(r.stock_activos)}</td>
+          <td class="num">${fmtPct(r.rent_mes)}</td>
+          <td class="num">${fmtPct(r.rent_acum)}</td>
+          <td class="num">${fmtPct(r.ipc_mes)}</td>
+          <td class="num">${fmtPct(r.ipc_acum)}</td>
+          <td class="num" style="color: ${r.sup_mes >= 0 ? '#108e5a' : '#e20039'};">${r.sup_mes >= 0 ? '+' : ''}${fmtPct(r.sup_mes)}</td>
+          <td class="num" style="color: ${r.sup_acum >= 0 ? '#108e5a' : '#e20039'};">+${fmtPct(r.sup_acum)}</td>
+          <td class="num">${fmtMoney(r.aporte_mes)}</td>
+          <td class="num" style="font-weight: 700;">${fmtMoney(r.aporte_acum)}</td>
+        `;
+        tbP7.appendChild(tr);
       });
 
     });
