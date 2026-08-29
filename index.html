@@ -953,7 +953,7 @@
     </div>
 
     <!-- ==================================================== -->
-    <!-- MÓDULO 3: SINIESTRALIDAD & RESERVAS (COMPARATIVAS INTERANUALES) -->
+    <!-- MÓDULO 3: SINIESTRALIDAD & RESERVAS (EXACTO & CONSISTENTE) -->
     <!-- ==================================================== -->
     <div id="pane_mod_siniestros" class="tab-pane">
       <div class="kpi-grid">
@@ -1416,6 +1416,8 @@
     function updateDashboard() {
       const selectedEj = document.getElementById('sel_ejercicio').value;
       const filtered = filterDataForExercise(selectedEj);
+      const allEj = DB.metadata.ejercicios;
+      const curIdx = allEj.indexOf(selectedEj);
       
       const byPeriod = {};
       filtered.forEach(r => {
@@ -1446,11 +1448,7 @@
         byPeriod[p].prima_acum_ejerc += (r.prima_acum_ejerc || 0);
         
         const pg = (r.pagos_siniestros || 0);
-        const vr_m = (r.variación_reserva_mensual || 0);
         byPeriod[p].pagos_siniestros += pg;
-        byPeriod[p].variacion_reserva_mensual += vr_m;
-        byPeriod[p].costo_siniestral += (pg + vr_m);
-
         byPeriod[p].polizas_vigentes += (r.cant_pólizas_vigentes || 0);
         byPeriod[p].asegurados += (r.cant_asegurados || 0);
         byPeriod[p].emitidas += (r.cant_pólizas_emitidas || 0);
@@ -1464,11 +1462,29 @@
 
       const periodsSorted = Object.keys(byPeriod).sort();
       const periodRows = periodsSorted.map(p => byPeriod[p]);
+      const numMonths = periodsSorted.length;
+
+      // Calcular stock inicial del ejercicio (cierre del ejercicio anterior)
+      let initialStock = 0;
+      if (curIdx > 0) {
+        const prevEj = allEj[curIdx - 1];
+        const prevFiltered = filterDataForExercise(prevEj);
+        const prevPeriods = Array.from(new Set(prevFiltered.map(r => r.periodo))).sort();
+        const lastPrevPeriod = prevPeriods[prevPeriods.length - 1];
+        const lastPrevRecs = prevFiltered.filter(r => r.periodo === lastPrevPeriod);
+        initialStock = lastPrevRecs.reduce((a, b) => a + (b.reserva_total || 0), 0);
+      }
+
+      // Calcular variaciones mensuales exactas periodo a periodo (reserva_t - reserva_t-1)
+      let prevMonthStock = initialStock;
+      periodRows.forEach(pr => {
+        pr.variacion_reserva_mensual = pr.reserva_total - prevMonthStock;
+        pr.costo_siniestral = pr.pagos_siniestros + pr.variacion_reserva_mensual;
+        prevMonthStock = pr.reserva_total;
+      });
 
       let totPrima = 0;
       let totPagos = 0;
-      let totVarRva = 0;
-      let totCostoSin = 0;
       let totEmitidas = 0;
       let totRenovadas = 0;
       let totAnuladas = 0;
@@ -1476,17 +1492,15 @@
       periodRows.forEach(pr => {
         totPrima += currentAdjustedMode ? pr.prima_ajust_ipc : pr.prima_emision;
         totPagos += pr.pagos_siniestros;
-        totVarRva += pr.variacion_reserva_mensual;
-        totCostoSin += pr.costo_siniestral;
         totEmitidas += pr.emitidas;
         totRenovadas += pr.renovadas;
         totAnuladas += pr.anuladas;
       });
 
       const lastP = periodRows[periodRows.length - 1] || {};
-      const allEj = DB.metadata.ejercicios;
-      const curIdx = allEj.indexOf(selectedEj);
-      const numMonths = periodsSorted.length;
+      const finalStock = lastP.reserva_total || 0;
+      const totVarRva = finalStock - initialStock;
+      const totCostoSin = totPagos + totVarRva;
 
       // ----------------------------------------------------
       // COMPARATIVAS LIKE-FOR-LIKE DEL EJERCICIO ANTERIOR
@@ -1501,25 +1515,40 @@
       if (curIdx > 0 && numMonths > 0) {
         prevEj = allEj[curIdx - 1];
         const prevFiltered = filterDataForExercise(prevEj);
-        const prevPeriods = Array.from(new Set(prevFiltered.map(r => r.periodo))).sort().slice(0, numMonths);
+        const prevPeriods = Array.from(new Set(prevFiltered.map(r => r.periodo))).sort();
+        const prevPeriodsSample = prevPeriods.slice(0, numMonths);
         
-        prevPeriodRows = prevPeriods.map(p => {
+        let prevInitialStock = 0;
+        if (curIdx > 1) {
+          const prevPrevEj = allEj[curIdx - 2];
+          const ppFiltered = filterDataForExercise(prevPrevEj);
+          const ppPeriods = Array.from(new Set(ppFiltered.map(r => r.periodo))).sort();
+          const lastPPPeriod = ppPeriods[ppPeriods.length - 1];
+          const lastPPRecs = ppFiltered.filter(r => r.periodo === lastPPPeriod);
+          prevInitialStock = lastPPRecs.reduce((a, b) => a + (b.reserva_total || 0), 0);
+        }
+
+        let prevMStock = prevInitialStock;
+        prevPeriodRows = prevPeriodsSample.map(p => {
           const pRecs = prevFiltered.filter(r => r.periodo === p);
           let sumP = 0;
           let sumPg = 0;
-          let sumVr = 0;
+          let sumStock = 0;
           pRecs.forEach(r => {
             sumP += currentAdjustedMode ? (r.prima_ajustx_ipc || 0) : (r.prima_emisión || 0);
             sumPg += (r.pagos_siniestros || 0);
-            sumVr += (r.variación_reserva_mensual || 0);
+            sumStock += (r.reserva_total || 0);
           });
-          return { prima: sumP, pagos: sumPg, varRva: sumVr, costo: sumPg + sumVr };
+          const varRvaM = sumStock - prevMStock;
+          prevMStock = sumStock;
+          return { prima: sumP, pagos: sumPg, stock: sumStock, varRva: varRvaM, costo: sumPg + varRvaM };
         });
 
         prevTotPrima = prevPeriodRows.reduce((a, b) => a + b.prima, 0);
         prevTotPagos = prevPeriodRows.reduce((a, b) => a + b.pagos, 0);
-        prevTotVarRva = prevPeriodRows.reduce((a, b) => a + b.varRva, 0);
-        prevTotCostoSin = prevPeriodRows.reduce((a, b) => a + b.costo, 0);
+        const prevSampleFinalStock = prevPeriodRows[prevPeriodRows.length - 1] ? prevPeriodRows[prevPeriodRows.length - 1].stock : 0;
+        prevTotVarRva = prevSampleFinalStock - prevInitialStock;
+        prevTotCostoSin = prevTotPagos + prevTotVarRva;
       }
 
       // ----------------------------------------------------
@@ -1631,7 +1660,7 @@
         // 5.1 Comparativa Ratio Siniestralidad (en puntos porcentuales)
         const prevSinRatio = prevTotPrima ? ((prevTotCostoSin / prevTotPrima) * 100) : 0;
         const deltaPp = sinRatio - prevSinRatio;
-        const isGoodRatio = deltaPp <= 0; // Reducción de siniestralidad es favorable
+        const isGoodRatio = deltaPp <= 0;
         
         elDeltaRatio.className = 'kpi-delta ' + (isGoodRatio ? 'positive' : 'negative');
         elDeltaRatio.innerHTML = `<i class="fa-solid fa-arrow-${deltaPp <= 0 ? 'down' : 'up'}"></i> ${deltaPp >= 0 ? '+' : ''}${deltaPp.toFixed(2)} p.p.`;
@@ -1892,17 +1921,42 @@
             prima_ajust_ipc: 0,
             polizas: 0,
             asegurados: 0,
-            costo_sin: 0
+            pagos: 0,
+            stock_ini: 0,
+            stock_fin: 0
           };
         }
         prodAgg[k].prima_emision += (r.prima_emisión || 0);
         prodAgg[k].prima_ajust_ipc += (r.prima_ajustx_ipc || 0);
         prodAgg[k].polizas = Math.max(prodAgg[k].polizas, r.cant_pólizas_vigentes || 0);
         prodAgg[k].asegurados = Math.max(prodAgg[k].asegurados, r.cant_asegurados || 0);
-        prodAgg[k].costo_sin += (r.costo_siniestral || 0);
+        prodAgg[k].pagos += (r.pagos_siniestros || 0);
+        
+        // Stock final del producto en el periodo de cierre
+        if (r.periodo === lastP.periodo) {
+          prodAgg[k].stock_fin = (r.reserva_total || 0);
+        }
       });
 
-      const prodList = Object.values(prodAgg).sort((a, b) => {
+      // Obtener stock inicial por producto
+      if (curIdx > 0) {
+        const prevEj = allEj[curIdx - 1];
+        const prevFiltered = filterDataForExercise(prevEj);
+        const prevPeriods = Array.from(new Set(prevFiltered.map(r => r.periodo))).sort();
+        const lastPrevPeriod = prevPeriods[prevPeriods.length - 1];
+        prevFiltered.filter(r => r.periodo === lastPrevPeriod).forEach(r => {
+          const k = `${r.ramo}|||${r.producto}|||${r.producto_largo}`;
+          if (prodAgg[k]) {
+            prodAgg[k].stock_ini = (r.reserva_total || 0);
+          }
+        });
+      }
+
+      const prodList = Object.values(prodAgg).map(p => {
+        const varRvaP = p.stock_fin - p.stock_ini;
+        const costoSinP = p.pagos + varRvaP;
+        return { ...p, var_rva: varRvaP, costo_sin: costoSinP };
+      }).sort((a, b) => {
         const valA = currentAdjustedMode ? a.prima_ajust_ipc : a.prima_emision;
         const valB = currentAdjustedMode ? b.prima_ajust_ipc : b.prima_emision;
         return valB - valA;
