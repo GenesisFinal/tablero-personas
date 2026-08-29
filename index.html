@@ -592,9 +592,10 @@
       outline: none;
     }
 
+    /* CONTENEDOR DE TABLA CON ALTURA EXTENDIDA PARA 12 MESES */
     .table-wrapper {
       overflow-x: auto;
-      max-height: 440px;
+      max-height: 680px;
       scrollbar-width: thin;
     }
 
@@ -612,7 +613,7 @@
       text-transform: uppercase;
       font-size: 11px;
       letter-spacing: 0.5px;
-      padding: 11px 16px;
+      padding: 10px 16px;
       border-bottom: 2px solid var(--border-subtle);
       position: sticky;
       top: 0;
@@ -620,7 +621,7 @@
     }
 
     table.data-table td {
-      padding: 10px 16px;
+      padding: 9px 16px;
       border-bottom: 1px solid var(--border-subtle);
       color: var(--carbon);
       font-weight: 500;
@@ -1586,7 +1587,6 @@
       const monthLabels = MONTH_NAMES.slice(0, numMonths).map((m, idx) => `${m} (${periodRows[idx] ? periodRows[idx].periodo.slice(0, 4) : ''})`);
       const dataPrima = periodRows.map(p => currentAdjustedMode ? p.prima_ajust_ipc : p.prima_emision);
 
-      // Calcular acumulados mes a mes
       let cumCur = 0;
       const dataPrimaAcum = dataPrima.map(v => { cumCur += v; return cumCur; });
 
