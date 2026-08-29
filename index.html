@@ -538,7 +538,7 @@
     }
 
     .chart-header h3 {
-      font-size: 14.5px;
+      font-size: 14px;
       font-weight: 700;
       color: var(--carbon);
       display: flex;
@@ -815,16 +815,27 @@
 
       <!-- GRÁFICOS PRODUCCIÓN -->
       <div class="dashboard-grid">
-        <div class="chart-card col-8">
+        <!-- 1. Evolución Mensual de Producción -->
+        <div class="chart-card col-6">
           <div class="chart-header">
-            <h3><i class="fa-solid fa-chart-line"></i> Evolución Mensual de Producción (Comparativa Interanual)</h3>
+            <h3><i class="fa-solid fa-chart-line"></i> Evolución Mensual de Producción (Interanual)</h3>
           </div>
           <div class="chart-container">
             <canvas id="chart_prod_evolucion"></canvas>
           </div>
         </div>
 
-        <!-- GRÁFICO DE PARTICIPACIÓN -->
+        <!-- 2. Evolución Mensual Acumulada de Producción -->
+        <div class="chart-card col-6">
+          <div class="chart-header">
+            <h3><i class="fa-solid fa-chart-area"></i> Evolución Acumulada de Producción (Interanual)</h3>
+          </div>
+          <div class="chart-container">
+            <canvas id="chart_prod_acumulada"></canvas>
+          </div>
+        </div>
+
+        <!-- 3. Participación por Ramo / Producto -->
         <div class="chart-card col-4">
           <div class="chart-header">
             <h3 id="title_prod_pie"><i class="fa-solid fa-chart-pie"></i> Participación por Ramo</h3>
@@ -834,11 +845,12 @@
           </div>
         </div>
 
-        <div class="chart-card col-12">
+        <!-- 4. Variables Macroeconómicas -->
+        <div class="chart-card col-8">
           <div class="chart-header">
             <h3><i class="fa-solid fa-wave-square"></i> Variables Macroeconómicas: RIPTE vs IPC</h3>
           </div>
-          <div class="chart-container" style="min-height: 240px;">
+          <div class="chart-container">
             <canvas id="chart_prod_macro"></canvas>
           </div>
         </div>
@@ -1569,11 +1581,19 @@
       document.getElementById('kpi_sin_demandas').textContent = fmtNum(lastP.demandas || 0);
 
       // ----------------------------------------------------
-      // 6. GRÁFICOS PRODUCCIÓN (CON LÍNEA COMPARATIVA AÑO PREVIO)
+      // 6. GRÁFICOS PRODUCCIÓN (MENSUAL + ACUMULADA)
       // ----------------------------------------------------
       const monthLabels = MONTH_NAMES.slice(0, numMonths).map((m, idx) => `${m} (${periodRows[idx] ? periodRows[idx].periodo.slice(0, 4) : ''})`);
       const dataPrima = periodRows.map(p => currentAdjustedMode ? p.prima_ajust_ipc : p.prima_emision);
 
+      // Calcular acumulados mes a mes
+      let cumCur = 0;
+      const dataPrimaAcum = dataPrima.map(v => { cumCur += v; return cumCur; });
+
+      let cumPrev = 0;
+      const prevDataAcum = prevPeriodRows.map(v => { cumPrev += v; return cumPrev; });
+
+      // 6A. Datasets Gráfico Mensual
       const prodDatasets = [
         {
           label: `${selectedEj} (${currentAdjustedMode ? 'Ajust. IPC' : 'Histórico'})`,
@@ -1597,10 +1617,35 @@
           tension: 0.3
         });
       }
-
       renderLineChart('chart_prod_evolucion', monthLabels, prodDatasets);
 
-      // GRÁFICO DINÁMICO: PARTICIPACIÓN POR RAMO O POR PRODUCTO CON % EN LEYENDA Y SOLO IMPORTE EN TOOLTIP
+      // 6B. Datasets Gráfico Acumulado
+      const prodAcumDatasets = [
+        {
+          label: `${selectedEj} Acumulado`,
+          data: dataPrimaAcum,
+          borderColor: BRAND.rojoSeguro,
+          backgroundColor: 'rgba(226, 0, 57, 0.08)',
+          fill: true,
+          borderWidth: 3,
+          tension: 0.3
+        }
+      ];
+
+      if (prevEj && prevDataAcum.length > 0) {
+        prodAcumDatasets.push({
+          label: `${prevEj} Acumulado (Año Previo)`,
+          data: prevDataAcum,
+          borderColor: BRAND.azul,
+          backgroundColor: 'transparent',
+          borderDash: [6, 6],
+          borderWidth: 2.5,
+          tension: 0.3
+        });
+      }
+      renderLineChart('chart_prod_acumulada', monthLabels, prodAcumDatasets);
+
+      // 6C. Gráfico de Torta Dinámico
       const isAllRamosSelected = selectedRamos.size === DB.metadata.ramos.length;
       const titlePieEl = document.getElementById('title_prod_pie');
 
@@ -1652,7 +1697,7 @@
           <td class="num" style="color: ${!prevVal ? 'inherit' : (isPos ? '#0d8251' : 'var(--rojo-seguro)')}; font-weight:700;">
             ${!prevVal ? '-' : (isPos ? '+' : '') + pct.toFixed(2) + ' %'}
           </td>
-          <td class="num">${fmtMoney(pr.prima_acum_ejerc)}</td>
+          <td class="num">${fmtMoney(dataPrimaAcum[idx])}</td>
         `;
         tbProd.appendChild(tr);
       });
@@ -1851,6 +1896,7 @@
       });
     }
 
+    // DOUGHNUT CHART: LEYENDA CON % Y TOOLTIP (BADGE) SOLO CON EL IMPORTE ($)
     function renderDoughnutChart(canvasId, rawLabels, data, colors) {
       if (charts[canvasId]) charts[canvasId].destroy();
       const total = data.reduce((a, b) => a + b, 0);
