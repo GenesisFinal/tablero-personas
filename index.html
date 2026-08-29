@@ -953,32 +953,48 @@
     </div>
 
     <!-- ==================================================== -->
-    <!-- MÓDULO 3: SINIESTRALIDAD & RESERVAS -->
+    <!-- MÓDULO 3: SINIESTRALIDAD & RESERVAS (COMPARATIVAS INTERANUALES) -->
     <!-- ==================================================== -->
     <div id="pane_mod_siniestros" class="tab-pane">
       <div class="kpi-grid">
+        <!-- KPI 1: RATIO SINIESTRALIDAD GLOBAL -->
         <div class="kpi-card">
           <span class="kpi-title">Ratio Siniestralidad Global</span>
           <div class="kpi-value" id="kpi_sin_ratio">0,00 %</div>
-          <div class="kpi-subtext">Costo Siniestral / Prima Total</div>
+          <div class="kpi-subtext" id="kpi_sin_ratio_sub">
+            <span class="kpi-delta neutral" id="kpi_sin_ratio_delta">-</span>
+            <span id="kpi_sin_ratio_text">vs período anterior</span>
+          </div>
         </div>
 
+        <!-- KPI 2: COSTO SINIESTRAL TOTAL -->
         <div class="kpi-card accent-coral">
           <span class="kpi-title">Costo Siniestral Total</span>
           <div class="kpi-value" id="kpi_sin_costo">$ 0</div>
-          <div class="kpi-subtext">Pagos + Var. Reserva Ejercicio</div>
+          <div class="kpi-subtext" id="kpi_sin_costo_sub">
+            <span class="kpi-delta neutral" id="kpi_sin_costo_delta">-</span>
+            <span id="kpi_sin_costo_text">vs período anterior</span>
+          </div>
         </div>
 
+        <!-- KPI 3: TOTAL PAGOS DE SINIESTROS -->
         <div class="kpi-card accent-blue">
           <span class="kpi-title">Total Pagos de Siniestros</span>
           <div class="kpi-value" id="kpi_sin_pagos">$ 0</div>
-          <div class="kpi-subtext">Efectivamente liquidados</div>
+          <div class="kpi-subtext" id="kpi_sin_pagos_sub">
+            <span class="kpi-delta neutral" id="kpi_sin_pagos_delta">-</span>
+            <span id="kpi_sin_pagos_text">vs período anterior</span>
+          </div>
         </div>
 
+        <!-- KPI 4: VARIACIÓN RESERVA EJERCICIO -->
         <div class="kpi-card accent-green">
           <span class="kpi-title">Variación Reserva Ejercicio</span>
           <div class="kpi-value" id="kpi_sin_var_rva">$ 0</div>
-          <div class="kpi-subtext">Cargo neto a resultados</div>
+          <div class="kpi-subtext" id="kpi_sin_var_rva_sub">
+            <span class="kpi-delta neutral" id="kpi_sin_var_rva_delta">-</span>
+            <span id="kpi_sin_var_rva_text">Cargo neto a resultados</span>
+          </div>
         </div>
       </div>
 
@@ -1473,6 +1489,40 @@
       const numMonths = periodsSorted.length;
 
       // ----------------------------------------------------
+      // COMPARATIVAS LIKE-FOR-LIKE DEL EJERCICIO ANTERIOR
+      // ----------------------------------------------------
+      let prevEj = null;
+      let prevPeriodRows = [];
+      let prevTotPrima = 0;
+      let prevTotPagos = 0;
+      let prevTotVarRva = 0;
+      let prevTotCostoSin = 0;
+
+      if (curIdx > 0 && numMonths > 0) {
+        prevEj = allEj[curIdx - 1];
+        const prevFiltered = filterDataForExercise(prevEj);
+        const prevPeriods = Array.from(new Set(prevFiltered.map(r => r.periodo))).sort().slice(0, numMonths);
+        
+        prevPeriodRows = prevPeriods.map(p => {
+          const pRecs = prevFiltered.filter(r => r.periodo === p);
+          let sumP = 0;
+          let sumPg = 0;
+          let sumVr = 0;
+          pRecs.forEach(r => {
+            sumP += currentAdjustedMode ? (r.prima_ajustx_ipc || 0) : (r.prima_emisión || 0);
+            sumPg += (r.pagos_siniestros || 0);
+            sumVr += (r.variación_reserva_mensual || 0);
+          });
+          return { prima: sumP, pagos: sumPg, varRva: sumVr, costo: sumPg + sumVr };
+        });
+
+        prevTotPrima = prevPeriodRows.reduce((a, b) => a + b.prima, 0);
+        prevTotPagos = prevPeriodRows.reduce((a, b) => a + b.pagos, 0);
+        prevTotVarRva = prevPeriodRows.reduce((a, b) => a + b.varRva, 0);
+        prevTotCostoSin = prevPeriodRows.reduce((a, b) => a + b.costo, 0);
+      }
+
+      // ----------------------------------------------------
       // 1. COMPARATIVO PRIMA TOTAL & PROMEDIO MENSUAL
       // ----------------------------------------------------
       document.getElementById('kpi_prod_total').textContent = fmtMoney(totPrima);
@@ -1484,27 +1534,8 @@
       const deltaAvgEl = document.getElementById('kpi_prod_avg_delta');
       const textAvgEl = document.getElementById('kpi_prod_avg_text');
 
-      let prevEj = null;
-      let prevPeriodRows = [];
-      let prevTotPrima = 0;
-
-      if (curIdx > 0 && numMonths > 0) {
-        prevEj = allEj[curIdx - 1];
-        const prevFiltered = filterDataForExercise(prevEj);
-        const prevPeriods = Array.from(new Set(prevFiltered.map(r => r.periodo))).sort().slice(0, numMonths);
-        
-        prevPeriodRows = prevPeriods.map(p => {
-          const pRecs = prevFiltered.filter(r => r.periodo === p);
-          let sumP = 0;
-          pRecs.forEach(r => {
-            sumP += currentAdjustedMode ? (r.prima_ajustx_ipc || 0) : (r.prima_emisión || 0);
-          });
-          return sumP;
-        });
-
-        prevTotPrima = prevPeriodRows.reduce((a, b) => a + b, 0);
+      if (prevEj && numMonths > 0) {
         const prevAvgPrima = numMonths ? (prevTotPrima / numMonths) : 0;
-
         const diffTotal = totPrima - prevTotPrima;
         const pctTotal = prevTotPrima ? ((diffTotal / prevTotPrima) * 100) : 0;
         const isPosTotal = diffTotal >= 0;
@@ -1579,7 +1610,7 @@
       document.getElementById('kpi_cart_emitidas').textContent = fmtNum(totEmitidas);
 
       // ----------------------------------------------------
-      // 5. KPIS SINIESTROS (EXACTOS & CONSISTENTES)
+      // 5. KPIS SINIESTROS & COMPARATIVAS INTERANUALES
       // ----------------------------------------------------
       const sinRatio = totPrima ? ((totCostoSin / totPrima) * 100) : 0;
       document.getElementById('kpi_sin_ratio').textContent = fmtPct(sinRatio);
@@ -1587,17 +1618,87 @@
       document.getElementById('kpi_sin_pagos').textContent = fmtMoney(totPagos);
       document.getElementById('kpi_sin_var_rva').textContent = (totVarRva >= 0 ? '+' : '') + fmtMoney(totVarRva);
 
+      const elDeltaRatio = document.getElementById('kpi_sin_ratio_delta');
+      const elTextRatio = document.getElementById('kpi_sin_ratio_text');
+      const elDeltaCosto = document.getElementById('kpi_sin_costo_delta');
+      const elTextCosto = document.getElementById('kpi_sin_costo_text');
+      const elDeltaPagos = document.getElementById('kpi_sin_pagos_delta');
+      const elTextPagos = document.getElementById('kpi_sin_pagos_text');
+      const elDeltaVarRva = document.getElementById('kpi_sin_var_rva_delta');
+      const elTextVarRva = document.getElementById('kpi_sin_var_rva_text');
+
+      if (prevEj && numMonths > 0) {
+        // 5.1 Comparativa Ratio Siniestralidad (en puntos porcentuales)
+        const prevSinRatio = prevTotPrima ? ((prevTotCostoSin / prevTotPrima) * 100) : 0;
+        const deltaPp = sinRatio - prevSinRatio;
+        const isGoodRatio = deltaPp <= 0; // Reducción de siniestralidad es positivo
+        
+        elDeltaRatio.className = 'kpi-delta ' + (isGoodRatio ? 'positive' : 'negative');
+        elDeltaRatio.innerHTML = `<i class="fa-solid fa-arrow-${deltaPp <= 0 ? 'down' : 'up'}"></i> ${deltaPp >= 0 ? '+' : ''}${deltaPp.toFixed(2)} p.p.`;
+        elTextRatio.textContent = numMonths === 12
+          ? `vs ${prevEj} (${prevSinRatio.toFixed(2)} %)`
+          : `vs mismo período (${numMonths}m) de ${prevEj} (${prevSinRatio.toFixed(2)} %)`;
+
+        // 5.2 Comparativa Costo Siniestral Total
+        const diffCosto = totCostoSin - prevTotCostoSin;
+        const pctCosto = prevTotCostoSin ? ((diffCosto / prevTotCostoSin) * 100) : 0;
+        const isGoodCosto = diffCosto <= 0; // Menor costo es favorable
+        
+        elDeltaCosto.className = 'kpi-delta ' + (isGoodCosto ? 'positive' : 'negative');
+        elDeltaCosto.innerHTML = `<i class="fa-solid fa-arrow-${diffCosto >= 0 ? 'up' : 'down'}"></i> ${diffCosto >= 0 ? '+' : ''}${pctCosto.toFixed(2)} %`;
+        elTextCosto.textContent = numMonths === 12
+          ? `vs ${prevEj} (${diffCosto >= 0 ? '+' : ''}${fmtMoney(diffCosto)})`
+          : `vs mismo período (${numMonths}m) de ${prevEj} (${diffCosto >= 0 ? '+' : ''}${fmtMoney(diffCosto)})`;
+
+        // 5.3 Comparativa Pagos de Siniestros
+        const diffPagos = totPagos - prevTotPagos;
+        const pctPagos = prevTotPagos ? ((diffPagos / prevTotPagos) * 100) : 0;
+        const isGoodPagos = diffPagos <= 0;
+        
+        elDeltaPagos.className = 'kpi-delta ' + (isGoodPagos ? 'positive' : 'negative');
+        elDeltaPagos.innerHTML = `<i class="fa-solid fa-arrow-${diffPagos >= 0 ? 'up' : 'down'}"></i> ${diffPagos >= 0 ? '+' : ''}${pctPagos.toFixed(2)} %`;
+        elTextPagos.textContent = numMonths === 12
+          ? `vs ${prevEj} (${diffPagos >= 0 ? '+' : ''}${fmtMoney(diffPagos)})`
+          : `vs mismo período (${numMonths}m) de ${prevEj} (${diffPagos >= 0 ? '+' : ''}${fmtMoney(diffPagos)})`;
+
+        // 5.4 Comparativa Variación Reserva
+        const diffVarRva = totVarRva - prevTotVarRva;
+        elDeltaVarRva.className = 'kpi-delta neutral';
+        elDeltaVarRva.textContent = `${diffVarRva >= 0 ? '+' : ''}${fmtMoney(diffVarRva)}`;
+        elTextVarRva.textContent = numMonths === 12
+          ? `vs var. ${prevEj} (${prevTotVarRva >= 0 ? '+' : ''}${fmtMoney(prevTotVarRva)})`
+          : `vs var. ${numMonths}m ${prevEj} (${prevTotVarRva >= 0 ? '+' : ''}${fmtMoney(prevTotVarRva)})`;
+
+      } else {
+        elDeltaRatio.className = 'kpi-delta neutral';
+        elDeltaRatio.textContent = 'Base histórica';
+        elTextRatio.textContent = `Primer ejercicio registrado (${numMonths} meses)`;
+
+        elDeltaCosto.className = 'kpi-delta neutral';
+        elDeltaCosto.textContent = 'Base histórica';
+        elTextCosto.textContent = `Primer ejercicio registrado (${numMonths} meses)`;
+
+        elDeltaPagos.className = 'kpi-delta neutral';
+        elDeltaPagos.textContent = 'Base histórica';
+        elTextPagos.textContent = `Primer ejercicio registrado (${numMonths} meses)`;
+
+        elDeltaVarRva.className = 'kpi-delta neutral';
+        elDeltaVarRva.textContent = 'Base histórica';
+        elTextVarRva.textContent = `Primer ejercicio registrado (${numMonths} meses)`;
+      }
+
       // ----------------------------------------------------
       // 6. GRÁFICOS PRODUCCIÓN (MENSUAL + ACUMULADA)
       // ----------------------------------------------------
       const monthLabels = MONTH_NAMES.slice(0, numMonths).map((m, idx) => `${m} (${periodRows[idx] ? periodRows[idx].periodo.slice(0, 4) : ''})`);
       const dataPrima = periodRows.map(p => currentAdjustedMode ? p.prima_ajust_ipc : p.prima_emision);
+      const prevDataPrima = prevPeriodRows.map(p => p.prima);
 
       let cumCur = 0;
       const dataPrimaAcum = dataPrima.map(v => { cumCur += v; return cumCur; });
 
       let cumPrev = 0;
-      const prevDataAcum = prevPeriodRows.map(v => { cumPrev += v; return cumPrev; });
+      const prevDataAcum = prevDataPrima.map(v => { cumPrev += v; return cumPrev; });
 
       // 6A. Gráfico Mensual
       const prodDatasets = [
@@ -1612,10 +1713,10 @@
         }
       ];
 
-      if (prevEj && prevPeriodRows.length > 0) {
+      if (prevEj && prevDataPrima.length > 0) {
         prodDatasets.push({
           label: `${prevEj} (Año Previo)`,
-          data: prevPeriodRows,
+          data: prevDataPrima,
           borderColor: BRAND.azul,
           backgroundColor: 'transparent',
           borderDash: [6, 6],
@@ -1688,7 +1789,7 @@
       const tbProd = document.querySelector('#table_prod_mensual tbody');
       tbProd.innerHTML = '';
       periodRows.forEach((pr, idx) => {
-        const prevVal = prevPeriodRows[idx] || 0;
+        const prevVal = prevDataPrima[idx] || 0;
         const curVal = currentAdjustedMode ? pr.prima_ajust_ipc : pr.prima_emision;
         const diff = curVal - prevVal;
         const pct = prevVal ? ((diff / prevVal) * 100) : 0;
