@@ -253,15 +253,6 @@
       box-shadow: 0 0 0 2px rgba(226, 0, 57, 0.1);
     }
 
-    .multiselect-badge {
-      background: var(--rojo-seguro);
-      color: #ffffff;
-      font-size: 11px;
-      font-weight: 700;
-      padding: 2px 7px;
-      border-radius: var(--radius-pill);
-    }
-
     .multiselect-panel {
       position: absolute;
       top: calc(100% + 6px);
@@ -833,9 +824,10 @@
           </div>
         </div>
 
+        <!-- GRÁFICO DE TORTA DINÁMICO (RAMO O PRODUCTO) -->
         <div class="chart-card col-4">
           <div class="chart-header">
-            <h3><i class="fa-solid fa-chart-pie"></i> Participación por Ramo</h3>
+            <h3 id="title_prod_pie"><i class="fa-solid fa-chart-pie"></i> Participación por Ramo</h3>
           </div>
           <div class="chart-container">
             <canvas id="chart_prod_pie_ramos"></canvas>
@@ -1211,7 +1203,6 @@
 
     // INICIALIZACIÓN DE SELECTORES
     function initSelectors() {
-      // 1. Ejercicios
       const selEj = document.getElementById('sel_ejercicio');
       DB.metadata.ejercicios.forEach(ej => {
         const opt = document.createElement('option');
@@ -1221,7 +1212,6 @@
         selEj.appendChild(opt);
       });
 
-      // 2. Multi-Select Ramos
       const optsRamos = document.getElementById('opts_ms_ramos');
       optsRamos.innerHTML = '';
       DB.metadata.ramos.forEach(r => {
@@ -1234,7 +1224,6 @@
         optsRamos.appendChild(div);
       });
 
-      // 3. Multi-Select Productos inicial
       rebuildProductOptions(true);
       updateMultiSelectButtonsText();
     }
@@ -1260,7 +1249,6 @@
       }
     }
 
-    // Cerrar panels al hacer click afuera
     document.addEventListener('click', (e) => {
       const wRamos = document.getElementById('wrap_ms_ramos');
       const wProds = document.getElementById('wrap_ms_productos');
@@ -1310,7 +1298,6 @@
       if (selectAllProducts) {
         selectedProductos = new Set(availableProds);
       } else {
-        // Retener solo los que siguen disponibles
         selectedProductos = new Set([...selectedProductos].filter(x => availableProds.has(x)));
       }
 
@@ -1352,7 +1339,6 @@
     }
 
     function updateMultiSelectButtonsText() {
-      // Label Ramos
       const totalRamos = DB.metadata.ramos.length;
       const countRamos = selectedRamos.size;
       const lblRamos = document.getElementById('label_ms_ramos');
@@ -1366,7 +1352,6 @@
         lblRamos.textContent = `${countRamos} Ramos seleccionados`;
       }
 
-      // Label Productos
       const optsProds = document.querySelectorAll('#opts_ms_productos input[type="checkbox"]');
       const totalProds = optsProds.length;
       const countProds = selectedProductos.size;
@@ -1588,17 +1573,38 @@
         tension: 0.3
       }]);
 
-      const ramoTotals = {};
-      filtered.forEach(r => {
-        const rm = r.ramo;
-        const val = currentAdjustedMode ? (r.prima_ajustx_ipc || 0) : (r.prima_emisión || 0);
-        ramoTotals[rm] = (ramoTotals[rm] || 0) + val;
-      });
-      const ramoLabels = Object.keys(ramoTotals);
-      const ramoValues = Object.values(ramoTotals);
-      renderDoughnutChart('chart_prod_pie_ramos', ramoLabels, ramoValues, [
-        BRAND.rojoSeguro, BRAND.azul, BRAND.verde, BRAND.amarillo, BRAND.coral, BRAND.borgona
-      ]);
+      // GRÁFICO DINÁMICO: PARTICIPACIÓN POR RAMO O POR PRODUCTO
+      const isAllRamosSelected = selectedRamos.size === DB.metadata.ramos.length;
+      const titlePieEl = document.getElementById('title_prod_pie');
+
+      if (isAllRamosSelected) {
+        if (titlePieEl) titlePieEl.innerHTML = '<i class="fa-solid fa-chart-pie"></i> Participación por Ramo';
+        const ramoTotals = {};
+        filtered.forEach(r => {
+          const rm = r.ramo;
+          const val = currentAdjustedMode ? (r.prima_ajustx_ipc || 0) : (r.prima_emisión || 0);
+          ramoTotals[rm] = (ramoTotals[rm] || 0) + val;
+        });
+        const ramoLabels = Object.keys(ramoTotals);
+        const ramoValues = Object.values(ramoTotals);
+        renderDoughnutChart('chart_prod_pie_ramos', ramoLabels, ramoValues, [
+          BRAND.rojoSeguro, BRAND.azul, BRAND.verde, BRAND.amarillo, BRAND.coral, BRAND.borgona
+        ]);
+      } else {
+        if (titlePieEl) titlePieEl.innerHTML = '<i class="fa-solid fa-chart-pie"></i> Participación por Producto';
+        const prodTotals = {};
+        filtered.forEach(r => {
+          const prd = r.producto;
+          const val = currentAdjustedMode ? (r.prima_ajustx_ipc || 0) : (r.prima_emisión || 0);
+          prodTotals[prd] = (prodTotals[prd] || 0) + val;
+        });
+        const prodLabels = Object.keys(prodTotals);
+        const prodValues = Object.values(prodTotals);
+        renderDoughnutChart('chart_prod_pie_ramos', prodLabels, prodValues, [
+          BRAND.rojoSeguro, BRAND.azul, BRAND.verde, BRAND.amarillo, BRAND.coral, BRAND.borgona,
+          '#0ea5e9', '#8b5cf6', '#ec4899', '#f97316', '#14b8a6', '#64748b'
+        ]);
+      }
 
       const tbProd = document.querySelector('#table_prod_mensual tbody');
       tbProd.innerHTML = '';
