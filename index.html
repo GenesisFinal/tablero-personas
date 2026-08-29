@@ -993,7 +993,7 @@
           <div class="kpi-value" id="kpi_sin_var_rva">$ 0</div>
           <div class="kpi-subtext" id="kpi_sin_var_rva_sub">
             <span class="kpi-delta neutral" id="kpi_sin_var_rva_delta">-</span>
-            <span id="kpi_sin_var_rva_text">Cargo neto a resultados</span>
+            <span id="kpi_sin_var_rva_text">vs período anterior</span>
           </div>
         </div>
       </div>
@@ -1631,7 +1631,7 @@
         // 5.1 Comparativa Ratio Siniestralidad (en puntos porcentuales)
         const prevSinRatio = prevTotPrima ? ((prevTotCostoSin / prevTotPrima) * 100) : 0;
         const deltaPp = sinRatio - prevSinRatio;
-        const isGoodRatio = deltaPp <= 0; // Reducción de siniestralidad es positivo
+        const isGoodRatio = deltaPp <= 0; // Reducción de siniestralidad es favorable
         
         elDeltaRatio.className = 'kpi-delta ' + (isGoodRatio ? 'positive' : 'negative');
         elDeltaRatio.innerHTML = `<i class="fa-solid fa-arrow-${deltaPp <= 0 ? 'down' : 'up'}"></i> ${deltaPp >= 0 ? '+' : ''}${deltaPp.toFixed(2)} p.p.`;
@@ -1642,7 +1642,7 @@
         // 5.2 Comparativa Costo Siniestral Total
         const diffCosto = totCostoSin - prevTotCostoSin;
         const pctCosto = prevTotCostoSin ? ((diffCosto / prevTotCostoSin) * 100) : 0;
-        const isGoodCosto = diffCosto <= 0; // Menor costo es favorable
+        const isGoodCosto = diffCosto <= 0;
         
         elDeltaCosto.className = 'kpi-delta ' + (isGoodCosto ? 'positive' : 'negative');
         elDeltaCosto.innerHTML = `<i class="fa-solid fa-arrow-${diffCosto >= 0 ? 'up' : 'down'}"></i> ${diffCosto >= 0 ? '+' : ''}${pctCosto.toFixed(2)} %`;
@@ -1661,13 +1661,16 @@
           ? `vs ${prevEj} (${diffPagos >= 0 ? '+' : ''}${fmtMoney(diffPagos)})`
           : `vs mismo período (${numMonths}m) de ${prevEj} (${diffPagos >= 0 ? '+' : ''}${fmtMoney(diffPagos)})`;
 
-        // 5.4 Comparativa Variación Reserva
+        // 5.4 Comparativa Variación Reserva (%)
         const diffVarRva = totVarRva - prevTotVarRva;
-        elDeltaVarRva.className = 'kpi-delta neutral';
-        elDeltaVarRva.textContent = `${diffVarRva >= 0 ? '+' : ''}${fmtMoney(diffVarRva)}`;
+        const pctVarRva = prevTotVarRva ? ((diffVarRva / Math.abs(prevTotVarRva)) * 100) : 0;
+        const isGoodVarRva = diffVarRva <= 0;
+        
+        elDeltaVarRva.className = 'kpi-delta ' + (isGoodVarRva ? 'positive' : 'negative');
+        elDeltaVarRva.innerHTML = `<i class="fa-solid fa-arrow-${diffVarRva >= 0 ? 'up' : 'down'}"></i> ${diffVarRva >= 0 ? '+' : ''}${pctVarRva.toFixed(2)} %`;
         elTextVarRva.textContent = numMonths === 12
-          ? `vs var. ${prevEj} (${prevTotVarRva >= 0 ? '+' : ''}${fmtMoney(prevTotVarRva)})`
-          : `vs var. ${numMonths}m ${prevEj} (${prevTotVarRva >= 0 ? '+' : ''}${fmtMoney(prevTotVarRva)})`;
+          ? `vs ${prevEj} (${diffVarRva >= 0 ? '+' : ''}${fmtMoney(diffVarRva)})`
+          : `vs mismo período (${numMonths}m) de ${prevEj} (${diffVarRva >= 0 ? '+' : ''}${fmtMoney(diffVarRva)})`;
 
       } else {
         elDeltaRatio.className = 'kpi-delta neutral';
