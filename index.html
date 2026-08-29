@@ -650,6 +650,7 @@
 
       <!-- KPIS PRODUCCIÓN -->
       <div class="kpi-grid">
+        <!-- KPI 1: PRIMA TOTAL CON COMPARATIVO -->
         <div class="kpi-card">
           <span class="kpi-title">Prima Emitida Total</span>
           <div class="kpi-value" id="kpi_prod_total">$ 0</div>
@@ -659,19 +660,24 @@
           </div>
         </div>
 
+        <!-- KPI 2: PRIMA PROMEDIO MENSUAL CON COMPARATIVO -->
         <div class="kpi-card accent-blue">
           <span class="kpi-title">Prima Promedio Mensual</span>
           <div class="kpi-value" id="kpi_prod_promedio">$ 0</div>
-          <div class="kpi-subtext">Promedio mensual del ejercicio</div>
+          <div class="kpi-subtext" id="kpi_prod_promedio_sub">
+            <span class="kpi-delta neutral" id="kpi_prod_avg_delta">-</span>
+            <span id="kpi_prod_avg_text">vs promedio anterior</span>
+          </div>
         </div>
 
+        <!-- KPI 3: MES PICO -->
         <div class="kpi-card accent-coral">
           <span class="kpi-title">Mes de Máxima Emisión</span>
           <div class="kpi-value" id="kpi_prod_max_mes">-</div>
           <div class="kpi-subtext" id="kpi_prod_max_val">$ 0</div>
         </div>
 
-        <!-- TARJETA REDISEÑADA: IPC EN GRANDE Y RIPTE EN PEQUEÑO -->
+        <!-- KPI 4: INFLACIÓN IPC & RIPTE -->
         <div class="kpi-card accent-green">
           <span class="kpi-title" id="kpi_macro_title">Inflación Anual (IPC Cierre)</span>
           <div class="kpi-value" id="kpi_prod_ipc_val">33,70 %</div>
@@ -1034,7 +1040,7 @@
       grid: '#edf2f7'
     };
 
-    let currentAdjustedMode = true; // true = Ajustado por IPC, false = Histórico
+    let currentAdjustedMode = true;
     let charts = {};
 
     function fmtMoney(num) {
@@ -1185,18 +1191,21 @@
       });
 
       const lastP = periodRows[periodRows.length - 1] || {};
-
-      // ----------------------------------------------------
-      // CÁLCULO COMPARATIVO LIKE-FOR-LIKE VS EJERCICIO ANTERIOR
-      // ----------------------------------------------------
       const allEj = DB.metadata.ejercicios;
       const curIdx = allEj.indexOf(selectedEj);
       const numMonths = periodsSorted.length;
 
+      // ----------------------------------------------------
+      // 1. CÁLCULO COMPARATIVO PRIMA TOTAL & PROMEDIO MENSUAL
+      // ----------------------------------------------------
       document.getElementById('kpi_prod_total').textContent = fmtMoney(totPrima);
+      const avgPrima = numMonths ? (totPrima / numMonths) : 0;
+      document.getElementById('kpi_prod_promedio').textContent = fmtMoney(avgPrima);
 
-      const deltaEl = document.getElementById('kpi_prod_comp_delta');
-      const textEl = document.getElementById('kpi_prod_comp_text');
+      const deltaTotalEl = document.getElementById('kpi_prod_comp_delta');
+      const textTotalEl = document.getElementById('kpi_prod_comp_text');
+      const deltaAvgEl = document.getElementById('kpi_prod_avg_delta');
+      const textAvgEl = document.getElementById('kpi_prod_avg_text');
 
       if (curIdx > 0 && numMonths > 0) {
         const prevEj = allEj[curIdx - 1];
@@ -1210,26 +1219,47 @@
           prevTotPrima += currentAdjustedMode ? (r.prima_ajustx_ipc || 0) : (r.prima_emisión || 0);
         });
 
-        const diffPrima = totPrima - prevTotPrima;
-        const pctPrima = prevTotPrima ? ((diffPrima / prevTotPrima) * 100) : 0;
-        const isPos = diffPrima >= 0;
+        const prevAvgPrima = numMonths ? (prevTotPrima / numMonths) : 0;
 
-        deltaEl.className = 'kpi-delta ' + (isPos ? 'positive' : 'negative');
-        deltaEl.innerHTML = `<i class="fa-solid fa-arrow-${isPos ? 'up' : 'down'}"></i> ${isPos ? '+' : ''}${pctPrima.toFixed(2)} %`;
+        // Variaciones
+        const diffTotal = totPrima - prevTotPrima;
+        const pctTotal = prevTotPrima ? ((diffTotal / prevTotPrima) * 100) : 0;
+        const isPosTotal = diffTotal >= 0;
+
+        const diffAvg = avgPrima - prevAvgPrima;
+        const pctAvg = prevAvgPrima ? ((diffAvg / prevAvgPrima) * 100) : 0;
+        const isPosAvg = diffAvg >= 0;
+
+        // Actualizar subtexto Prima Total
+        deltaTotalEl.className = 'kpi-delta ' + (isPosTotal ? 'positive' : 'negative');
+        deltaTotalEl.innerHTML = `<i class="fa-solid fa-arrow-${isPosTotal ? 'up' : 'down'}"></i> ${isPosTotal ? '+' : ''}${pctTotal.toFixed(2)} %`;
         
-        const periodDesc = numMonths === 12 
-          ? `vs ${prevEj} completo (${isPos ? '+' : ''}${fmtMoney(diffPrima)})`
-          : `vs mismo período (${numMonths} meses) de ${prevEj} (${isPos ? '+' : ''}${fmtMoney(diffPrima)})`;
-          
-        textEl.textContent = periodDesc;
+        const descTotal = numMonths === 12 
+          ? `vs ${prevEj} completo (${isPosTotal ? '+' : ''}${fmtMoney(diffTotal)})`
+          : `vs mismo período (${numMonths}m) de ${prevEj} (${isPosTotal ? '+' : ''}${fmtMoney(diffTotal)})`;
+        textTotalEl.textContent = descTotal;
+
+        // Actualizar subtexto Prima Promedio Mensual
+        deltaAvgEl.className = 'kpi-delta ' + (isPosAvg ? 'positive' : 'negative');
+        deltaAvgEl.innerHTML = `<i class="fa-solid fa-arrow-${isPosAvg ? 'up' : 'down'}"></i> ${isPosAvg ? '+' : ''}${pctAvg.toFixed(2)} %`;
+        
+        const descAvg = numMonths === 12
+          ? `vs prom. ${prevEj} (${isPosAvg ? '+' : ''}${fmtMoney(diffAvg)}/mes)`
+          : `vs prom. ${prevEj} (${numMonths}m) (${isPosAvg ? '+' : ''}${fmtMoney(diffAvg)}/mes)`;
+        textAvgEl.textContent = descAvg;
+
       } else {
-        deltaEl.className = 'kpi-delta neutral';
-        deltaEl.textContent = 'Base histórica';
-        textEl.textContent = `Primer ejercicio registrado (${numMonths} meses)`;
+        deltaTotalEl.className = 'kpi-delta neutral';
+        deltaTotalEl.textContent = 'Base histórica';
+        textTotalEl.textContent = `Primer ejercicio registrado (${numMonths} meses)`;
+
+        deltaAvgEl.className = 'kpi-delta neutral';
+        deltaAvgEl.textContent = 'Base histórica';
+        textAvgEl.textContent = `Promedio base (${numMonths} meses)`;
       }
 
       // ----------------------------------------------------
-      // UPDATE TARJETA IPC (GRANDE) Y RIPTE (PEQUEÑO)
+      // 2. UPDATE TARJETA IPC (GRANDE) Y RIPTE (PEQUEÑO)
       // ----------------------------------------------------
       const macroMap = {
         'Ejerc. 26/27': { ipc: 34.20, ripte: 34.10, mes: 'jul 2026' },
@@ -1246,11 +1276,8 @@
       document.getElementById('kpi_macro_period_text').textContent = `Mes de corte (${curMacro.mes})`;
 
       // ----------------------------------------------------
-      // UPDATE OTROS KPIS PRODUCCION
+      // 3. UPDATE OTROS KPIS PRODUCCION
       // ----------------------------------------------------
-      const avgPrima = periodRows.length ? (totPrima / periodRows.length) : 0;
-      document.getElementById('kpi_prod_promedio').textContent = fmtMoney(avgPrima);
-
       let maxP = { prima_emision: 0, periodo: '-' };
       periodRows.forEach(pr => {
         const val = currentAdjustedMode ? pr.prima_ajust_ipc : pr.prima_emision;
@@ -1262,7 +1289,7 @@
       document.getElementById('kpi_prod_max_val').textContent = fmtMoney(maxP.prima_emision);
 
       // ----------------------------------------------------
-      // UPDATE KPIS CARTERA
+      // 4. UPDATE KPIS CARTERA
       // ----------------------------------------------------
       document.getElementById('kpi_cart_polizas').textContent = fmtNum(lastP.polizas_vigentes || 0);
       document.getElementById('kpi_cart_asegurados').textContent = fmtNum(lastP.asegurados || 0);
@@ -1271,7 +1298,7 @@
       document.getElementById('kpi_cart_emitidas').textContent = fmtNum(totEmitidas);
 
       // ----------------------------------------------------
-      // UPDATE KPIS SINIESTROS
+      // 5. UPDATE KPIS SINIESTROS
       // ----------------------------------------------------
       const sinRatio = totPrima ? ((totCostoSin / totPrima) * 100) : 0;
       document.getElementById('kpi_sin_ratio').textContent = fmtPct(sinRatio);
@@ -1280,7 +1307,7 @@
       document.getElementById('kpi_sin_demandas').textContent = fmtNum(lastP.demandas || 0);
 
       // ----------------------------------------------------
-      // UPDATE GRÁFICOS PRODUCCIÓN
+      // 6. UPDATE GRÁFICOS PRODUCCIÓN
       // ----------------------------------------------------
       const labels = periodRows.map(p => p.periodo);
       const dataPrima = periodRows.map(p => currentAdjustedMode ? p.prima_ajust_ipc : p.prima_emision);
@@ -1295,7 +1322,6 @@
         tension: 0.3
       }]);
 
-      // Participación por Ramo
       const ramoTotals = {};
       filtered.forEach(r => {
         const rm = r.ramo;
@@ -1308,7 +1334,6 @@
         BRAND.rojoSeguro, BRAND.azul, BRAND.verde, BRAND.amarillo, BRAND.coral, BRAND.borgona
       ]);
 
-      // Tabla Producción
       const tbProd = document.querySelector('#table_prod_mensual tbody');
       tbProd.innerHTML = '';
       periodRows.forEach(pr => {
@@ -1323,7 +1348,7 @@
       });
 
       // ----------------------------------------------------
-      // UPDATE GRÁFICOS CARTERA
+      // 7. UPDATE GRÁFICOS CARTERA
       // ----------------------------------------------------
       renderLineChart('chart_cart_evolucion', labels, [
         { label: 'Asegurados Vigentes', data: periodRows.map(p => p.asegurados), borderColor: BRAND.azul, borderWidth: 3 },
@@ -1336,7 +1361,6 @@
         { label: 'Anuladas', data: periodRows.map(p => -p.anuladas), backgroundColor: BRAND.rojoSeguro }
       ]);
 
-      // Tabla Cartera
       const tbCart = document.querySelector('#table_cart_mensual tbody');
       tbCart.innerHTML = '';
       periodRows.forEach(pr => {
@@ -1355,7 +1379,7 @@
       });
 
       // ----------------------------------------------------
-      // UPDATE GRÁFICOS SINIESTROS
+      // 8. UPDATE GRÁFICOS SINIESTROS
       // ----------------------------------------------------
       renderBarChart('chart_sin_costo_desglose', labels, [
         { label: 'Pagos Siniestros ($)', data: periodRows.map(p => p.pagos_siniestros), backgroundColor: BRAND.rojoSeguro },
@@ -1370,7 +1394,6 @@
         { label: 'Ratio Siniestralidad (%)', data: sinRatios, borderColor: BRAND.coral, borderWidth: 3 }
       ]);
 
-      // Tabla Siniestros
       const tbSin = document.querySelector('#table_sin_mensual tbody');
       tbSin.innerHTML = '';
       periodRows.forEach((pr, idx) => {
@@ -1388,7 +1411,7 @@
       });
 
       // ----------------------------------------------------
-      // UPDATE DRILL-DOWN PRODUCTOS
+      // 9. UPDATE DRILL-DOWN PRODUCTOS
       // ----------------------------------------------------
       const prodAgg = {};
       filtered.forEach(r => {
