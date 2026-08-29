@@ -309,7 +309,7 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* KPI CARDS */
+    /* KPI CARDS (MOSAICO LA SEGUNDA) */
     .kpi-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -648,7 +648,7 @@
     <!-- ==================================================== -->
     <div id="pane_mod_produccion" class="tab-pane active">
 
-      <!-- KPIS PRODUCCIÓN CON COMPARATIVO DINÁMICO LIKE-FOR-LIKE -->
+      <!-- KPIS PRODUCCIÓN -->
       <div class="kpi-grid">
         <div class="kpi-card">
           <span class="kpi-title">Prima Emitida Total</span>
@@ -671,10 +671,16 @@
           <div class="kpi-subtext" id="kpi_prod_max_val">$ 0</div>
         </div>
 
+        <!-- TARJETA REDISEÑADA: IPC EN GRANDE Y RIPTE EN PEQUEÑO -->
         <div class="kpi-card accent-green">
-          <span class="kpi-title">RIPTE Anual (Cierre)</span>
-          <div class="kpi-value">34,05 %</div>
-          <div class="kpi-subtext">IPC Anual: 33,70 %</div>
+          <span class="kpi-title" id="kpi_macro_title">Inflación Anual (IPC Cierre)</span>
+          <div class="kpi-value" id="kpi_prod_ipc_val">33,70 %</div>
+          <div class="kpi-subtext" id="kpi_prod_ripte_sub">
+            <span class="kpi-delta neutral" style="font-weight:700; font-size:11.5px; background: rgba(65, 131, 202, 0.12); color: var(--azul);" id="kpi_ripte_badge">
+              RIPTE Anual: 34,05 %
+            </span>
+            <span id="kpi_macro_period_text">Mes de cierre</span>
+          </div>
         </div>
       </div>
 
@@ -1118,7 +1124,6 @@
       const selectedEj = document.getElementById('sel_ejercicio').value;
       const filtered = filterDataForExercise(selectedEj);
       
-      // Agrupar por período/mes del ejercicio seleccionado
       const byPeriod = {};
       filtered.forEach(r => {
         const p = r.periodo;
@@ -1222,6 +1227,23 @@
         deltaEl.textContent = 'Base histórica';
         textEl.textContent = `Primer ejercicio registrado (${numMonths} meses)`;
       }
+
+      // ----------------------------------------------------
+      // UPDATE TARJETA IPC (GRANDE) Y RIPTE (PEQUEÑO)
+      // ----------------------------------------------------
+      const macroMap = {
+        'Ejerc. 26/27': { ipc: 34.20, ripte: 34.10, mes: 'jul 2026' },
+        'Ejerc. 25/26': { ipc: 33.70, ripte: 34.05, mes: 'jun 2026' },
+        'Ejerc. 24/25': { ipc: 41.20, ripte: 44.10, mes: 'jun 2025' },
+        'Ejerc. 23/24': { ipc: 271.50, ripte: 235.40, mes: 'jun 2024' },
+        'Ejerc. 22/23': { ipc: 115.60, ripte: 108.70, mes: 'jun 2023' },
+        'Ejerc. 21/22': { ipc: 64.00, ripte: 61.80, mes: 'jun 2022' }
+      };
+
+      const curMacro = macroMap[selectedEj] || { ipc: 33.70, ripte: 34.05, mes: 'Cierre' };
+      document.getElementById('kpi_prod_ipc_val').textContent = fmtPct(curMacro.ipc);
+      document.getElementById('kpi_ripte_badge').textContent = 'RIPTE Anual: ' + fmtPct(curMacro.ripte);
+      document.getElementById('kpi_macro_period_text').textContent = `Mes de corte (${curMacro.mes})`;
 
       // ----------------------------------------------------
       // UPDATE OTROS KPIS PRODUCCION
