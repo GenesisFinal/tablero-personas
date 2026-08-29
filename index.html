@@ -817,7 +817,7 @@
       <div class="dashboard-grid">
         <div class="chart-card col-8">
           <div class="chart-header">
-            <h3><i class="fa-solid fa-chart-line"></i> Evolución Mensual de Producción</h3>
+            <h3><i class="fa-solid fa-chart-line"></i> Evolución Mensual de Producción (Comparativa Interanual)</h3>
           </div>
           <div class="chart-container">
             <canvas id="chart_prod_evolucion"></canvas>
@@ -847,16 +847,18 @@
       <!-- TABLA PRODUCCIÓN -->
       <div class="table-card">
         <div class="table-header">
-          <h3><i class="fa-solid fa-table"></i> Detalle Mensual de Producción</h3>
+          <h3><i class="fa-solid fa-table"></i> Detalle Mensual de Producción y Comparativa Interanual</h3>
         </div>
         <div class="table-wrapper">
           <table class="data-table" id="table_prod_mensual">
             <thead>
               <tr>
-                <th>Período</th>
-                <th class="num">Prima Emisión Histórica ($)</th>
+                <th>Mes / Período</th>
+                <th class="num">Prima Histórica ($)</th>
                 <th class="num">Prima Ajustada x IPC ($)</th>
-                <th class="num">Prima Acumulada Ejercicio ($)</th>
+                <th class="num">Prima Mismo Mes Año Ant. ($)</th>
+                <th class="num">Variación Interanual (%)</th>
+                <th class="num">Prima Acumulada ($)</th>
               </tr>
             </thead>
             <tbody></tbody>
@@ -1164,6 +1166,8 @@
       grid: '#edf2f7'
     };
 
+    const MONTH_NAMES = ['Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic', 'Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun'];
+
     let currentAdjustedMode = true;
     let selectedRamos = new Set(DB.metadata.ramos);
     let selectedProductos = new Set();
@@ -1461,18 +1465,25 @@
       const deltaAvgEl = document.getElementById('kpi_prod_avg_delta');
       const textAvgEl = document.getElementById('kpi_prod_avg_text');
 
+      let prevEj = null;
+      let prevPeriodRows = [];
+      let prevTotPrima = 0;
+
       if (curIdx > 0 && numMonths > 0) {
-        const prevEj = allEj[curIdx - 1];
+        prevEj = allEj[curIdx - 1];
         const prevFiltered = filterDataForExercise(prevEj);
-        
         const prevPeriods = Array.from(new Set(prevFiltered.map(r => r.periodo))).sort().slice(0, numMonths);
-        const prevComparableRecs = prevFiltered.filter(r => prevPeriods.includes(r.periodo));
         
-        let prevTotPrima = 0;
-        prevComparableRecs.forEach(r => {
-          prevTotPrima += currentAdjustedMode ? (r.prima_ajustx_ipc || 0) : (r.prima_emisión || 0);
+        prevPeriodRows = prevPeriods.map(p => {
+          const pRecs = prevFiltered.filter(r => r.periodo === p);
+          let sumP = 0;
+          pRecs.forEach(r => {
+            sumP += currentAdjustedMode ? (r.prima_ajustx_ipc || 0) : (r.prima_emisión || 0);
+          });
+          return sumP;
         });
 
+        prevTotPrima = prevPeriodRows.reduce((a, b) => a + b, 0);
         const prevAvgPrima = numMonths ? (prevTotPrima / numMonths) : 0;
 
         const diffTotal = totPrima - prevTotPrima;
@@ -1558,20 +1569,36 @@
       document.getElementById('kpi_sin_demandas').textContent = fmtNum(lastP.demandas || 0);
 
       // ----------------------------------------------------
-      // 6. GRÁFICOS PRODUCCIÓN
+      // 6. GRÁFICOS PRODUCCIÓN (CON LÍNEA COMPARATIVA AÑO PREVIO)
       // ----------------------------------------------------
-      const labels = periodRows.map(p => p.periodo);
+      const monthLabels = MONTH_NAMES.slice(0, numMonths).map((m, idx) => `${m} (${periodRows[idx] ? periodRows[idx].periodo.slice(0, 4) : ''})`);
       const dataPrima = periodRows.map(p => currentAdjustedMode ? p.prima_ajust_ipc : p.prima_emision);
 
-      renderLineChart('chart_prod_evolucion', labels, [{
-        label: currentAdjustedMode ? 'Prima Ajustada x IPC ($)' : 'Prima Emisión Histórica ($)',
-        data: dataPrima,
-        borderColor: BRAND.rojoSeguro,
-        backgroundColor: 'rgba(226, 0, 57, 0.08)',
-        fill: true,
-        borderWidth: 3,
-        tension: 0.3
-      }]);
+      const prodDatasets = [
+        {
+          label: `${selectedEj} (${currentAdjustedMode ? 'Ajust. IPC' : 'Histórico'})`,
+          data: dataPrima,
+          borderColor: BRAND.rojoSeguro,
+          backgroundColor: 'rgba(226, 0, 57, 0.08)',
+          fill: true,
+          borderWidth: 3,
+          tension: 0.3
+        }
+      ];
+
+      if (prevEj && prevPeriodRows.length > 0) {
+        prodDatasets.push({
+          label: `${prevEj} (Año Previo)`,
+          data: prevPeriodRows,
+          borderColor: BRAND.azul,
+          backgroundColor: 'transparent',
+          borderDash: [6, 6],
+          borderWidth: 2.5,
+          tension: 0.3
+        });
+      }
+
+      renderLineChart('chart_prod_evolucion', monthLabels, prodDatasets);
 
       // GRÁFICO DINÁMICO: PARTICIPACIÓN POR RAMO O POR PRODUCTO CON % EN LEYENDA Y SOLO IMPORTE EN TOOLTIP
       const isAllRamosSelected = selectedRamos.size === DB.metadata.ramos.length;
@@ -1606,14 +1633,25 @@
         ]);
       }
 
+      // TABLA PRODUCCIÓN CON COMPARATIVA INTERANUAL
       const tbProd = document.querySelector('#table_prod_mensual tbody');
       tbProd.innerHTML = '';
-      periodRows.forEach(pr => {
+      periodRows.forEach((pr, idx) => {
+        const prevVal = prevPeriodRows[idx] || 0;
+        const curVal = currentAdjustedMode ? pr.prima_ajust_ipc : pr.prima_emision;
+        const diff = curVal - prevVal;
+        const pct = prevVal ? ((diff / prevVal) * 100) : 0;
+        const isPos = diff >= 0;
+
         const tr = document.createElement('tr');
         tr.innerHTML = `
-          <td><strong>${pr.periodo}</strong></td>
+          <td><strong>${pr.periodo} (${MONTH_NAMES[idx]})</strong></td>
           <td class="num">${fmtMoney(pr.prima_emision)}</td>
           <td class="num">${fmtMoney(pr.prima_ajust_ipc)}</td>
+          <td class="num" style="color: var(--text-muted);">${prevVal ? fmtMoney(prevVal) : '-'}</td>
+          <td class="num" style="color: ${!prevVal ? 'inherit' : (isPos ? '#0d8251' : 'var(--rojo-seguro)')}; font-weight:700;">
+            ${!prevVal ? '-' : (isPos ? '+' : '') + pct.toFixed(2) + ' %'}
+          </td>
           <td class="num">${fmtMoney(pr.prima_acum_ejerc)}</td>
         `;
         tbProd.appendChild(tr);
@@ -1622,12 +1660,13 @@
       // ----------------------------------------------------
       // 7. GRÁFICOS CARTERA
       // ----------------------------------------------------
-      renderLineChart('chart_cart_evolucion', labels, [
+      const periodLabels = periodRows.map(p => p.periodo);
+      renderLineChart('chart_cart_evolucion', periodLabels, [
         { label: 'Asegurados Vigentes', data: periodRows.map(p => p.asegurados), borderColor: BRAND.azul, borderWidth: 3 },
         { label: 'Pólizas Vigentes', data: periodRows.map(p => p.polizas_vigentes), borderColor: BRAND.rojoSeguro, borderWidth: 2, borderDash: [4, 4] }
       ]);
 
-      renderBarChart('chart_cart_flujo', labels, [
+      renderBarChart('chart_cart_flujo', periodLabels, [
         { label: 'Emitidas', data: periodRows.map(p => p.emitidas), backgroundColor: BRAND.verde },
         { label: 'Renovadas', data: periodRows.map(p => p.renovadas), backgroundColor: BRAND.azul },
         { label: 'Anuladas', data: periodRows.map(p => -p.anuladas), backgroundColor: BRAND.rojoSeguro }
@@ -1653,7 +1692,7 @@
       // ----------------------------------------------------
       // 8. GRÁFICOS SINIESTROS
       // ----------------------------------------------------
-      renderBarChart('chart_sin_costo_desglose', labels, [
+      renderBarChart('chart_sin_costo_desglose', periodLabels, [
         { label: 'Pagos Siniestros ($)', data: periodRows.map(p => p.pagos_siniestros), backgroundColor: BRAND.rojoSeguro },
         { label: 'Variación Reservas ($)', data: periodRows.map(p => p.variacion_reserva), backgroundColor: BRAND.azul }
       ]);
@@ -1662,7 +1701,7 @@
         const base = currentAdjustedMode ? p.prima_ajust_ipc : p.prima_emision;
         return base ? ((p.costo_siniestral / base) * 100) : 0;
       });
-      renderLineChart('chart_sin_ratio_mes', labels, [
+      renderLineChart('chart_sin_ratio_mes', periodLabels, [
         { label: 'Ratio Siniestralidad (%)', data: sinRatios, borderColor: BRAND.coral, borderWidth: 3 }
       ]);
 
@@ -1770,7 +1809,8 @@
         options: {
           responsive: true,
           maintainAspectRatio: false,
-          plugins: { tooltip: { callbacks: { label: ctx => ctx.dataset.label + ': ' + fmtMoney(ctx.raw) } } },
+          interaction: { mode: 'index', intersect: false },
+          plugins: { tooltip: { callbacks: { label: ctx => ` ${ctx.dataset.label}: ${fmtMoney(ctx.raw)}` } } },
           scales: { y: { grid: { color: BRAND.grid } } }
         }
       });
@@ -1811,7 +1851,6 @@
       });
     }
 
-    // DOUGHNUT CHART: LEYENDA CON % Y TOOLTIP (BADGE) SOLO CON EL IMPORTE ($)
     function renderDoughnutChart(canvasId, rawLabels, data, colors) {
       if (charts[canvasId]) charts[canvasId].destroy();
       const total = data.reduce((a, b) => a + b, 0);
