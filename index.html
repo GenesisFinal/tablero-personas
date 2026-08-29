@@ -824,7 +824,7 @@
           </div>
         </div>
 
-        <!-- GRÁFICO DE TORTA DINÁMICO (RAMO O PRODUCTO) -->
+        <!-- GRÁFICO DE PARTICIPACIÓN CON PORCENTAJE EXPLICITO -->
         <div class="chart-card col-4">
           <div class="chart-header">
             <h3 id="title_prod_pie"><i class="fa-solid fa-chart-pie"></i> Participación por Ramo</h3>
@@ -1573,7 +1573,7 @@
         tension: 0.3
       }]);
 
-      // GRÁFICO DINÁMICO: PARTICIPACIÓN POR RAMO O POR PRODUCTO
+      // GRÁFICO DINÁMICO: PARTICIPACIÓN POR RAMO O POR PRODUCTO CON % EXPLÍCITO
       const isAllRamosSelected = selectedRamos.size === DB.metadata.ramos.length;
       const titlePieEl = document.getElementById('title_prod_pie');
 
@@ -1811,19 +1811,51 @@
       });
     }
 
-    function renderDoughnutChart(canvasId, labels, data, colors) {
+    // DOUGHNUT CHART CON PORCENTAJE EXPLICITO EN LEYENDA Y TOOLTIP
+    function renderDoughnutChart(canvasId, rawLabels, data, colors) {
       if (charts[canvasId]) charts[canvasId].destroy();
+      const total = data.reduce((a, b) => a + b, 0);
+      const labels = rawLabels.map((lbl, idx) => {
+        const val = data[idx] || 0;
+        const pct = total ? ((val / total) * 100).toFixed(1) : '0.0';
+        return `${lbl} (${pct}%)`;
+      });
+
       charts[canvasId] = new Chart(document.getElementById(canvasId), {
         type: 'doughnut',
         data: {
           labels,
-          datasets: [{ data, backgroundColor: colors }]
+          datasets: [{
+            data,
+            backgroundColor: colors,
+            borderWidth: 2,
+            borderColor: '#ffffff'
+          }]
         },
         options: {
           responsive: true,
           maintainAspectRatio: false,
-          plugins: { legend: { position: 'bottom' } },
-          cutout: '65%'
+          plugins: {
+            legend: {
+              position: 'bottom',
+              labels: {
+                boxWidth: 12,
+                padding: 10,
+                font: { family: 'Sora', size: 11, weight: '500' },
+                color: '#30302d'
+              }
+            },
+            tooltip: {
+              callbacks: {
+                label: function(ctx) {
+                  const val = ctx.raw || 0;
+                  const pct = total ? ((val / total) * 100).toFixed(2) : '0.00';
+                  return ` ${rawLabels[ctx.dataIndex]}: ${fmtMoney(val)} (${pct} %)`;
+                }
+              }
+            }
+          },
+          cutout: '62%'
         }
       });
     }
