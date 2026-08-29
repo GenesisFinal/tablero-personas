@@ -733,13 +733,13 @@
       </div>
     </div>
 
-    <!-- Toggle de Ajuste por Inflación (IPC) -->
+    <!-- Toggle de Ajuste por Inflación (IPC) - DEFAULT: HISTÓRICO -->
     <div class="toggle-currency">
-      <button id="btn_modo_ajustado" class="toggle-btn active" onclick="setCurrencyMode(true)">
-        <i class="fa-solid fa-scale-balanced"></i> Ajustado x IPC
-      </button>
-      <button id="btn_modo_historico" class="toggle-btn" onclick="setCurrencyMode(false)">
+      <button id="btn_modo_historico" class="toggle-btn active" onclick="setCurrencyMode(false)">
         <i class="fa-solid fa-receipt"></i> Histórico ($)
+      </button>
+      <button id="btn_modo_ajustado" class="toggle-btn" onclick="setCurrencyMode(true)">
+        <i class="fa-solid fa-scale-balanced"></i> Ajustado x IPC
       </button>
     </div>
   </div>
@@ -1197,7 +1197,7 @@
     </div>
 
     <!-- ==================================================== -->
-    <!-- MÓDULO 6: MERCADO & CUOTA SSN (NUEVO MÓDULO OFICIAL) -->
+    <!-- MÓDULO 6: MERCADO & CUOTA SSN -->
     <!-- ==================================================== -->
     <div id="pane_mod_mercado" class="tab-pane">
       <div class="kpi-grid">
@@ -1294,8 +1294,8 @@
             <thead>
               <tr>
                 <th>Trimestre SSN</th>
-                <th class="num">Prima Mercado ($ Ajust.)</th>
-                <th class="num">Prima La Segunda ($ Ajust.)</th>
+                <th class="num">Prima Mercado ($)</th>
+                <th class="num">Prima La Segunda ($)</th>
                 <th class="num" style="color: var(--rojo-seguro); font-weight:700;">Cuota Total (%)</th>
                 <th class="num">Cuota AP (%)</th>
                 <th class="num">Cuota Vida Col. (%)</th>
@@ -1341,7 +1341,8 @@
 
     const MONTH_NAMES = ['Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic', 'Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun'];
 
-    let currentAdjustedMode = true;
+    // CONFIGURACIÓN OFICIAL: DEFAULT SIEMPRE EN HISTÓRICO ($)
+    let currentAdjustedMode = false;
     let selectedRamos = new Set(DB.metadata.ramos);
     let selectedProductos = new Set();
     let charts = {};
