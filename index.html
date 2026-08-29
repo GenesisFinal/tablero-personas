@@ -953,7 +953,7 @@
     </div>
 
     <!-- ==================================================== -->
-    <!-- MÓDULO 3: SINIESTRALIDAD & RESERVAS (EXACTO & CONSISTENTE) -->
+    <!-- MÓDULO 3: SINIESTRALIDAD & RESERVAS (RATIO ACUMULADO PROGRESIVO) -->
     <!-- ==================================================== -->
     <div id="pane_mod_siniestros" class="tab-pane">
       <div class="kpi-grid">
@@ -999,18 +999,20 @@
       </div>
 
       <div class="dashboard-grid">
-        <div class="chart-card col-8">
+        <!-- Desglose Mensual -->
+        <div class="chart-card col-6">
           <div class="chart-header">
-            <h3><i class="fa-solid fa-chart-line"></i> Desglose del Costo Siniestral Mensual: Pagos vs Variación de Reservas</h3>
+            <h3><i class="fa-solid fa-chart-column"></i> Desglose del Costo Siniestral Mensual: Pagos vs Variación de Reservas</h3>
           </div>
           <div class="chart-container">
             <canvas id="chart_sin_costo_desglose"></canvas>
           </div>
         </div>
 
-        <div class="chart-card col-4">
+        <!-- Ratio de Siniestralidad: Mensual vs Acumulado Progresivo -->
+        <div class="chart-card col-6">
           <div class="chart-header">
-            <h3><i class="fa-solid fa-percent"></i> Ratio de Siniestralidad Mensual (%)</h3>
+            <h3><i class="fa-solid fa-percent"></i> Ratio de Siniestralidad: Mensual vs Acumulado Progresivo (%)</h3>
           </div>
           <div class="chart-container">
             <canvas id="chart_sin_ratio_mes"></canvas>
@@ -1020,17 +1022,19 @@
 
       <div class="table-card">
         <div class="table-header">
-          <h3><i class="fa-solid fa-table"></i> Detalle Mensual de Siniestralidad y Stocks de Reserva</h3>
+          <h3><i class="fa-solid fa-table"></i> Detalle Mensual de Siniestralidad y Evolución Acumulada</h3>
         </div>
         <div class="table-wrapper">
           <table class="data-table" id="table_sin_mensual">
             <thead>
               <tr>
-                <th>Período</th>
+                <th>Período / Mes</th>
                 <th class="num">Pagos Siniestros ($)</th>
                 <th class="num">Variación Rva Mes ($)</th>
-                <th class="num">Costo Siniestral Mes ($)</th>
-                <th class="num">Ratio Mensual (%)</th>
+                <th class="num">Costo Sin. Mes ($)</th>
+                <th class="num">Ratio Mes (%)</th>
+                <th class="num">Costo Sin. Acum. ($)</th>
+                <th class="num" style="color: var(--rojo-seguro);">Ratio Acumulado (%)</th>
                 <th class="num">Stock Reserva Total ($)</th>
                 <th class="num">Rva Stros Pend. ($)</th>
                 <th class="num">Rva Demandas ($)</th>
@@ -1475,12 +1479,27 @@
         initialStock = lastPrevRecs.reduce((a, b) => a + (b.reserva_total || 0), 0);
       }
 
-      // Calcular variaciones mensuales exactas periodo a periodo (reserva_t - reserva_t-1)
+      // Calcular variaciones mensuales exactas periodo a periodo y acumulados progresivos
       let prevMonthStock = initialStock;
+      let runningPrima = 0;
+      let runningPagos = 0;
+
       periodRows.forEach(pr => {
         pr.variacion_reserva_mensual = pr.reserva_total - prevMonthStock;
         pr.costo_siniestral = pr.pagos_siniestros + pr.variacion_reserva_mensual;
         prevMonthStock = pr.reserva_total;
+
+        // Acumulados progresivos
+        const pVal = currentAdjustedMode ? pr.prima_ajust_ipc : pr.prima_emision;
+        runningPrima += pVal;
+        runningPagos += pr.pagos_siniestros;
+        
+        pr.prima_acum_calc = runningPrima;
+        pr.pagos_acum_calc = runningPagos;
+        pr.var_rva_acum_calc = pr.reserva_total - initialStock;
+        pr.costo_sin_acum_calc = pr.pagos_acum_calc + pr.var_rva_acum_calc;
+        pr.ratio_sin_mes = pVal ? ((pr.costo_siniestral / pVal) * 100) : 0;
+        pr.ratio_sin_acum = runningPrima ? ((pr.costo_sin_acum_calc / runningPrima) * 100) : 0;
       });
 
       let totPrima = 0;
@@ -1708,15 +1727,15 @@
 
         elDeltaCosto.className = 'kpi-delta neutral';
         elDeltaCosto.textContent = 'Base histórica';
-        elTextCosto.textContent = `Primer ejercicio registrado (${numMonths} meses)`;
+        textCosto.textContent = `Primer ejercicio registrado (${numMonths} meses)`;
 
         elDeltaPagos.className = 'kpi-delta neutral';
         elDeltaPagos.textContent = 'Base histórica';
-        elTextPagos.textContent = `Primer ejercicio registrado (${numMonths} meses)`;
+        textPagos.textContent = `Primer ejercicio registrado (${numMonths} meses)`;
 
         elDeltaVarRva.className = 'kpi-delta neutral';
         elDeltaVarRva.textContent = 'Base histórica';
-        elTextVarRva.textContent = `Primer ejercicio registrado (${numMonths} meses)`;
+        textVarRva.textContent = `Primer ejercicio registrado (${numMonths} meses)`;
       }
 
       // ----------------------------------------------------
@@ -1874,21 +1893,40 @@
       });
 
       // ----------------------------------------------------
-      // 8. GRÁFICOS Y TABLA SINIESTRALIDAD (CORREGIDO)
+      // 8. GRÁFICOS Y TABLA SINIESTRALIDAD (MENSUAL + ACUMULADO)
       // ----------------------------------------------------
       renderBarChart('chart_sin_costo_desglose', periodLabels, [
         { label: 'Pagos Siniestros ($)', data: periodRows.map(p => p.pagos_siniestros), backgroundColor: BRAND.rojoSeguro },
         { label: 'Variación Reserva Mes ($)', data: periodRows.map(p => p.variacion_reserva_mensual), backgroundColor: BRAND.azul }
       ], 'money');
 
-      const sinRatios = periodRows.map(p => {
-        const base = currentAdjustedMode ? p.prima_ajust_ipc : p.prima_emision;
-        return base ? ((p.costo_siniestral / base) * 100) : 0;
-      });
-      renderLineChart('chart_sin_ratio_mes', periodLabels, [
-        { label: 'Ratio Siniestralidad Mensual', data: sinRatios, borderColor: BRAND.coral, borderWidth: 3 }
-      ], 'percent');
+      // Gráfico de Ratio Siniestral: Mensual vs Acumulado
+      const sinDatasets = [
+        {
+          label: 'Ratio Siniestral Acumulado (%)',
+          data: periodRows.map(p => p.ratio_sin_acum),
+          borderColor: BRAND.rojoSeguro,
+          backgroundColor: 'rgba(226, 0, 57, 0.08)',
+          fill: true,
+          borderWidth: 3.5,
+          tension: 0.25,
+          pointRadius: 4,
+          pointBackgroundColor: BRAND.rojoSeguro
+        },
+        {
+          label: 'Ratio Siniestral del Mes (%)',
+          data: periodRows.map(p => p.ratio_sin_mes),
+          borderColor: BRAND.azul,
+          backgroundColor: 'transparent',
+          borderDash: [5, 5],
+          borderWidth: 2,
+          tension: 0.25,
+          pointRadius: 3
+        }
+      ];
+      renderLineChart('chart_sin_ratio_mes', periodLabels, sinDatasets, 'percent');
 
+      // Tabla Detalle Mensual de Siniestralidad con Acumulados
       const tbSin = document.querySelector('#table_sin_mensual tbody');
       tbSin.innerHTML = '';
       periodRows.forEach((pr, idx) => {
@@ -1897,8 +1935,10 @@
           <td><strong>${pr.periodo} (${MONTH_NAMES[idx]})</strong></td>
           <td class="num">${fmtMoney(pr.pagos_siniestros)}</td>
           <td class="num" style="color: ${pr.variacion_reserva_mensual >= 0 ? 'inherit' : '#0d8251'};">${fmtMoney(pr.variacion_reserva_mensual)}</td>
-          <td class="num" style="font-weight:700;">${fmtMoney(pr.costo_siniestral)}</td>
-          <td class="num" style="color: var(--rojo-seguro); font-weight:700;">${fmtPct(sinRatios[idx])}</td>
+          <td class="num" style="font-weight:600;">${fmtMoney(pr.costo_siniestral)}</td>
+          <td class="num" style="color: var(--text-muted);">${fmtPct(pr.ratio_sin_mes)}</td>
+          <td class="num" style="font-weight:600;">${fmtMoney(pr.costo_sin_acum_calc)}</td>
+          <td class="num" style="color: var(--rojo-seguro); font-weight:800; background: #fff5f6;">${fmtPct(pr.ratio_sin_acum)}</td>
           <td class="num">${fmtMoney(pr.reserva_total)}</td>
           <td class="num">${fmtMoney(pr.reserva_stros_pend)}</td>
           <td class="num">${fmtMoney(pr.reserva_demanda)}</td>
