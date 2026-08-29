@@ -880,45 +880,63 @@
     </div>
 
     <!-- ==================================================== -->
-    <!-- MÓDULO 2: CARTERA & FLUJO PÓLIZAS -->
+    <!-- MÓDULO 2: CARTERA & FLUJO PÓLIZAS (COMPARATIVAS INTERANUALES) -->
     <!-- ==================================================== -->
     <div id="pane_mod_cartera" class="tab-pane">
       <div class="kpi-grid">
+        <!-- KPI 1: TOTAL PÓLIZAS VIGENTES -->
         <div class="kpi-card">
           <span class="kpi-title">Total Pólizas Vigentes (Cierre)</span>
           <div class="kpi-value" id="kpi_cart_polizas">0</div>
-          <div class="kpi-subtext">Cartera activa</div>
+          <div class="kpi-subtext" id="kpi_cart_polizas_sub">
+            <span class="kpi-delta neutral" id="kpi_cart_polizas_delta">-</span>
+            <span id="kpi_cart_polizas_text">vs período anterior</span>
+          </div>
         </div>
 
+        <!-- KPI 2: TOTAL ASEGURADOS VIGENTES -->
         <div class="kpi-card accent-blue">
           <span class="kpi-title">Total Asegurados Vigentes (Cierre)</span>
           <div class="kpi-value" id="kpi_cart_asegurados">0</div>
-          <div class="kpi-subtext">Vidas / personas cubiertas</div>
+          <div class="kpi-subtext" id="kpi_cart_asegurados_sub">
+            <span class="kpi-delta neutral" id="kpi_cart_asegurados_delta">-</span>
+            <span id="kpi_cart_asegurados_text">vs período anterior</span>
+          </div>
         </div>
 
+        <!-- KPI 3: RATIO ASEGURADOS / PÓLIZA -->
         <div class="kpi-card accent-green">
           <span class="kpi-title">Ratio Asegurados / Póliza</span>
           <div class="kpi-value" id="kpi_cart_ratio">0</div>
-          <div class="kpi-subtext">Promedio de asegurados x póliza</div>
+          <div class="kpi-subtext" id="kpi_cart_ratio_sub">
+            <span class="kpi-delta neutral" id="kpi_cart_ratio_delta">-</span>
+            <span id="kpi_cart_ratio_text">vs período anterior</span>
+          </div>
         </div>
 
+        <!-- KPI 4: PÓLIZAS EMITIDAS ACUMULADAS -->
         <div class="kpi-card accent-coral">
           <span class="kpi-title">Pólizas Emitidas (Acumulado)</span>
           <div class="kpi-value" id="kpi_cart_emitidas">0</div>
-          <div class="kpi-subtext">Nuevas emisiones</div>
+          <div class="kpi-subtext" id="kpi_cart_emitidas_sub">
+            <span class="kpi-delta neutral" id="kpi_cart_emitidas_delta">-</span>
+            <span id="kpi_cart_emitidas_text">vs período anterior</span>
+          </div>
         </div>
       </div>
 
       <div class="dashboard-grid">
+        <!-- Evolución de Cartera con Doble Eje Y -->
         <div class="chart-card col-8">
           <div class="chart-header">
-            <h3><i class="fa-solid fa-chart-line"></i> Evolución de Cartera: Pólizas y Asegurados Vigentes</h3>
+            <h3><i class="fa-solid fa-chart-line"></i> Evolución de Cartera & Ratio de Asegurados / Póliza</h3>
           </div>
           <div class="chart-container">
             <canvas id="chart_cart_evolucion"></canvas>
           </div>
         </div>
 
+        <!-- Flujo de Pólizas -->
         <div class="chart-card col-4">
           <div class="chart-header">
             <h3><i class="fa-solid fa-arrows-spin"></i> Flujo de Pólizas (Emitidas / Renovadas / Anuladas)</h3>
@@ -940,7 +958,7 @@
                 <th>Período</th>
                 <th class="num">Pólizas Vigentes</th>
                 <th class="num">Asegurados Vigentes</th>
-                <th class="num">Aseg. x Póliza</th>
+                <th class="num" style="color: var(--verde); font-weight:700;">Aseg. x Póliza</th>
                 <th class="num">Emitidas</th>
                 <th class="num">Renovadas</th>
                 <th class="num">Anuladas</th>
@@ -1113,7 +1131,10 @@
         <div class="kpi-card accent-blue">
           <span class="kpi-title">Superávit Real vs IPC</span>
           <div class="kpi-value" id="kpi_fin_sup">0,00 %</div>
-          <div class="kpi-subtext">Rendimiento real positivo</div>
+          <div class="kpi-subtext" id="kpi_fin_sup_sub">
+            <span class="kpi-delta positive" style="font-weight:700;">Positivo</span>
+            <span>Rendimiento real</span>
+          </div>
         </div>
       </div>
 
@@ -1530,6 +1551,9 @@
       let prevTotPagos = 0;
       let prevTotVarRva = 0;
       let prevTotCostoSin = 0;
+      let prevTotEmitidas = 0;
+      let prevLastPolizas = 0;
+      let prevLastAsegurados = 0;
 
       if (curIdx > 0 && numMonths > 0) {
         prevEj = allEj[curIdx - 1];
@@ -1553,19 +1577,40 @@
           let sumP = 0;
           let sumPg = 0;
           let sumStock = 0;
+          let sumPol = 0;
+          let sumAseg = 0;
+          let sumEmit = 0;
           pRecs.forEach(r => {
             sumP += currentAdjustedMode ? (r.prima_ajustx_ipc || 0) : (r.prima_emisión || 0);
             sumPg += (r.pagos_siniestros || 0);
             sumStock += (r.reserva_total || 0);
+            sumPol += (r.cant_pólizas_vigentes || 0);
+            sumAseg += (r.cant_asegurados || 0);
+            sumEmit += (r.cant_pólizas_emitidas || 0);
           });
           const varRvaM = sumStock - prevMStock;
           prevMStock = sumStock;
-          return { prima: sumP, pagos: sumPg, stock: sumStock, varRva: varRvaM, costo: sumPg + varRvaM };
+          return { 
+            prima: sumP, 
+            pagos: sumPg, 
+            stock: sumStock, 
+            varRva: varRvaM, 
+            costo: sumPg + varRvaM,
+            polizas: sumPol,
+            asegurados: sumAseg,
+            emitidas: sumEmit
+          };
         });
 
         prevTotPrima = prevPeriodRows.reduce((a, b) => a + b.prima, 0);
         prevTotPagos = prevPeriodRows.reduce((a, b) => a + b.pagos, 0);
-        const prevSampleFinalStock = prevPeriodRows[prevPeriodRows.length - 1] ? prevPeriodRows[prevPeriodRows.length - 1].stock : 0;
+        prevTotEmitidas = prevPeriodRows.reduce((a, b) => a + b.emitidas, 0);
+        
+        const lastPrevSample = prevPeriodRows[prevPeriodRows.length - 1] || {};
+        prevLastPolizas = lastPrevSample.polizas || 0;
+        prevLastAsegurados = lastPrevSample.asegurados || 0;
+
+        const prevSampleFinalStock = lastPrevSample.stock || 0;
         prevTotVarRva = prevSampleFinalStock - prevInitialStock;
         prevTotCostoSin = prevTotPagos + prevTotVarRva;
       }
@@ -1649,13 +1694,84 @@
       document.getElementById('kpi_prod_max_val').textContent = fmtMoney(maxP.prima_emision);
 
       // ----------------------------------------------------
-      // 4. KPIS CARTERA
+      // 4. KPIS CARTERA & COMPARATIVAS INTERANUALES
       // ----------------------------------------------------
-      document.getElementById('kpi_cart_polizas').textContent = fmtNum(lastP.polizas_vigentes || 0);
-      document.getElementById('kpi_cart_asegurados').textContent = fmtNum(lastP.asegurados || 0);
-      const ratioAseg = lastP.polizas_vigentes ? (lastP.asegurados / lastP.polizas_vigentes).toFixed(1) : '0';
-      document.getElementById('kpi_cart_ratio').textContent = ratioAseg;
+      const curPolizas = lastP.polizas_vigentes || 0;
+      const curAsegurados = lastP.asegurados || 0;
+      const curRatioAseg = curPolizas ? (curAsegurados / curPolizas) : 0;
+      
+      document.getElementById('kpi_cart_polizas').textContent = fmtNum(curPolizas);
+      document.getElementById('kpi_cart_asegurados').textContent = fmtNum(curAsegurados);
+      document.getElementById('kpi_cart_ratio').textContent = curRatioAseg ? curRatioAseg.toFixed(2) : '0';
       document.getElementById('kpi_cart_emitidas').textContent = fmtNum(totEmitidas);
+
+      const elDeltaCartPol = document.getElementById('kpi_cart_polizas_delta');
+      const elTextCartPol = document.getElementById('kpi_cart_polizas_text');
+      const elDeltaCartAseg = document.getElementById('kpi_cart_asegurados_delta');
+      const elTextCartAseg = document.getElementById('kpi_cart_asegurados_text');
+      const elDeltaCartRatio = document.getElementById('kpi_cart_ratio_delta');
+      const elTextCartRatio = document.getElementById('kpi_cart_ratio_text');
+      const elDeltaCartEmit = document.getElementById('kpi_cart_emitidas_delta');
+      const elTextCartEmit = document.getElementById('kpi_cart_emitidas_text');
+
+      if (prevEj && numMonths > 0) {
+        // 4.1 Pólizas Vigentes
+        const diffPol = curPolizas - prevLastPolizas;
+        const pctPol = prevLastPolizas ? ((diffPol / prevLastPolizas) * 100) : 0;
+        const isPosPol = diffPol >= 0;
+        elDeltaCartPol.className = 'kpi-delta ' + (isPosPol ? 'positive' : 'negative');
+        elDeltaCartPol.innerHTML = `<i class="fa-solid fa-arrow-${isPosPol ? 'up' : 'down'}"></i> ${isPosPol ? '+' : ''}${pctPol.toFixed(2)} %`;
+        elTextCartPol.textContent = numMonths === 12
+          ? `vs ${prevEj} (${isPosPol ? '+' : ''}${fmtNum(diffPol)})`
+          : `vs mismo período (${numMonths}m) de ${prevEj} (${isPosPol ? '+' : ''}${fmtNum(diffPol)})`;
+
+        // 4.2 Asegurados Vigentes
+        const diffAseg = curAsegurados - prevLastAsegurados;
+        const pctAseg = prevLastAsegurados ? ((diffAseg / prevLastAsegurados) * 100) : 0;
+        const isPosAseg = diffAseg >= 0;
+        elDeltaCartAseg.className = 'kpi-delta ' + (isPosAseg ? 'positive' : 'negative');
+        elDeltaCartAseg.innerHTML = `<i class="fa-solid fa-arrow-${isPosAseg ? 'up' : 'down'}"></i> ${isPosAseg ? '+' : ''}${pctAseg.toFixed(2)} %`;
+        elTextCartAseg.textContent = numMonths === 12
+          ? `vs ${prevEj} (${isPosAseg ? '+' : ''}${fmtNum(diffAseg)})`
+          : `vs mismo período (${numMonths}m) de ${prevEj} (${isPosAseg ? '+' : ''}${fmtNum(diffAseg)})`;
+
+        // 4.3 Ratio Asegurados / Póliza
+        const prevRatioAseg = prevLastPolizas ? (prevLastAsegurados / prevLastPolizas) : 0;
+        const diffRatio = curRatioAseg - prevRatioAseg;
+        const isPosRatio = diffRatio >= 0;
+        elDeltaCartRatio.className = 'kpi-delta ' + (isPosRatio ? 'positive' : 'negative');
+        elDeltaCartRatio.innerHTML = `<i class="fa-solid fa-arrow-${isPosRatio ? 'up' : 'down'}"></i> ${isPosRatio ? '+' : ''}${diffRatio.toFixed(2)}`;
+        elTextCartRatio.textContent = numMonths === 12
+          ? `vs ${prevEj} (${prevRatioAseg.toFixed(2)})`
+          : `vs mismo período de ${prevEj} (${prevRatioAseg.toFixed(2)})`;
+
+        // 4.4 Pólizas Emitidas (Acumuladas)
+        const diffEmit = totEmitidas - prevTotEmitidas;
+        const pctEmit = prevTotEmitidas ? ((diffEmit / prevTotEmitidas) * 100) : 0;
+        const isPosEmit = diffEmit >= 0;
+        elDeltaCartEmit.className = 'kpi-delta ' + (isPosEmit ? 'positive' : 'negative');
+        elDeltaCartEmit.innerHTML = `<i class="fa-solid fa-arrow-${isPosEmit ? 'up' : 'down'}"></i> ${isPosEmit ? '+' : ''}${pctEmit.toFixed(2)} %`;
+        elTextCartEmit.textContent = numMonths === 12
+          ? `vs ${prevEj} (${isPosEmit ? '+' : ''}${fmtNum(diffEmit)})`
+          : `vs mismo período (${numMonths}m) de ${prevEj} (${isPosEmit ? '+' : ''}${fmtNum(diffEmit)})`;
+
+      } else {
+        elDeltaCartPol.className = 'kpi-delta neutral';
+        elDeltaCartPol.textContent = 'Base histórica';
+        elTextCartPol.textContent = `Primer ejercicio registrado (${numMonths} meses)`;
+
+        elDeltaCartAseg.className = 'kpi-delta neutral';
+        elDeltaCartAseg.textContent = 'Base histórica';
+        elTextCartAseg.textContent = `Primer ejercicio registrado (${numMonths} meses)`;
+
+        elDeltaCartRatio.className = 'kpi-delta neutral';
+        elDeltaCartRatio.textContent = 'Base histórica';
+        elTextCartRatio.textContent = `Primer ejercicio registrado (${numMonths} meses)`;
+
+        elDeltaCartEmit.className = 'kpi-delta neutral';
+        elDeltaCartEmit.textContent = 'Base histórica';
+        elTextCartEmit.textContent = `Primer ejercicio registrado (${numMonths} meses)`;
+      }
 
       // ----------------------------------------------------
       // 5. KPIS SINIESTROS & COMPARATIVAS INTERANUALES
@@ -1861,13 +1977,14 @@
       });
 
       // ----------------------------------------------------
-      // 7. GRÁFICOS CARTERA
+      // 7. GRÁFICOS CARTERA CON DOBLE EJE Y (PÓLIZAS / ASEGURADOS VS RATIO)
       // ----------------------------------------------------
       const periodLabels = periodRows.map(p => p.periodo);
-      renderLineChart('chart_cart_evolucion', periodLabels, [
-        { label: 'Asegurados Vigentes', data: periodRows.map(p => p.asegurados), borderColor: BRAND.azul, borderWidth: 3 },
-        { label: 'Pólizas Vigentes', data: periodRows.map(p => p.polizas_vigentes), borderColor: BRAND.rojoSeguro, borderWidth: 2, borderDash: [4, 4] }
-      ], 'num');
+      const dataAsegurados = periodRows.map(p => p.asegurados);
+      const dataPolizas = periodRows.map(p => p.polizas_vigentes);
+      const dataRatios = periodRows.map(p => p.polizas_vigentes ? Number((p.asegurados / p.polizas_vigentes).toFixed(2)) : 0);
+
+      renderPortfolioDualAxisChart('chart_cart_evolucion', periodLabels, dataAsegurados, dataPolizas, dataRatios);
 
       renderBarChart('chart_cart_flujo', periodLabels, [
         { label: 'Emitidas', data: periodRows.map(p => p.emitidas), backgroundColor: BRAND.verde },
@@ -1878,13 +1995,13 @@
       const tbCart = document.querySelector('#table_cart_mensual tbody');
       tbCart.innerHTML = '';
       periodRows.forEach(pr => {
-        const ratio = pr.polizas_vigentes ? (pr.asegurados / pr.polizas_vigentes).toFixed(1) : '-';
+        const ratio = pr.polizas_vigentes ? (pr.asegurados / pr.polizas_vigentes).toFixed(2) : '-';
         const tr = document.createElement('tr');
         tr.innerHTML = `
           <td><strong>${pr.periodo}</strong></td>
           <td class="num">${fmtNum(pr.polizas_vigentes)}</td>
           <td class="num">${fmtNum(pr.asegurados)}</td>
-          <td class="num">${ratio}</td>
+          <td class="num" style="color: var(--verde); font-weight:700;">${ratio}</td>
           <td class="num">${fmtNum(pr.emitidas)}</td>
           <td class="num">${fmtNum(pr.renovadas)}</td>
           <td class="num" style="color: var(--rojo-seguro);">${fmtNum(pr.anuladas)}</td>
@@ -2082,6 +2199,89 @@
                   if (unitType === 'percent' || unitType === 'pct') return value + ' %';
                   if (unitType === 'num' || unitType === 'count') return fmtNum(value);
                   return '$ ' + Number(value).toLocaleString('es-AR');
+                }
+              }
+            }
+          }
+        }
+      });
+    }
+
+    function renderPortfolioDualAxisChart(canvasId, labels, dataAsegurados, dataPolizas, dataRatios) {
+      if (charts[canvasId]) charts[canvasId].destroy();
+
+      charts[canvasId] = new Chart(document.getElementById(canvasId), {
+        type: 'line',
+        data: {
+          labels,
+          datasets: [
+            {
+              label: 'Asegurados Vigentes (Eje Izq.)',
+              data: dataAsegurados,
+              borderColor: BRAND.azul,
+              backgroundColor: 'rgba(65, 131, 202, 0.08)',
+              fill: true,
+              borderWidth: 3,
+              tension: 0.3,
+              yAxisID: 'y'
+            },
+            {
+              label: 'Pólizas Vigentes (Eje Izq.)',
+              data: dataPolizas,
+              borderColor: BRAND.rojoSeguro,
+              backgroundColor: 'transparent',
+              borderDash: [5, 5],
+              borderWidth: 2.5,
+              tension: 0.3,
+              yAxisID: 'y'
+            },
+            {
+              label: 'Ratio Asegurados / Póliza (Eje Der.)',
+              data: dataRatios,
+              borderColor: BRAND.verde,
+              backgroundColor: 'transparent',
+              borderWidth: 3,
+              pointRadius: 4,
+              pointBackgroundColor: BRAND.verde,
+              tension: 0.25,
+              yAxisID: 'y1'
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          interaction: { mode: 'index', intersect: false },
+          plugins: {
+            tooltip: {
+              callbacks: {
+                label: function(ctx) {
+                  if (ctx.datasetIndex === 2) {
+                    return ` ${ctx.dataset.label}: ${Number(ctx.raw).toFixed(2)} aseg./póliza`;
+                  }
+                  return ` ${ctx.dataset.label}: ${fmtNum(ctx.raw)}`;
+                }
+              }
+            }
+          },
+          scales: {
+            y: {
+              type: 'linear',
+              position: 'left',
+              grid: { color: BRAND.grid },
+              ticks: {
+                callback: function(val) {
+                  return Number(val).toLocaleString('es-AR');
+                }
+              }
+            },
+            y1: {
+              type: 'linear',
+              position: 'right',
+              grid: { drawOnChartArea: false },
+              ticks: {
+                callback: function(val) {
+                  return Number(val).toFixed(1);
                 }
               }
             }
