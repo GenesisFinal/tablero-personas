@@ -1197,7 +1197,7 @@
     </div>
 
     <!-- ==================================================== -->
-    <!-- MÓDULO 6: MERCADO & CUOTA SSN -->
+    <!-- MÓDULO 6: MERCADO & CUOTA SSN (NUEVO MÓDULO OFICIAL) -->
     <!-- ==================================================== -->
     <div id="pane_mod_mercado" class="tab-pane">
       <div class="kpi-grid">
@@ -1237,7 +1237,7 @@
           <div class="kpi-value" id="kpi_mkt_vol_total">$ 3,36 B</div>
           <div class="kpi-subtext">
             <span class="kpi-delta positive" id="kpi_mkt_crec_real">+14,41 % real</span>
-            <span>Crecimiento anual SSN</span>
+            <span style="font-size: 11px; color: var(--text-muted);">(Ajustado x IPIM)</span>
           </div>
         </div>
       </div>
@@ -1253,10 +1253,15 @@
           </div>
         </div>
 
-        <!-- Gráfico 2: Crecimiento Real: La Segunda vs Mercado Total -->
+        <!-- Gráfico 2: Crecimiento Real: La Segunda vs Mercado Total (Aclaración explícita IPIM) -->
         <div class="chart-card col-6">
           <div class="chart-header">
-            <h3><i class="fa-solid fa-code-compare"></i> Crecimiento Real Interanual: La Segunda vs Mercado SSN (%)</h3>
+            <h3 style="display: flex; align-items: center; flex-wrap: wrap; gap: 8px;">
+              <span><i class="fa-solid fa-code-compare"></i> Crecimiento Real Interanual: La Segunda vs Mercado SSN (%)</span>
+              <span style="font-size: 10.5px; font-weight: 700; color: var(--rojo-seguro); background: rgba(226, 0, 57, 0.08); padding: 3px 8px; border-radius: var(--radius-pill); border: 1px solid rgba(226, 0, 57, 0.2);">
+                <i class="fa-solid fa-scale-balanced"></i> Valores siempre ajustados por IPIM
+              </span>
+            </h3>
           </div>
           <div class="chart-container">
             <canvas id="chart_mkt_crecimiento"></canvas>
@@ -1301,8 +1306,8 @@
                 <th class="num">Cuota Vida Col. (%)</th>
                 <th class="num">Cuota Vida Ind. (%)</th>
                 <th class="num">Cuota Salud (%)</th>
-                <th class="num">Var. Real Mercado (%)</th>
-                <th class="num">Var. Real L2 (%)</th>
+                <th class="num" title="Variación Interanual Real Deflactada por IPIM">Var. Real Mkt (% IPIM)</th>
+                <th class="num" title="Variación Interanual Real Deflactada por IPIM">Var. Real L2 (% IPIM)</th>
                 <th class="num">Spread L2 vs Mkt (p.p.)</th>
               </tr>
             </thead>
@@ -2619,12 +2624,12 @@
       ];
       renderLineChart('chart_mkt_cuotas', ssnLabels, cuotaDatasets, 'percent');
 
-      // 6.2 Gráfico Crecimiento Real: L2 vs Mercado (trimestres con variación)
+      // 6.2 Gráfico Crecimiento Real: L2 vs Mercado (Valores siempre ajustados por IPIM)
       const validQuarters = ssn.filter(x => x.mercado.var_ajust.total !== 0 || x.la_segunda.var_ajust.total !== 0);
       const crecLabels = validQuarters.map(x => x.periodo_texto);
       renderBarChart('chart_mkt_crecimiento', crecLabels, [
-        { label: 'Crecimiento Real La Segunda (%)', data: validQuarters.map(x => x.la_segunda.var_ajust.total), backgroundColor: BRAND.rojoSeguro, borderRadius: 4 },
-        { label: 'Crecimiento Real Mercado SSN (%)', data: validQuarters.map(x => x.mercado.var_ajust.total), backgroundColor: BRAND.azul, borderRadius: 4 }
+        { label: 'Crecimiento Real La Segunda (% IPIM)', data: validQuarters.map(x => x.la_segunda.var_ajust.total), backgroundColor: BRAND.rojoSeguro, borderRadius: 4 },
+        { label: 'Crecimiento Real Mercado SSN (% IPIM)', data: validQuarters.map(x => x.mercado.var_ajust.total), backgroundColor: BRAND.azul, borderRadius: 4 }
       ], 'percent');
 
       // 6.3 Torta Estructura Mercado Nacional (último balance)
