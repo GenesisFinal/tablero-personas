@@ -858,7 +858,7 @@
           </div>
         </div>
 
-        <!-- 5. MONITOR DE CRECIMIENTO INTERANUAL LTM POR RAMO (CON ACLARACIÓN EXPLÍCITA DE VALORES REALES NETOS DE INFLACIÓN) -->
+        <!-- 5. MONITOR DE CRECIMIENTO INTERANUAL LTM POR RAMO (VALORES REALES NETOS DE INFLACIÓN) -->
         <div class="chart-card col-12">
           <div class="chart-header">
             <h3 style="display: flex; align-items: center; flex-wrap: wrap; gap: 8px;">
@@ -944,7 +944,7 @@
       </div>
 
       <div class="dashboard-grid">
-        <!-- Evolución de Cartera con Doble Eje Y -->
+        <!-- Evolución de Cartera con Doble Eje Y (Asegurados / Pólizas vs Ratio) -->
         <div class="chart-card col-8">
           <div class="chart-header">
             <h3><i class="fa-solid fa-chart-line"></i> Evolución de Cartera & Ratio de Asegurados / Póliza</h3>
@@ -2300,7 +2300,7 @@
       const dataPolizas = periodRows.map(p => p.polizas_vigentes);
       const dataRatios = periodRows.map(p => p.polizas_vigentes ? Number((p.asegurados / p.polizas_vigentes).toFixed(2)) : 0);
 
-      renderPortfolioDualAxisChart('chart_cart_evolucion', periodLabels, dataAsegurados, dataPolizas, dataRatios);
+      renderDualAxisPortfolioChart('chart_cart_evolucion', periodLabels, dataAsegurados, dataPolizas, dataRatios);
 
       renderBarChart('chart_cart_flujo', periodLabels, [
         { label: 'Emitidas', data: periodRows.map(p => p.emitidas), backgroundColor: BRAND.verde },
@@ -2367,7 +2367,7 @@
       ], 'num');
 
       // 8.4 Monitor de Litigiosidad (Demandas vs Reserva de Demandas en $ M)
-      renderPortfolioDualAxisChart('chart_sin_litigios', periodLabels, 
+      renderDualAxisLitigationChart('chart_sin_litigios', periodLabels, 
         periodRows.map(p => p.demandas), 
         periodRows.map(p => p.juicios), 
         periodRows.map(p => Number((p.reserva_demanda / 1e6).toFixed(1)))
@@ -2716,7 +2716,92 @@
       });
     }
 
-    function renderPortfolioDualAxisChart(canvasId, labels, data1, data2, data3) {
+    // GRÁFICO DOBLE EJE ESPECÍFICO DE CARTERA (PÓLIZAS / ASEGURADOS VS RATIO)
+    function renderDualAxisPortfolioChart(canvasId, labels, dataAseg, dataPol, dataRatio) {
+      if (charts[canvasId]) charts[canvasId].destroy();
+
+      charts[canvasId] = new Chart(document.getElementById(canvasId), {
+        type: 'line',
+        data: {
+          labels,
+          datasets: [
+            {
+              label: 'Asegurados Vigentes (Eje Izq.)',
+              data: dataAseg,
+              borderColor: BRAND.azul,
+              backgroundColor: 'rgba(65, 131, 202, 0.08)',
+              fill: true,
+              borderWidth: 3,
+              tension: 0.3,
+              yAxisID: 'y'
+            },
+            {
+              label: 'Pólizas Vigentes (Eje Izq.)',
+              data: dataPol,
+              borderColor: BRAND.coral,
+              backgroundColor: 'transparent',
+              borderDash: [5, 5],
+              borderWidth: 2.5,
+              tension: 0.3,
+              yAxisID: 'y'
+            },
+            {
+              label: 'Ratio Asegurados / Póliza (Eje Der.)',
+              data: dataRatio,
+              borderColor: BRAND.verde,
+              backgroundColor: 'transparent',
+              borderWidth: 3,
+              pointRadius: 4,
+              pointBackgroundColor: BRAND.verde,
+              tension: 0.25,
+              yAxisID: 'y1'
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          interaction: { mode: 'index', intersect: false },
+          plugins: {
+            tooltip: {
+              callbacks: {
+                label: function(ctx) {
+                  if (ctx.datasetIndex === 2) {
+                    return ` ${ctx.dataset.label}: ${Number(ctx.raw).toFixed(2)}`;
+                  }
+                  return ` ${ctx.dataset.label}: ${fmtNum(ctx.raw)}`;
+                }
+              }
+            }
+          },
+          scales: {
+            y: {
+              type: 'linear',
+              position: 'left',
+              grid: { color: BRAND.grid },
+              ticks: {
+                callback: function(val) {
+                  return Number(val).toLocaleString('es-AR');
+                }
+              }
+            },
+            y1: {
+              type: 'linear',
+              position: 'right',
+              grid: { drawOnChartArea: false },
+              ticks: {
+                callback: function(val) {
+                  return Number(val).toFixed(2);
+                }
+              }
+            }
+          }
+        }
+      });
+    }
+
+    // GRÁFICO DOBLE EJE ESPECÍFICO DE LITIGIOSIDAD (DEMANDAS / JUICIOS VS RESERVA $ M)
+    function renderDualAxisLitigationChart(canvasId, labels, dataDemandas, dataJuicios, dataRvaDemandaM) {
       if (charts[canvasId]) charts[canvasId].destroy();
 
       charts[canvasId] = new Chart(document.getElementById(canvasId), {
@@ -2726,7 +2811,7 @@
           datasets: [
             {
               label: 'Demandas Activas (Eje Izq.)',
-              data: data1,
+              data: dataDemandas,
               borderColor: BRAND.coral,
               backgroundColor: 'rgba(255, 89, 62, 0.08)',
               fill: true,
@@ -2736,7 +2821,7 @@
             },
             {
               label: 'Juicios (Eje Izq.)',
-              data: data2,
+              data: dataJuicios,
               borderColor: BRAND.azul,
               backgroundColor: 'transparent',
               borderDash: [5, 5],
@@ -2746,7 +2831,7 @@
             },
             {
               label: 'Reserva Demanda ($ M) (Eje Der.)',
-              data: data3,
+              data: dataRvaDemandaM,
               borderColor: BRAND.rojoSeguro,
               backgroundColor: 'transparent',
               borderWidth: 3,
