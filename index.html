@@ -1076,7 +1076,7 @@
           <div class="chart-header">
             <h3><i class="fa-solid fa-ranking-star"></i> Ranking de Productos por Prima Emitida</h3>
           </div>
-          <div class="chart-container" style="min-height: 320px;">
+          <div class="chart-container" style="min-height: 340px;">
             <canvas id="chart_prod_ranking"></canvas>
           </div>
         </div>
@@ -1311,7 +1311,7 @@
                 <th>Trimestre SSN</th>
                 <th class="num">Prima Mercado ($ M)</th>
                 <th class="num">Prima La Segunda ($ M)</th>
-                <th class="num" style="color: var(--rojo-seguro); font-weight:700;">Cuota Total (%)</th>
+                <th class="num" style="color: var(--rojo-seguro); font-weight:800;">Cuota Total (%)</th>
                 <th class="num">Cuota AP (%)</th>
                 <th class="num">Cuota Vida Col. (%)</th>
                 <th class="num">Cuota Vida Ind. (%)</th>
@@ -2247,7 +2247,7 @@
       });
 
       // ----------------------------------------------------
-      // 9. DRILL-DOWN PRODUCTOS
+      // 9. DRILL-DOWN PRODUCTOS (CON % EN BARRAS ROJAS)
       // ----------------------------------------------------
       const prodAgg = {};
       filtered.forEach(r => {
@@ -2297,7 +2297,15 @@
       });
 
       const top10 = prodList.slice(0, 10);
-      renderHorizontalBarChart('chart_prod_ranking', top10.map(p => p.producto + ' - ' + p.producto_largo.slice(0, 25)), top10.map(p => currentAdjustedMode ? p.prima_ajust_ipc : p.prima_emision));
+      const top10Labels = top10.map(p => p.producto + ' - ' + p.producto_largo.slice(0, 25));
+      const top10Data = top10.map(p => currentAdjustedMode ? p.prima_ajust_ipc : p.prima_emision);
+      const top10Pct = top10.map(p => {
+        const val = currentAdjustedMode ? p.prima_ajust_ipc : p.prima_emision;
+        const pct = totPrima ? ((val / totPrima) * 100) : 0;
+        return fmtPct(pct);
+      });
+
+      renderHorizontalBarChart('chart_prod_ranking', top10Labels, top10Data, top10Pct);
 
       const tbMat = document.querySelector('#table_productos_matrix tbody');
       tbMat.innerHTML = '';
@@ -2672,8 +2680,38 @@
       });
     }
 
-    function renderHorizontalBarChart(canvasId, labels, data) {
+    // HORIZONTAL BAR CHART CON ETIQUETAS % EN BLANCO DENTRO DE LA BARRA
+    function renderHorizontalBarChart(canvasId, labels, data, pctLabels = []) {
       if (charts[canvasId]) charts[canvasId].destroy();
+
+      const barLabelsPlugin = {
+        id: 'barLabelsPlugin',
+        afterDatasetsDraw(chart) {
+          const { ctx } = chart;
+          ctx.save();
+          ctx.font = 'bold 11px Sora, sans-serif';
+          ctx.textBaseline = 'middle';
+
+          const meta = chart.getDatasetMeta(0);
+          meta.data.forEach((bar, index) => {
+            const pctStr = pctLabels ? pctLabels[index] : '';
+            if (!pctStr) return;
+
+            const barWidth = bar.x - bar.base;
+            if (barWidth > 60) {
+              ctx.fillStyle = '#ffffff';
+              ctx.textAlign = 'right';
+              ctx.fillText(pctStr, bar.x - 10, bar.y);
+            } else {
+              ctx.fillStyle = '#30302d';
+              ctx.textAlign = 'left';
+              ctx.fillText(pctStr, bar.x + 8, bar.y);
+            }
+          });
+          ctx.restore();
+        }
+      };
+
       charts[canvasId] = new Chart(document.getElementById(canvasId), {
         type: 'bar',
         data: {
@@ -2682,7 +2720,8 @@
             label: 'Prima ($)',
             data,
             backgroundColor: BRAND.rojoSeguro,
-            borderRadius: 6
+            borderRadius: 6,
+            pctLabels
           }]
         },
         options: {
@@ -2693,11 +2732,22 @@
             legend: { display: false },
             tooltip: {
               callbacks: {
-                label: ctx => ` Prima: ${fmtMoney(ctx.raw)}`
+                label: ctx => ` Prima: ${fmtMoney(ctx.raw)} (${pctLabels[ctx.dataIndex] || ''})`
+              }
+            }
+          },
+          scales: {
+            x: {
+              grid: { color: BRAND.grid },
+              ticks: {
+                callback: function(val) {
+                  return '$ ' + Math.round(Number(val)).toLocaleString('es-AR');
+                }
               }
             }
           }
-        }
+        },
+        plugins: [barLabelsPlugin]
       });
     }
 
