@@ -2322,9 +2322,11 @@
               grid: { color: BRAND.grid },
               ticks: {
                 callback: function(value) {
-                  if (unitType === 'percent' || unitType === 'pct') return value + ' %';
+                  if (unitType === 'percent' || unitType === 'pct') {
+                    return Number(Number(value).toFixed(2)).toLocaleString('es-AR') + ' %';
+                  }
                   if (unitType === 'num' || unitType === 'count') return fmtNum(value);
-                  return '$ ' + Number(value).toLocaleString('es-AR');
+                  return '$ ' + Math.round(Number(value)).toLocaleString('es-AR');
                 }
               }
             }
@@ -2443,9 +2445,11 @@
               grid: { color: BRAND.grid },
               ticks: {
                 callback: function(value) {
-                  if (unitType === 'percent' || unitType === 'pct') return value + ' %';
+                  if (unitType === 'percent' || unitType === 'pct') {
+                    return Number(Number(value).toFixed(2)).toLocaleString('es-AR') + ' %';
+                  }
                   if (unitType === 'num' || unitType === 'count') return fmtNum(value);
-                  return '$ ' + Number(value).toLocaleString('es-AR');
+                  return '$ ' + Math.round(Number(value)).toLocaleString('es-AR');
                 }
               }
             }
