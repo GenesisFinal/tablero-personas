@@ -1287,7 +1287,7 @@
     </div>
 
     <!-- ==================================================== -->
-    <!-- MÓDULO 6: MERCADO & CUOTA SSN (NUEVO MÓDULO OFICIAL) -->
+    <!-- MÓDULO 6: MERCADO & CUOTA SSN (DINÁMICO POR RAMO Y PERÍODO) -->
     <!-- ==================================================== -->
     <div id="pane_mod_mercado" class="tab-pane">
       <div class="kpi-grid">
@@ -1358,20 +1358,20 @@
           </div>
         </div>
 
-        <!-- Gráfico 3: Estructura del Mercado Asegurador Argentino -->
+        <!-- Gráfico 3: Estructura del Mercado Argentino (DINÁMICO) -->
         <div class="chart-card col-6">
           <div class="chart-header">
-            <h3><i class="fa-solid fa-chart-pie"></i> Composición del Mercado Argentino de Personas (SSN)</h3>
+            <h3 id="title_mkt_pie_mercado"><i class="fa-solid fa-chart-pie"></i> Composición del Mercado Argentino de Personas (SSN)</h3>
           </div>
           <div class="chart-container">
             <canvas id="chart_mkt_pie_mercado"></canvas>
           </div>
         </div>
 
-        <!-- Gráfico 4: Estructura de La Segunda -->
+        <!-- Gráfico 4: Estructura de La Segunda (DINÁMICO) -->
         <div class="chart-card col-6">
           <div class="chart-header">
-            <h3><i class="fa-solid fa-chart-pie"></i> Composición de Cartera de La Segunda (SSN)</h3>
+            <h3 id="title_mkt_pie_l2"><i class="fa-solid fa-chart-pie"></i> Composición de Cartera de La Segunda (SSN)</h3>
           </div>
           <div class="chart-container">
             <canvas id="chart_mkt_pie_l2"></canvas>
@@ -1475,7 +1475,6 @@
       document.getElementById('btn_modo_ajustado').classList.toggle('active', isAdjusted);
       document.getElementById('btn_modo_historico').classList.toggle('active', !isAdjusted);
       updateDashboard();
-      initMercado();
     }
 
     // INICIALIZACIÓN DE SELECTORES
@@ -2494,6 +2493,11 @@
       // 10. GESTIÓN FINANCIERA DINÁMICA POR EJERCICIO / LTM
       // ----------------------------------------------------
       updateFinanciero(selectedEj, targetPeriods);
+
+      // ----------------------------------------------------
+      // 11. MERCADO & CUOTA SSN (DINÁMICO SEGÚN FILTRO DE RAMOS)
+      // ----------------------------------------------------
+      updateMercado(filtered);
     }
 
     function updateFinanciero(selectedEj, targetPeriods = []) {
@@ -3081,9 +3085,9 @@
     }
 
     // ====================================================
-    // MÓDULO 6: MERCADO & CUOTA SSN
+    // MÓDULO 6: MERCADO & CUOTA SSN (TOTALMENTE REACTIVO)
     // ====================================================
-    function initMercado() {
+    function updateMercado(filteredConsolidada = []) {
       const ssn = DB.balances_ssn;
       if (!ssn || !ssn.length) return;
 
@@ -3123,31 +3127,91 @@
         { label: 'Crecimiento Real Mercado SSN (% IPIM)', data: validQuarters.map(x => x.mercado.var_ajust.total), backgroundColor: BRAND.azul, borderRadius: 4 }
       ], 'percent', true);
 
-      // 6.3 Torta Estructura Mercado Nacional (último balance)
-      const mktAP = currentAdjustedMode ? last.mercado.ap_ajust : last.mercado.ap_hist;
-      const mktVC = currentAdjustedMode ? last.mercado.vc_ajust : last.mercado.vc_hist;
-      const mktVI = currentAdjustedMode ? last.mercado.vi_ajust : last.mercado.vi_hist;
-      const mktSep = currentAdjustedMode ? last.mercado.sepelio_ajust : last.mercado.sepelio_hist;
-      const mktSalud = currentAdjustedMode ? last.mercado.salud_ajust : last.mercado.salud_hist;
+      // 6.3 & 6.4 TORTAS DINÁMICAS (POR RAMO O POR PRODUCTO SI SE FILTRA UN RAMO)
+      const isAllRamos = selectedRamos.size === DB.metadata.ramos.length;
+      const titleMktEl = document.getElementById('title_mkt_pie_mercado');
+      const titleL2El = document.getElementById('title_mkt_pie_l2');
 
-      renderDoughnutChart('chart_mkt_pie_mercado', 
-        ['Accidentes Personales', 'Vida Colectivo', 'Vida Individual', 'Sepelio', 'Salud'],
-        [mktAP, mktVC, mktVI, mktSep, mktSalud],
-        [BRAND.azul, BRAND.verde, BRAND.amarillo, BRAND.coral, BRAND.borgona]
-      );
+      if (isAllRamos) {
+        // Caso A: Todos los Ramos seleccionados -> Distribución por Ramo oficial SSN
+        if (titleMktEl) titleMktEl.innerHTML = '<i class="fa-solid fa-chart-pie"></i> Composición del Mercado Argentino de Personas (SSN)';
+        if (titleL2El) titleL2El.innerHTML = '<i class="fa-solid fa-chart-pie"></i> Composición de Cartera de La Segunda (SSN)';
 
-      // 6.4 Torta Estructura La Segunda (último balance)
-      const l2AP = currentAdjustedMode ? last.la_segunda.ap_ajust : last.la_segunda.ap_hist;
-      const l2VC = currentAdjustedMode ? last.la_segunda.vc_ajust : last.la_segunda.vc_hist;
-      const l2VI = currentAdjustedMode ? last.la_segunda.vi_ajust : last.la_segunda.vi_hist;
-      const l2Sep = currentAdjustedMode ? last.la_segunda.sepelio_ajust : last.la_segunda.sepelio_hist;
-      const l2Salud = currentAdjustedMode ? last.la_segunda.salud_ajust : last.la_segunda.salud_hist;
+        const mktAP = currentAdjustedMode ? last.mercado.ap_ajust : last.mercado.ap_hist;
+        const mktVC = currentAdjustedMode ? last.mercado.vc_ajust : last.mercado.vc_hist;
+        const mktVI = currentAdjustedMode ? last.mercado.vi_ajust : last.mercado.vi_hist;
+        const mktSep = currentAdjustedMode ? last.mercado.sepelio_ajust : last.mercado.sepelio_hist;
+        const mktSalud = currentAdjustedMode ? last.mercado.salud_ajust : last.mercado.salud_hist;
 
-      renderDoughnutChart('chart_mkt_pie_l2',
-        ['Accidentes Personales', 'Vida Colectivo', 'Vida Individual', 'Sepelio', 'Salud'],
-        [l2AP, l2VC, l2VI, l2Sep, l2Salud],
-        [BRAND.azul, BRAND.verde, BRAND.amarillo, BRAND.coral, BRAND.borgona]
-      );
+        renderDoughnutChart('chart_mkt_pie_mercado', 
+          ['Accidentes Personales', 'Vida Colectivo', 'Vida Individual', 'Sepelio', 'Salud'],
+          [mktAP, mktVC, mktVI, mktSep, mktSalud],
+          [BRAND.azul, BRAND.verde, BRAND.amarillo, BRAND.coral, BRAND.borgona]
+        );
+
+        const l2AP = currentAdjustedMode ? last.la_segunda.ap_ajust : last.la_segunda.ap_hist;
+        const l2VC = currentAdjustedMode ? last.la_segunda.vc_ajust : last.la_segunda.vc_hist;
+        const l2VI = currentAdjustedMode ? last.la_segunda.vi_ajust : last.la_segunda.vi_hist;
+        const l2Sep = currentAdjustedMode ? last.la_segunda.sepelio_ajust : last.la_segunda.sepelio_hist;
+        const l2Salud = currentAdjustedMode ? last.la_segunda.salud_ajust : last.la_segunda.salud_hist;
+
+        renderDoughnutChart('chart_mkt_pie_l2',
+          ['Accidentes Personales', 'Vida Colectivo', 'Vida Individual', 'Sepelio', 'Salud'],
+          [l2AP, l2VC, l2VI, l2Sep, l2Salud],
+          [BRAND.azul, BRAND.verde, BRAND.amarillo, BRAND.coral, BRAND.borgona]
+        );
+
+      } else {
+        // Caso B: Ramo(s) filtrado(s)
+        const ramoName = Array.from(selectedRamos).join(', ');
+        
+        // 1. Torta La Segunda: Composición por Producto interno
+        if (titleL2El) titleL2El.innerHTML = `<i class="fa-solid fa-chart-pie"></i> Composición de La Segunda en ${ramoName} (Por Producto)`;
+        
+        const l2ProdMap = {};
+        filteredConsolidada.forEach(r => {
+          const prd = r.producto;
+          const val = currentAdjustedMode ? (r.prima_ajustx_ipc || 0) : (r.prima_emisión || 0);
+          l2ProdMap[prd] = (l2ProdMap[prd] || 0) + val;
+        });
+        const l2Labels = Object.keys(l2ProdMap);
+        const l2Values = Object.values(l2ProdMap);
+        
+        renderDoughnutChart('chart_mkt_pie_l2', l2Labels, l2Values, [
+          BRAND.rojoSeguro, BRAND.azul, BRAND.verde, BRAND.amarillo, BRAND.coral, BRAND.borgona,
+          '#0ea5e9', '#8b5cf6', '#ec4899', '#f97316', '#14b8a6', '#64748b'
+        ]);
+
+        // 2. Torta Mercado: Cuota de La Segunda vs Resto del Mercado en ese Ramo
+        if (titleMktEl) titleMktEl.innerHTML = `<i class="fa-solid fa-chart-pie"></i> Cuota de La Segunda vs Mercado en ${ramoName} (SSN)`;
+        
+        let mktBranchVal = 0;
+        let l2BranchVal = 0;
+        
+        if (selectedRamos.has('ACCIDENTES PERSONALES')) {
+          mktBranchVal += currentAdjustedMode ? last.mercado.ap_ajust : last.mercado.ap_hist;
+          l2BranchVal += currentAdjustedMode ? last.la_segunda.ap_ajust : last.la_segunda.ap_hist;
+        }
+        if (selectedRamos.has('VIDA COLECTIVO')) {
+          mktBranchVal += currentAdjustedMode ? last.mercado.vc_ajust : last.mercado.vc_hist;
+          l2BranchVal += currentAdjustedMode ? last.la_segunda.vc_ajust : last.la_segunda.vc_hist;
+        }
+        if (selectedRamos.has('VIDA INDIVIDUAL')) {
+          mktBranchVal += currentAdjustedMode ? last.mercado.vi_ajust : last.mercado.vi_hist;
+          l2BranchVal += currentAdjustedMode ? last.la_segunda.vi_ajust : last.la_segunda.vi_hist;
+        }
+        if (selectedRamos.has('SALUD')) {
+          mktBranchVal += currentAdjustedMode ? last.mercado.salud_ajust : last.mercado.salud_hist;
+          l2BranchVal += currentAdjustedMode ? last.la_segunda.salud_ajust : last.la_segunda.salud_hist;
+        }
+
+        const restoMkt = Math.max(0, mktBranchVal - l2BranchVal);
+        renderDoughnutChart('chart_mkt_pie_mercado',
+          ['La Segunda Seguros', 'Resto del Mercado Asegurador'],
+          [l2BranchVal, restoMkt],
+          [BRAND.rojoSeguro, BRAND.azul]
+        );
+      }
 
       // 6.5 Tabla Balances SSN con Primas en Millones ($ M)
       const tbSSN = document.querySelector('#table_mkt_ssn tbody');
@@ -3186,7 +3250,6 @@
     document.addEventListener('DOMContentLoaded', () => {
       initSelectors();
       initMacro();
-      initMercado();
       updateDashboard();
     });
   </script>
