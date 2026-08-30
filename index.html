@@ -858,10 +858,15 @@
           </div>
         </div>
 
-        <!-- 5. MONITOR DE CRECIMIENTO INTERANUAL LTM POR RAMO (NUEVO) -->
+        <!-- 5. MONITOR DE CRECIMIENTO INTERANUAL LTM POR RAMO (CON ACLARACIÓN EXPLÍCITA DE VALORES REALES NETOS DE INFLACIÓN) -->
         <div class="chart-card col-12">
           <div class="chart-header">
-            <h3><i class="fa-solid fa-chart-line"></i> Monitor de Crecimiento Interanual a 12 Meses Móviles (LTM) por Ramo (%)</h3>
+            <h3 style="display: flex; align-items: center; flex-wrap: wrap; gap: 8px;">
+              <span><i class="fa-solid fa-chart-line"></i> Monitor de Crecimiento Real Interanual (12M Móviles) por Ramo (%)</span>
+              <span style="font-size: 10.5px; font-weight: 700; color: var(--rojo-seguro); background: rgba(226, 0, 57, 0.08); padding: 3px 8px; border-radius: var(--radius-pill); border: 1px solid rgba(226, 0, 57, 0.2);">
+                <i class="fa-solid fa-scale-balanced"></i> Valores reales netos de inflación (Ajustados x IPC)
+              </span>
+            </h3>
           </div>
           <div class="chart-container" style="min-height: 270px;">
             <canvas id="chart_prod_ltm_ramos"></canvas>
@@ -1089,7 +1094,7 @@
           </div>
         </div>
 
-        <!-- 3. Flujo de Siniestralidad: Altas Denunciadas vs Siniestros en Gestión (NUEVO) -->
+        <!-- 3. Flujo de Siniestros (Altas vs Siniestros en Gestión) -->
         <div class="chart-card col-6">
           <div class="chart-header">
             <h3><i class="fa-solid fa-bell"></i> Flujo Mensual de Siniestros: Nuevas Denuncias (Altas) vs Casos en Trámite</h3>
@@ -1099,7 +1104,7 @@
           </div>
         </div>
 
-        <!-- 4. Monitoreo de Litigiosidad: Juicios y Demandas vs Reserva Judicial ($ M) (NUEVO) -->
+        <!-- 4. Monitor de Litigiosidad (Demandas vs Reserva de Demandas en $ M) -->
         <div class="chart-card col-6">
           <div class="chart-header">
             <h3><i class="fa-solid fa-gavel"></i> Monitor de Litigiosidad: Demandas Activas vs Reserva Judicial ($ M)</h3>
@@ -2061,16 +2066,13 @@
       document.getElementById('kpi_sin_pagos').textContent = fmtMoney(totPagos);
       document.getElementById('kpi_sin_var_rva').textContent = (totVarRva >= 0 ? '+' : '') + fmtMoney(totVarRva);
 
-      // Siniestros Denunciados (Altas) & Frecuencia por 1.000 asegurados
       document.getElementById('kpi_sin_altas').textContent = fmtNum(totAltasSiniestros);
       const freqPorMil = curAsegurados ? ((totAltasSiniestros / curAsegurados) * 1000) : 0;
       document.getElementById('kpi_sin_freq_badge').textContent = freqPorMil.toFixed(1) + ' ‰';
 
-      // Costo Medio por Siniestro Pagado
       const costoMedioStro = totAltasSiniestros ? (totPagos / totAltasSiniestros) : 0;
       document.getElementById('kpi_sin_costo_medio').textContent = fmtMoney(costoMedioStro);
 
-      // Litigiosidad (Demandas + Juicios + Mediaciones)
       const curDemandas = lastP.demandas || 0;
       const curJuicios = lastP.juicios || 0;
       const curMediaciones = lastP.mediaciones || 0;
@@ -2256,11 +2258,11 @@
         });
 
         const ltmDatasets = [
-          { label: 'Accidentes Personales (AP)', data: var12mRows.map(v => v.var_12m_ap), borderColor: BRAND.azul, borderWidth: 3 },
-          { label: 'Vida Colectivo', data: var12mRows.map(v => v.var_12m_vc), borderColor: BRAND.verde, borderWidth: 3 },
-          { label: 'Vida Individual', data: var12mRows.map(v => v.var_12m_vi), borderColor: BRAND.amarillo, borderWidth: 2.5 },
-          { label: 'Salud', data: var12mRows.map(v => v.var_12m_sc), borderColor: BRAND.coral, borderWidth: 2.5 },
-          { label: 'Total Personas', data: var12mRows.map(v => v.var_12m_total), borderColor: BRAND.rojoSeguro, borderWidth: 3.5, borderDash: [4, 4] }
+          { label: 'Accidentes Personales (AP) (% Real IPC)', data: var12mRows.map(v => v.var_12m_ap), borderColor: BRAND.azul, borderWidth: 3 },
+          { label: 'Vida Colectivo (% Real IPC)', data: var12mRows.map(v => v.var_12m_vc), borderColor: BRAND.verde, borderWidth: 3 },
+          { label: 'Vida Individual (% Real IPC)', data: var12mRows.map(v => v.var_12m_vi), borderColor: BRAND.amarillo, borderWidth: 2.5 },
+          { label: 'Salud (% Real IPC)', data: var12mRows.map(v => v.var_12m_sc), borderColor: BRAND.coral, borderWidth: 2.5 },
+          { label: 'Total Seguros Personas (% Real IPC)', data: var12mRows.map(v => v.var_12m_total), borderColor: BRAND.rojoSeguro, borderWidth: 3.5, borderDash: [4, 4] }
         ];
         renderLineChart('chart_prod_ltm_ramos', vLabels, ltmDatasets, 'percent');
       }
