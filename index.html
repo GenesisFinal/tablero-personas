@@ -858,7 +858,7 @@
           </div>
         </div>
 
-        <!-- 5. MONITOR DE CRECIMIENTO INTERANUAL LTM POR RAMO (VALORES REALES NETOS DE INFLACIÓN) -->
+        <!-- 5. MONITOR DE CRECIMIENTO INTERANUAL LTM POR RAMO (LÍNEA DEL 0% RESALTADA) -->
         <div class="chart-card col-12">
           <div class="chart-header">
             <h3 style="display: flex; align-items: center; flex-wrap: wrap; gap: 8px;">
@@ -2248,7 +2248,7 @@
         ]);
       }
 
-      // 6D. MONITOR DE CRECIMIENTO INTERANUAL LTM (12M MÓVILES) POR RAMO (4 RAMOS OFICIALES)
+      // 6D. MONITOR DE CRECIMIENTO INTERANUAL LTM (12M MÓVILES) POR RAMO (4 RAMOS OFICIALES) CON LÍNEA 0% RESALTADA
       const var12mRows = (DB.variaciones_12m || []).filter(v => targetPeriodsSet.has(v.periodo));
       if (var12mRows.length > 0) {
         const vLabels = var12mRows.map(v => {
@@ -2264,7 +2264,7 @@
           { label: 'Salud (% Real IPC)', data: var12mRows.map(v => v.var_12m_sc), borderColor: BRAND.coral, borderWidth: 2.5 },
           { label: 'Total Seguros Personas (% Real IPC)', data: var12mRows.map(v => v.var_12m_total), borderColor: BRAND.rojoSeguro, borderWidth: 3.5, borderDash: [4, 4] }
         ];
-        renderLineChart('chart_prod_ltm_ramos', vLabels, ltmDatasets, 'percent');
+        renderLineChart('chart_prod_ltm_ramos', vLabels, ltmDatasets, 'percent', true);
       }
 
       // TABLA PRODUCCIÓN
@@ -2675,7 +2675,7 @@
       a.click();
     }
 
-    function renderLineChart(canvasId, labels, datasets, unitType = 'money') {
+    function renderLineChart(canvasId, labels, datasets, unitType = 'money', highlightZero = false) {
       if (charts[canvasId]) charts[canvasId].destroy();
       
       const formatValue = (val) => {
@@ -2700,7 +2700,20 @@
           },
           scales: {
             y: {
-              grid: { color: BRAND.grid },
+              grid: {
+                color: (context) => {
+                  if ((highlightZero || unitType === 'percent') && context.tick && context.tick.value === 0) {
+                    return '#30302d'; // Línea negra/carbón visible en 0%
+                  }
+                  return BRAND.grid;
+                },
+                lineWidth: (context) => {
+                  if ((highlightZero || unitType === 'percent') && context.tick && context.tick.value === 0) {
+                    return 2.5; // Grosor pronunciado en la línea base de 0%
+                  }
+                  return 1;
+                }
+              },
               ticks: {
                 callback: function(value) {
                   if (unitType === 'percent' || unitType === 'pct') {
@@ -2884,7 +2897,7 @@
       });
     }
 
-    function renderBarChart(canvasId, labels, datasets, unitType = 'money') {
+    function renderBarChart(canvasId, labels, datasets, unitType = 'money', highlightZero = false) {
       if (charts[canvasId]) charts[canvasId].destroy();
       
       const formatValue = (val) => {
@@ -2908,7 +2921,20 @@
           },
           scales: {
             y: {
-              grid: { color: BRAND.grid },
+              grid: {
+                color: (context) => {
+                  if ((highlightZero || unitType === 'percent') && context.tick && context.tick.value === 0) {
+                    return '#30302d'; // Línea oscura en 0
+                  }
+                  return BRAND.grid;
+                },
+                lineWidth: (context) => {
+                  if ((highlightZero || unitType === 'percent') && context.tick && context.tick.value === 0) {
+                    return 2.5;
+                  }
+                  return 1;
+                }
+              },
               ticks: {
                 callback: function(value) {
                   if (unitType === 'percent' || unitType === 'pct') {
@@ -3095,7 +3121,7 @@
       renderBarChart('chart_mkt_crecimiento', crecLabels, [
         { label: 'Crecimiento Real La Segunda (% IPIM)', data: validQuarters.map(x => x.la_segunda.var_ajust.total), backgroundColor: BRAND.rojoSeguro, borderRadius: 4 },
         { label: 'Crecimiento Real Mercado SSN (% IPIM)', data: validQuarters.map(x => x.mercado.var_ajust.total), backgroundColor: BRAND.azul, borderRadius: 4 }
-      ], 'percent');
+      ], 'percent', true);
 
       // 6.3 Torta Estructura Mercado Nacional (último balance)
       const mktAP = currentAdjustedMode ? last.mercado.ap_ajust : last.mercado.ap_hist;
