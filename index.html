@@ -1289,7 +1289,7 @@
         </div>
       </div>
 
-      <!-- Tabla Detalle Balances SSN -->
+      <!-- Tabla Detalle Balances SSN con Primas en Millones ($ M) -->
       <div class="table-card">
         <div class="table-header">
           <h3><i class="fa-solid fa-table"></i> Balances Oficiales SSN: Primas, Cuotas de Mercado y Variaciones</h3>
@@ -1299,8 +1299,8 @@
             <thead>
               <tr>
                 <th>Trimestre SSN</th>
-                <th class="num">Prima Mercado ($)</th>
-                <th class="num">Prima La Segunda ($)</th>
+                <th class="num">Prima Mercado ($ M)</th>
+                <th class="num">Prima La Segunda ($ M)</th>
                 <th class="num" style="color: var(--rojo-seguro); font-weight:700;">Cuota Total (%)</th>
                 <th class="num">Cuota AP (%)</th>
                 <th class="num">Cuota Vida Col. (%)</th>
@@ -2662,12 +2662,17 @@
         [BRAND.azul, BRAND.verde, BRAND.amarillo, BRAND.coral, BRAND.borgona]
       );
 
-      // 6.5 Tabla Balances SSN
+      // 6.5 Tabla Balances SSN con Primas en Millones ($ M)
       const tbSSN = document.querySelector('#table_mkt_ssn tbody');
       tbSSN.innerHTML = '';
       ssn.forEach(r => {
         const mktP = currentAdjustedMode ? r.mercado.total_ajust : r.mercado.total_hist;
         const l2P = currentAdjustedMode ? r.la_segunda.total_ajust : r.la_segunda.total_hist;
+        
+        // Expresar en Millones
+        const mktM = mktP / 1e6;
+        const l2M = l2P / 1e6;
+
         const spread = (r.la_segunda.var_ajust.total && r.mercado.var_ajust.total) 
           ? (r.la_segunda.var_ajust.total - r.mercado.var_ajust.total) 
           : 0;
@@ -2675,8 +2680,8 @@
         const tr = document.createElement('tr');
         tr.innerHTML = `
           <td><strong>${r.periodo_texto}</strong></td>
-          <td class="num">${fmtMoney(mktP)}</td>
-          <td class="num">${fmtMoney(l2P)}</td>
+          <td class="num">${fmtMoney(mktM)}</td>
+          <td class="num">${fmtMoney(l2M)}</td>
           <td class="num" style="color: var(--rojo-seguro); font-weight:800; background: #fff5f6;">${fmtPct(r.cuota_mercado.total_personas)}</td>
           <td class="num" style="font-weight:700; color: var(--azul);">${fmtPct(r.cuota_mercado.ap)}</td>
           <td class="num">${fmtPct(r.cuota_mercado.vida_colectivo)}</td>
