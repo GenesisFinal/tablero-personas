@@ -37561,6 +37561,7 @@
   "info_financiera": [
     {
       "periodo": "2024-07",
+      "ejercicio": "Ejerc. 24/25",
       "afln_millones": 37196.0,
       "rentabilidad_mes_tir": 0.016,
       "rentabilidad_acumulada": 0.016,
@@ -37573,6 +37574,7 @@
     },
     {
       "periodo": "2024-08",
+      "ejercicio": "Ejerc. 24/25",
       "afln_millones": 37685.0,
       "rentabilidad_mes_tir": 0.0131,
       "rentabilidad_acumulada": 0.0293096,
@@ -37585,6 +37587,7 @@
     },
     {
       "periodo": "2024-09",
+      "ejercicio": "Ejerc. 24/25",
       "afln_millones": 38332.0,
       "rentabilidad_mes_tir": 0.0173,
       "rentabilidad_acumulada": 0.04711665608,
@@ -37597,6 +37600,7 @@
     },
     {
       "periodo": "2024-10",
+      "ejercicio": "Ejerc. 24/25",
       "afln_millones": 39983.0,
       "rentabilidad_mes_tir": 0.0427,
       "rentabilidad_acumulada": 0.09182853729,
@@ -37609,6 +37613,7 @@
     },
     {
       "periodo": "2024-11",
+      "ejercicio": "Ejerc. 24/25",
       "afln_millones": 42170.0,
       "rentabilidad_mes_tir": 0.0631,
       "rentabilidad_acumulada": 0.160722918,
@@ -37621,6 +37626,7 @@
     },
     {
       "periodo": "2024-12",
+      "ejercicio": "Ejerc. 24/25",
       "afln_millones": 43583.0,
       "rentabilidad_mes_tir": 0.0337,
       "rentabilidad_acumulada": 0.1998392803,
@@ -37633,6 +37639,7 @@
     },
     {
       "periodo": "2025-01",
+      "ejercicio": "Ejerc. 24/25",
       "afln_millones": 44832.0,
       "rentabilidad_mes_tir": 0.0323,
       "rentabilidad_acumulada": 0.2385940891,
@@ -37645,6 +37652,7 @@
     },
     {
       "periodo": "2025-02",
+      "ejercicio": "Ejerc. 24/25",
       "afln_millones": 45097.0,
       "rentabilidad_mes_tir": 0.0066,
       "rentabilidad_acumulada": 0.2467688101,
@@ -37657,6 +37665,7 @@
     },
     {
       "periodo": "2025-03",
+      "ejercicio": "Ejerc. 24/25",
       "afln_millones": 46433.0,
       "rentabilidad_mes_tir": 0.0209,
       "rentabilidad_acumulada": 0.2728262782,
@@ -37669,6 +37678,7 @@
     },
     {
       "periodo": "2025-04",
+      "ejercicio": "Ejerc. 24/25",
       "afln_millones": 47736.0,
       "rentabilidad_mes_tir": 0.0272,
       "rentabilidad_acumulada": 0.307447153,
@@ -37681,6 +37691,7 @@
     },
     {
       "periodo": "2025-05",
+      "ejercicio": "Ejerc. 24/25",
       "afln_millones": 49523.0,
       "rentabilidad_mes_tir": 0.0338,
       "rentabilidad_acumulada": 0.3516388667,
@@ -37693,6 +37704,7 @@
     },
     {
       "periodo": "2025-06",
+      "ejercicio": "Ejerc. 24/25",
       "afln_millones": 51362.0,
       "rentabilidad_mes_tir": 0.02,
       "rentabilidad_acumulada": 0.3786716441,
@@ -37705,6 +37717,7 @@
     },
     {
       "periodo": "2025-07",
+      "ejercicio": "Ejerc. 25/26",
       "afln_millones": 52413.0,
       "rentabilidad_mes_tir": 0.0249,
       "rentabilidad_acumulada": 0.0249,
@@ -37717,6 +37730,7 @@
     },
     {
       "periodo": "2025-08",
+      "ejercicio": "Ejerc. 25/26",
       "afln_millones": 53452.0,
       "rentabilidad_mes_tir": 0.0171,
       "rentabilidad_acumulada": 0.04242579,
@@ -37729,6 +37743,7 @@
     },
     {
       "periodo": "2025-09",
+      "ejercicio": "Ejerc. 25/26",
       "afln_millones": 54340.0,
       "rentabilidad_mes_tir": 0.0153,
       "rentabilidad_acumulada": 0.05837490459,
@@ -37741,6 +37756,7 @@
     },
     {
       "periodo": "2025-10",
+      "ejercicio": "Ejerc. 25/26",
       "afln_millones": 57337.0,
       "rentabilidad_mes_tir": 0.06,
       "rentabilidad_acumulada": 0.1218773989,
@@ -37753,6 +37769,7 @@
     },
     {
       "periodo": "2025-11",
+      "ejercicio": "Ejerc. 25/26",
       "afln_millones": 58877.0,
       "rentabilidad_mes_tir": 0.0218,
       "rentabilidad_acumulada": 0.1463343262,
@@ -37765,6 +37782,7 @@
     },
     {
       "periodo": "2025-12",
+      "ejercicio": "Ejerc. 25/26",
       "afln_millones": 60572.0,
       "rentabilidad_mes_tir": 0.026,
       "rentabilidad_acumulada": 0.1761390186,
@@ -37777,6 +37795,7 @@
     },
     {
       "periodo": "2026-01",
+      "ejercicio": "Ejerc. 25/26",
       "afln_millones": 62584.0,
       "rentabilidad_mes_tir": 0.031,
       "rentabilidad_acumulada": 0.2125993282,
@@ -37789,6 +37808,7 @@
     },
     {
       "periodo": "2026-02",
+      "ejercicio": "Ejerc. 25/26",
       "afln_millones": 65002.0,
       "rentabilidad_mes_tir": 0.034,
       "rentabilidad_acumulada": 0.2538277054,
@@ -37801,6 +37821,7 @@
     },
     {
       "periodo": "2026-03",
+      "ejercicio": "Ejerc. 25/26",
       "afln_millones": 68440.0,
       "rentabilidad_mes_tir": 0.0433,
       "rentabilidad_acumulada": 0.308118445,
@@ -37813,6 +37834,7 @@
     },
     {
       "periodo": "2026-04",
+      "ejercicio": "Ejerc. 25/26",
       "afln_millones": 71447.0,
       "rentabilidad_mes_tir": 0.0347,
       "rentabilidad_acumulada": 0.3535101551,
@@ -37825,6 +37847,7 @@
     },
     {
       "periodo": "2026-05",
+      "ejercicio": "Ejerc. 25/26",
       "afln_millones": 74172.0,
       "rentabilidad_mes_tir": 0.0283,
       "rentabilidad_acumulada": 0.3918144924,
@@ -37837,6 +37860,7 @@
     },
     {
       "periodo": "2026-06",
+      "ejercicio": "Ejerc. 25/26",
       "afln_millones": 78103.0,
       "rentabilidad_mes_tir": 0.0244,
       "rentabilidad_acumulada": 0.4257747661,
@@ -37849,6 +37873,7 @@
     },
     {
       "periodo": "2026-07",
+      "ejercicio": "Ejerc. 26/27",
       "afln_millones": 79117.0,
       "rentabilidad_mes_tir": 0.0194,
       "rentabilidad_acumulada": 0.4534347965,
