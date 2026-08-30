@@ -1113,10 +1113,20 @@
     <!-- ==================================================== -->
     <div id="pane_mod_financiero" class="tab-pane">
       <div class="kpi-grid">
+        <!-- TARJETA STOCK AFLN CON DOBLE VARIACIÓN (MES PREVIO Y 12M ANTERIORES) -->
         <div class="kpi-card">
           <span class="kpi-title">Stock AFLN (Cierre Período)</span>
           <div class="kpi-value" id="kpi_fin_afln">$ 0 M</div>
-          <div class="kpi-subtext" id="kpi_fin_afln_sub">Activos Financieros Líquidos</div>
+          <div class="kpi-subtext" id="kpi_fin_afln_sub" style="display: flex; flex-direction: column; gap: 4px; align-items: flex-start;">
+            <div style="display: flex; align-items: center; gap: 6px;">
+              <span class="kpi-delta neutral" id="kpi_fin_afln_delta_mes">-</span>
+              <span id="kpi_fin_afln_text_mes" style="font-size: 11px;">vs mes previo</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px;">
+              <span class="kpi-delta neutral" id="kpi_fin_afln_delta_12m">-</span>
+              <span id="kpi_fin_afln_text_12m" style="font-size: 11px;">vs 12 meses anterior</span>
+            </div>
+          </div>
         </div>
 
         <div class="kpi-card accent-green">
@@ -2324,7 +2334,6 @@
         const targetSet = new Set(targetPeriods.length ? targetPeriods : ALL_AVAILABLE_PERIODS.slice(-12));
         const rawLtm = allFin.filter(x => targetSet.has(x.periodo));
         
-        // Recalcular acumuladores LTM progresivamente
         let cumTir = 1.0;
         let cumIpc = 1.0;
         let cumAp = 0.0;
@@ -2351,6 +2360,11 @@
       }
 
       const kpiAfln = document.getElementById('kpi_fin_afln');
+      const elDeltaAflnMes = document.getElementById('kpi_fin_afln_delta_mes');
+      const elTextAflnMes = document.getElementById('kpi_fin_afln_text_mes');
+      const elDeltaAfln12m = document.getElementById('kpi_fin_afln_delta_12m');
+      const elTextAfln12m = document.getElementById('kpi_fin_afln_text_12m');
+
       const kpiRent = document.getElementById('kpi_fin_rent');
       const kpiIpc = document.getElementById('kpi_fin_ipc');
       const kpiSup = document.getElementById('kpi_fin_sup');
@@ -2359,6 +2373,11 @@
 
       if (!fin || !fin.length) {
         kpiAfln.textContent = '-';
+        if (elDeltaAflnMes) { elDeltaAflnMes.className = 'kpi-delta neutral'; elDeltaAflnMes.textContent = '-'; }
+        if (elDeltaAfln12m) { elDeltaAfln12m.className = 'kpi-delta neutral'; elDeltaAfln12m.textContent = '-'; }
+        if (elTextAflnMes) elTextAflnMes.textContent = 'Sin datos';
+        if (elTextAfln12m) elTextAfln12m.textContent = 'Sin datos';
+
         kpiRent.textContent = '-';
         kpiIpc.textContent = '-';
         kpiSup.textContent = '-';
@@ -2375,6 +2394,49 @@
 
       const last = fin[fin.length - 1];
       kpiAfln.textContent = fmtMoney(last.afln_millones) + ' M';
+
+      // ----------------------------------------------------
+      // VARIACIONES AFLN: VS MES PREVIO Y VS 12 MESES ANTERIORES
+      // ----------------------------------------------------
+      const allFinMap = {};
+      allFin.forEach(r => { allFinMap[r.periodo] = r.afln_millones; });
+      const allSortedFinPeriods = Object.keys(allFinMap).sort();
+      const curFinIdx = allSortedFinPeriods.indexOf(last.periodo);
+
+      // Variación vs Mes Previo
+      if (curFinIdx > 0) {
+        const prevMonthP = allSortedFinPeriods[curFinIdx - 1];
+        const prevMonthVal = allFinMap[prevMonthP];
+        const diffM = last.afln_millones - prevMonthVal;
+        const pctM = prevMonthVal ? ((diffM / prevMonthVal) * 100) : 0;
+        const isPosM = diffM >= 0;
+
+        elDeltaAflnMes.className = 'kpi-delta ' + (isPosM ? 'positive' : 'negative');
+        elDeltaAflnMes.innerHTML = `<i class="fa-solid fa-arrow-${isPosM ? 'up' : 'down'}"></i> ${isPosM ? '+' : ''}${pctM.toFixed(2)} %`;
+        elTextAflnMes.textContent = `vs mes anterior (${isPosM ? '+' : ''}${fmtMoney(diffM)} M)`;
+      } else {
+        elDeltaAflnMes.className = 'kpi-delta neutral';
+        elDeltaAflnMes.textContent = 'Base';
+        elTextAflnMes.textContent = 'Primer mes registrado';
+      }
+
+      // Variación vs 12 Meses Anterior
+      if (curFinIdx >= 12) {
+        const prev12MonthP = allSortedFinPeriods[curFinIdx - 12];
+        const prev12MonthVal = allFinMap[prev12MonthP];
+        const diff12 = last.afln_millones - prev12MonthVal;
+        const pct12 = prev12MonthVal ? ((diff12 / prev12MonthVal) * 100) : 0;
+        const isPos12 = diff12 >= 0;
+
+        elDeltaAfln12m.className = 'kpi-delta ' + (isPos12 ? 'positive' : 'negative');
+        elDeltaAfln12m.innerHTML = `<i class="fa-solid fa-arrow-${isPos12 ? 'up' : 'down'}"></i> ${isPos12 ? '+' : ''}${pct12.toFixed(2)} %`;
+        elTextAfln12m.textContent = `vs 12m anteriores (${isPos12 ? '+' : ''}${fmtMoney(diff12)} M)`;
+      } else {
+        elDeltaAfln12m.className = 'kpi-delta neutral';
+        elDeltaAfln12m.textContent = '-';
+        elTextAfln12m.textContent = 'Sin histórico 12m previos';
+      }
+
       kpiRent.textContent = fmtPct(last.rentabilidad_acumulada * 100);
       kpiIpc.textContent = fmtPct(last.ipc_acumulado_ejerc * 100);
       kpiSup.textContent = (last.superavit_acumulado >= 0 ? '+' : '') + fmtPct(last.superavit_acumulado * 100);
