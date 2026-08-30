@@ -689,9 +689,9 @@
   <!-- BARRA DE FILTROS DINÁMICOS MULTINIVEL CON SELECCIÓN MÚLTIPLE -->
   <div class="filter-bar">
     <div class="filter-group-left">
-      <!-- Filtro Ejercicio -->
+      <!-- Filtro Ejercicio / Período -->
       <div class="filter-item">
-        <label><i class="fa-regular fa-calendar-check"></i> Ejercicio:</label>
+        <label><i class="fa-regular fa-calendar-check"></i> Período / Ejercicio:</label>
         <select id="sel_ejercicio" onchange="onExerciseChange()">
         </select>
       </div>
@@ -811,7 +811,7 @@
             <span class="kpi-delta neutral" style="font-weight:700; font-size:11.5px; background: rgba(65, 131, 202, 0.12); color: var(--azul);" id="kpi_ripte_badge">
               RIPTE Anual: 34,05 %
             </span>
-            <span id="kpi_macro_period_text">Mes de corte (jun 2026)</span>
+            <span id="kpi_macro_period_text">Mes de corte</span>
           </div>
         </div>
       </div>
@@ -1008,9 +1008,9 @@
           </div>
         </div>
 
-        <!-- KPI 4: VARIACIÓN RESERVA EJERCICIO -->
+        <!-- KPI 4: VARIACIÓN RESERVA EJERCICIO / LTM -->
         <div class="kpi-card accent-green">
-          <span class="kpi-title">Variación Reserva Ejercicio</span>
+          <span class="kpi-title">Variación Reserva Período</span>
           <div class="kpi-value" id="kpi_sin_var_rva">$ 0</div>
           <div class="kpi-subtext" id="kpi_sin_var_rva_sub">
             <span class="kpi-delta neutral" id="kpi_sin_var_rva_delta">-</span>
@@ -1109,12 +1109,12 @@
     </div>
 
     <!-- ==================================================== -->
-    <!-- MÓDULO 5: GESTIÓN FINANCIERA (DINÁMICO POR EJERCICIO) -->
+    <!-- MÓDULO 5: GESTIÓN FINANCIERA (DINÁMICO POR EJERCICIO / LTM) -->
     <!-- ==================================================== -->
     <div id="pane_mod_financiero" class="tab-pane">
       <div class="kpi-grid">
         <div class="kpi-card">
-          <span class="kpi-title">Stock AFLN (Cierre Ejercicio)</span>
+          <span class="kpi-title">Stock AFLN (Cierre Período)</span>
           <div class="kpi-value" id="kpi_fin_afln">$ 0 M</div>
           <div class="kpi-subtext" id="kpi_fin_afln_sub">Activos Financieros Líquidos</div>
         </div>
@@ -1344,7 +1344,10 @@
       grid: '#edf2f7'
     };
 
-    const MONTH_NAMES = ['Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic', 'Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun'];
+    const MONTH_NAMES_MAP = { '01':'Ene', '02':'Feb', '03':'Mar', '04':'Abr', '05':'May', '06':'Jun', '07':'Jul', '08':'Ago', '09':'Sep', '10':'Oct', '11':'Nov', '12':'Dic' };
+
+    // Extraer lista ordenada de todos los periodos cronológicos disponibles
+    const ALL_AVAILABLE_PERIODS = Array.from(new Set(DB.consolidada.map(r => r.periodo))).sort();
 
     // CONFIGURACIÓN OFICIAL: DEFAULT SIEMPRE EN HISTÓRICO ($)
     let currentAdjustedMode = false;
@@ -1388,6 +1391,19 @@
     // INICIALIZACIÓN DE SELECTORES
     function initSelectors() {
       const selEj = document.getElementById('sel_ejercicio');
+      selEj.innerHTML = '';
+
+      // Opción 1: Últimos 12 Meses (LTM)
+      const optLtm = document.createElement('option');
+      optLtm.value = 'LTM';
+      const last12 = ALL_AVAILABLE_PERIODS.slice(-12);
+      const ltmTxt = (last12.length === 12) 
+        ? `Últimos 12 Meses (${MONTH_NAMES_MAP[last12[0].slice(5)]} ${last12[0].slice(2,4)} - ${MONTH_NAMES_MAP[last12[11].slice(5)]} ${last12[11].slice(2,4)})`
+        : 'Últimos 12 Meses (LTM)';
+      optLtm.textContent = ltmTxt;
+      selEj.appendChild(optLtm);
+
+      // Opciones por Ejercicio
       DB.metadata.ejercicios.forEach(ej => {
         const opt = document.createElement('option');
         opt.value = ej;
@@ -1555,9 +1571,9 @@
       updateDashboard();
     }
 
-    function filterDataForExercise(ej) {
+    function filterDataByPeriods(periodsSet) {
       return DB.consolidada.filter(r => {
-        if (r.ejercicio !== ej) return false;
+        if (!periodsSet.has(r.periodo)) return false;
         if (!selectedRamos.has(r.ramo)) return false;
         if (!selectedProductos.has(r.producto)) return false;
         return true;
@@ -1566,9 +1582,52 @@
 
     function updateDashboard() {
       const selectedEj = document.getElementById('sel_ejercicio').value;
-      const filtered = filterDataForExercise(selectedEj);
       const allEj = DB.metadata.ejercicios;
-      const curIdx = allEj.indexOf(selectedEj);
+      const isLTM = (selectedEj === 'LTM');
+      
+      let targetPeriods = [];
+      let prevTargetPeriods = [];
+      let initialStockPeriod = null;
+      let prevInitialStockPeriod = null;
+      let prevComparisonLabel = '';
+
+      if (isLTM) {
+        targetPeriods = ALL_AVAILABLE_PERIODS.slice(-12);
+        prevTargetPeriods = ALL_AVAILABLE_PERIODS.slice(-24, -12);
+        
+        const idxIni = ALL_AVAILABLE_PERIODS.indexOf(targetPeriods[0]);
+        if (idxIni > 0) initialStockPeriod = ALL_AVAILABLE_PERIODS[idxIni - 1];
+        
+        const idxPrevIni = ALL_AVAILABLE_PERIODS.indexOf(prevTargetPeriods[0]);
+        if (idxPrevIni > 0) prevInitialStockPeriod = ALL_AVAILABLE_PERIODS[idxPrevIni - 1];
+
+        prevComparisonLabel = 'vs 12m previos';
+
+      } else {
+        const curIdx = allEj.indexOf(selectedEj);
+        const curEjRecs = DB.consolidada.filter(r => r.ejercicio === selectedEj);
+        targetPeriods = Array.from(new Set(curEjRecs.map(r => r.periodo))).sort();
+        
+        if (curIdx > 0) {
+          const prevEj = allEj[curIdx - 1];
+          const prevFiltered = DB.consolidada.filter(r => r.ejercicio === prevEj);
+          const prevAllPeriods = Array.from(new Set(prevFiltered.map(r => r.periodo))).sort();
+          prevTargetPeriods = prevAllPeriods.slice(0, targetPeriods.length);
+          
+          if (curIdx > 1) {
+            const ppEj = allEj[curIdx - 2];
+            const ppFiltered = DB.consolidada.filter(r => r.ejercicio === ppEj);
+            const ppPeriods = Array.from(new Set(ppFiltered.map(r => r.periodo))).sort();
+            prevInitialStockPeriod = ppPeriods[ppPeriods.length - 1];
+          }
+          
+          initialStockPeriod = prevAllPeriods[prevAllPeriods.length - 1];
+          prevComparisonLabel = (targetPeriods.length === 12) ? `vs ${prevEj}` : `vs mismo período (${targetPeriods.length}m) de ${prevEj}`;
+        }
+      }
+
+      const targetPeriodsSet = new Set(targetPeriods);
+      const filtered = filterDataByPeriods(targetPeriodsSet);
       
       const byPeriod = {};
       filtered.forEach(r => {
@@ -1597,9 +1656,7 @@
         byPeriod[p].prima_emision += (r.prima_emisión || 0);
         byPeriod[p].prima_ajust_ipc += (r.prima_ajustx_ipc || 0);
         byPeriod[p].prima_acum_ejerc += (r.prima_acum_ejerc || 0);
-        
-        const pg = (r.pagos_siniestros || 0);
-        byPeriod[p].pagos_siniestros += pg;
+        byPeriod[p].pagos_siniestros += (r.pagos_siniestros || 0);
         byPeriod[p].polizas_vigentes += (r.cant_pólizas_vigentes || 0);
         byPeriod[p].asegurados += (r.cant_asegurados || 0);
         byPeriod[p].emitidas += (r.cant_pólizas_emitidas || 0);
@@ -1611,19 +1668,34 @@
         byPeriod[p].reserva_demanda += (r.reserva_demanda || 0);
       });
 
-      const periodsSorted = Object.keys(byPeriod).sort();
-      const periodRows = periodsSorted.map(p => byPeriod[p]);
-      const numMonths = periodsSorted.length;
+      const periodRows = targetPeriods.map(p => byPeriod[p] || {
+        periodo: p,
+        periodo_texto: p,
+        prima_emision: 0,
+        prima_ajust_ipc: 0,
+        pagos_siniestros: 0,
+        polizas_vigentes: 0,
+        asegurados: 0,
+        emitidas: 0,
+        renovadas: 0,
+        anuladas: 0,
+        reserva_total: 0,
+        reserva_stros_pend: 0,
+        reserva_demanda: 0
+      });
 
-      // Calcular stock inicial del ejercicio (cierre del ejercicio anterior)
+      const numMonths = periodRows.length;
+
+      // Calcular stock inicial del ejercicio / LTM
       let initialStock = 0;
-      if (curIdx > 0) {
-        const prevEj = allEj[curIdx - 1];
-        const prevFiltered = filterDataForExercise(prevEj);
-        const prevPeriods = Array.from(new Set(prevFiltered.map(r => r.periodo))).sort();
-        const lastPrevPeriod = prevPeriods[prevPeriods.length - 1];
-        const lastPrevRecs = prevFiltered.filter(r => r.periodo === lastPrevPeriod);
-        initialStock = lastPrevRecs.reduce((a, b) => a + (b.reserva_total || 0), 0);
+      if (initialStockPeriod) {
+        const iniFiltered = DB.consolidada.filter(r => {
+          if (r.periodo !== initialStockPeriod) return false;
+          if (!selectedRamos.has(r.ramo)) return false;
+          if (!selectedProductos.has(r.producto)) return false;
+          return true;
+        });
+        initialStock = iniFiltered.reduce((a, b) => a + (b.reserva_total || 0), 0);
       }
 
       // Calcular variaciones mensuales exactas periodo a periodo y acumulados progresivos
@@ -1636,7 +1708,6 @@
         pr.costo_siniestral = pr.pagos_siniestros + pr.variacion_reserva_mensual;
         prevMonthStock = pr.reserva_total;
 
-        // Acumulados progresivos
         const pVal = currentAdjustedMode ? pr.prima_ajust_ipc : pr.prima_emision;
         runningPrima += pVal;
         runningPagos += pr.pagos_siniestros;
@@ -1669,9 +1740,8 @@
       const totCostoSin = totPagos + totVarRva;
 
       // ----------------------------------------------------
-      // COMPARATIVAS LIKE-FOR-LIKE DEL EJERCICIO ANTERIOR
+      // COMPARATIVAS LIKE-FOR-LIKE DEL PERÍODO ANTERIOR
       // ----------------------------------------------------
-      let prevEj = null;
       let prevPeriodRows = [];
       let prevTotPrima = 0;
       let prevTotPagos = 0;
@@ -1681,31 +1751,25 @@
       let prevLastPolizas = 0;
       let prevLastAsegurados = 0;
 
-      if (curIdx > 0 && numMonths > 0) {
-        prevEj = allEj[curIdx - 1];
-        const prevFiltered = filterDataForExercise(prevEj);
-        const prevPeriods = Array.from(new Set(prevFiltered.map(r => r.periodo))).sort();
-        const prevPeriodsSample = prevPeriods.slice(0, numMonths);
+      if (prevTargetPeriods.length > 0) {
+        const prevSet = new Set(prevTargetPeriods);
+        const prevFiltered = filterDataByPeriods(prevSet);
         
         let prevInitialStock = 0;
-        if (curIdx > 1) {
-          const prevPrevEj = allEj[curIdx - 2];
-          const ppFiltered = filterDataForExercise(prevPrevEj);
-          const ppPeriods = Array.from(new Set(ppFiltered.map(r => r.periodo))).sort();
-          const lastPPPeriod = ppPeriods[ppPeriods.length - 1];
-          const lastPPRecs = ppFiltered.filter(r => r.periodo === lastPPPeriod);
-          prevInitialStock = lastPPRecs.reduce((a, b) => a + (b.reserva_total || 0), 0);
+        if (prevInitialStockPeriod) {
+          const pIniF = DB.consolidada.filter(r => {
+            if (r.periodo !== prevInitialStockPeriod) return false;
+            if (!selectedRamos.has(r.ramo)) return false;
+            if (!selectedProductos.has(r.producto)) return false;
+            return true;
+          });
+          prevInitialStock = pIniF.reduce((a, b) => a + (b.reserva_total || 0), 0);
         }
 
         let prevMStock = prevInitialStock;
-        prevPeriodRows = prevPeriodsSample.map(p => {
+        prevPeriodRows = prevTargetPeriods.map(p => {
           const pRecs = prevFiltered.filter(r => r.periodo === p);
-          let sumP = 0;
-          let sumPg = 0;
-          let sumStock = 0;
-          let sumPol = 0;
-          let sumAseg = 0;
-          let sumEmit = 0;
+          let sumP = 0, sumPg = 0, sumStock = 0, sumPol = 0, sumAseg = 0, sumEmit = 0;
           pRecs.forEach(r => {
             sumP += currentAdjustedMode ? (r.prima_ajustx_ipc || 0) : (r.prima_emisión || 0);
             sumPg += (r.pagos_siniestros || 0);
@@ -1717,6 +1781,7 @@
           const varRvaM = sumStock - prevMStock;
           prevMStock = sumStock;
           return { 
+            periodo: p,
             prima: sumP, 
             pagos: sumPg, 
             stock: sumStock, 
@@ -1753,8 +1818,8 @@
       const deltaAvgEl = document.getElementById('kpi_prod_avg_delta');
       const textAvgEl = document.getElementById('kpi_prod_avg_text');
 
-      if (prevEj && numMonths > 0) {
-        const prevAvgPrima = numMonths ? (prevTotPrima / numMonths) : 0;
+      if (prevPeriodRows.length > 0) {
+        const prevAvgPrima = prevPeriodRows.length ? (prevTotPrima / prevPeriodRows.length) : 0;
         const diffTotal = totPrima - prevTotPrima;
         const pctTotal = prevTotPrima ? ((diffTotal / prevTotPrima) * 100) : 0;
         const isPosTotal = diffTotal >= 0;
@@ -1765,24 +1830,16 @@
 
         deltaTotalEl.className = 'kpi-delta ' + (isPosTotal ? 'positive' : 'negative');
         deltaTotalEl.innerHTML = `<i class="fa-solid fa-arrow-${isPosTotal ? 'up' : 'down'}"></i> ${isPosTotal ? '+' : ''}${pctTotal.toFixed(2)} %`;
-        
-        const descTotal = numMonths === 12 
-          ? `vs ${prevEj} completo (${isPosTotal ? '+' : ''}${fmtMoney(diffTotal)})`
-          : `vs mismo período (${numMonths}m) de ${prevEj} (${isPosTotal ? '+' : ''}${fmtMoney(diffTotal)})`;
-        textTotalEl.textContent = descTotal;
+        textTotalEl.textContent = `${prevComparisonLabel} (${isPosTotal ? '+' : ''}${fmtMoney(diffTotal)})`;
 
         deltaAvgEl.className = 'kpi-delta ' + (isPosAvg ? 'positive' : 'negative');
         deltaAvgEl.innerHTML = `<i class="fa-solid fa-arrow-${isPosAvg ? 'up' : 'down'}"></i> ${isPosAvg ? '+' : ''}${pctAvg.toFixed(2)} %`;
-        
-        const descAvg = numMonths === 12
-          ? `vs prom. ${prevEj} (${isPosAvg ? '+' : ''}${fmtMoney(diffAvg)}/mes)`
-          : `vs prom. ${prevEj} (${numMonths}m) (${isPosAvg ? '+' : ''}${fmtMoney(diffAvg)}/mes)`;
-        textAvgEl.textContent = descAvg;
+        textAvgEl.textContent = `${prevComparisonLabel} (${isPosAvg ? '+' : ''}${fmtMoney(diffAvg)}/mes)`;
 
       } else {
         deltaTotalEl.className = 'kpi-delta neutral';
         deltaTotalEl.textContent = 'Base histórica';
-        textTotalEl.textContent = `Primer ejercicio registrado (${numMonths} meses)`;
+        textTotalEl.textContent = `Primer período registrado (${numMonths} meses)`;
 
         deltaAvgEl.className = 'kpi-delta neutral';
         deltaAvgEl.textContent = 'Base histórica';
@@ -1793,6 +1850,7 @@
       // 2. INFLACIÓN ANUAL IPC & RIPTE
       // ----------------------------------------------------
       const macroMap = {
+        'LTM': { ipc: 33.70, ripte: 34.05, mes: 'últimos 12m' },
         'Ejerc. 26/27': { ipc: 34.20, ripte: 34.10, mes: 'jul 2026' },
         'Ejerc. 25/26': { ipc: 33.70, ripte: 34.05, mes: 'jun 2026' },
         'Ejerc. 24/25': { ipc: 41.20, ripte: 44.10, mes: 'jun 2025' },
@@ -1840,16 +1898,14 @@
       const elDeltaCartEmit = document.getElementById('kpi_cart_emitidas_delta');
       const elTextCartEmit = document.getElementById('kpi_cart_emitidas_text');
 
-      if (prevEj && numMonths > 0) {
+      if (prevPeriodRows.length > 0) {
         // 4.1 Pólizas Vigentes
         const diffPol = curPolizas - prevLastPolizas;
         const pctPol = prevLastPolizas ? ((diffPol / prevLastPolizas) * 100) : 0;
         const isPosPol = diffPol >= 0;
         elDeltaCartPol.className = 'kpi-delta ' + (isPosPol ? 'positive' : 'negative');
         elDeltaCartPol.innerHTML = `<i class="fa-solid fa-arrow-${isPosPol ? 'up' : 'down'}"></i> ${isPosPol ? '+' : ''}${pctPol.toFixed(2)} %`;
-        elTextCartPol.textContent = numMonths === 12
-          ? `vs ${prevEj} (${isPosPol ? '+' : ''}${fmtNum(diffPol)})`
-          : `vs mismo período (${numMonths}m) de ${prevEj} (${isPosPol ? '+' : ''}${fmtNum(diffPol)})`;
+        elTextCartPol.textContent = `${prevComparisonLabel} (${isPosPol ? '+' : ''}${fmtNum(diffPol)})`;
 
         // 4.2 Asegurados Vigentes
         const diffAseg = curAsegurados - prevLastAsegurados;
@@ -1857,9 +1913,7 @@
         const isPosAseg = diffAseg >= 0;
         elDeltaCartAseg.className = 'kpi-delta ' + (isPosAseg ? 'positive' : 'negative');
         elDeltaCartAseg.innerHTML = `<i class="fa-solid fa-arrow-${isPosAseg ? 'up' : 'down'}"></i> ${isPosAseg ? '+' : ''}${pctAseg.toFixed(2)} %`;
-        elTextCartAseg.textContent = numMonths === 12
-          ? `vs ${prevEj} (${isPosAseg ? '+' : ''}${fmtNum(diffAseg)})`
-          : `vs mismo período (${numMonths}m) de ${prevEj} (${isPosAseg ? '+' : ''}${fmtNum(diffAseg)})`;
+        elTextCartAseg.textContent = `${prevComparisonLabel} (${isPosAseg ? '+' : ''}${fmtNum(diffAseg)})`;
 
         // 4.3 Ratio Asegurados / Póliza
         const prevRatioAseg = prevLastPolizas ? (prevLastAsegurados / prevLastPolizas) : 0;
@@ -1867,9 +1921,7 @@
         const isPosRatio = diffRatio >= 0;
         elDeltaCartRatio.className = 'kpi-delta ' + (isPosRatio ? 'positive' : 'negative');
         elDeltaCartRatio.innerHTML = `<i class="fa-solid fa-arrow-${isPosRatio ? 'up' : 'down'}"></i> ${isPosRatio ? '+' : ''}${diffRatio.toFixed(2)}`;
-        elTextCartRatio.textContent = numMonths === 12
-          ? `vs ${prevEj} (${prevRatioAseg.toFixed(2)})`
-          : `vs mismo período de ${prevEj} (${prevRatioAseg.toFixed(2)})`;
+        elTextCartRatio.textContent = `${prevComparisonLabel} (${prevRatioAseg.toFixed(2)})`;
 
         // 4.4 Pólizas Emitidas (Acumuladas)
         const diffEmit = totEmitidas - prevTotEmitidas;
@@ -1877,26 +1929,24 @@
         const isPosEmit = diffEmit >= 0;
         elDeltaCartEmit.className = 'kpi-delta ' + (isPosEmit ? 'positive' : 'negative');
         elDeltaCartEmit.innerHTML = `<i class="fa-solid fa-arrow-${isPosEmit ? 'up' : 'down'}"></i> ${isPosEmit ? '+' : ''}${pctEmit.toFixed(2)} %`;
-        elTextCartEmit.textContent = numMonths === 12
-          ? `vs ${prevEj} (${isPosEmit ? '+' : ''}${fmtNum(diffEmit)})`
-          : `vs mismo período (${numMonths}m) de ${prevEj} (${isPosEmit ? '+' : ''}${fmtNum(diffEmit)})`;
+        elTextCartEmit.textContent = `${prevComparisonLabel} (${isPosEmit ? '+' : ''}${fmtNum(diffEmit)})`;
 
       } else {
         elDeltaCartPol.className = 'kpi-delta neutral';
         elDeltaCartPol.textContent = 'Base histórica';
-        textCartPol.textContent = `Primer ejercicio registrado (${numMonths} meses)`;
+        textCartPol.textContent = `Primer período registrado (${numMonths} meses)`;
 
         elDeltaCartAseg.className = 'kpi-delta neutral';
         elDeltaCartAseg.textContent = 'Base histórica';
-        textCartAseg.textContent = `Primer ejercicio registrado (${numMonths} meses)`;
+        textCartAseg.textContent = `Primer período registrado (${numMonths} meses)`;
 
         elDeltaCartRatio.className = 'kpi-delta neutral';
         elDeltaCartRatio.textContent = 'Base histórica';
-        textCartRatio.textContent = `Primer ejercicio registrado (${numMonths} meses)`;
+        textCartRatio.textContent = `Primer período registrado (${numMonths} meses)`;
 
         elDeltaCartEmit.className = 'kpi-delta neutral';
         elDeltaCartEmit.textContent = 'Base histórica';
-        textCartEmit.textContent = `Primer ejercicio registrado (${numMonths} meses)`;
+        textCartEmit.textContent = `Primer período registrado (${numMonths} meses)`;
       }
 
       // ----------------------------------------------------
@@ -1917,7 +1967,7 @@
       const elDeltaVarRva = document.getElementById('kpi_sin_var_rva_delta');
       const elTextVarRva = document.getElementById('kpi_sin_var_rva_text');
 
-      if (prevEj && numMonths > 0) {
+      if (prevPeriodRows.length > 0) {
         // 5.1 Comparativa Ratio Siniestralidad (en puntos porcentuales)
         const prevSinRatio = prevTotPrima ? ((prevTotCostoSin / prevTotPrima) * 100) : 0;
         const deltaPp = sinRatio - prevSinRatio;
@@ -1925,9 +1975,7 @@
         
         elDeltaRatio.className = 'kpi-delta ' + (isGoodRatio ? 'positive' : 'negative');
         elDeltaRatio.innerHTML = `<i class="fa-solid fa-arrow-${deltaPp <= 0 ? 'down' : 'up'}"></i> ${deltaPp >= 0 ? '+' : ''}${deltaPp.toFixed(2)} p.p.`;
-        elTextRatio.textContent = numMonths === 12
-          ? `vs ${prevEj} (${prevSinRatio.toFixed(2)} %)`
-          : `vs mismo período (${numMonths}m) de ${prevEj} (${prevSinRatio.toFixed(2)} %)`;
+        elTextRatio.textContent = `${prevComparisonLabel} (${prevSinRatio.toFixed(2)} %)`;
 
         // 5.2 Comparativa Costo Siniestral Total
         const diffCosto = totCostoSin - prevTotCostoSin;
@@ -1936,9 +1984,7 @@
         
         elDeltaCosto.className = 'kpi-delta ' + (isGoodCosto ? 'positive' : 'negative');
         elDeltaCosto.innerHTML = `<i class="fa-solid fa-arrow-${diffCosto >= 0 ? 'up' : 'down'}"></i> ${diffCosto >= 0 ? '+' : ''}${pctCosto.toFixed(2)} %`;
-        elTextCosto.textContent = numMonths === 12
-          ? `vs ${prevEj} (${diffCosto >= 0 ? '+' : ''}${fmtMoney(diffCosto)})`
-          : `vs mismo período (${numMonths}m) de ${prevEj} (${diffCosto >= 0 ? '+' : ''}${fmtMoney(diffCosto)})`;
+        elTextCosto.textContent = `${prevComparisonLabel} (${diffCosto >= 0 ? '+' : ''}${fmtMoney(diffCosto)})`;
 
         // 5.3 Comparativa Pagos de Siniestros
         const diffPagos = totPagos - prevTotPagos;
@@ -1947,9 +1993,7 @@
         
         elDeltaPagos.className = 'kpi-delta ' + (isGoodPagos ? 'positive' : 'negative');
         elDeltaPagos.innerHTML = `<i class="fa-solid fa-arrow-${diffPagos >= 0 ? 'up' : 'down'}"></i> ${diffPagos >= 0 ? '+' : ''}${pctPagos.toFixed(2)} %`;
-        elTextPagos.textContent = numMonths === 12
-          ? `vs ${prevEj} (${diffPagos >= 0 ? '+' : ''}${fmtMoney(diffPagos)})`
-          : `vs mismo período (${numMonths}m) de ${prevEj} (${diffPagos >= 0 ? '+' : ''}${fmtMoney(diffPagos)})`;
+        elTextPagos.textContent = `${prevComparisonLabel} (${diffPagos >= 0 ? '+' : ''}${fmtMoney(diffPagos)})`;
 
         // 5.4 Comparativa Variación Reserva (%)
         const diffVarRva = totVarRva - prevTotVarRva;
@@ -1958,32 +2002,35 @@
         
         elDeltaVarRva.className = 'kpi-delta ' + (isGoodVarRva ? 'positive' : 'negative');
         elDeltaVarRva.innerHTML = `<i class="fa-solid fa-arrow-${diffVarRva >= 0 ? 'up' : 'down'}"></i> ${diffVarRva >= 0 ? '+' : ''}${pctVarRva.toFixed(2)} %`;
-        elTextVarRva.textContent = numMonths === 12
-          ? `vs ${prevEj} (${diffVarRva >= 0 ? '+' : ''}${fmtMoney(diffVarRva)})`
-          : `vs mismo período (${numMonths}m) de ${prevEj} (${diffVarRva >= 0 ? '+' : ''}${fmtMoney(diffVarRva)})`;
+        elTextVarRva.textContent = `${prevComparisonLabel} (${diffVarRva >= 0 ? '+' : ''}${fmtMoney(diffVarRva)})`;
 
       } else {
         elDeltaRatio.className = 'kpi-delta neutral';
         elDeltaRatio.textContent = 'Base histórica';
-        elTextRatio.textContent = `Primer ejercicio registrado (${numMonths} meses)`;
+        elTextRatio.textContent = `Primer período registrado (${numMonths} meses)`;
 
         elDeltaCosto.className = 'kpi-delta neutral';
         elDeltaCosto.textContent = 'Base histórica';
-        textCosto.textContent = `Primer ejercicio registrado (${numMonths} meses)`;
+        textCosto.textContent = `Primer período registrado (${numMonths} meses)`;
 
         elDeltaPagos.className = 'kpi-delta neutral';
         elDeltaPagos.textContent = 'Base histórica';
-        textPagos.textContent = `Primer ejercicio registrado (${numMonths} meses)`;
+        textPagos.textContent = `Primer período registrado (${numMonths} meses)`;
 
         elDeltaVarRva.className = 'kpi-delta neutral';
         elDeltaVarRva.textContent = 'Base histórica';
-        textVarRva.textContent = `Primer ejercicio registrado (${numMonths} meses)`;
+        textVarRva.textContent = `Primer período registrado (${numMonths} meses)`;
       }
 
       // ----------------------------------------------------
       // 6. GRÁFICOS PRODUCCIÓN (MENSUAL + ACUMULADA)
       // ----------------------------------------------------
-      const monthLabels = MONTH_NAMES.slice(0, numMonths).map((m, idx) => `${m} (${periodRows[idx] ? periodRows[idx].periodo.slice(0, 4) : ''})`);
+      const monthLabels = periodRows.map(pr => {
+        const mPart = pr.periodo.slice(5, 7);
+        const yPart = pr.periodo.slice(0, 4);
+        return `${MONTH_NAMES_MAP[mPart] || mPart} (${yPart})`;
+      });
+
       const dataPrima = periodRows.map(p => currentAdjustedMode ? p.prima_ajust_ipc : p.prima_emision);
       const prevDataPrima = prevPeriodRows.map(p => p.prima);
 
@@ -1996,7 +2043,7 @@
       // 6A. Gráfico Mensual
       const prodDatasets = [
         {
-          label: `${selectedEj} (${currentAdjustedMode ? 'Ajust. IPC' : 'Histórico'})`,
+          label: `${isLTM ? 'Últimos 12 Meses' : selectedEj} (${currentAdjustedMode ? 'Ajust. IPC' : 'Histórico'})`,
           data: dataPrima,
           borderColor: BRAND.rojoSeguro,
           backgroundColor: 'rgba(226, 0, 57, 0.08)',
@@ -2006,9 +2053,9 @@
         }
       ];
 
-      if (prevEj && prevDataPrima.length > 0) {
+      if (prevDataPrima.length > 0) {
         prodDatasets.push({
-          label: `${prevEj} (Año Previo)`,
+          label: `${isLTM ? '12m Previos' : 'Año Previo'}`,
           data: prevDataPrima,
           borderColor: BRAND.azul,
           backgroundColor: 'transparent',
@@ -2022,7 +2069,7 @@
       // 6B. Gráfico Acumulado
       const prodAcumDatasets = [
         {
-          label: `${selectedEj} Acumulado`,
+          label: `${isLTM ? 'LTM' : selectedEj} Acumulado`,
           data: dataPrimaAcum,
           borderColor: BRAND.rojoSeguro,
           backgroundColor: 'rgba(226, 0, 57, 0.08)',
@@ -2032,9 +2079,9 @@
         }
       ];
 
-      if (prevEj && prevDataAcum.length > 0) {
+      if (prevDataAcum.length > 0) {
         prodAcumDatasets.push({
-          label: `${prevEj} Acumulado (Año Previo)`,
+          label: `${isLTM ? '12m Previos' : 'Año Previo'} Acumulado`,
           data: prevDataAcum,
           borderColor: BRAND.azul,
           backgroundColor: 'transparent',
@@ -2088,9 +2135,10 @@
         const pct = prevVal ? ((diff / prevVal) * 100) : 0;
         const isPos = diff >= 0;
 
+        const mPart = pr.periodo.slice(5, 7);
         const tr = document.createElement('tr');
         tr.innerHTML = `
-          <td><strong>${pr.periodo} (${MONTH_NAMES[idx]})</strong></td>
+          <td><strong>${pr.periodo} (${MONTH_NAMES_MAP[mPart] || mPart})</strong></td>
           <td class="num">${fmtMoney(pr.prima_emision)}</td>
           <td class="num">${fmtMoney(pr.prima_ajust_ipc)}</td>
           <td class="num" style="color: var(--text-muted);">${prevVal ? fmtMoney(prevVal) : '-'}</td>
@@ -2143,7 +2191,6 @@
         { label: 'Variación Reserva Mes ($)', data: periodRows.map(p => p.variacion_reserva_mensual), backgroundColor: BRAND.azul }
       ], 'money');
 
-      // Gráfico de Ratio Siniestral: Mensual vs Acumulado
       const sinDatasets = [
         {
           label: 'Ratio Siniestral Acumulado (%)',
@@ -2169,13 +2216,13 @@
       ];
       renderLineChart('chart_sin_ratio_mes', periodLabels, sinDatasets, 'percent');
 
-      // Tabla Detalle Mensual de Siniestralidad con Acumulados
       const tbSin = document.querySelector('#table_sin_mensual tbody');
       tbSin.innerHTML = '';
       periodRows.forEach((pr, idx) => {
+        const mPart = pr.periodo.slice(5, 7);
         const tr = document.createElement('tr');
         tr.innerHTML = `
-          <td><strong>${pr.periodo} (${MONTH_NAMES[idx]})</strong></td>
+          <td><strong>${pr.periodo} (${MONTH_NAMES_MAP[mPart] || mPart})</strong></td>
           <td class="num">${fmtMoney(pr.pagos_siniestros)}</td>
           <td class="num" style="color: ${pr.variacion_reserva_mensual >= 0 ? 'inherit' : '#0d8251'};">${fmtMoney(pr.variacion_reserva_mensual)}</td>
           <td class="num" style="font-weight:600;">${fmtMoney(pr.costo_siniestral)}</td>
@@ -2215,19 +2262,13 @@
         prodAgg[k].asegurados = Math.max(prodAgg[k].asegurados, r.cant_asegurados || 0);
         prodAgg[k].pagos += (r.pagos_siniestros || 0);
         
-        // Stock final del producto en el periodo de cierre
         if (r.periodo === lastP.periodo) {
           prodAgg[k].stock_fin = (r.reserva_total || 0);
         }
       });
 
-      // Obtener stock inicial por producto
-      if (curIdx > 0) {
-        const prevEj = allEj[curIdx - 1];
-        const prevFiltered = filterDataForExercise(prevEj);
-        const prevPeriods = Array.from(new Set(prevFiltered.map(r => r.periodo))).sort();
-        const lastPrevPeriod = prevPeriods[prevPeriods.length - 1];
-        prevFiltered.filter(r => r.periodo === lastPrevPeriod).forEach(r => {
+      if (initialStockPeriod) {
+        DB.consolidada.filter(r => r.periodo === initialStockPeriod).forEach(r => {
           const k = `${r.ramo}|||${r.producto}|||${r.producto_largo}`;
           if (prodAgg[k]) {
             prodAgg[k].stock_ini = (r.reserva_total || 0);
@@ -2270,14 +2311,44 @@
       });
 
       // ----------------------------------------------------
-      // 10. GESTIÓN FINANCIERA DINÁMICA POR EJERCICIO
+      // 10. GESTIÓN FINANCIERA DINÁMICA POR EJERCICIO / LTM
       // ----------------------------------------------------
-      updateFinanciero(selectedEj);
+      updateFinanciero(selectedEj, targetPeriods);
     }
 
-    function updateFinanciero(selectedEj) {
+    function updateFinanciero(selectedEj, targetPeriods = []) {
       const allFin = DB.info_financiera || [];
-      const fin = allFin.filter(x => x.ejercicio === selectedEj);
+      let fin = [];
+
+      if (selectedEj === 'LTM') {
+        const targetSet = new Set(targetPeriods.length ? targetPeriods : ALL_AVAILABLE_PERIODS.slice(-12));
+        const rawLtm = allFin.filter(x => targetSet.has(x.periodo));
+        
+        // Recalcular acumuladores LTM progresivamente
+        let cumTir = 1.0;
+        let cumIpc = 1.0;
+        let cumAp = 0.0;
+        fin = rawLtm.map(r => {
+          cumTir *= (1.0 + r.rentabilidad_mes_tir);
+          cumIpc *= (1.0 + r.ipc_mes);
+          cumAp += r.aporte_resultado_mes;
+          return {
+            periodo: r.periodo,
+            afln_millones: r.afln_millones,
+            rentabilidad_mes_tir: r.rentabilidad_mes_tir,
+            rentabilidad_acumulada: cumTir - 1.0,
+            ipc_mes: r.ipc_mes,
+            ipc_acumulado_ejerc: cumIpc - 1.0,
+            superavit_mes: (1.0 + r.rentabilidad_mes_tir)/(1.0 + r.ipc_mes) - 1.0,
+            superavit_acumulado: cumTir / cumIpc - 1.0,
+            aporte_resultado_mes: r.aporte_resultado_mes,
+            aporte_resultado_acumulado: cumAp
+          };
+        });
+
+      } else {
+        fin = allFin.filter(x => x.ejercicio === selectedEj);
+      }
 
       const kpiAfln = document.getElementById('kpi_fin_afln');
       const kpiRent = document.getElementById('kpi_fin_rent');
@@ -2295,7 +2366,7 @@
           elBadgeSup.className = 'kpi-delta neutral';
           elBadgeSup.textContent = 'Sin datos';
         }
-        tbFin.innerHTML = `<tr><td colspan="10" style="text-align:center; color: var(--text-muted); padding: 24px;">No se registran balances financieros para el <strong>${selectedEj}</strong></td></tr>`;
+        tbFin.innerHTML = `<tr><td colspan="10" style="text-align:center; color: var(--text-muted); padding: 24px;">No se registran balances financieros para el período seleccionado</td></tr>`;
         if (charts['chart_fin_afln']) charts['chart_fin_afln'].destroy();
         if (charts['chart_fin_rent_ipc']) charts['chart_fin_rent_ipc'].destroy();
         if (charts['chart_fin_aporte']) charts['chart_fin_aporte'].destroy();
