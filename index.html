@@ -821,7 +821,7 @@
         <!-- 1. Evolución Mensual de Producción -->
         <div class="chart-card col-6">
           <div class="chart-header">
-            <h3><i class="fa-solid fa-chart-line"></i> Evolución Mensual de Producción (Interanual)</h3>
+            <h3><i class="fa-solid fa-chart-column"></i> Evolución Mensual de Producción (Interanual)</h3>
           </div>
           <div class="chart-container">
             <canvas id="chart_prod_evolucion"></canvas>
@@ -831,7 +831,7 @@
         <!-- 2. Evolución Mensual Acumulada de Producción -->
         <div class="chart-card col-6">
           <div class="chart-header">
-            <h3><i class="fa-solid fa-chart-area"></i> Evolución Acumulada de Producción (Interanual)</h3>
+            <h3><i class="fa-solid fa-chart-column"></i> Evolución Acumulada de Producción (Interanual)</h3>
           </div>
           <div class="chart-container">
             <canvas id="chart_prod_acumulada"></canvas>
@@ -867,7 +867,7 @@
         <div class="chart-card col-12">
           <div class="chart-header">
             <h3 style="display: flex; align-items: center; flex-wrap: wrap; gap: 8px;">
-              <span><i class="fa-solid fa-chart-line"></i> Monitor de Crecimiento Real Interanual (12M Móviles) por Ramo (%)</span>
+              <span><i class="fa-solid fa-chart-column"></i> Monitor de Crecimiento Real Interanual (12M Móviles) por Ramo (%)</span>
               <span style="font-size: 10.5px; font-weight: 700; color: var(--rojo-seguro); background: rgba(226, 0, 57, 0.08); padding: 3px 8px; border-radius: var(--radius-pill); border: 1px solid rgba(226, 0, 57, 0.2);">
                 <i class="fa-solid fa-scale-balanced"></i> Valores reales netos de inflación (Ajustados x IPC)
               </span>
@@ -952,7 +952,7 @@
         <!-- Evolución de Cartera con Doble Eje Y (Asegurados / Pólizas vs Ratio) -->
         <div class="chart-card col-8">
           <div class="chart-header">
-            <h3><i class="fa-solid fa-chart-line"></i> Evolución de Cartera & Ratio de Asegurados / Póliza</h3>
+            <h3><i class="fa-solid fa-chart-column"></i> Evolución de Cartera & Ratio de Asegurados / Póliza</h3>
           </div>
           <div class="chart-container">
             <canvas id="chart_cart_evolucion"></canvas>
@@ -1092,7 +1092,7 @@
         <!-- 2. Ratio Siniestralidad: Mensual vs Acumulado -->
         <div class="chart-card col-6">
           <div class="chart-header">
-            <h3><i class="fa-solid fa-percent"></i> Ratio de Siniestralidad: Mensual vs Acumulado Progresivo (%)</h3>
+            <h3><i class="fa-solid fa-chart-column"></i> Ratio de Siniestralidad: Mensual vs Acumulado Progresivo (%)</h3>
           </div>
           <div class="chart-container">
             <canvas id="chart_sin_ratio_mes"></canvas>
@@ -1248,7 +1248,7 @@
 
         <div class="chart-card col-6">
           <div class="chart-header">
-            <h3><i class="fa-solid fa-chart-line"></i> Rentabilidad TIR vs IPC (Acumulados)</h3>
+            <h3><i class="fa-solid fa-chart-column"></i> Rentabilidad TIR vs IPC (Acumulados)</h3>
           </div>
           <div class="chart-container">
             <canvas id="chart_fin_rent_ipc"></canvas>
@@ -2196,16 +2196,13 @@
       let cumPrev = 0;
       const prevDataAcum = prevDataPrima.map(v => { cumPrev += v; return cumPrev; });
 
-      // 6A. Gráfico Mensual
+      // 6A. Gráfico Mensual (Barras Agrupadas)
       const prodDatasets = [
         {
           label: `${isLTM ? 'Últimos 12 Meses' : selectedEj} (${currentAdjustedMode ? 'Ajust. IPC' : 'Histórico'})`,
           data: dataPrima,
-          borderColor: BRAND.rojoSeguro,
-          backgroundColor: 'rgba(226, 0, 57, 0.08)',
-          fill: true,
-          borderWidth: 3,
-          tension: 0.3
+          backgroundColor: BRAND.rojoSeguro,
+          borderRadius: 4
         }
       ];
 
@@ -2213,25 +2210,19 @@
         prodDatasets.push({
           label: `${isLTM ? '12m Previos' : 'Año Previo'}`,
           data: prevDataPrima,
-          borderColor: BRAND.azul,
-          backgroundColor: 'transparent',
-          borderDash: [6, 6],
-          borderWidth: 2.5,
-          tension: 0.3
+          backgroundColor: BRAND.azul,
+          borderRadius: 4
         });
       }
-      renderLineChart('chart_prod_evolucion', monthLabels, prodDatasets, 'money');
+      renderBarChart('chart_prod_evolucion', monthLabels, prodDatasets, 'money');
 
-      // 6B. Gráfico Acumulado
+      // 6B. Gráfico Acumulado (Barras Agrupadas)
       const prodAcumDatasets = [
         {
           label: `${isLTM ? 'LTM' : selectedEj} Acumulado`,
           data: dataPrimaAcum,
-          borderColor: BRAND.rojoSeguro,
-          backgroundColor: 'rgba(226, 0, 57, 0.08)',
-          fill: true,
-          borderWidth: 3,
-          tension: 0.3
+          backgroundColor: BRAND.rojoSeguro,
+          borderRadius: 4
         }
       ];
 
@@ -2239,14 +2230,11 @@
         prodAcumDatasets.push({
           label: `${isLTM ? '12m Previos' : 'Año Previo'} Acumulado`,
           data: prevDataAcum,
-          borderColor: BRAND.azul,
-          backgroundColor: 'transparent',
-          borderDash: [6, 6],
-          borderWidth: 2.5,
-          tension: 0.3
+          backgroundColor: BRAND.azul,
+          borderRadius: 4
         });
       }
-      renderLineChart('chart_prod_acumulada', monthLabels, prodAcumDatasets, 'money');
+      renderBarChart('chart_prod_acumulada', monthLabels, prodAcumDatasets, 'money');
 
       // 6C. Gráfico de Torta Dinámico
       const isAllRamosSelected = selectedRamos.size === DB.metadata.ramos.length;
@@ -2291,13 +2279,13 @@
         });
 
         const ltmDatasets = [
-          { label: 'Accidentes Personales (AP) (% Real IPC)', data: var12mRows.map(v => v.var_12m_ap), borderColor: BRAND.azul, borderWidth: 3 },
-          { label: 'Vida Colectivo (% Real IPC)', data: var12mRows.map(v => v.var_12m_vc), borderColor: BRAND.verde, borderWidth: 3 },
-          { label: 'Vida Individual (% Real IPC)', data: var12mRows.map(v => v.var_12m_vi), borderColor: BRAND.amarillo, borderWidth: 2.5 },
-          { label: 'Salud (% Real IPC)', data: var12mRows.map(v => v.var_12m_sc), borderColor: BRAND.coral, borderWidth: 2.5 },
-          { label: 'Total Seguros Personas (% Real IPC)', data: var12mRows.map(v => v.var_12m_total), borderColor: BRAND.rojoSeguro, borderWidth: 3.5, borderDash: [4, 4] }
+          { label: 'Accidentes Personales (AP) (% Real IPC)', data: var12mRows.map(v => v.var_12m_ap), backgroundColor: BRAND.azul, borderRadius: 4 },
+          { label: 'Vida Colectivo (% Real IPC)', data: var12mRows.map(v => v.var_12m_vc), backgroundColor: BRAND.verde, borderRadius: 4 },
+          { label: 'Vida Individual (% Real IPC)', data: var12mRows.map(v => v.var_12m_vi), backgroundColor: BRAND.amarillo, borderRadius: 4 },
+          { label: 'Salud (% Real IPC)', data: var12mRows.map(v => v.var_12m_sc), backgroundColor: BRAND.coral, borderRadius: 4 },
+          { label: 'Total Seguros Personas (% Real IPC)', data: var12mRows.map(v => v.var_12m_total), backgroundColor: BRAND.rojoSeguro, borderRadius: 4 }
         ];
-        renderLineChart('chart_prod_ltm_ramos', vLabels, ltmDatasets, 'percent', true);
+        renderBarChart('chart_prod_ltm_ramos', vLabels, ltmDatasets, 'percent', true);
       }
 
       // TABLA PRODUCCIÓN
@@ -2367,36 +2355,27 @@
         { label: 'Variación Reserva Mes ($)', data: periodRows.map(p => p.variacion_reserva_mensual), backgroundColor: BRAND.azul }
       ], 'money');
 
-      // 8.2 Ratios Siniestralidad
+      // 8.2 Ratios Siniestralidad (Barras Agrupadas)
       const sinDatasets = [
-        {
-          label: 'Ratio Siniestral Acumulado (%)',
-          data: periodRows.map(p => p.ratio_sin_acum),
-          borderColor: BRAND.rojoSeguro,
-          backgroundColor: 'rgba(226, 0, 57, 0.08)',
-          fill: true,
-          borderWidth: 3.5,
-          tension: 0.25,
-          pointRadius: 4,
-          pointBackgroundColor: BRAND.rojoSeguro
-        },
         {
           label: 'Ratio Siniestral del Mes (%)',
           data: periodRows.map(p => p.ratio_sin_mes),
-          borderColor: BRAND.azul,
-          backgroundColor: 'transparent',
-          borderDash: [5, 5],
-          borderWidth: 2,
-          tension: 0.25,
-          pointRadius: 3
+          backgroundColor: BRAND.azul,
+          borderRadius: 4
+        },
+        {
+          label: 'Ratio Siniestral Acumulado (%)',
+          data: periodRows.map(p => p.ratio_sin_acum),
+          backgroundColor: BRAND.rojoSeguro,
+          borderRadius: 4
         }
       ];
-      renderLineChart('chart_sin_ratio_mes', periodLabels, sinDatasets, 'percent');
+      renderBarChart('chart_sin_ratio_mes', periodLabels, sinDatasets, 'percent', true);
 
-      // 8.3 Flujo de Siniestros (Altas vs Siniestros en Gestión)
+      // 8.3 Flujo de Siniestros (Altas vs Siniestros en Gestión) (Barras Agrupadas)
       renderBarChart('chart_sin_flujo', periodLabels, [
         { label: 'Altas Siniestros (Denuncias Mes)', data: periodRows.map(p => p.altas_siniestros), backgroundColor: BRAND.coral, borderRadius: 4 },
-        { label: 'Siniestros en Trámite (Stock)', type: 'line', data: periodRows.map(p => p.siniestros), borderColor: BRAND.azul, borderWidth: 3 }
+        { label: 'Siniestros en Trámite (Stock Gestión)', data: periodRows.map(p => p.siniestros), backgroundColor: BRAND.azul, borderRadius: 4 }
       ], 'num');
 
       // 8.4 Monitor de Litigiosidad (Demandas vs Reserva de Demandas en $ M)
@@ -2660,14 +2639,14 @@
         borderRadius: 4
       }], 'money');
 
-      renderLineChart('chart_fin_rent_ipc', labels, [
-        { label: 'Rentabilidad Acumulada (%)', data: fin.map(x => x.rentabilidad_acumulada * 100), borderColor: BRAND.verde, borderWidth: 3 },
-        { label: 'IPC Acumulado (%)', data: fin.map(x => x.ipc_acumulado_ejerc * 100), borderColor: BRAND.coral, borderWidth: 2, borderDash: [4, 4] }
-      ], 'percent');
+      renderBarChart('chart_fin_rent_ipc', labels, [
+        { label: 'Rentabilidad Acumulada TIR (%)', data: fin.map(x => x.rentabilidad_acumulada * 100), backgroundColor: BRAND.verde, borderRadius: 4 },
+        { label: 'IPC Acumulado (%)', data: fin.map(x => x.ipc_acumulado_ejerc * 100), backgroundColor: BRAND.coral, borderRadius: 4 }
+      ], 'percent', true);
 
       renderBarChart('chart_fin_aporte', labels, [
-        { label: 'Aporte Mensual ($ M)', data: fin.map(x => x.aporte_resultado_mes), backgroundColor: BRAND.azul },
-        { label: 'Aporte Acumulado ($ M)', type: 'line', data: fin.map(x => x.aporte_resultado_acumulado), borderColor: BRAND.rojoSeguro, borderWidth: 3 }
+        { label: 'Aporte Mensual ($ M)', data: fin.map(x => x.aporte_resultado_mes), backgroundColor: BRAND.azul, borderRadius: 4 },
+        { label: 'Aporte Acumulado ($ M)', data: fin.map(x => x.aporte_resultado_acumulado), backgroundColor: BRAND.rojoSeguro, borderRadius: 4 }
       ], 'money');
 
       tbFin.innerHTML = '';
@@ -2767,36 +2746,33 @@
       });
     }
 
-    // GRÁFICO DOBLE EJE ESPECÍFICO DE CARTERA (PÓLIZAS / ASEGURADOS VS RATIO)
+    // GRÁFICO DOBLE EJE ESPECÍFICO DE CARTERA (BARRAS DE VOLÚMENES VS RATIO)
     function renderDualAxisPortfolioChart(canvasId, labels, dataAseg, dataPol, dataRatio) {
       if (charts[canvasId]) charts[canvasId].destroy();
 
       charts[canvasId] = new Chart(document.getElementById(canvasId), {
-        type: 'line',
+        type: 'bar',
         data: {
           labels,
           datasets: [
             {
+              type: 'bar',
               label: 'Asegurados Vigentes (Eje Izq.)',
               data: dataAseg,
-              borderColor: BRAND.azul,
-              backgroundColor: 'rgba(65, 131, 202, 0.08)',
-              fill: true,
-              borderWidth: 3,
-              tension: 0.3,
+              backgroundColor: BRAND.azul,
+              borderRadius: 4,
               yAxisID: 'y'
             },
             {
+              type: 'bar',
               label: 'Pólizas Vigentes (Eje Izq.)',
               data: dataPol,
-              borderColor: BRAND.coral,
-              backgroundColor: 'transparent',
-              borderDash: [5, 5],
-              borderWidth: 2.5,
-              tension: 0.3,
+              backgroundColor: BRAND.coral,
+              borderRadius: 4,
               yAxisID: 'y'
             },
             {
+              type: 'line',
               label: 'Ratio Asegurados / Póliza (Eje Der.)',
               data: dataRatio,
               borderColor: BRAND.verde,
@@ -2851,36 +2827,33 @@
       });
     }
 
-    // GRÁFICO DOBLE EJE ESPECÍFICO DE LITIGIOSIDAD (DEMANDAS / JUICIOS VS RESERVA $ M)
+    // GRÁFICO DOBLE EJE ESPECÍFICO DE LITIGIOSIDAD (BARRAS DE CASOS VS RESERVA $ M)
     function renderDualAxisLitigationChart(canvasId, labels, dataDemandas, dataJuicios, dataRvaDemandaM) {
       if (charts[canvasId]) charts[canvasId].destroy();
 
       charts[canvasId] = new Chart(document.getElementById(canvasId), {
-        type: 'line',
+        type: 'bar',
         data: {
           labels,
           datasets: [
             {
+              type: 'bar',
               label: 'Demandas Activas (Eje Izq.)',
               data: dataDemandas,
-              borderColor: BRAND.coral,
-              backgroundColor: 'rgba(255, 89, 62, 0.08)',
-              fill: true,
-              borderWidth: 3,
-              tension: 0.3,
+              backgroundColor: BRAND.coral,
+              borderRadius: 4,
               yAxisID: 'y'
             },
             {
+              type: 'bar',
               label: 'Juicios (Eje Izq.)',
               data: dataJuicios,
-              borderColor: BRAND.azul,
-              backgroundColor: 'transparent',
-              borderDash: [5, 5],
-              borderWidth: 2.5,
-              tension: 0.3,
+              backgroundColor: BRAND.azul,
+              borderRadius: 4,
               yAxisID: 'y'
             },
             {
+              type: 'line',
               label: 'Reserva Demanda ($ M) (Eje Der.)',
               data: dataRvaDemandaM,
               borderColor: BRAND.rojoSeguro,
