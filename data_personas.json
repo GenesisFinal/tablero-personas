@@ -56393,10 +56393,12 @@
     "periodo_texto": "Junio 2026 (Cierre de Ejercicio Anual SINENSUP)",
     "fuente": "Superintendencia de Seguros de la Nación (SSN) - SINENSUP Oficial (Cierre Junio 2026)",
     "subramos": {
-      "Total Personas (Consolidado)": {
-        "id": "2.TOTAL",
-        "titulo": "Total Seguros de Personas (Consolidado)",
-        "ramo_macro": "Personas",
+      "Total Personas (sin retiro)": {
+        "id": "total_personas_sin_retiro",
+        "titulo": "Total Personas (sin retiro) - todos los segmentos",
+        "key": "Total Personas (sin retiro)",
+        "level": 0,
+        "ramo_macro": "TOTAL",
         "total_mercado": 3358681651487.0,
         "cant_entidades": 120,
         "la_segunda": {
@@ -57493,9 +57495,11 @@
           }
         ]
       },
-      "Total Vida (Consolidado)": {
-        "id": "2.VIDA_TOTAL",
-        "titulo": "Total Ramo Vida (Consolidado: Colectivo, Obligatorios, Saldo Deudor e Individual)",
+      "Total Vida": {
+        "id": "total_vida",
+        "titulo": "Total Vida (todos los segmentos)",
+        "key": "Total Vida",
+        "level": 0,
         "ramo_macro": "VIDA",
         "total_mercado": 2546793996052.0,
         "cant_entidades": 113,
@@ -58530,9 +58534,1216 @@
           }
         ]
       },
-      "Vida Colectivo": {
-        "id": "2.030.02",
-        "titulo": "Seguro de Vida - Colectivo (Optativo / Convenios)",
+      "Total Vida Colectivo": {
+        "id": "total_vida_colectivo",
+        "titulo": "Total Vida Colectivo (Obligatorios + Colectivos + Saldo Deudor)",
+        "key": "Total Vida Colectivo",
+        "level": 1,
+        "ramo_macro": "VIDA",
+        "total_mercado": 1806811841213.0,
+        "cant_entidades": 107,
+        "la_segunda": {
+          "puesto": 22,
+          "primas": 21240261701.0,
+          "cuota": 1.18,
+          "entidad": "SEGUNDA PERSONAS"
+        },
+        "lider": {
+          "entidad": "LIFE SEGUROS DE PERSONAS Y PATRI",
+          "primas": 197458008998.0,
+          "cuota": 10.93
+        },
+        "ranking": [
+          {
+            "orden": 1,
+            "nj": "MUT",
+            "entidad": "LIFE SEGUROS DE PERSONAS Y PATRI",
+            "primas": 197458008998.0,
+            "part_pct": 10.93,
+            "acum_pct": 10.93,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 2,
+            "nj": "COOP",
+            "entidad": "SANCOR COOPERATIVA  LIMITADA",
+            "primas": 180387539425.0,
+            "part_pct": 9.98,
+            "acum_pct": 20.91,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 3,
+            "nj": "MUT",
+            "entidad": "NACIÓN SEGUROS",
+            "primas": 147648553709.0,
+            "part_pct": 8.17,
+            "acum_pct": 29.08,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 4,
+            "nj": "MUT",
+            "entidad": "CAJA",
+            "primas": 114517717467.0,
+            "part_pct": 6.34,
+            "acum_pct": 35.42,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 5,
+            "nj": "SA",
+            "entidad": "PROVINCIA SEGUROS",
+            "primas": 107399929159.0,
+            "part_pct": 5.94,
+            "acum_pct": 41.37,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 6,
+            "nj": "MUT",
+            "entidad": "CARUSO COMPAÑÍA ARGENTINA",
+            "primas": 104348530128.0,
+            "part_pct": 5.78,
+            "acum_pct": 47.14,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 7,
+            "nj": "MUT",
+            "entidad": "ZURICH SANTANDER SEGUROS ARGENTI",
+            "primas": 77786680791.0,
+            "part_pct": 4.31,
+            "acum_pct": 51.45,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 8,
+            "nj": "MUT",
+            "entidad": "QUALIA COMPAÑÍA",
+            "primas": 76062256700.0,
+            "part_pct": 4.21,
+            "acum_pct": 55.66,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 9,
+            "nj": "MUT",
+            "entidad": "STELLANTIS INSURANCE   U.",
+            "primas": 61314216948.0,
+            "part_pct": 3.39,
+            "acum_pct": 59.05,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 10,
+            "nj": "MUT",
+            "entidad": "GALICIA SEGUROS SAU",
+            "primas": 41669294558.0,
+            "part_pct": 2.31,
+            "acum_pct": 61.36,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 11,
+            "nj": "MUT",
+            "entidad": "BBVA SEGUROS ARGENTINA",
+            "primas": 38699232713.0,
+            "part_pct": 2.14,
+            "acum_pct": 63.5,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 12,
+            "nj": "MUT",
+            "entidad": "EVOLUCIÓN SEGUROS",
+            "primas": 36160948585.0,
+            "part_pct": 2.0,
+            "acum_pct": 65.5,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 13,
+            "nj": "SA",
+            "entidad": "SOL NACIENTE SEGUROS",
+            "primas": 34443966210.0,
+            "part_pct": 1.91,
+            "acum_pct": 67.41,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 14,
+            "nj": "MUT",
+            "entidad": "SUPERVIELLE SEGUROS",
+            "primas": 32334533618.0,
+            "part_pct": 1.79,
+            "acum_pct": 69.2,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 15,
+            "nj": "SA",
+            "entidad": "EL SURCO COMPAÑÍA",
+            "primas": 30985669144.0,
+            "part_pct": 1.71,
+            "acum_pct": 70.91,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 16,
+            "nj": "MUT",
+            "entidad": "BHN VIDA",
+            "primas": 29669197601.0,
+            "part_pct": 1.64,
+            "acum_pct": 72.55,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 17,
+            "nj": "SA",
+            "entidad": "ZURICH ARGENTINA",
+            "primas": 29599905857.0,
+            "part_pct": 1.64,
+            "acum_pct": 74.19,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 18,
+            "nj": "MUT",
+            "entidad": "SEGUROS GALICIA",
+            "primas": 25900364986.0,
+            "part_pct": 1.43,
+            "acum_pct": 75.62,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 19,
+            "nj": "MUT",
+            "entidad": "SMG LIFE SEGUROS DE VIDA SAU",
+            "primas": 23750880718.0,
+            "part_pct": 1.31,
+            "acum_pct": 76.94,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 20,
+            "nj": "MUT",
+            "entidad": "RCI COMPAÑÍA  DE PERSONAS SAU",
+            "primas": 23115876010.0,
+            "part_pct": 1.28,
+            "acum_pct": 78.22,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 21,
+            "nj": "SA",
+            "entidad": "LA MERCANTIL ANDINA",
+            "primas": 21697825592.0,
+            "part_pct": 1.2,
+            "acum_pct": 79.42,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 22,
+            "nj": "MUT",
+            "entidad": "SEGUNDA PERSONAS",
+            "primas": 21240261701.0,
+            "part_pct": 1.18,
+            "acum_pct": 80.59,
+            "es_la_segunda": true
+          },
+          {
+            "orden": 23,
+            "nj": "MUT",
+            "entidad": "SAN CRISTÓBAL SOCIEDAD   GENERAL",
+            "primas": 19630238686.0,
+            "part_pct": 1.09,
+            "acum_pct": 81.68,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 24,
+            "nj": "MUT",
+            "entidad": "CAJA POPULAR DE AHORROS DE LA PR",
+            "primas": 19207105851.0,
+            "part_pct": 1.06,
+            "acum_pct": 82.74,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 25,
+            "nj": "MUT",
+            "entidad": "CNP ASSURANCES",
+            "primas": 18904792511.0,
+            "part_pct": 1.05,
+            "acum_pct": 83.79,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 26,
+            "nj": "MUT",
+            "entidad": "SMSV  ARGENTINA",
+            "primas": 18334386343.0,
+            "part_pct": 1.01,
+            "acum_pct": 84.81,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 27,
+            "nj": "MUT",
+            "entidad": "FEDERACIÓN PATRONAL SEGUROS U.",
+            "primas": 17170189942.0,
+            "part_pct": 0.95,
+            "acum_pct": 85.76,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 28,
+            "nj": "MUT",
+            "entidad": "INSTITUTO DE SALTA COMPAÑÍA  DE",
+            "primas": 14720860533.0,
+            "part_pct": 0.81,
+            "acum_pct": 86.57,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 29,
+            "nj": "MUT",
+            "entidad": "HORIZONTE  ARGENTINA  GENERALES",
+            "primas": 14656962364.0,
+            "part_pct": 0.81,
+            "acum_pct": 87.38,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 30,
+            "nj": "MUT",
+            "entidad": "ALLIANZ ARGENTINA",
+            "primas": 14225085000.0,
+            "part_pct": 0.79,
+            "acum_pct": 88.17,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 31,
+            "nj": "MUT",
+            "entidad": "CONFLUENCIA",
+            "primas": 13978115454.0,
+            "part_pct": 0.77,
+            "acum_pct": 88.94,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 32,
+            "nj": "MUT",
+            "entidad": "OPCIÓN SEGUROS",
+            "primas": 13107969004.0,
+            "part_pct": 0.73,
+            "acum_pct": 89.67,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 33,
+            "nj": "MUT",
+            "entidad": "GGAL SEGUROS U.",
+            "primas": 12694579097.0,
+            "part_pct": 0.7,
+            "acum_pct": 90.37,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 34,
+            "nj": "MUT",
+            "entidad": "BINARIA SEGUROS DE VIDA",
+            "primas": 12112420414.0,
+            "part_pct": 0.67,
+            "acum_pct": 91.04,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 35,
+            "nj": "SA",
+            "entidad": "HAMBURGO",
+            "primas": 12085315872.0,
+            "part_pct": 0.67,
+            "acum_pct": 91.71,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 36,
+            "nj": "MUT",
+            "entidad": "COMPAÑÍA  MAÑANA",
+            "primas": 11216326718.0,
+            "part_pct": 0.62,
+            "acum_pct": 92.33,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 37,
+            "nj": "COOP",
+            "entidad": "SEGURCOOP COOPERATIVA  LIMITADA",
+            "primas": 7564747716.0,
+            "part_pct": 0.42,
+            "acum_pct": 92.75,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 38,
+            "nj": "MUT",
+            "entidad": "INSTITUTO ASEGURADOR MERCANTIL",
+            "primas": 7296473602.0,
+            "part_pct": 0.4,
+            "acum_pct": 93.15,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 39,
+            "nj": "MUT",
+            "entidad": "BARBUSS RISK SEGUROS (ARGENTINA)",
+            "primas": 7141420800.0,
+            "part_pct": 0.4,
+            "acum_pct": 93.55,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 40,
+            "nj": "MUT",
+            "entidad": "INSTITUTO AUTÁRQUICO PROVINCIAL",
+            "primas": 7038281521.0,
+            "part_pct": 0.39,
+            "acum_pct": 93.94,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 41,
+            "nj": "MUT",
+            "entidad": "INSTITUTO",
+            "primas": 6890902960.0,
+            "part_pct": 0.38,
+            "acum_pct": 94.32,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 42,
+            "nj": "SA",
+            "entidad": "PARANÁ",
+            "primas": 6499203055.0,
+            "part_pct": 0.36,
+            "acum_pct": 94.68,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 43,
+            "nj": "MUT",
+            "entidad": "SAN GERMAN SEGUROS",
+            "primas": 6044891817.0,
+            "part_pct": 0.33,
+            "acum_pct": 95.01,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 44,
+            "nj": "MUT",
+            "entidad": "MAPFRE ARGENTINA SEGUROS DE VIDA",
+            "primas": 5752758378.0,
+            "part_pct": 0.32,
+            "acum_pct": 95.33,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 45,
+            "nj": "MUT",
+            "entidad": "EXPERTA SEGUROS",
+            "primas": 5464945748.0,
+            "part_pct": 0.3,
+            "acum_pct": 95.63,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 46,
+            "nj": "SA",
+            "entidad": "COLON COMPAÑÍA",
+            "primas": 4966910835.0,
+            "part_pct": 0.27,
+            "acum_pct": 95.91,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 47,
+            "nj": "SA",
+            "entidad": "LA HOLANDO SUDAMERICANA",
+            "primas": 4668882795.0,
+            "part_pct": 0.26,
+            "acum_pct": 96.17,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 48,
+            "nj": "MUT",
+            "entidad": "ASV ARGENTINA SALUD, VIDA Y PATR",
+            "primas": 4637078534.0,
+            "part_pct": 0.26,
+            "acum_pct": 96.42,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 49,
+            "nj": "SA",
+            "entidad": "BERKLEY INTERNATIONAL SEGUROS",
+            "primas": 4366938500.0,
+            "part_pct": 0.24,
+            "acum_pct": 96.67,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 50,
+            "nj": "MUT",
+            "entidad": "EDIFICAR SEGUROS",
+            "primas": 4250182795.0,
+            "part_pct": 0.24,
+            "acum_pct": 96.9,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 51,
+            "nj": "MUT",
+            "entidad": "BENEFICIO",
+            "primas": 4005340691.0,
+            "part_pct": 0.22,
+            "acum_pct": 97.12,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 52,
+            "nj": "MUT",
+            "entidad": "LA MERIDIONAL COMPAÑÍA ARGENTINA",
+            "primas": 3993407864.0,
+            "part_pct": 0.22,
+            "acum_pct": 97.34,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 53,
+            "nj": "MUT",
+            "entidad": "SAN PATRICIO SEGUROS",
+            "primas": 3555603102.0,
+            "part_pct": 0.2,
+            "acum_pct": 97.54,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 54,
+            "nj": "MUT",
+            "entidad": "COMPAÑÍA  DE JUJUY SOCIEDAD DEL",
+            "primas": 3006861289.0,
+            "part_pct": 0.17,
+            "acum_pct": 97.71,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 55,
+            "nj": "MUT",
+            "entidad": "GALENO SEGUROS",
+            "primas": 2332560159.0,
+            "part_pct": 0.13,
+            "acum_pct": 97.84,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 56,
+            "nj": "MUT",
+            "entidad": "TRES PROVINCIAS SEGUROS DE PERSO",
+            "primas": 2157903608.0,
+            "part_pct": 0.12,
+            "acum_pct": 97.96,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 57,
+            "nj": "MUT",
+            "entidad": "LIBRA  ARGENTINA",
+            "primas": 2157850243.0,
+            "part_pct": 0.12,
+            "acum_pct": 98.07,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 58,
+            "nj": "MUT",
+            "entidad": "PLENARIA SEGUROS",
+            "primas": 2136523121.0,
+            "part_pct": 0.12,
+            "acum_pct": 98.19,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 59,
+            "nj": "MUT",
+            "entidad": "ASSURANT ARGENTINA COMPAÑÍA",
+            "primas": 2081180145.0,
+            "part_pct": 0.12,
+            "acum_pct": 98.31,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 60,
+            "nj": "MUT",
+            "entidad": "LOGRAR COMPAÑÍA  DE PERSONAS",
+            "primas": 1993928046.0,
+            "part_pct": 0.11,
+            "acum_pct": 98.42,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 61,
+            "nj": "MUT",
+            "entidad": "CAJA DE PREVISIÓN Y SEGURO MÉDIC",
+            "primas": 1841144377.0,
+            "part_pct": 0.1,
+            "acum_pct": 98.52,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 62,
+            "nj": "MUT",
+            "entidad": "CHUBB SEGUROS ARGENTINA",
+            "primas": 1813041540.0,
+            "part_pct": 0.1,
+            "acum_pct": 98.62,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 63,
+            "nj": "MUT",
+            "entidad": "DIGNA SEGUROS",
+            "primas": 1566185026.0,
+            "part_pct": 0.09,
+            "acum_pct": 98.71,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 64,
+            "nj": "MUT",
+            "entidad": "BIND SEGUROS S.A",
+            "primas": 1516515317.0,
+            "part_pct": 0.08,
+            "acum_pct": 98.79,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 65,
+            "nj": "MUT",
+            "entidad": "NOBLE COMPAÑÍA",
+            "primas": 1460290445.0,
+            "part_pct": 0.08,
+            "acum_pct": 98.87,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 66,
+            "nj": "SA",
+            "entidad": "PREVINCA SEGUROS",
+            "primas": 1379632873.0,
+            "part_pct": 0.08,
+            "acum_pct": 98.95,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 67,
+            "nj": "MUT",
+            "entidad": "CAMINOS PROTEGIDOS  COMPAÑÍA",
+            "primas": 1231077312.0,
+            "part_pct": 0.07,
+            "acum_pct": 99.02,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 68,
+            "nj": "SA",
+            "entidad": "ARGENTINA  LATITUD SUR",
+            "primas": 1152428666.0,
+            "part_pct": 0.06,
+            "acum_pct": 99.08,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 69,
+            "nj": "SA",
+            "entidad": "COMPAÑÍA  EL NORTE",
+            "primas": 1128901398.0,
+            "part_pct": 0.06,
+            "acum_pct": 99.14,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 70,
+            "nj": "COOP",
+            "entidad": "RÍO URUGUAY COOPERATIVA  LIMITAD",
+            "primas": 1128747100.0,
+            "part_pct": 0.06,
+            "acum_pct": 99.21,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 71,
+            "nj": "SA",
+            "entidad": "ARGENTINA  VICTORIA",
+            "primas": 972479115.0,
+            "part_pct": 0.05,
+            "acum_pct": 99.26,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 72,
+            "nj": "COOP",
+            "entidad": "PRODUCTORES DE FRUTAS ARGENTINAS",
+            "primas": 889215280.0,
+            "part_pct": 0.05,
+            "acum_pct": 99.31,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 73,
+            "nj": "SA",
+            "entidad": "LA EQUITATIVA DEL PLATA",
+            "primas": 847569801.0,
+            "part_pct": 0.05,
+            "acum_pct": 99.36,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 74,
+            "nj": "MUT",
+            "entidad": "NRE COMPAÑÍA  PATRIMONIALES Y DE",
+            "primas": 801856144.0,
+            "part_pct": 0.04,
+            "acum_pct": 99.4,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 75,
+            "nj": "SA",
+            "entidad": "PIEVE SEGUROS",
+            "primas": 795023438.0,
+            "part_pct": 0.04,
+            "acum_pct": 99.44,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 76,
+            "nj": "MUT",
+            "entidad": "OMINT  COMPAÑÍA",
+            "primas": 777789982.0,
+            "part_pct": 0.04,
+            "acum_pct": 99.49,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 77,
+            "nj": "MUT",
+            "entidad": "COMPAÑÍA  GENERALES DE LA PROVIN",
+            "primas": 742973769.0,
+            "part_pct": 0.04,
+            "acum_pct": 99.53,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 78,
+            "nj": "MUT",
+            "entidad": "INTÉGRITY SEGUROS ARGENTINA",
+            "primas": 708733333.0,
+            "part_pct": 0.04,
+            "acum_pct": 99.57,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 79,
+            "nj": "MUT",
+            "entidad": "PROVIDENCIA  ARGENTINA",
+            "primas": 682845407.0,
+            "part_pct": 0.04,
+            "acum_pct": 99.61,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 80,
+            "nj": "MUT",
+            "entidad": "MISTA SEGUROS",
+            "primas": 673106381.0,
+            "part_pct": 0.04,
+            "acum_pct": 99.64,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 81,
+            "nj": "COOP",
+            "entidad": "SEGUROS BERNARDINO RIVADAVIA",
+            "primas": 626841174.0,
+            "part_pct": 0.03,
+            "acum_pct": 99.68,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 82,
+            "nj": "MUT",
+            "entidad": "CRUZ SUIZA COMPAÑÍA",
+            "primas": 598631725.0,
+            "part_pct": 0.03,
+            "acum_pct": 99.71,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 83,
+            "nj": "COOP",
+            "entidad": "TRIUNFO COOPERATIVA  LIMITADA",
+            "primas": 578927721.0,
+            "part_pct": 0.03,
+            "acum_pct": 99.74,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 84,
+            "nj": "MUT",
+            "entidad": "FEDERADA COMPAÑÍA  DE PERSONAS S",
+            "primas": 569965759.0,
+            "part_pct": 0.03,
+            "acum_pct": 99.77,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 85,
+            "nj": "COOP",
+            "entidad": "COOPERACION  PATRONAL SOCIEDAD",
+            "primas": 556769991.0,
+            "part_pct": 0.03,
+            "acum_pct": 99.8,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 86,
+            "nj": "COOP",
+            "entidad": "COOPERATIVA  LUZ Y FUERZA LIMITA",
+            "primas": 552857437.0,
+            "part_pct": 0.03,
+            "acum_pct": 99.84,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 87,
+            "nj": "MUT",
+            "entidad": "NIVEL SEGUROS",
+            "primas": 498571761.0,
+            "part_pct": 0.03,
+            "acum_pct": 99.86,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 88,
+            "nj": "MUT",
+            "entidad": "INCLUIR COMPAÑÍA  DE PERSONAS",
+            "primas": 428149047.0,
+            "part_pct": 0.02,
+            "acum_pct": 99.89,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 89,
+            "nj": "MUT",
+            "entidad": "GESTION COMPAÑÍA ARGENTINA",
+            "primas": 405127251.0,
+            "part_pct": 0.02,
+            "acum_pct": 99.91,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 90,
+            "nj": "SA",
+            "entidad": "SENTIR SEGUROS",
+            "primas": 348675548.0,
+            "part_pct": 0.02,
+            "acum_pct": 99.93,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 91,
+            "nj": "MUT",
+            "entidad": "SANTA LUCÍA  COMPAÑÍA",
+            "primas": 271102841.0,
+            "part_pct": 0.02,
+            "acum_pct": 99.94,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 92,
+            "nj": "COOP",
+            "entidad": "SEGUROMETAL COOPERATIVA  LIMITAD",
+            "primas": 184314378.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.95,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 93,
+            "nj": "MUT",
+            "entidad": "WORANZ COMPAÑÍA",
+            "primas": 179617539.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.96,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 94,
+            "nj": "SA",
+            "entidad": "SANTÍSIMA TRINIDAD SEGUROS DE VI",
+            "primas": 139928918.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.97,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 95,
+            "nj": "MUT",
+            "entidad": "ANTICIPAR COMPAÑÍA",
+            "primas": 130930701.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.98,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 96,
+            "nj": "SA",
+            "entidad": "LA PERSEVERANCIA SEGUROS",
+            "primas": 127162096.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.99,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 97,
+            "nj": "MUT",
+            "entidad": "PRUDENCIA  ARGENTINA  GENERALES",
+            "primas": 111891528.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.99,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 98,
+            "nj": "MUT",
+            "entidad": "LA TERRITORIAL VIDA Y SALUD COMP",
+            "primas": 69343086.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 99,
+            "nj": "SA",
+            "entidad": "METROPOL COMPAÑÍA ARGENTINA",
+            "primas": 30605415.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 100,
+            "nj": "MUT",
+            "entidad": "ANTARTIDA COMPAÑÍA ARGENTINA",
+            "primas": 27301147.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 101,
+            "nj": "MUT",
+            "entidad": "NATIVA  ARGENTINA",
+            "primas": 10855180.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 102,
+            "nj": "COOP",
+            "entidad": "COPAN COOPERATIVA  LIMITADA",
+            "primas": 9775307.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 103,
+            "nj": "MUT",
+            "entidad": "LIDERAR  GENERAL",
+            "primas": 3505921.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 104,
+            "nj": "MUT",
+            "entidad": "SMG COMPAÑÍA ARGENTINA  SAU",
+            "primas": 610404.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 105,
+            "nj": "SA",
+            "entidad": "EL PROGRESO SEGUROS",
+            "primas": 191434.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 106,
+            "nj": "MUT",
+            "entidad": "SEGUROS MÉDICOS SAU",
+            "primas": 88391.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 107,
+            "nj": "MUT",
+            "entidad": "ATM COMPAÑÍA",
+            "primas": 27078.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          }
+        ]
+      },
+      "Total Obligatorios": {
+        "id": "total_obligatorios",
+        "titulo": "Total Obligatorios (Decreto 1567/74 y Leyes complementarias)",
+        "key": "Total Obligatorios",
+        "level": 2,
+        "ramo_macro": "VIDA",
+        "total_mercado": 7270954803.0,
+        "cant_entidades": 22,
+        "la_segunda": {
+          "puesto": 1,
+          "primas": 5123935963.0,
+          "cuota": 70.47,
+          "entidad": "SEGUNDA PERSONAS"
+        },
+        "lider": {
+          "entidad": "SEGUNDA PERSONAS",
+          "primas": 5123935963.0,
+          "cuota": 70.47
+        },
+        "ranking": [
+          {
+            "orden": 1,
+            "nj": "MUT",
+            "entidad": "SEGUNDA PERSONAS",
+            "primas": 5123935963.0,
+            "part_pct": 70.47,
+            "acum_pct": 70.47,
+            "es_la_segunda": true
+          },
+          {
+            "orden": 2,
+            "nj": "SA",
+            "entidad": "EL SURCO COMPAÑÍA",
+            "primas": 1229433257.0,
+            "part_pct": 16.91,
+            "acum_pct": 87.38,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 3,
+            "nj": "COOP",
+            "entidad": "COOPERACION  PATRONAL SOCIEDAD",
+            "primas": 496215642.0,
+            "part_pct": 6.82,
+            "acum_pct": 94.2,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 4,
+            "nj": "MUT",
+            "entidad": "CAJA",
+            "primas": 177209886.0,
+            "part_pct": 2.44,
+            "acum_pct": 96.64,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 5,
+            "nj": "MUT",
+            "entidad": "BENEFICIO",
+            "primas": 48068940.0,
+            "part_pct": 0.66,
+            "acum_pct": 97.3,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 6,
+            "nj": "MUT",
+            "entidad": "INSTITUTO ASEGURADOR MERCANTIL",
+            "primas": 38080531.0,
+            "part_pct": 0.52,
+            "acum_pct": 97.83,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 7,
+            "nj": "COOP",
+            "entidad": "RÍO URUGUAY COOPERATIVA  LIMITAD",
+            "primas": 31637149.0,
+            "part_pct": 0.44,
+            "acum_pct": 98.26,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 8,
+            "nj": "SA",
+            "entidad": "LA EQUITATIVA DEL PLATA",
+            "primas": 30939882.0,
+            "part_pct": 0.43,
+            "acum_pct": 98.69,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 9,
+            "nj": "MUT",
+            "entidad": "MAPFRE ARGENTINA SEGUROS DE VIDA",
+            "primas": 24568535.0,
+            "part_pct": 0.34,
+            "acum_pct": 99.03,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 10,
+            "nj": "MUT",
+            "entidad": "INSTITUTO",
+            "primas": 17913646.0,
+            "part_pct": 0.25,
+            "acum_pct": 99.27,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 11,
+            "nj": "SA",
+            "entidad": "ARGENTINA  VICTORIA",
+            "primas": 13550066.0,
+            "part_pct": 0.19,
+            "acum_pct": 99.46,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 12,
+            "nj": "MUT",
+            "entidad": "BARBUSS RISK SEGUROS (ARGENTINA)",
+            "primas": 11288293.0,
+            "part_pct": 0.16,
+            "acum_pct": 99.61,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 13,
+            "nj": "COOP",
+            "entidad": "SEGUROMETAL COOPERATIVA  LIMITAD",
+            "primas": 8537280.0,
+            "part_pct": 0.12,
+            "acum_pct": 99.73,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 14,
+            "nj": "SA",
+            "entidad": "METROPOL COMPAÑÍA ARGENTINA",
+            "primas": 4454974.0,
+            "part_pct": 0.06,
+            "acum_pct": 99.79,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 15,
+            "nj": "MUT",
+            "entidad": "INSTITUTO AUTÁRQUICO PROVINCIAL",
+            "primas": 3874241.0,
+            "part_pct": 0.05,
+            "acum_pct": 99.85,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 16,
+            "nj": "MUT",
+            "entidad": "CRUZ SUIZA COMPAÑÍA",
+            "primas": 3372890.0,
+            "part_pct": 0.05,
+            "acum_pct": 99.89,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 17,
+            "nj": "MUT",
+            "entidad": "SMG LIFE SEGUROS DE VIDA SAU",
+            "primas": 2841960.0,
+            "part_pct": 0.04,
+            "acum_pct": 99.93,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 18,
+            "nj": "MUT",
+            "entidad": "BBVA SEGUROS ARGENTINA",
+            "primas": 2414226.0,
+            "part_pct": 0.03,
+            "acum_pct": 99.96,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 19,
+            "nj": "MUT",
+            "entidad": "NACIÓN SEGUROS",
+            "primas": 2132371.0,
+            "part_pct": 0.03,
+            "acum_pct": 99.99,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 20,
+            "nj": "MUT",
+            "entidad": "OMINT  COMPAÑÍA",
+            "primas": 477135.0,
+            "part_pct": 0.01,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 21,
+            "nj": "MUT",
+            "entidad": "EVOLUCIÓN SEGUROS",
+            "primas": 7573.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 22,
+            "nj": "MUT",
+            "entidad": "LA TERRITORIAL VIDA Y SALUD COMP",
+            "primas": 363.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          }
+        ]
+      },
+      "Total Colectivos": {
+        "id": "total_colectivos",
+        "titulo": "Total Colectivos (Optativo / Convenios)",
+        "key": "Total Colectivos",
+        "level": 2,
         "ramo_macro": "VIDA",
         "total_mercado": 1252453265066.0,
         "cant_entidades": 104,
@@ -59486,227 +60697,11 @@
           }
         ]
       },
-      "Vida Obligatorios": {
-        "id": "2.030.04",
-        "titulo": "Vida Obligatorio (Decreto 1567/74 y Leyes)",
-        "ramo_macro": "VIDA",
-        "total_mercado": 7270954803.0,
-        "cant_entidades": 22,
-        "la_segunda": {
-          "puesto": 1,
-          "primas": 5123935963.0,
-          "cuota": 70.47,
-          "entidad": "SEGUNDA PERSONAS"
-        },
-        "lider": {
-          "entidad": "SEGUNDA PERSONAS",
-          "primas": 5123935963.0,
-          "cuota": 70.47
-        },
-        "ranking": [
-          {
-            "orden": 1,
-            "nj": "MUT",
-            "entidad": "SEGUNDA PERSONAS",
-            "primas": 5123935963.0,
-            "part_pct": 70.47,
-            "acum_pct": 70.47,
-            "es_la_segunda": true
-          },
-          {
-            "orden": 2,
-            "nj": "SA",
-            "entidad": "EL SURCO COMPAÑÍA",
-            "primas": 1229433257.0,
-            "part_pct": 16.91,
-            "acum_pct": 87.38,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 3,
-            "nj": "COOP",
-            "entidad": "COOPERACION  PATRONAL SOCIEDAD",
-            "primas": 496215642.0,
-            "part_pct": 6.82,
-            "acum_pct": 94.2,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 4,
-            "nj": "MUT",
-            "entidad": "CAJA",
-            "primas": 177209886.0,
-            "part_pct": 2.44,
-            "acum_pct": 96.64,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 5,
-            "nj": "MUT",
-            "entidad": "BENEFICIO",
-            "primas": 48068940.0,
-            "part_pct": 0.66,
-            "acum_pct": 97.3,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 6,
-            "nj": "MUT",
-            "entidad": "INSTITUTO ASEGURADOR MERCANTIL",
-            "primas": 38080531.0,
-            "part_pct": 0.52,
-            "acum_pct": 97.83,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 7,
-            "nj": "COOP",
-            "entidad": "RÍO URUGUAY COOPERATIVA  LIMITAD",
-            "primas": 31637149.0,
-            "part_pct": 0.44,
-            "acum_pct": 98.26,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 8,
-            "nj": "SA",
-            "entidad": "LA EQUITATIVA DEL PLATA",
-            "primas": 30939882.0,
-            "part_pct": 0.43,
-            "acum_pct": 98.69,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 9,
-            "nj": "MUT",
-            "entidad": "MAPFRE ARGENTINA SEGUROS DE VIDA",
-            "primas": 24568535.0,
-            "part_pct": 0.34,
-            "acum_pct": 99.03,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 10,
-            "nj": "MUT",
-            "entidad": "INSTITUTO",
-            "primas": 17913646.0,
-            "part_pct": 0.25,
-            "acum_pct": 99.27,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 11,
-            "nj": "SA",
-            "entidad": "ARGENTINA  VICTORIA",
-            "primas": 13550066.0,
-            "part_pct": 0.19,
-            "acum_pct": 99.46,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 12,
-            "nj": "MUT",
-            "entidad": "BARBUSS RISK SEGUROS (ARGENTINA)",
-            "primas": 11288293.0,
-            "part_pct": 0.16,
-            "acum_pct": 99.61,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 13,
-            "nj": "COOP",
-            "entidad": "SEGUROMETAL COOPERATIVA  LIMITAD",
-            "primas": 8537280.0,
-            "part_pct": 0.12,
-            "acum_pct": 99.73,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 14,
-            "nj": "SA",
-            "entidad": "METROPOL COMPAÑÍA ARGENTINA",
-            "primas": 4454974.0,
-            "part_pct": 0.06,
-            "acum_pct": 99.79,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 15,
-            "nj": "MUT",
-            "entidad": "INSTITUTO AUTÁRQUICO PROVINCIAL",
-            "primas": 3874241.0,
-            "part_pct": 0.05,
-            "acum_pct": 99.85,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 16,
-            "nj": "MUT",
-            "entidad": "CRUZ SUIZA COMPAÑÍA",
-            "primas": 3372890.0,
-            "part_pct": 0.05,
-            "acum_pct": 99.89,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 17,
-            "nj": "MUT",
-            "entidad": "SMG LIFE SEGUROS DE VIDA SAU",
-            "primas": 2841960.0,
-            "part_pct": 0.04,
-            "acum_pct": 99.93,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 18,
-            "nj": "MUT",
-            "entidad": "BBVA SEGUROS ARGENTINA",
-            "primas": 2414226.0,
-            "part_pct": 0.03,
-            "acum_pct": 99.96,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 19,
-            "nj": "MUT",
-            "entidad": "NACIÓN SEGUROS",
-            "primas": 2132371.0,
-            "part_pct": 0.03,
-            "acum_pct": 99.99,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 20,
-            "nj": "MUT",
-            "entidad": "OMINT  COMPAÑÍA",
-            "primas": 477135.0,
-            "part_pct": 0.01,
-            "acum_pct": 100.0,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 21,
-            "nj": "MUT",
-            "entidad": "EVOLUCIÓN SEGUROS",
-            "primas": 7573.0,
-            "part_pct": 0.0,
-            "acum_pct": 100.0,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 22,
-            "nj": "MUT",
-            "entidad": "LA TERRITORIAL VIDA Y SALUD COMP",
-            "primas": 363.0,
-            "part_pct": 0.0,
-            "acum_pct": 100.0,
-            "es_la_segunda": false
-          }
-        ]
-      },
-      "Vida Saldo Deudor": {
-        "id": "2.030.05",
-        "titulo": "Vida - Saldo Deudor (Financiero / Bancario)",
+      "Total Saldo Deudor": {
+        "id": "total_saldo_deudor",
+        "titulo": "Total Saldo Deudor (Bancario / Financiero)",
+        "key": "Total Saldo Deudor",
+        "level": 2,
         "ramo_macro": "VIDA",
         "total_mercado": 547087621344.0,
         "cant_entidades": 49,
@@ -60165,9 +61160,11 @@
           }
         ]
       },
-      "Vida Individual": {
-        "id": "2.030.01",
-        "titulo": "Seguro de Vida - Individual",
+      "Total Vida Individual": {
+        "id": "total_vida_individual",
+        "titulo": "Total Vida Individual",
+        "key": "Total Vida Individual",
+        "level": 1,
         "ramo_macro": "VIDA",
         "total_mercado": 739982154839.0,
         "cant_entidades": 66,
@@ -60779,9 +61776,915 @@
           }
         ]
       },
-      "AP Colectivo": {
-        "id": "2.010.02",
-        "titulo": "Accidentes Personales - Colectivo",
+      "Total de Accidentes Personales": {
+        "id": "total_de_accidentes_personales",
+        "titulo": "Total de Accidentes Personales (Colectivo + Individual)",
+        "key": "Total de Accidentes Personales",
+        "level": 0,
+        "ramo_macro": "AP",
+        "total_mercado": 536813309047.0,
+        "cant_entidades": 98,
+        "la_segunda": {
+          "puesto": 4,
+          "primas": 42179929680.0,
+          "cuota": 7.86,
+          "entidad": "SEGUNDA PERSONAS"
+        },
+        "lider": {
+          "entidad": "SANCOR COOPERATIVA  LIMITADA",
+          "primas": 80828855905.0,
+          "cuota": 15.06
+        },
+        "ranking": [
+          {
+            "orden": 1,
+            "nj": "COOP",
+            "entidad": "SANCOR COOPERATIVA  LIMITADA",
+            "primas": 80828855905.0,
+            "part_pct": 15.06,
+            "acum_pct": 15.06,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 2,
+            "nj": "MUT",
+            "entidad": "FEDERACIÓN PATRONAL SEGUROS U.",
+            "primas": 69539551520.0,
+            "part_pct": 12.95,
+            "acum_pct": 28.01,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 3,
+            "nj": "MUT",
+            "entidad": "LIFE SEGUROS DE PERSONAS Y PATRI",
+            "primas": 44003157404.0,
+            "part_pct": 8.2,
+            "acum_pct": 36.21,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 4,
+            "nj": "MUT",
+            "entidad": "SEGUNDA PERSONAS",
+            "primas": 42179929680.0,
+            "part_pct": 7.86,
+            "acum_pct": 44.07,
+            "es_la_segunda": true
+          },
+          {
+            "orden": 5,
+            "nj": "MUT",
+            "entidad": "ZURICH SANTANDER SEGUROS ARGENTI",
+            "primas": 39775979518.0,
+            "part_pct": 7.41,
+            "acum_pct": 51.48,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 6,
+            "nj": "MUT",
+            "entidad": "GALICIA SEGUROS SAU",
+            "primas": 21742503407.0,
+            "part_pct": 4.05,
+            "acum_pct": 55.53,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 7,
+            "nj": "MUT",
+            "entidad": "CHUBB SEGUROS ARGENTINA",
+            "primas": 18545289559.0,
+            "part_pct": 3.45,
+            "acum_pct": 58.98,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 8,
+            "nj": "SA",
+            "entidad": "LA MERCANTIL ANDINA",
+            "primas": 16981723603.0,
+            "part_pct": 3.16,
+            "acum_pct": 62.14,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 9,
+            "nj": "MUT",
+            "entidad": "SEGUROS GALICIA",
+            "primas": 13753932971.0,
+            "part_pct": 2.56,
+            "acum_pct": 64.71,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 10,
+            "nj": "MUT",
+            "entidad": "MAPFRE ARGENTINA SEGUROS DE VIDA",
+            "primas": 13288278277.0,
+            "part_pct": 2.48,
+            "acum_pct": 67.18,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 11,
+            "nj": "MUT",
+            "entidad": "SAN CRISTÓBAL SOCIEDAD   GENERAL",
+            "primas": 12535298155.0,
+            "part_pct": 2.34,
+            "acum_pct": 69.52,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 12,
+            "nj": "MUT",
+            "entidad": "CAJA",
+            "primas": 12119308912.0,
+            "part_pct": 2.26,
+            "acum_pct": 71.77,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 13,
+            "nj": "MUT",
+            "entidad": "LA MERIDIONAL COMPAÑÍA ARGENTINA",
+            "primas": 10466355369.0,
+            "part_pct": 1.95,
+            "acum_pct": 73.72,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 14,
+            "nj": "MUT",
+            "entidad": "CNP ASSURANCES",
+            "primas": 8505138015.0,
+            "part_pct": 1.58,
+            "acum_pct": 75.31,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 15,
+            "nj": "SA",
+            "entidad": "COMPAÑÍA  EL NORTE",
+            "primas": 8175971106.0,
+            "part_pct": 1.52,
+            "acum_pct": 76.83,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 16,
+            "nj": "MUT",
+            "entidad": "BBVA SEGUROS ARGENTINA",
+            "primas": 7823848869.0,
+            "part_pct": 1.46,
+            "acum_pct": 78.29,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 17,
+            "nj": "COOP",
+            "entidad": "SEGUROS BERNARDINO RIVADAVIA",
+            "primas": 7505654550.0,
+            "part_pct": 1.4,
+            "acum_pct": 79.69,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 18,
+            "nj": "MUT",
+            "entidad": "BIND SEGUROS S.A",
+            "primas": 7373293132.0,
+            "part_pct": 1.37,
+            "acum_pct": 81.06,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 19,
+            "nj": "MUT",
+            "entidad": "BHN VIDA",
+            "primas": 7095689645.0,
+            "part_pct": 1.32,
+            "acum_pct": 82.38,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 20,
+            "nj": "MUT",
+            "entidad": "CAJA POPULAR DE AHORROS DE LA PR",
+            "primas": 6662617409.0,
+            "part_pct": 1.24,
+            "acum_pct": 83.62,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 21,
+            "nj": "SA",
+            "entidad": "PROVINCIA SEGUROS",
+            "primas": 6031730565.0,
+            "part_pct": 1.12,
+            "acum_pct": 84.75,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 22,
+            "nj": "MUT",
+            "entidad": "QUALIA COMPAÑÍA",
+            "primas": 5467072738.0,
+            "part_pct": 1.02,
+            "acum_pct": 85.77,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 23,
+            "nj": "MUT",
+            "entidad": "INSTITUTO AUTÁRQUICO PROVINCIAL",
+            "primas": 5358192324.0,
+            "part_pct": 1.0,
+            "acum_pct": 86.76,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 24,
+            "nj": "MUT",
+            "entidad": "SMG COMPAÑÍA ARGENTINA  SAU",
+            "primas": 5353582511.0,
+            "part_pct": 1.0,
+            "acum_pct": 87.76,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 25,
+            "nj": "SA",
+            "entidad": "LA HOLANDO SUDAMERICANA",
+            "primas": 5351110343.0,
+            "part_pct": 1.0,
+            "acum_pct": 88.76,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 26,
+            "nj": "COOP",
+            "entidad": "COOPERACION  PATRONAL SOCIEDAD",
+            "primas": 4717866023.0,
+            "part_pct": 0.88,
+            "acum_pct": 89.64,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 27,
+            "nj": "MUT",
+            "entidad": "ALLIANZ ARGENTINA",
+            "primas": 4436177618.0,
+            "part_pct": 0.83,
+            "acum_pct": 90.46,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 28,
+            "nj": "SA",
+            "entidad": "BERKLEY INTERNATIONAL SEGUROS",
+            "primas": 4281446675.0,
+            "part_pct": 0.8,
+            "acum_pct": 91.26,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 29,
+            "nj": "COOP",
+            "entidad": "RÍO URUGUAY COOPERATIVA  LIMITAD",
+            "primas": 4134469633.0,
+            "part_pct": 0.77,
+            "acum_pct": 92.03,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 30,
+            "nj": "MUT",
+            "entidad": "NACIÓN SEGUROS",
+            "primas": 3304228262.0,
+            "part_pct": 0.62,
+            "acum_pct": 92.65,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 31,
+            "nj": "MUT",
+            "entidad": "BENEFICIO",
+            "primas": 2543756850.0,
+            "part_pct": 0.47,
+            "acum_pct": 93.12,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 32,
+            "nj": "MUT",
+            "entidad": "SUPERVIELLE SEGUROS",
+            "primas": 2501712735.0,
+            "part_pct": 0.47,
+            "acum_pct": 93.59,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 33,
+            "nj": "MUT",
+            "entidad": "HORIZONTE  ARGENTINA  GENERALES",
+            "primas": 2212617516.0,
+            "part_pct": 0.41,
+            "acum_pct": 94.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 34,
+            "nj": "MUT",
+            "entidad": "INTÉGRITY SEGUROS ARGENTINA",
+            "primas": 1990108680.0,
+            "part_pct": 0.37,
+            "acum_pct": 94.37,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 35,
+            "nj": "MUT",
+            "entidad": "BARBUSS RISK SEGUROS (ARGENTINA)",
+            "primas": 1816805575.0,
+            "part_pct": 0.34,
+            "acum_pct": 94.71,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 36,
+            "nj": "COOP",
+            "entidad": "TRIUNFO COOPERATIVA  LIMITADA",
+            "primas": 1805727540.0,
+            "part_pct": 0.34,
+            "acum_pct": 95.04,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 37,
+            "nj": "SA",
+            "entidad": "COLON COMPAÑÍA",
+            "primas": 1761765589.0,
+            "part_pct": 0.33,
+            "acum_pct": 95.37,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 38,
+            "nj": "SA",
+            "entidad": "PARANÁ",
+            "primas": 1738789700.0,
+            "part_pct": 0.32,
+            "acum_pct": 95.7,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 39,
+            "nj": "SA",
+            "entidad": "HAMBURGO",
+            "primas": 1658459238.0,
+            "part_pct": 0.31,
+            "acum_pct": 96.01,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 40,
+            "nj": "MUT",
+            "entidad": "EXPERTA SEGUROS",
+            "primas": 1499734152.0,
+            "part_pct": 0.28,
+            "acum_pct": 96.28,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 41,
+            "nj": "MUT",
+            "entidad": "CARUSO COMPAÑÍA ARGENTINA",
+            "primas": 1357711369.0,
+            "part_pct": 0.25,
+            "acum_pct": 96.54,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 42,
+            "nj": "SA",
+            "entidad": "ZURICH ARGENTINA",
+            "primas": 1314415617.0,
+            "part_pct": 0.24,
+            "acum_pct": 96.78,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 43,
+            "nj": "MUT",
+            "entidad": "MISTA SEGUROS",
+            "primas": 1241445111.0,
+            "part_pct": 0.23,
+            "acum_pct": 97.01,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 44,
+            "nj": "MUT",
+            "entidad": "SMG LIFE SEGUROS DE VIDA SAU",
+            "primas": 1210269808.0,
+            "part_pct": 0.23,
+            "acum_pct": 97.24,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 45,
+            "nj": "MUT",
+            "entidad": "GESTION COMPAÑÍA ARGENTINA",
+            "primas": 1141755923.0,
+            "part_pct": 0.21,
+            "acum_pct": 97.45,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 46,
+            "nj": "MUT",
+            "entidad": "NOBLE COMPAÑÍA",
+            "primas": 1077701263.0,
+            "part_pct": 0.2,
+            "acum_pct": 97.65,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 47,
+            "nj": "MUT",
+            "entidad": "CRUZ SUIZA COMPAÑÍA",
+            "primas": 989355794.0,
+            "part_pct": 0.18,
+            "acum_pct": 97.84,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 48,
+            "nj": "MUT",
+            "entidad": "GGAL SEGUROS U.",
+            "primas": 968242816.0,
+            "part_pct": 0.18,
+            "acum_pct": 98.02,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 49,
+            "nj": "COOP",
+            "entidad": "COPAN COOPERATIVA  LIMITADA",
+            "primas": 892499927.0,
+            "part_pct": 0.17,
+            "acum_pct": 98.18,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 50,
+            "nj": "MUT",
+            "entidad": "DIGNA SEGUROS",
+            "primas": 859865582.0,
+            "part_pct": 0.16,
+            "acum_pct": 98.34,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 51,
+            "nj": "MUT",
+            "entidad": "EVOLUCIÓN SEGUROS",
+            "primas": 692013855.0,
+            "part_pct": 0.13,
+            "acum_pct": 98.47,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 52,
+            "nj": "MUT",
+            "entidad": "ASSURANT ARGENTINA COMPAÑÍA",
+            "primas": 673223184.0,
+            "part_pct": 0.13,
+            "acum_pct": 98.6,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 53,
+            "nj": "SA",
+            "entidad": "LA PERSEVERANCIA SEGUROS",
+            "primas": 653105256.0,
+            "part_pct": 0.12,
+            "acum_pct": 98.72,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 54,
+            "nj": "MUT",
+            "entidad": "ASV ARGENTINA SALUD, VIDA Y PATR",
+            "primas": 634101135.0,
+            "part_pct": 0.12,
+            "acum_pct": 98.84,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 55,
+            "nj": "MUT",
+            "entidad": "LOGRAR COMPAÑÍA  DE PERSONAS",
+            "primas": 560717965.0,
+            "part_pct": 0.1,
+            "acum_pct": 98.94,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 56,
+            "nj": "MUT",
+            "entidad": "SAN MARINO COMPAÑÍA",
+            "primas": 502873681.0,
+            "part_pct": 0.09,
+            "acum_pct": 99.04,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 57,
+            "nj": "SA",
+            "entidad": "LA EQUITATIVA DEL PLATA",
+            "primas": 466098922.0,
+            "part_pct": 0.09,
+            "acum_pct": 99.12,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 58,
+            "nj": "COOP",
+            "entidad": "SEGUROMETAL COOPERATIVA  LIMITAD",
+            "primas": 455856230.0,
+            "part_pct": 0.08,
+            "acum_pct": 99.21,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 59,
+            "nj": "MUT",
+            "entidad": "LIBRA  ARGENTINA",
+            "primas": 442070075.0,
+            "part_pct": 0.08,
+            "acum_pct": 99.29,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 60,
+            "nj": "MUT",
+            "entidad": "GALENO SEGUROS",
+            "primas": 410414012.0,
+            "part_pct": 0.08,
+            "acum_pct": 99.37,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 61,
+            "nj": "MUT",
+            "entidad": "NATIVA  ARGENTINA",
+            "primas": 380900564.0,
+            "part_pct": 0.07,
+            "acum_pct": 99.44,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 62,
+            "nj": "MUT",
+            "entidad": "SAN GERMAN SEGUROS",
+            "primas": 371171678.0,
+            "part_pct": 0.07,
+            "acum_pct": 99.51,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 63,
+            "nj": "MUT",
+            "entidad": "WORANZ COMPAÑÍA",
+            "primas": 320775084.0,
+            "part_pct": 0.06,
+            "acum_pct": 99.57,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 64,
+            "nj": "MUT",
+            "entidad": "INSTITUTO ASEGURADOR MERCANTIL",
+            "primas": 239481309.0,
+            "part_pct": 0.04,
+            "acum_pct": 99.61,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 65,
+            "nj": "COOP",
+            "entidad": "SEGURCOOP COOPERATIVA  LIMITADA",
+            "primas": 207862386.0,
+            "part_pct": 0.04,
+            "acum_pct": 99.65,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 66,
+            "nj": "MUT",
+            "entidad": "STELLANTIS INSURANCE   U.",
+            "primas": 207648642.0,
+            "part_pct": 0.04,
+            "acum_pct": 99.69,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 67,
+            "nj": "SA",
+            "entidad": "ARGENTINA  VICTORIA",
+            "primas": 200456066.0,
+            "part_pct": 0.04,
+            "acum_pct": 99.73,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 68,
+            "nj": "MUT",
+            "entidad": "NIVEL SEGUROS",
+            "primas": 187008087.0,
+            "part_pct": 0.03,
+            "acum_pct": 99.76,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 69,
+            "nj": "MUT",
+            "entidad": "SANTA LUCÍA  COMPAÑÍA",
+            "primas": 158652458.0,
+            "part_pct": 0.03,
+            "acum_pct": 99.79,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 70,
+            "nj": "MUT",
+            "entidad": "SMSV  ARGENTINA",
+            "primas": 156774303.0,
+            "part_pct": 0.03,
+            "acum_pct": 99.82,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 71,
+            "nj": "SA",
+            "entidad": "PREVINCA SEGUROS",
+            "primas": 148547339.0,
+            "part_pct": 0.03,
+            "acum_pct": 99.85,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 72,
+            "nj": "SA",
+            "entidad": "ARGENTINA  LATITUD SUR",
+            "primas": 102519827.0,
+            "part_pct": 0.02,
+            "acum_pct": 99.87,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 73,
+            "nj": "MUT",
+            "entidad": "CAJA DE PREVISIÓN Y SEGURO MÉDIC",
+            "primas": 90614595.0,
+            "part_pct": 0.02,
+            "acum_pct": 99.88,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 74,
+            "nj": "MUT",
+            "entidad": "COMPAÑÍA  DE JUJUY SOCIEDAD DEL",
+            "primas": 78014281.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.9,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 75,
+            "nj": "MUT",
+            "entidad": "COMPAÑÍA  MAÑANA",
+            "primas": 76518605.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.91,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 76,
+            "nj": "SA",
+            "entidad": "EL SURCO COMPAÑÍA",
+            "primas": 68058915.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.92,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 77,
+            "nj": "MUT",
+            "entidad": "PRUDENCIA  ARGENTINA  GENERALES",
+            "primas": 60701359.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.94,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 78,
+            "nj": "MUT",
+            "entidad": "PROVIDENCIA  ARGENTINA",
+            "primas": 60307852.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.95,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 79,
+            "nj": "MUT",
+            "entidad": "LIDERAR  GENERAL",
+            "primas": 40199388.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.95,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 80,
+            "nj": "MUT",
+            "entidad": "OMINT  COMPAÑÍA",
+            "primas": 37172820.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.96,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 81,
+            "nj": "MUT",
+            "entidad": "ATM COMPAÑÍA",
+            "primas": 36342951.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.97,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 82,
+            "nj": "MUT",
+            "entidad": "SAN PATRICIO SEGUROS",
+            "primas": 28982104.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.97,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 83,
+            "nj": "SA",
+            "entidad": "PIEVE SEGUROS",
+            "primas": 21494900.0,
+            "part_pct": 0.0,
+            "acum_pct": 99.98,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 84,
+            "nj": "MUT",
+            "entidad": "LA TERRITORIAL VIDA Y SALUD COMP",
+            "primas": 19875265.0,
+            "part_pct": 0.0,
+            "acum_pct": 99.98,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 85,
+            "nj": "SA",
+            "entidad": "METROPOL COMPAÑÍA ARGENTINA",
+            "primas": 15942616.0,
+            "part_pct": 0.0,
+            "acum_pct": 99.98,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 86,
+            "nj": "MUT",
+            "entidad": "ANTICIPAR COMPAÑÍA",
+            "primas": 15380147.0,
+            "part_pct": 0.0,
+            "acum_pct": 99.99,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 87,
+            "nj": "MUT",
+            "entidad": "OPCIÓN SEGUROS",
+            "primas": 13569008.0,
+            "part_pct": 0.0,
+            "acum_pct": 99.99,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 88,
+            "nj": "COOP",
+            "entidad": "COOPERATIVA  LUZ Y FUERZA LIMITA",
+            "primas": 12084818.0,
+            "part_pct": 0.0,
+            "acum_pct": 99.99,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 89,
+            "nj": "MUT",
+            "entidad": "ANTARTIDA COMPAÑÍA ARGENTINA",
+            "primas": 10376643.0,
+            "part_pct": 0.0,
+            "acum_pct": 99.99,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 90,
+            "nj": "MUT",
+            "entidad": "CAMINOS PROTEGIDOS  COMPAÑÍA",
+            "primas": 8398735.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 91,
+            "nj": "MUT",
+            "entidad": "FEDERADA COMPAÑÍA  DE PERSONAS S",
+            "primas": 7541643.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 92,
+            "nj": "COOP",
+            "entidad": "PRODUCTORES DE FRUTAS ARGENTINAS",
+            "primas": 6751620.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 93,
+            "nj": "MUT",
+            "entidad": "ESENCIA SEGUROS",
+            "primas": 5573410.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 94,
+            "nj": "MUT",
+            "entidad": "PLENARIA SEGUROS",
+            "primas": 5247435.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 95,
+            "nj": "MUT",
+            "entidad": "INSTITUTO",
+            "primas": 768214.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 96,
+            "nj": "MUT",
+            "entidad": "ZURICH INTERNATIONAL LIFE LIMITE",
+            "primas": 51236.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 97,
+            "nj": "SA",
+            "entidad": "EL PROGRESO SEGUROS",
+            "primas": 39818.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 98,
+            "nj": "MUT",
+            "entidad": "EUROAMERICA",
+            "primas": 34128.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          }
+        ]
+      },
+      "Total AP Colectivo": {
+        "id": "total_ap_colectivo",
+        "titulo": "Total AP Colectivo",
+        "key": "Total AP Colectivo",
+        "level": 1,
         "ramo_macro": "AP",
         "total_mercado": 404432407453.0,
         "cant_entidades": 78,
@@ -61501,9 +63404,11 @@
           }
         ]
       },
-      "AP Individual": {
-        "id": "2.010.01",
-        "titulo": "Accidentes Personales - Individual",
+      "Total AP Individual": {
+        "id": "total_ap_individual",
+        "titulo": "Total AP Individual",
+        "key": "Total AP Individual",
+        "level": 1,
         "ramo_macro": "AP",
         "total_mercado": 132380901594.0,
         "cant_entidades": 63,
@@ -62088,22 +63993,24 @@
           }
         ]
       },
-      "Salud Colectivo": {
-        "id": "2.020.02",
-        "titulo": "Seguros de Salud - Colectivo",
+      "Total Salud": {
+        "id": "total_salud",
+        "titulo": "Total Salud (Colectivo + Individual)",
+        "key": "Total Salud",
+        "level": 0,
         "ramo_macro": "SALUD",
-        "total_mercado": 44996922151.0,
-        "cant_entidades": 27,
+        "total_mercado": 58129163839.0,
+        "cant_entidades": 39,
         "la_segunda": {
-          "puesto": 21,
-          "primas": 77590271.0,
-          "cuota": 0.17,
+          "puesto": 28,
+          "primas": 83543282.0,
+          "cuota": 0.14,
           "entidad": "SEGUNDA PERSONAS"
         },
         "lider": {
           "entidad": "INSTITUTO DE SALTA COMPAÑÍA  DE",
           "primas": 16668822123.0,
-          "cuota": 37.04
+          "cuota": 28.68
         },
         "ranking": [
           {
@@ -62111,228 +64018,309 @@
             "nj": "MUT",
             "entidad": "INSTITUTO DE SALTA COMPAÑÍA  DE",
             "primas": 16668822123.0,
-            "part_pct": 37.04,
-            "acum_pct": 37.04,
+            "part_pct": 28.68,
+            "acum_pct": 28.68,
             "es_la_segunda": false
           },
           {
             "orden": 2,
             "nj": "COOP",
             "entidad": "SANCOR COOPERATIVA  LIMITADA",
-            "primas": 15324719729.0,
-            "part_pct": 34.06,
-            "acum_pct": 71.1,
+            "primas": 15489899316.0,
+            "part_pct": 26.65,
+            "acum_pct": 55.32,
             "es_la_segunda": false
           },
           {
             "orden": 3,
             "nj": "MUT",
-            "entidad": "LIFE SEGUROS DE PERSONAS Y PATRI",
-            "primas": 2581792188.0,
-            "part_pct": 5.74,
-            "acum_pct": 76.84,
+            "entidad": "FEDERACIÓN PATRONAL SEGUROS U.",
+            "primas": 7194801450.0,
+            "part_pct": 12.38,
+            "acum_pct": 67.7,
             "es_la_segunda": false
           },
           {
             "orden": 4,
             "nj": "MUT",
-            "entidad": "SMG LIFE SEGUROS DE VIDA SAU",
-            "primas": 2180754600.0,
-            "part_pct": 4.85,
-            "acum_pct": 81.69,
+            "entidad": "LIFE SEGUROS DE PERSONAS Y PATRI",
+            "primas": 4664515014.0,
+            "part_pct": 8.02,
+            "acum_pct": 75.72,
             "es_la_segunda": false
           },
           {
             "orden": 5,
             "nj": "MUT",
-            "entidad": "ASSURANT ARGENTINA COMPAÑÍA",
-            "primas": 1832234689.0,
-            "part_pct": 4.07,
-            "acum_pct": 85.76,
+            "entidad": "SMG LIFE SEGUROS DE VIDA SAU",
+            "primas": 2186802508.0,
+            "part_pct": 3.76,
+            "acum_pct": 79.49,
             "es_la_segunda": false
           },
           {
             "orden": 6,
             "nj": "MUT",
-            "entidad": "FEDERADA COMPAÑÍA  DE PERSONAS S",
-            "primas": 1407917193.0,
-            "part_pct": 3.13,
-            "acum_pct": 88.89,
+            "entidad": "ASSURANT ARGENTINA COMPAÑÍA",
+            "primas": 1832234689.0,
+            "part_pct": 3.15,
+            "acum_pct": 82.64,
             "es_la_segunda": false
           },
           {
             "orden": 7,
             "nj": "MUT",
-            "entidad": "BHN VIDA",
-            "primas": 977832385.0,
-            "part_pct": 2.17,
-            "acum_pct": 91.06,
+            "entidad": "QUALIA COMPAÑÍA",
+            "primas": 1450037952.0,
+            "part_pct": 2.49,
+            "acum_pct": 85.13,
             "es_la_segunda": false
           },
           {
             "orden": 8,
             "nj": "MUT",
-            "entidad": "BENEFICIO",
-            "primas": 638596321.0,
-            "part_pct": 1.42,
-            "acum_pct": 92.48,
+            "entidad": "FEDERADA COMPAÑÍA  DE PERSONAS S",
+            "primas": 1414355183.0,
+            "part_pct": 2.43,
+            "acum_pct": 87.57,
             "es_la_segunda": false
           },
           {
             "orden": 9,
-            "nj": "SA",
-            "entidad": "PREVINCA SEGUROS",
-            "primas": 511269076.0,
-            "part_pct": 1.14,
-            "acum_pct": 93.62,
+            "nj": "MUT",
+            "entidad": "CAJA",
+            "primas": 1095901131.0,
+            "part_pct": 1.89,
+            "acum_pct": 89.45,
             "es_la_segunda": false
           },
           {
             "orden": 10,
-            "nj": "SA",
-            "entidad": "COLON COMPAÑÍA",
-            "primas": 508502022.0,
-            "part_pct": 1.13,
-            "acum_pct": 94.75,
+            "nj": "MUT",
+            "entidad": "BHN VIDA",
+            "primas": 983343572.0,
+            "part_pct": 1.69,
+            "acum_pct": 91.14,
             "es_la_segunda": false
           },
           {
             "orden": 11,
-            "nj": "COOP",
-            "entidad": "RÍO URUGUAY COOPERATIVA  LIMITAD",
-            "primas": 386119451.0,
-            "part_pct": 0.86,
-            "acum_pct": 95.6,
+            "nj": "MUT",
+            "entidad": "BENEFICIO",
+            "primas": 638596321.0,
+            "part_pct": 1.1,
+            "acum_pct": 92.24,
             "es_la_segunda": false
           },
           {
             "orden": 12,
-            "nj": "MUT",
-            "entidad": "CHUBB SEGUROS ARGENTINA",
-            "primas": 383937655.0,
-            "part_pct": 0.85,
-            "acum_pct": 96.46,
+            "nj": "SA",
+            "entidad": "PREVINCA SEGUROS",
+            "primas": 559268591.0,
+            "part_pct": 0.96,
+            "acum_pct": 93.2,
             "es_la_segunda": false
           },
           {
             "orden": 13,
-            "nj": "MUT",
-            "entidad": "PLENARIA SEGUROS",
-            "primas": 366754445.0,
-            "part_pct": 0.82,
-            "acum_pct": 97.27,
+            "nj": "SA",
+            "entidad": "COLON COMPAÑÍA",
+            "primas": 508502022.0,
+            "part_pct": 0.87,
+            "acum_pct": 94.08,
             "es_la_segunda": false
           },
           {
             "orden": 14,
             "nj": "MUT",
-            "entidad": "EXPERTA SEGUROS",
-            "primas": 254528012.0,
-            "part_pct": 0.57,
-            "acum_pct": 97.84,
+            "entidad": "SEGUROS GALICIA",
+            "primas": 394670802.0,
+            "part_pct": 0.68,
+            "acum_pct": 94.76,
             "es_la_segunda": false
           },
           {
             "orden": 15,
-            "nj": "MUT",
-            "entidad": "SEGUROS GALICIA",
-            "primas": 182906951.0,
-            "part_pct": 0.41,
-            "acum_pct": 98.24,
+            "nj": "COOP",
+            "entidad": "RÍO URUGUAY COOPERATIVA  LIMITAD",
+            "primas": 386119451.0,
+            "part_pct": 0.66,
+            "acum_pct": 95.42,
             "es_la_segunda": false
           },
           {
             "orden": 16,
             "nj": "MUT",
-            "entidad": "ANTICIPAR COMPAÑÍA",
-            "primas": 176842333.0,
-            "part_pct": 0.39,
-            "acum_pct": 98.64,
+            "entidad": "CHUBB SEGUROS ARGENTINA",
+            "primas": 383937655.0,
+            "part_pct": 0.66,
+            "acum_pct": 96.08,
             "es_la_segunda": false
           },
           {
             "orden": 17,
             "nj": "MUT",
-            "entidad": "CARUSO COMPAÑÍA ARGENTINA",
-            "primas": 136192487.0,
-            "part_pct": 0.3,
-            "acum_pct": 98.94,
+            "entidad": "PLENARIA SEGUROS",
+            "primas": 366754445.0,
+            "part_pct": 0.63,
+            "acum_pct": 96.71,
             "es_la_segunda": false
           },
           {
             "orden": 18,
-            "nj": "SA",
-            "entidad": "EL SURCO COMPAÑÍA",
-            "primas": 131963314.0,
-            "part_pct": 0.29,
-            "acum_pct": 99.23,
+            "nj": "MUT",
+            "entidad": "BBVA SEGUROS ARGENTINA",
+            "primas": 329588033.0,
+            "part_pct": 0.57,
+            "acum_pct": 97.28,
             "es_la_segunda": false
           },
           {
             "orden": 19,
             "nj": "MUT",
-            "entidad": "MISTA SEGUROS",
-            "primas": 122337131.0,
-            "part_pct": 0.27,
-            "acum_pct": 99.5,
+            "entidad": "EXPERTA SEGUROS",
+            "primas": 254528012.0,
+            "part_pct": 0.44,
+            "acum_pct": 97.72,
             "es_la_segunda": false
           },
           {
             "orden": 20,
             "nj": "MUT",
-            "entidad": "CRUZ SUIZA COMPAÑÍA",
-            "primas": 92339912.0,
-            "part_pct": 0.21,
-            "acum_pct": 99.71,
+            "entidad": "ZURICH SANTANDER SEGUROS ARGENTI",
+            "primas": 253694770.0,
+            "part_pct": 0.44,
+            "acum_pct": 98.15,
             "es_la_segunda": false
           },
           {
             "orden": 21,
             "nj": "MUT",
-            "entidad": "SEGUNDA PERSONAS",
-            "primas": 77590271.0,
-            "part_pct": 0.17,
-            "acum_pct": 99.88,
-            "es_la_segunda": true
+            "entidad": "ANTICIPAR COMPAÑÍA",
+            "primas": 176842333.0,
+            "part_pct": 0.3,
+            "acum_pct": 98.46,
+            "es_la_segunda": false
           },
           {
             "orden": 22,
             "nj": "MUT",
-            "entidad": "ASV ARGENTINA SALUD, VIDA Y PATR",
-            "primas": 25991238.0,
-            "part_pct": 0.06,
-            "acum_pct": 99.94,
+            "entidad": "CARUSO COMPAÑÍA ARGENTINA",
+            "primas": 137514531.0,
+            "part_pct": 0.24,
+            "acum_pct": 98.7,
             "es_la_segunda": false
           },
           {
             "orden": 23,
-            "nj": "MUT",
-            "entidad": "COMPAÑÍA  MAÑANA",
-            "primas": 16102590.0,
-            "part_pct": 0.04,
-            "acum_pct": 99.98,
+            "nj": "SA",
+            "entidad": "EL SURCO COMPAÑÍA",
+            "primas": 132994823.0,
+            "part_pct": 0.23,
+            "acum_pct": 98.92,
             "es_la_segunda": false
           },
           {
             "orden": 24,
             "nj": "MUT",
-            "entidad": "NOBLE COMPAÑÍA",
-            "primas": 5605078.0,
-            "part_pct": 0.01,
-            "acum_pct": 99.99,
+            "entidad": "BINARIA SEGUROS DE VIDA",
+            "primas": 129660758.0,
+            "part_pct": 0.22,
+            "acum_pct": 99.15,
             "es_la_segunda": false
           },
           {
             "orden": 25,
             "nj": "MUT",
-            "entidad": "ESENCIA SEGUROS",
-            "primas": 2370136.0,
+            "entidad": "MISTA SEGUROS",
+            "primas": 122337131.0,
+            "part_pct": 0.21,
+            "acum_pct": 99.36,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 26,
+            "nj": "MUT",
+            "entidad": "GALICIA SEGUROS SAU",
+            "primas": 100092219.0,
+            "part_pct": 0.17,
+            "acum_pct": 99.53,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 27,
+            "nj": "MUT",
+            "entidad": "CRUZ SUIZA COMPAÑÍA",
+            "primas": 92339912.0,
+            "part_pct": 0.16,
+            "acum_pct": 99.69,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 28,
+            "nj": "MUT",
+            "entidad": "SEGUNDA PERSONAS",
+            "primas": 83543282.0,
+            "part_pct": 0.14,
+            "acum_pct": 99.83,
+            "es_la_segunda": true
+          },
+          {
+            "orden": 29,
+            "nj": "MUT",
+            "entidad": "MAPFRE ARGENTINA SEGUROS DE VIDA",
+            "primas": 39605337.0,
+            "part_pct": 0.07,
+            "acum_pct": 99.9,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 30,
+            "nj": "MUT",
+            "entidad": "ASV ARGENTINA SALUD, VIDA Y PATR",
+            "primas": 25991238.0,
+            "part_pct": 0.04,
+            "acum_pct": 99.95,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 31,
+            "nj": "MUT",
+            "entidad": "COMPAÑÍA  MAÑANA",
+            "primas": 16102590.0,
+            "part_pct": 0.03,
+            "acum_pct": 99.97,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 32,
+            "nj": "MUT",
+            "entidad": "NOBLE COMPAÑÍA",
+            "primas": 6303713.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.98,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 33,
+            "nj": "SA",
+            "entidad": "COMPAÑÍA  EL NORTE",
+            "primas": 3993596.0,
             "part_pct": 0.01,
             "acum_pct": 99.99,
             "es_la_segunda": false
           },
           {
-            "orden": 26,
+            "orden": 34,
+            "nj": "MUT",
+            "entidad": "ESENCIA SEGUROS",
+            "primas": 2370136.0,
+            "part_pct": 0.0,
+            "acum_pct": 99.99,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 35,
             "nj": "MUT",
             "entidad": "LA MERIDIONAL COMPAÑÍA ARGENTINA",
             "primas": 2178857.0,
@@ -62341,216 +64329,16 @@
             "es_la_segunda": false
           },
           {
-            "orden": 27,
+            "orden": 36,
             "nj": "MUT",
             "entidad": "SUPERVIELLE SEGUROS",
             "primas": 721964.0,
             "part_pct": 0.0,
             "acum_pct": 100.0,
             "es_la_segunda": false
-          }
-        ]
-      },
-      "Salud Individual": {
-        "id": "2.020.01",
-        "titulo": "Seguros de Salud - Individual",
-        "ramo_macro": "SALUD",
-        "total_mercado": 13132241688.0,
-        "cant_entidades": 23,
-        "la_segunda": {
-          "puesto": 15,
-          "primas": 5953011.0,
-          "cuota": 0.05,
-          "entidad": "SEGUNDA PERSONAS"
-        },
-        "lider": {
-          "entidad": "FEDERACIÓN PATRONAL SEGUROS U.",
-          "primas": 7194801450.0,
-          "cuota": 54.79
-        },
-        "ranking": [
-          {
-            "orden": 1,
-            "nj": "MUT",
-            "entidad": "FEDERACIÓN PATRONAL SEGUROS U.",
-            "primas": 7194801450.0,
-            "part_pct": 54.79,
-            "acum_pct": 54.79,
-            "es_la_segunda": false
           },
           {
-            "orden": 2,
-            "nj": "MUT",
-            "entidad": "LIFE SEGUROS DE PERSONAS Y PATRI",
-            "primas": 2082722826.0,
-            "part_pct": 15.86,
-            "acum_pct": 70.65,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 3,
-            "nj": "MUT",
-            "entidad": "QUALIA COMPAÑÍA",
-            "primas": 1450037952.0,
-            "part_pct": 11.04,
-            "acum_pct": 81.69,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 4,
-            "nj": "MUT",
-            "entidad": "CAJA",
-            "primas": 1095901131.0,
-            "part_pct": 8.35,
-            "acum_pct": 90.03,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 5,
-            "nj": "MUT",
-            "entidad": "BBVA SEGUROS ARGENTINA",
-            "primas": 329588033.0,
-            "part_pct": 2.51,
-            "acum_pct": 92.54,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 6,
-            "nj": "MUT",
-            "entidad": "ZURICH SANTANDER SEGUROS ARGENTI",
-            "primas": 253694770.0,
-            "part_pct": 1.93,
-            "acum_pct": 94.48,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 7,
-            "nj": "MUT",
-            "entidad": "SEGUROS GALICIA",
-            "primas": 211763851.0,
-            "part_pct": 1.61,
-            "acum_pct": 96.09,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 8,
-            "nj": "COOP",
-            "entidad": "SANCOR COOPERATIVA  LIMITADA",
-            "primas": 165179587.0,
-            "part_pct": 1.26,
-            "acum_pct": 97.35,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 9,
-            "nj": "MUT",
-            "entidad": "BINARIA SEGUROS DE VIDA",
-            "primas": 129660758.0,
-            "part_pct": 0.99,
-            "acum_pct": 98.33,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 10,
-            "nj": "MUT",
-            "entidad": "GALICIA SEGUROS SAU",
-            "primas": 100092219.0,
-            "part_pct": 0.76,
-            "acum_pct": 99.1,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 11,
-            "nj": "SA",
-            "entidad": "PREVINCA SEGUROS",
-            "primas": 47999515.0,
-            "part_pct": 0.37,
-            "acum_pct": 99.46,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 12,
-            "nj": "MUT",
-            "entidad": "MAPFRE ARGENTINA SEGUROS DE VIDA",
-            "primas": 39605337.0,
-            "part_pct": 0.3,
-            "acum_pct": 99.76,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 13,
-            "nj": "MUT",
-            "entidad": "FEDERADA COMPAÑÍA  DE PERSONAS S",
-            "primas": 6437990.0,
-            "part_pct": 0.05,
-            "acum_pct": 99.81,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 14,
-            "nj": "MUT",
-            "entidad": "SMG LIFE SEGUROS DE VIDA SAU",
-            "primas": 6047908.0,
-            "part_pct": 0.05,
-            "acum_pct": 99.86,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 15,
-            "nj": "MUT",
-            "entidad": "SEGUNDA PERSONAS",
-            "primas": 5953011.0,
-            "part_pct": 0.05,
-            "acum_pct": 99.9,
-            "es_la_segunda": true
-          },
-          {
-            "orden": 16,
-            "nj": "MUT",
-            "entidad": "BHN VIDA",
-            "primas": 5511187.0,
-            "part_pct": 0.04,
-            "acum_pct": 99.94,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 17,
-            "nj": "SA",
-            "entidad": "COMPAÑÍA  EL NORTE",
-            "primas": 3993596.0,
-            "part_pct": 0.03,
-            "acum_pct": 99.98,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 18,
-            "nj": "MUT",
-            "entidad": "CARUSO COMPAÑÍA ARGENTINA",
-            "primas": 1322044.0,
-            "part_pct": 0.01,
-            "acum_pct": 99.99,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 19,
-            "nj": "SA",
-            "entidad": "EL SURCO COMPAÑÍA",
-            "primas": 1031509.0,
-            "part_pct": 0.01,
-            "acum_pct": 99.99,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 20,
-            "nj": "MUT",
-            "entidad": "NOBLE COMPAÑÍA",
-            "primas": 698635.0,
-            "part_pct": 0.01,
-            "acum_pct": 100.0,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 21,
+            "orden": 37,
             "nj": "MUT",
             "entidad": "NACIÓN SEGUROS",
             "primas": 172861.0,
@@ -62559,7 +64347,7 @@
             "es_la_segunda": false
           },
           {
-            "orden": 22,
+            "orden": 38,
             "nj": "MUT",
             "entidad": "OMINT  COMPAÑÍA",
             "primas": 13755.0,
@@ -62568,7 +64356,7 @@
             "es_la_segunda": false
           },
           {
-            "orden": 23,
+            "orden": 39,
             "nj": "MUT",
             "entidad": "ZURICH INTERNATIONAL LIFE LIMITE",
             "primas": 11763.0,
@@ -62578,12 +64366,14 @@
           }
         ]
       },
-      "Sepelio Colectivo": {
-        "id": "2.050.02",
-        "titulo": "Seguro de Sepelio - Colectivo",
+      "Total Sepelio": {
+        "id": "total_sepelio",
+        "titulo": "Total Sepelio (Colectivo + Individual)",
+        "key": "Total Sepelio",
+        "level": 0,
         "ramo_macro": "SEPELIO",
-        "total_mercado": 188231465180.0,
-        "cant_entidades": 78,
+        "total_mercado": 216945182549.0,
+        "cant_entidades": 83,
         "la_segunda": {
           "puesto": "-",
           "primas": 0.0,
@@ -62592,579 +64382,615 @@
         },
         "lider": {
           "entidad": "INSTITUTO DE SALTA COMPAÑÍA  DE",
-          "primas": 45252592120.0,
-          "cuota": 24.04
+          "primas": 45609999140.0,
+          "cuota": 21.02
         },
         "ranking": [
           {
             "orden": 1,
             "nj": "MUT",
             "entidad": "INSTITUTO DE SALTA COMPAÑÍA  DE",
-            "primas": 45252592120.0,
-            "part_pct": 24.04,
-            "acum_pct": 24.04,
+            "primas": 45609999140.0,
+            "part_pct": 21.02,
+            "acum_pct": 21.02,
             "es_la_segunda": false
           },
           {
             "orden": 2,
             "nj": "SA",
             "entidad": "EL SURCO COMPAÑÍA",
-            "primas": 12534886738.0,
-            "part_pct": 6.66,
-            "acum_pct": 30.7,
+            "primas": 12549725933.0,
+            "part_pct": 5.78,
+            "acum_pct": 26.81,
             "es_la_segunda": false
           },
           {
             "orden": 3,
             "nj": "MUT",
-            "entidad": "INSTITUTO AUTÁRQUICO PROVINCIAL",
-            "primas": 10555642281.0,
-            "part_pct": 5.61,
-            "acum_pct": 36.31,
+            "entidad": "TRES PROVINCIAS SEGUROS DE PERSO",
+            "primas": 12076484270.0,
+            "part_pct": 5.57,
+            "acum_pct": 32.38,
             "es_la_segunda": false
           },
           {
             "orden": 4,
-            "nj": "MUT",
-            "entidad": "NACIÓN SEGUROS",
-            "primas": 10354720923.0,
-            "part_pct": 5.5,
-            "acum_pct": 41.81,
+            "nj": "COOP",
+            "entidad": "TRIUNFO COOPERATIVA  LIMITADA",
+            "primas": 11382127725.0,
+            "part_pct": 5.25,
+            "acum_pct": 37.62,
             "es_la_segunda": false
           },
           {
             "orden": 5,
-            "nj": "SA",
-            "entidad": "SOL NACIENTE SEGUROS",
-            "primas": 9699358266.0,
-            "part_pct": 5.15,
-            "acum_pct": 46.96,
+            "nj": "MUT",
+            "entidad": "INSTITUTO AUTÁRQUICO PROVINCIAL",
+            "primas": 10729528681.0,
+            "part_pct": 4.95,
+            "acum_pct": 42.57,
             "es_la_segunda": false
           },
           {
             "orden": 6,
             "nj": "MUT",
-            "entidad": "SMSV  ARGENTINA",
-            "primas": 6853706296.0,
-            "part_pct": 3.64,
-            "acum_pct": 50.6,
+            "entidad": "NACIÓN SEGUROS",
+            "primas": 10354720923.0,
+            "part_pct": 4.77,
+            "acum_pct": 47.34,
             "es_la_segunda": false
           },
           {
             "orden": 7,
-            "nj": "MUT",
-            "entidad": "MISTA SEGUROS",
-            "primas": 6671381583.0,
-            "part_pct": 3.54,
-            "acum_pct": 54.15,
+            "nj": "SA",
+            "entidad": "SOL NACIENTE SEGUROS",
+            "primas": 9699358266.0,
+            "part_pct": 4.47,
+            "acum_pct": 51.81,
             "es_la_segunda": false
           },
           {
             "orden": 8,
             "nj": "MUT",
-            "entidad": "BIND SEGUROS S.A",
-            "primas": 5990765958.0,
+            "entidad": "SMSV  ARGENTINA",
+            "primas": 6903114403.0,
             "part_pct": 3.18,
-            "acum_pct": 57.33,
+            "acum_pct": 54.99,
             "es_la_segunda": false
           },
           {
             "orden": 9,
-            "nj": "SA",
-            "entidad": "HAMBURGO",
-            "primas": 5990158353.0,
-            "part_pct": 3.18,
-            "acum_pct": 60.51,
+            "nj": "MUT",
+            "entidad": "MISTA SEGUROS",
+            "primas": 6680867715.0,
+            "part_pct": 3.08,
+            "acum_pct": 58.07,
             "es_la_segunda": false
           },
           {
             "orden": 10,
             "nj": "MUT",
-            "entidad": "CERTEZA",
-            "primas": 5464438401.0,
-            "part_pct": 2.9,
-            "acum_pct": 63.42,
+            "entidad": "BIND SEGUROS S.A",
+            "primas": 5990765958.0,
+            "part_pct": 2.76,
+            "acum_pct": 60.83,
             "es_la_segunda": false
           },
           {
             "orden": 11,
-            "nj": "MUT",
-            "entidad": "EXPERTA SEGUROS",
-            "primas": 5445750576.0,
-            "part_pct": 2.89,
-            "acum_pct": 66.31,
+            "nj": "SA",
+            "entidad": "HAMBURGO",
+            "primas": 5990158353.0,
+            "part_pct": 2.76,
+            "acum_pct": 63.6,
             "es_la_segunda": false
           },
           {
             "orden": 12,
             "nj": "MUT",
-            "entidad": "BONACORSI  SEGUROS DE PERSONAS",
-            "primas": 5006022822.0,
-            "part_pct": 2.66,
-            "acum_pct": 68.97,
+            "entidad": "CERTEZA",
+            "primas": 5464438401.0,
+            "part_pct": 2.52,
+            "acum_pct": 66.11,
             "es_la_segunda": false
           },
           {
             "orden": 13,
-            "nj": "SA",
-            "entidad": "PREVINCA SEGUROS",
-            "primas": 4521905051.0,
-            "part_pct": 2.4,
-            "acum_pct": 71.37,
+            "nj": "MUT",
+            "entidad": "EXPERTA SEGUROS",
+            "primas": 5445750576.0,
+            "part_pct": 2.51,
+            "acum_pct": 68.62,
             "es_la_segunda": false
           },
           {
             "orden": 14,
             "nj": "MUT",
-            "entidad": "ANTICIPAR COMPAÑÍA",
-            "primas": 4146306202.0,
-            "part_pct": 2.2,
-            "acum_pct": 73.57,
+            "entidad": "BONACORSI  SEGUROS DE PERSONAS",
+            "primas": 5006022822.0,
+            "part_pct": 2.31,
+            "acum_pct": 70.93,
             "es_la_segunda": false
           },
           {
             "orden": 15,
-            "nj": "MUT",
-            "entidad": "EVOLUCIÓN SEGUROS",
-            "primas": 4136763161.0,
-            "part_pct": 2.2,
-            "acum_pct": 75.77,
+            "nj": "SA",
+            "entidad": "PREVINCA SEGUROS",
+            "primas": 4524699119.0,
+            "part_pct": 2.09,
+            "acum_pct": 73.02,
             "es_la_segunda": false
           },
           {
             "orden": 16,
             "nj": "MUT",
-            "entidad": "OPCIÓN SEGUROS",
-            "primas": 3991023172.0,
-            "part_pct": 2.12,
-            "acum_pct": 77.89,
+            "entidad": "ANTICIPAR COMPAÑÍA",
+            "primas": 4155409957.0,
+            "part_pct": 1.92,
+            "acum_pct": 74.93,
             "es_la_segunda": false
           },
           {
             "orden": 17,
             "nj": "MUT",
-            "entidad": "CAMINOS PROTEGIDOS  COMPAÑÍA",
-            "primas": 3733590448.0,
-            "part_pct": 1.98,
-            "acum_pct": 79.87,
+            "entidad": "EVOLUCIÓN SEGUROS",
+            "primas": 4136763161.0,
+            "part_pct": 1.91,
+            "acum_pct": 76.84,
             "es_la_segunda": false
           },
           {
             "orden": 18,
             "nj": "MUT",
-            "entidad": "SMG LIFE SEGUROS DE VIDA SAU",
-            "primas": 3480479262.0,
-            "part_pct": 1.85,
-            "acum_pct": 81.72,
+            "entidad": "OPCIÓN SEGUROS",
+            "primas": 3991023172.0,
+            "part_pct": 1.84,
+            "acum_pct": 78.68,
             "es_la_segunda": false
           },
           {
             "orden": 19,
             "nj": "MUT",
-            "entidad": "COMPAÑÍA  MAÑANA",
-            "primas": 3152120686.0,
-            "part_pct": 1.67,
-            "acum_pct": 83.4,
+            "entidad": "CAMINOS PROTEGIDOS  COMPAÑÍA",
+            "primas": 3733590448.0,
+            "part_pct": 1.72,
+            "acum_pct": 80.4,
             "es_la_segunda": false
           },
           {
             "orden": 20,
             "nj": "MUT",
-            "entidad": "CAJA",
-            "primas": 2961736217.0,
-            "part_pct": 1.57,
-            "acum_pct": 84.97,
+            "entidad": "SMG LIFE SEGUROS DE VIDA SAU",
+            "primas": 3502786952.0,
+            "part_pct": 1.61,
+            "acum_pct": 82.01,
             "es_la_segunda": false
           },
           {
             "orden": 21,
-            "nj": "SA",
-            "entidad": "SENTIR SEGUROS",
-            "primas": 2768674184.0,
-            "part_pct": 1.47,
-            "acum_pct": 86.44,
+            "nj": "MUT",
+            "entidad": "COMPAÑÍA  MAÑANA",
+            "primas": 3152120686.0,
+            "part_pct": 1.45,
+            "acum_pct": 83.47,
             "es_la_segunda": false
           },
           {
             "orden": 22,
             "nj": "MUT",
-            "entidad": "INSTITUTO",
-            "primas": 2298244139.0,
-            "part_pct": 1.22,
-            "acum_pct": 87.66,
+            "entidad": "CAJA",
+            "primas": 2961918945.0,
+            "part_pct": 1.37,
+            "acum_pct": 84.83,
             "es_la_segunda": false
           },
           {
             "orden": 23,
-            "nj": "MUT",
-            "entidad": "HORIZONTE  ARGENTINA  GENERALES",
-            "primas": 2296664161.0,
-            "part_pct": 1.22,
-            "acum_pct": 88.88,
+            "nj": "SA",
+            "entidad": "SENTIR SEGUROS",
+            "primas": 2915678543.0,
+            "part_pct": 1.34,
+            "acum_pct": 86.18,
             "es_la_segunda": false
           },
           {
             "orden": 24,
-            "nj": "SA",
-            "entidad": "PARANÁ",
-            "primas": 1762814163.0,
-            "part_pct": 0.94,
-            "acum_pct": 89.82,
+            "nj": "COOP",
+            "entidad": "SANCOR COOPERATIVA  LIMITADA",
+            "primas": 2729844595.0,
+            "part_pct": 1.26,
+            "acum_pct": 87.44,
             "es_la_segunda": false
           },
           {
             "orden": 25,
             "nj": "MUT",
-            "entidad": "COMPAÑÍA  DE JUJUY SOCIEDAD DEL",
-            "primas": 1563502914.0,
-            "part_pct": 0.83,
-            "acum_pct": 90.65,
+            "entidad": "INSTITUTO",
+            "primas": 2298244139.0,
+            "part_pct": 1.06,
+            "acum_pct": 88.49,
             "es_la_segunda": false
           },
           {
             "orden": 26,
             "nj": "MUT",
-            "entidad": "ANTARTIDA COMPAÑÍA ARGENTINA",
-            "primas": 1438920349.0,
-            "part_pct": 0.76,
-            "acum_pct": 91.42,
+            "entidad": "HORIZONTE  ARGENTINA  GENERALES",
+            "primas": 2296664161.0,
+            "part_pct": 1.06,
+            "acum_pct": 89.55,
             "es_la_segunda": false
           },
           {
             "orden": 27,
             "nj": "SA",
-            "entidad": "PIEVE SEGUROS",
-            "primas": 1379907342.0,
-            "part_pct": 0.73,
-            "acum_pct": 92.15,
+            "entidad": "PARANÁ",
+            "primas": 1762814163.0,
+            "part_pct": 0.81,
+            "acum_pct": 90.37,
             "es_la_segunda": false
           },
           {
             "orden": 28,
             "nj": "MUT",
-            "entidad": "INCLUIR COMPAÑÍA  DE PERSONAS",
-            "primas": 1340736436.0,
-            "part_pct": 0.71,
-            "acum_pct": 92.86,
+            "entidad": "COMPAÑÍA  DE JUJUY SOCIEDAD DEL",
+            "primas": 1563502914.0,
+            "part_pct": 0.72,
+            "acum_pct": 91.09,
             "es_la_segunda": false
           },
           {
             "orden": 29,
             "nj": "MUT",
-            "entidad": "SAN PATRICIO SEGUROS",
-            "primas": 1170902221.0,
-            "part_pct": 0.62,
-            "acum_pct": 93.48,
+            "entidad": "LIBRA  ARGENTINA",
+            "primas": 1472045756.0,
+            "part_pct": 0.68,
+            "acum_pct": 91.77,
             "es_la_segunda": false
           },
           {
             "orden": 30,
             "nj": "MUT",
-            "entidad": "LIBRA  ARGENTINA",
-            "primas": 1070334106.0,
-            "part_pct": 0.57,
-            "acum_pct": 94.05,
+            "entidad": "ANTARTIDA COMPAÑÍA ARGENTINA",
+            "primas": 1438920349.0,
+            "part_pct": 0.66,
+            "acum_pct": 92.43,
             "es_la_segunda": false
           },
           {
             "orden": 31,
-            "nj": "MUT",
-            "entidad": "LA MERIDIONAL COMPAÑÍA ARGENTINA",
-            "primas": 1011781006.0,
-            "part_pct": 0.54,
-            "acum_pct": 94.59,
+            "nj": "SA",
+            "entidad": "PIEVE SEGUROS",
+            "primas": 1379907342.0,
+            "part_pct": 0.64,
+            "acum_pct": 93.06,
             "es_la_segunda": false
           },
           {
             "orden": 32,
             "nj": "MUT",
-            "entidad": "FEDERADA COMPAÑÍA  DE PERSONAS S",
-            "primas": 1011239356.0,
-            "part_pct": 0.54,
-            "acum_pct": 95.13,
+            "entidad": "INCLUIR COMPAÑÍA  DE PERSONAS",
+            "primas": 1340736436.0,
+            "part_pct": 0.62,
+            "acum_pct": 93.68,
             "es_la_segunda": false
           },
           {
             "orden": 33,
-            "nj": "COOP",
-            "entidad": "COOPERATIVA  LUZ Y FUERZA LIMITA",
-            "primas": 980988157.0,
-            "part_pct": 0.52,
-            "acum_pct": 95.65,
+            "nj": "MUT",
+            "entidad": "FEDERACIÓN PATRONAL SEGUROS U.",
+            "primas": 1250828116.0,
+            "part_pct": 0.58,
+            "acum_pct": 94.26,
             "es_la_segunda": false
           },
           {
             "orden": 34,
-            "nj": "SA",
-            "entidad": "COLON COMPAÑÍA",
-            "primas": 947580890.0,
-            "part_pct": 0.5,
-            "acum_pct": 96.15,
+            "nj": "MUT",
+            "entidad": "SAN PATRICIO SEGUROS",
+            "primas": 1170902221.0,
+            "part_pct": 0.54,
+            "acum_pct": 94.8,
             "es_la_segunda": false
           },
           {
             "orden": 35,
             "nj": "MUT",
-            "entidad": "LIFE SEGUROS DE PERSONAS Y PATRI",
-            "primas": 805688063.0,
-            "part_pct": 0.43,
-            "acum_pct": 96.58,
+            "entidad": "LA MERIDIONAL COMPAÑÍA ARGENTINA",
+            "primas": 1011781006.0,
+            "part_pct": 0.47,
+            "acum_pct": 95.27,
             "es_la_segunda": false
           },
           {
             "orden": 36,
-            "nj": "SA",
-            "entidad": "PROVINCIA SEGUROS",
-            "primas": 760916893.0,
-            "part_pct": 0.4,
-            "acum_pct": 96.98,
+            "nj": "MUT",
+            "entidad": "FEDERADA COMPAÑÍA  DE PERSONAS S",
+            "primas": 1011239356.0,
+            "part_pct": 0.47,
+            "acum_pct": 95.73,
             "es_la_segunda": false
           },
           {
             "orden": 37,
-            "nj": "MUT",
-            "entidad": "ASV ARGENTINA SALUD, VIDA Y PATR",
-            "primas": 609721753.0,
-            "part_pct": 0.32,
-            "acum_pct": 97.31,
+            "nj": "COOP",
+            "entidad": "COOPERATIVA  LUZ Y FUERZA LIMITA",
+            "primas": 985848486.0,
+            "part_pct": 0.45,
+            "acum_pct": 96.19,
             "es_la_segunda": false
           },
           {
             "orden": 38,
-            "nj": "MUT",
-            "entidad": "FEDERACIÓN PATRONAL SEGUROS U.",
-            "primas": 545718231.0,
-            "part_pct": 0.29,
-            "acum_pct": 97.6,
+            "nj": "SA",
+            "entidad": "COLON COMPAÑÍA",
+            "primas": 947580890.0,
+            "part_pct": 0.44,
+            "acum_pct": 96.62,
             "es_la_segunda": false
           },
           {
             "orden": 39,
-            "nj": "SA",
-            "entidad": "COMPAÑÍA MERCANTIL ASEGURADORA",
-            "primas": 535581268.0,
-            "part_pct": 0.28,
-            "acum_pct": 97.88,
+            "nj": "MUT",
+            "entidad": "LIFE SEGUROS DE PERSONAS Y PATRI",
+            "primas": 805688063.0,
+            "part_pct": 0.37,
+            "acum_pct": 96.99,
             "es_la_segunda": false
           },
           {
             "orden": 40,
-            "nj": "MUT",
-            "entidad": "BENEFICIO",
-            "primas": 512935031.0,
-            "part_pct": 0.27,
-            "acum_pct": 98.15,
+            "nj": "SA",
+            "entidad": "PROVINCIA SEGUROS",
+            "primas": 760916893.0,
+            "part_pct": 0.35,
+            "acum_pct": 97.34,
             "es_la_segunda": false
           },
           {
             "orden": 41,
             "nj": "MUT",
-            "entidad": "BARBUSS RISK SEGUROS (ARGENTINA)",
-            "primas": 443287039.0,
-            "part_pct": 0.24,
-            "acum_pct": 98.39,
+            "entidad": "ASV ARGENTINA SALUD, VIDA Y PATR",
+            "primas": 609721753.0,
+            "part_pct": 0.28,
+            "acum_pct": 97.63,
             "es_la_segunda": false
           },
           {
             "orden": 42,
-            "nj": "MUT",
-            "entidad": "GGAL SEGUROS U.",
-            "primas": 382857684.0,
-            "part_pct": 0.2,
-            "acum_pct": 98.59,
+            "nj": "SA",
+            "entidad": "COMPAÑÍA MERCANTIL ASEGURADORA",
+            "primas": 535581268.0,
+            "part_pct": 0.25,
+            "acum_pct": 97.87,
             "es_la_segunda": false
           },
           {
             "orden": 43,
             "nj": "MUT",
-            "entidad": "LA PREVISORA  SEGUROS DE SEPELIO",
-            "primas": 296426892.0,
-            "part_pct": 0.16,
-            "acum_pct": 98.75,
+            "entidad": "BENEFICIO",
+            "primas": 512935031.0,
+            "part_pct": 0.24,
+            "acum_pct": 98.11,
             "es_la_segunda": false
           },
           {
             "orden": 44,
             "nj": "MUT",
-            "entidad": "SANTA LUCÍA  COMPAÑÍA",
-            "primas": 270132229.0,
-            "part_pct": 0.14,
-            "acum_pct": 98.89,
+            "entidad": "BARBUSS RISK SEGUROS (ARGENTINA)",
+            "primas": 443287039.0,
+            "part_pct": 0.2,
+            "acum_pct": 98.31,
             "es_la_segunda": false
           },
           {
             "orden": 45,
             "nj": "MUT",
-            "entidad": "CONFLUENCIA",
-            "primas": 221519833.0,
-            "part_pct": 0.12,
-            "acum_pct": 99.01,
+            "entidad": "GGAL SEGUROS U.",
+            "primas": 382857684.0,
+            "part_pct": 0.18,
+            "acum_pct": 98.49,
             "es_la_segunda": false
           },
           {
             "orden": 46,
             "nj": "MUT",
-            "entidad": "SAN GERMAN SEGUROS",
-            "primas": 205968503.0,
-            "part_pct": 0.11,
-            "acum_pct": 99.12,
+            "entidad": "CNP ASSURANCES",
+            "primas": 380435042.0,
+            "part_pct": 0.18,
+            "acum_pct": 98.67,
             "es_la_segunda": false
           },
           {
             "orden": 47,
             "nj": "MUT",
-            "entidad": "MAPFRE ARGENTINA SEGUROS DE VIDA",
-            "primas": 205661370.0,
-            "part_pct": 0.11,
-            "acum_pct": 99.23,
+            "entidad": "SANTA LUCÍA  COMPAÑÍA",
+            "primas": 350678202.0,
+            "part_pct": 0.16,
+            "acum_pct": 98.83,
             "es_la_segunda": false
           },
           {
             "orden": 48,
             "nj": "MUT",
-            "entidad": "CHUBB SEGUROS ARGENTINA",
-            "primas": 199447319.0,
-            "part_pct": 0.11,
-            "acum_pct": 99.34,
+            "entidad": "LA PREVISORA  SEGUROS DE SEPELIO",
+            "primas": 296426892.0,
+            "part_pct": 0.14,
+            "acum_pct": 98.96,
             "es_la_segunda": false
           },
           {
             "orden": 49,
             "nj": "MUT",
-            "entidad": "ESENCIA SEGUROS",
-            "primas": 164062767.0,
-            "part_pct": 0.09,
-            "acum_pct": 99.42,
+            "entidad": "QUALIA COMPAÑÍA",
+            "primas": 287517358.0,
+            "part_pct": 0.13,
+            "acum_pct": 99.1,
             "es_la_segunda": false
           },
           {
             "orden": 50,
             "nj": "MUT",
-            "entidad": "CNP ASSURANCES",
-            "primas": 153084623.0,
-            "part_pct": 0.08,
-            "acum_pct": 99.5,
+            "entidad": "CONFLUENCIA",
+            "primas": 221519833.0,
+            "part_pct": 0.1,
+            "acum_pct": 99.2,
             "es_la_segunda": false
           },
           {
             "orden": 51,
             "nj": "MUT",
-            "entidad": "BHN VIDA",
-            "primas": 146349112.0,
-            "part_pct": 0.08,
-            "acum_pct": 99.58,
+            "entidad": "SAN GERMAN SEGUROS",
+            "primas": 205968503.0,
+            "part_pct": 0.09,
+            "acum_pct": 99.29,
             "es_la_segunda": false
           },
           {
             "orden": 52,
             "nj": "MUT",
-            "entidad": "BBVA SEGUROS ARGENTINA",
-            "primas": 138089292.0,
-            "part_pct": 0.07,
-            "acum_pct": 99.66,
+            "entidad": "MAPFRE ARGENTINA SEGUROS DE VIDA",
+            "primas": 205661370.0,
+            "part_pct": 0.09,
+            "acum_pct": 99.39,
             "es_la_segunda": false
           },
           {
             "orden": 53,
-            "nj": "SA",
-            "entidad": "SANTÍSIMA TRINIDAD SEGUROS DE VI",
-            "primas": 110248715.0,
-            "part_pct": 0.06,
-            "acum_pct": 99.71,
+            "nj": "MUT",
+            "entidad": "CHUBB SEGUROS ARGENTINA",
+            "primas": 199447319.0,
+            "part_pct": 0.09,
+            "acum_pct": 99.48,
             "es_la_segunda": false
           },
           {
             "orden": 54,
             "nj": "MUT",
-            "entidad": "PLENARIA SEGUROS",
-            "primas": 101185841.0,
-            "part_pct": 0.05,
-            "acum_pct": 99.77,
+            "entidad": "ESENCIA SEGUROS",
+            "primas": 164062767.0,
+            "part_pct": 0.08,
+            "acum_pct": 99.56,
             "es_la_segunda": false
           },
           {
             "orden": 55,
             "nj": "MUT",
-            "entidad": "COMPAÑÍA  GENERALES DE LA PROVIN",
-            "primas": 84197363.0,
-            "part_pct": 0.04,
-            "acum_pct": 99.81,
+            "entidad": "BHN VIDA",
+            "primas": 146349112.0,
+            "part_pct": 0.07,
+            "acum_pct": 99.62,
             "es_la_segunda": false
           },
           {
             "orden": 56,
             "nj": "MUT",
-            "entidad": "NRE COMPAÑÍA  PATRIMONIALES Y DE",
-            "primas": 74151507.0,
-            "part_pct": 0.04,
-            "acum_pct": 99.85,
+            "entidad": "BBVA SEGUROS ARGENTINA",
+            "primas": 138089292.0,
+            "part_pct": 0.06,
+            "acum_pct": 99.69,
             "es_la_segunda": false
           },
           {
             "orden": 57,
             "nj": "SA",
-            "entidad": "EL PROGRESO SEGUROS",
-            "primas": 55418600.0,
-            "part_pct": 0.03,
-            "acum_pct": 99.88,
+            "entidad": "SANTÍSIMA TRINIDAD SEGUROS DE VI",
+            "primas": 110248715.0,
+            "part_pct": 0.05,
+            "acum_pct": 99.74,
             "es_la_segunda": false
           },
           {
             "orden": 58,
-            "nj": "COOP",
-            "entidad": "SANCOR COOPERATIVA  LIMITADA",
-            "primas": 52001901.0,
-            "part_pct": 0.03,
-            "acum_pct": 99.91,
+            "nj": "MUT",
+            "entidad": "PLENARIA SEGUROS",
+            "primas": 101185841.0,
+            "part_pct": 0.05,
+            "acum_pct": 99.78,
             "es_la_segunda": false
           },
           {
             "orden": 59,
-            "nj": "COOP",
-            "entidad": "TRIUNFO COOPERATIVA  LIMITADA",
-            "primas": 49390254.0,
-            "part_pct": 0.03,
-            "acum_pct": 99.94,
+            "nj": "MUT",
+            "entidad": "COMPAÑÍA  GENERALES DE LA PROVIN",
+            "primas": 84197363.0,
+            "part_pct": 0.04,
+            "acum_pct": 99.82,
             "es_la_segunda": false
           },
           {
             "orden": 60,
             "nj": "MUT",
-            "entidad": "NIVEL SEGUROS",
-            "primas": 25878743.0,
-            "part_pct": 0.01,
-            "acum_pct": 99.95,
+            "entidad": "NRE COMPAÑÍA  PATRIMONIALES Y DE",
+            "primas": 76063077.0,
+            "part_pct": 0.04,
+            "acum_pct": 99.86,
             "es_la_segunda": false
           },
           {
             "orden": 61,
             "nj": "MUT",
-            "entidad": "TRES PROVINCIAS SEGUROS DE PERSO",
-            "primas": 22525363.0,
-            "part_pct": 0.01,
-            "acum_pct": 99.96,
+            "entidad": "N. SEGUROS GENERALES",
+            "primas": 72358714.0,
+            "part_pct": 0.03,
+            "acum_pct": 99.89,
             "es_la_segunda": false
           },
           {
             "orden": 62,
-            "nj": "COOP",
-            "entidad": "RÍO URUGUAY COOPERATIVA  LIMITAD",
-            "primas": 13640769.0,
-            "part_pct": 0.01,
-            "acum_pct": 99.97,
+            "nj": "SA",
+            "entidad": "EL PROGRESO SEGUROS",
+            "primas": 55418600.0,
+            "part_pct": 0.03,
+            "acum_pct": 99.92,
             "es_la_segunda": false
           },
           {
             "orden": 63,
             "nj": "MUT",
-            "entidad": "NATIVA  ARGENTINA",
-            "primas": 12429196.0,
+            "entidad": "NIVEL SEGUROS",
+            "primas": 48917955.0,
+            "part_pct": 0.02,
+            "acum_pct": 99.94,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 64,
+            "nj": "COOP",
+            "entidad": "RÍO URUGUAY COOPERATIVA  LIMITAD",
+            "primas": 39767788.0,
+            "part_pct": 0.02,
+            "acum_pct": 99.96,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 65,
+            "nj": "MUT",
+            "entidad": "DIGNA SEGUROS",
+            "primas": 27853307.0,
             "part_pct": 0.01,
             "acum_pct": 99.97,
             "es_la_segunda": false
           },
           {
-            "orden": 64,
+            "orden": 66,
+            "nj": "MUT",
+            "entidad": "NATIVA  ARGENTINA",
+            "primas": 12429196.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.98,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 67,
+            "nj": "MUT",
+            "entidad": "GALENO SEGUROS",
+            "primas": 10231605.0,
+            "part_pct": 0.0,
+            "acum_pct": 99.98,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 68,
             "nj": "MUT",
             "entidad": "INTÉGRITY SEGUROS ARGENTINA",
             "primas": 8881740.0,
@@ -63173,16 +64999,16 @@
             "es_la_segunda": false
           },
           {
-            "orden": 65,
+            "orden": 69,
             "nj": "MUT",
             "entidad": "SAN CRISTÓBAL SOCIEDAD   GENERAL",
-            "primas": 6740103.0,
+            "primas": 7317982.0,
             "part_pct": 0.0,
-            "acum_pct": 99.98,
+            "acum_pct": 99.99,
             "es_la_segunda": false
           },
           {
-            "orden": 66,
+            "orden": 70,
             "nj": "MUT",
             "entidad": "ATM COMPAÑÍA",
             "primas": 6627638.0,
@@ -63191,7 +65017,7 @@
             "es_la_segunda": false
           },
           {
-            "orden": 67,
+            "orden": 71,
             "nj": "MUT",
             "entidad": "LOGRAR COMPAÑÍA  DE PERSONAS",
             "primas": 6487225.0,
@@ -63200,25 +65026,16 @@
             "es_la_segunda": false
           },
           {
-            "orden": 68,
-            "nj": "MUT",
-            "entidad": "GALENO SEGUROS",
-            "primas": 6232038.0,
-            "part_pct": 0.0,
-            "acum_pct": 99.99,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 69,
+            "orden": 72,
             "nj": "SA",
             "entidad": "ARGENTINA  VICTORIA",
             "primas": 2310495.0,
             "part_pct": 0.0,
-            "acum_pct": 99.99,
+            "acum_pct": 100.0,
             "es_la_segunda": false
           },
           {
-            "orden": 70,
+            "orden": 73,
             "nj": "MUT",
             "entidad": "WORANZ COMPAÑÍA",
             "primas": 2187197.0,
@@ -63227,16 +65044,7 @@
             "es_la_segunda": false
           },
           {
-            "orden": 71,
-            "nj": "MUT",
-            "entidad": "DIGNA SEGUROS",
-            "primas": 2137329.0,
-            "part_pct": 0.0,
-            "acum_pct": 100.0,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 72,
+            "orden": 74,
             "nj": "MUT",
             "entidad": "CARUSO COMPAÑÍA ARGENTINA",
             "primas": 1634849.0,
@@ -63245,7 +65053,7 @@
             "es_la_segunda": false
           },
           {
-            "orden": 73,
+            "orden": 75,
             "nj": "MUT",
             "entidad": "INSTITUTO ASEGURADOR MERCANTIL",
             "primas": 1270204.0,
@@ -63254,7 +65062,7 @@
             "es_la_segunda": false
           },
           {
-            "orden": 74,
+            "orden": 76,
             "nj": "MUT",
             "entidad": "PRUDENCIA  ARGENTINA  GENERALES",
             "primas": 1149873.0,
@@ -63263,7 +65071,7 @@
             "es_la_segunda": false
           },
           {
-            "orden": 75,
+            "orden": 77,
             "nj": "MUT",
             "entidad": "CRUZ SUIZA COMPAÑÍA",
             "primas": 1104940.0,
@@ -63272,288 +65080,25 @@
             "es_la_segunda": false
           },
           {
-            "orden": 76,
-            "nj": "MUT",
-            "entidad": "GESTION COMPAÑÍA ARGENTINA",
-            "primas": 427347.0,
-            "part_pct": 0.0,
-            "acum_pct": 100.0,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 77,
-            "nj": "MUT",
-            "entidad": "LA PALABRA COMPAÑÍA  DE PERSONAS",
-            "primas": 83683.0,
-            "part_pct": 0.0,
-            "acum_pct": 100.0,
-            "es_la_segunda": false
-          },
-          {
             "orden": 78,
-            "nj": "MUT",
-            "entidad": "PROVIDENCIA  ARGENTINA",
-            "primas": 36425.0,
-            "part_pct": 0.0,
-            "acum_pct": 100.0,
-            "es_la_segunda": false
-          }
-        ]
-      },
-      "Sepelio Individual": {
-        "id": "2.050.01",
-        "titulo": "Seguro de Sepelio - Individual",
-        "ramo_macro": "SEPELIO",
-        "total_mercado": 28713717369.0,
-        "cant_entidades": 31,
-        "la_segunda": {
-          "puesto": "-",
-          "primas": 0.0,
-          "cuota": 0.0,
-          "entidad": "SEGUNDA PERSONAS"
-        },
-        "lider": {
-          "entidad": "TRES PROVINCIAS SEGUROS DE PERSO",
-          "primas": 12053958907.0,
-          "cuota": 41.98
-        },
-        "ranking": [
-          {
-            "orden": 1,
-            "nj": "MUT",
-            "entidad": "TRES PROVINCIAS SEGUROS DE PERSO",
-            "primas": 12053958907.0,
-            "part_pct": 41.98,
-            "acum_pct": 41.98,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 2,
-            "nj": "COOP",
-            "entidad": "TRIUNFO COOPERATIVA  LIMITADA",
-            "primas": 11332737471.0,
-            "part_pct": 39.47,
-            "acum_pct": 81.45,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 3,
-            "nj": "COOP",
-            "entidad": "SANCOR COOPERATIVA  LIMITADA",
-            "primas": 2677842694.0,
-            "part_pct": 9.33,
-            "acum_pct": 90.77,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 4,
-            "nj": "MUT",
-            "entidad": "FEDERACIÓN PATRONAL SEGUROS U.",
-            "primas": 705109885.0,
-            "part_pct": 2.46,
-            "acum_pct": 93.23,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 5,
-            "nj": "MUT",
-            "entidad": "LIBRA  ARGENTINA",
-            "primas": 401711650.0,
-            "part_pct": 1.4,
-            "acum_pct": 94.63,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 6,
-            "nj": "MUT",
-            "entidad": "INSTITUTO DE SALTA COMPAÑÍA  DE",
-            "primas": 357407020.0,
-            "part_pct": 1.24,
-            "acum_pct": 95.87,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 7,
-            "nj": "MUT",
-            "entidad": "QUALIA COMPAÑÍA",
-            "primas": 287517358.0,
-            "part_pct": 1.0,
-            "acum_pct": 96.87,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 8,
-            "nj": "MUT",
-            "entidad": "CNP ASSURANCES",
-            "primas": 227350419.0,
-            "part_pct": 0.79,
-            "acum_pct": 97.67,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 9,
-            "nj": "MUT",
-            "entidad": "INSTITUTO AUTÁRQUICO PROVINCIAL",
-            "primas": 173886400.0,
-            "part_pct": 0.61,
-            "acum_pct": 98.27,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 10,
-            "nj": "SA",
-            "entidad": "SENTIR SEGUROS",
-            "primas": 147004359.0,
-            "part_pct": 0.51,
-            "acum_pct": 98.78,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 11,
-            "nj": "MUT",
-            "entidad": "SANTA LUCÍA  COMPAÑÍA",
-            "primas": 80545973.0,
-            "part_pct": 0.28,
-            "acum_pct": 99.06,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 12,
-            "nj": "MUT",
-            "entidad": "N. SEGUROS GENERALES",
-            "primas": 72358714.0,
-            "part_pct": 0.25,
-            "acum_pct": 99.32,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 13,
-            "nj": "MUT",
-            "entidad": "SMSV  ARGENTINA",
-            "primas": 49408107.0,
-            "part_pct": 0.17,
-            "acum_pct": 99.49,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 14,
-            "nj": "COOP",
-            "entidad": "RÍO URUGUAY COOPERATIVA  LIMITAD",
-            "primas": 26127019.0,
-            "part_pct": 0.09,
-            "acum_pct": 99.58,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 15,
-            "nj": "MUT",
-            "entidad": "DIGNA SEGUROS",
-            "primas": 25715978.0,
-            "part_pct": 0.09,
-            "acum_pct": 99.67,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 16,
-            "nj": "MUT",
-            "entidad": "NIVEL SEGUROS",
-            "primas": 23039212.0,
-            "part_pct": 0.08,
-            "acum_pct": 99.75,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 17,
-            "nj": "MUT",
-            "entidad": "SMG LIFE SEGUROS DE VIDA SAU",
-            "primas": 22307690.0,
-            "part_pct": 0.08,
-            "acum_pct": 99.83,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 18,
-            "nj": "SA",
-            "entidad": "EL SURCO COMPAÑÍA",
-            "primas": 14839195.0,
-            "part_pct": 0.05,
-            "acum_pct": 99.88,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 19,
-            "nj": "MUT",
-            "entidad": "MISTA SEGUROS",
-            "primas": 9486132.0,
-            "part_pct": 0.03,
-            "acum_pct": 99.91,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 20,
-            "nj": "MUT",
-            "entidad": "ANTICIPAR COMPAÑÍA",
-            "primas": 9103755.0,
-            "part_pct": 0.03,
-            "acum_pct": 99.94,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 21,
-            "nj": "COOP",
-            "entidad": "COOPERATIVA  LUZ Y FUERZA LIMITA",
-            "primas": 4860329.0,
-            "part_pct": 0.02,
-            "acum_pct": 99.96,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 22,
-            "nj": "MUT",
-            "entidad": "GALENO SEGUROS",
-            "primas": 3999567.0,
-            "part_pct": 0.01,
-            "acum_pct": 99.97,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 23,
-            "nj": "SA",
-            "entidad": "PREVINCA SEGUROS",
-            "primas": 2794068.0,
-            "part_pct": 0.01,
-            "acum_pct": 99.98,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 24,
-            "nj": "MUT",
-            "entidad": "NRE COMPAÑÍA  PATRIMONIALES Y DE",
-            "primas": 1911570.0,
-            "part_pct": 0.01,
-            "acum_pct": 99.99,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 25,
             "nj": "MUT",
             "entidad": "SAN MARINO COMPAÑÍA",
             "primas": 947448.0,
             "part_pct": 0.0,
-            "acum_pct": 99.99,
+            "acum_pct": 100.0,
             "es_la_segunda": false
           },
           {
-            "orden": 26,
+            "orden": 79,
             "nj": "MUT",
-            "entidad": "SAN CRISTÓBAL SOCIEDAD   GENERAL",
-            "primas": 577879.0,
+            "entidad": "GESTION COMPAÑÍA ARGENTINA",
+            "primas": 870710.0,
             "part_pct": 0.0,
             "acum_pct": 100.0,
             "es_la_segunda": false
           },
           {
-            "orden": 27,
+            "orden": 80,
             "nj": "SA",
             "entidad": "LA HOLANDO SUDAMERICANA",
             "primas": 517480.0,
@@ -63562,37 +65107,28 @@
             "es_la_segunda": false
           },
           {
-            "orden": 28,
+            "orden": 81,
             "nj": "MUT",
-            "entidad": "GESTION COMPAÑÍA ARGENTINA",
-            "primas": 443363.0,
+            "entidad": "LA PALABRA COMPAÑÍA  DE PERSONAS",
+            "primas": 86668.0,
             "part_pct": 0.0,
             "acum_pct": 100.0,
             "es_la_segunda": false
           },
           {
-            "orden": 29,
+            "orden": 82,
             "nj": "MUT",
-            "entidad": "CAJA",
-            "primas": 182728.0,
+            "entidad": "PROVIDENCIA  ARGENTINA",
+            "primas": 36425.0,
             "part_pct": 0.0,
             "acum_pct": 100.0,
             "es_la_segunda": false
           },
           {
-            "orden": 30,
+            "orden": 83,
             "nj": "MUT",
             "entidad": "SMG COMPAÑÍA ARGENTINA  SAU",
             "primas": 22014.0,
-            "part_pct": 0.0,
-            "acum_pct": 100.0,
-            "es_la_segunda": false
-          },
-          {
-            "orden": 31,
-            "nj": "MUT",
-            "entidad": "LA PALABRA COMPAÑÍA  DE PERSONAS",
-            "primas": 2985.0,
             "part_pct": 0.0,
             "acum_pct": 100.0,
             "es_la_segunda": false
