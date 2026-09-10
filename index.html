@@ -1252,7 +1252,7 @@
 
       <!-- GRAFICOS DRILL-DOWN -->
       <div class="dashboard-grid" style="margin-bottom: 24px;">
-        <div class="chart-card">
+        <div class="chart-card col-6">
           <div class="chart-header">
             <h3 id="title_ssn_ranking"><i class="fa-solid fa-ranking-star"></i> Ranking Top Aseguradoras (Primas $ M)</h3>
           </div>
@@ -1261,7 +1261,7 @@
           </div>
         </div>
 
-        <div class="chart-card">
+        <div class="chart-card col-6">
           <div class="chart-header">
             <h3 id="title_ssn_donut"><i class="fa-solid fa-chart-pie"></i> Distribución de Cuota de Mercado</h3>
           </div>
@@ -3642,7 +3642,7 @@
         tr.innerHTML = `
           <td style="font-weight: 700; ${r.es_la_segunda ? 'color: var(--rojo-seguro);' : ''}"># ${r.orden}</td>
           <td style="${r.es_la_segunda ? 'color: var(--rojo-seguro); font-weight: 800;' : ''}">
-            ${r.entidad} ${r.es_la_segunda ? '<span style="background: var(--rojo-seguro); color: white; padding: 2px 6px; border-radius: 4px; font-size: 0.68rem; margin-left: 6px;">NOSOTROS</span>' : ''}
+            ${r.entidad}
           </td>
           <td style="text-align: center;"><span style="background: #f1f5f9; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; color: #475569;">${r.nj || '-'}</span></td>
           <td class="num" style="${r.es_la_segunda ? 'color: var(--rojo-seguro); font-weight: 800;' : ''}">${fmtMoney(pM)}</td>
