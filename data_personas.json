@@ -46774,7 +46774,9 @@
       "ripte_mensual": 0.0,
       "ipc_mensual": 0.0,
       "ripte_anual": 0.0,
-      "ipc_anual": 0.0
+      "ipc_anual": 0.0,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2021-08",
@@ -46783,7 +46785,9 @@
       "ripte_mensual": 2.34,
       "ipc_mensual": 2.47,
       "ripte_anual": 0.0,
-      "ipc_anual": 0.0
+      "ipc_anual": 0.0,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2021-09",
@@ -46792,7 +46796,9 @@
       "ripte_mensual": 4.23,
       "ipc_mensual": 3.55,
       "ripte_anual": 0.0,
-      "ipc_anual": 0.0
+      "ipc_anual": 0.0,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2021-10",
@@ -46801,7 +46807,9 @@
       "ripte_mensual": 3.59,
       "ipc_mensual": 3.52,
       "ripte_anual": 0.0,
-      "ipc_anual": 0.0
+      "ipc_anual": 0.0,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2021-11",
@@ -46810,7 +46818,9 @@
       "ripte_mensual": 3.13,
       "ipc_mensual": 2.53,
       "ripte_anual": 0.0,
-      "ipc_anual": 0.0
+      "ipc_anual": 0.0,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2021-12",
@@ -46819,7 +46829,9 @@
       "ripte_mensual": 1.99,
       "ipc_mensual": 3.84,
       "ripte_anual": 0.0,
-      "ipc_anual": 0.0
+      "ipc_anual": 0.0,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2022-01",
@@ -46828,7 +46840,9 @@
       "ripte_mensual": 4.65,
       "ipc_mensual": 3.87,
       "ripte_anual": 0.0,
-      "ipc_anual": 0.0
+      "ipc_anual": 0.0,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2022-02",
@@ -46837,7 +46851,9 @@
       "ripte_mensual": 4.71,
       "ipc_mensual": 4.69,
       "ripte_anual": 0.0,
-      "ipc_anual": 0.0
+      "ipc_anual": 0.0,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2022-03",
@@ -46846,7 +46862,9 @@
       "ripte_mensual": 7.83,
       "ipc_mensual": 6.73,
       "ripte_anual": 0.0,
-      "ipc_anual": 0.0
+      "ipc_anual": 0.0,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2022-04",
@@ -46855,7 +46873,9 @@
       "ripte_mensual": 5.93,
       "ipc_mensual": 6.05,
       "ripte_anual": 0.0,
-      "ipc_anual": 0.0
+      "ipc_anual": 0.0,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2022-05",
@@ -46864,7 +46884,9 @@
       "ripte_mensual": 4.04,
       "ipc_mensual": 5.05,
       "ripte_anual": 0.0,
-      "ipc_anual": 0.0
+      "ipc_anual": 0.0,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2022-06",
@@ -46873,7 +46895,9 @@
       "ripte_mensual": 5.76,
       "ipc_mensual": 5.3,
       "ripte_anual": 0.0,
-      "ipc_anual": 0.0
+      "ipc_anual": 0.0,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2022-07",
@@ -46882,7 +46906,9 @@
       "ripte_mensual": 5.32,
       "ipc_mensual": 7.41,
       "ripte_anual": 68.58,
-      "ipc_anual": 71.0
+      "ipc_anual": 71.0,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2022-08",
@@ -46891,7 +46917,9 @@
       "ripte_mensual": 4.57,
       "ipc_mensual": 6.97,
       "ripte_anual": 72.25,
-      "ipc_anual": 78.52
+      "ipc_anual": 78.52,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2022-09",
@@ -46900,7 +46928,9 @@
       "ripte_mensual": 6.3,
       "ipc_mensual": 6.17,
       "ripte_anual": 75.69,
-      "ipc_anual": 83.03
+      "ipc_anual": 83.03,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2022-10",
@@ -46909,7 +46939,9 @@
       "ripte_mensual": 5.45,
       "ipc_mensual": 6.35,
       "ripte_anual": 78.84,
-      "ipc_anual": 88.04
+      "ipc_anual": 88.04,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2022-11",
@@ -46918,7 +46950,9 @@
       "ripte_mensual": 5.6,
       "ipc_mensual": 4.92,
       "ripte_anual": 83.13,
-      "ipc_anual": 92.41
+      "ipc_anual": 92.41,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2022-12",
@@ -46927,7 +46961,9 @@
       "ripte_mensual": 5.41,
       "ipc_mensual": 5.12,
       "ripte_anual": 89.27,
-      "ipc_anual": 94.79
+      "ipc_anual": 94.79,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2023-01",
@@ -46936,7 +46972,9 @@
       "ripte_mensual": 3.81,
       "ipc_mensual": 6.03,
       "ripte_anual": 87.76,
-      "ipc_anual": 98.83
+      "ipc_anual": 98.83,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2023-02",
@@ -46945,7 +46983,9 @@
       "ripte_mensual": 8.42,
       "ipc_mensual": 6.63,
       "ripte_anual": 94.41,
-      "ipc_anual": 102.5
+      "ipc_anual": 102.5,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2023-03",
@@ -46954,7 +46994,9 @@
       "ripte_mensual": 9.76,
       "ipc_mensual": 7.68,
       "ripte_anual": 97.89,
-      "ipc_anual": 104.3
+      "ipc_anual": 104.3,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2023-04",
@@ -46963,7 +47005,9 @@
       "ripte_mensual": 9.84,
       "ipc_mensual": 8.4,
       "ripte_anual": 105.19,
-      "ipc_anual": 108.83
+      "ipc_anual": 108.83,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2023-05",
@@ -46972,7 +47016,9 @@
       "ripte_mensual": 6.2,
       "ipc_mensual": 7.77,
       "ripte_anual": 109.45,
-      "ipc_anual": 114.25
+      "ipc_anual": 114.25,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2023-06",
@@ -46981,7 +47027,9 @@
       "ripte_mensual": 8.13,
       "ipc_mensual": 5.95,
       "ripte_anual": 114.14,
-      "ipc_anual": 115.58
+      "ipc_anual": 115.58,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2023-07",
@@ -46990,7 +47038,9 @@
       "ripte_mensual": 7.41,
       "ipc_mensual": 6.34,
       "ripte_anual": 118.39,
-      "ipc_anual": 113.45
+      "ipc_anual": 113.45,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2023-08",
@@ -46999,7 +47049,9 @@
       "ripte_mensual": 5.86,
       "ipc_mensual": 12.44,
       "ripte_anual": 121.1,
-      "ipc_anual": 124.37
+      "ipc_anual": 124.37,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2023-09",
@@ -47008,7 +47060,9 @@
       "ripte_mensual": 10.33,
       "ipc_mensual": 12.75,
       "ripte_anual": 129.47,
-      "ipc_anual": 138.28
+      "ipc_anual": 138.28,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2023-10",
@@ -47017,7 +47071,9 @@
       "ripte_mensual": 10.83,
       "ipc_mensual": 8.3,
       "ripte_anual": 141.18,
-      "ipc_anual": 142.66
+      "ipc_anual": 142.66,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2023-11",
@@ -47026,7 +47082,9 @@
       "ripte_mensual": 6.27,
       "ipc_mensual": 12.81,
       "ripte_anual": 142.7,
-      "ipc_anual": 160.92
+      "ipc_anual": 160.92,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2023-12",
@@ -47035,7 +47093,9 @@
       "ripte_mensual": 8.32,
       "ipc_mensual": 25.47,
       "ripte_anual": 149.41,
-      "ipc_anual": 211.41
+      "ipc_anual": 211.41,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2024-01",
@@ -47044,7 +47104,9 @@
       "ripte_mensual": 14.65,
       "ipc_mensual": 20.61,
       "ripte_anual": 175.46,
-      "ipc_anual": 254.25
+      "ipc_anual": 254.25,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2024-02",
@@ -47053,7 +47115,9 @@
       "ripte_mensual": 11.48,
       "ipc_mensual": 13.24,
       "ripte_anual": 183.24,
-      "ipc_anual": 276.22
+      "ipc_anual": 276.22,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2024-03",
@@ -47062,7 +47126,9 @@
       "ripte_mensual": 14.03,
       "ipc_mensual": 11.01,
       "ripte_anual": 194.24,
-      "ipc_anual": 287.87
+      "ipc_anual": 287.87,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2024-04",
@@ -47071,7 +47137,9 @@
       "ripte_mensual": 16.1,
       "ipc_mensual": 8.83,
       "ripte_anual": 211.03,
-      "ipc_anual": 289.41
+      "ipc_anual": 289.41,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2024-05",
@@ -47080,7 +47148,9 @@
       "ripte_mensual": 7.32,
       "ipc_mensual": 4.18,
       "ripte_anual": 214.3,
-      "ipc_anual": 276.41
+      "ipc_anual": 276.41,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2024-06",
@@ -47089,7 +47159,9 @@
       "ripte_mensual": 6.11,
       "ipc_mensual": 4.58,
       "ripte_anual": 208.43,
-      "ipc_anual": 271.53
+      "ipc_anual": 271.53,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2024-07",
@@ -47098,7 +47170,9 @@
       "ripte_mensual": 6.59,
       "ipc_mensual": 4.03,
       "ripte_anual": 206.06,
-      "ipc_anual": 263.45
+      "ipc_anual": 263.45,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2024-08",
@@ -47107,7 +47181,9 @@
       "ripte_mensual": 3.79,
       "ipc_mensual": 4.17,
       "ripte_anual": 200.07,
-      "ipc_anual": 236.72
+      "ipc_anual": 236.72,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2024-09",
@@ -47116,7 +47192,9 @@
       "ripte_mensual": 4.14,
       "ipc_mensual": 3.47,
       "ripte_anual": 183.24,
-      "ipc_anual": 209.0
+      "ipc_anual": 209.0,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2024-10",
@@ -47125,7 +47203,9 @@
       "ripte_mensual": 6.63,
       "ipc_mensual": 2.69,
       "ripte_anual": 172.51,
-      "ipc_anual": 193.0
+      "ipc_anual": 193.0,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2024-11",
@@ -47134,7 +47214,9 @@
       "ripte_mensual": 2.83,
       "ipc_mensual": 2.43,
       "ripte_anual": 163.69,
-      "ipc_anual": 166.03
+      "ipc_anual": 166.03,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2024-12",
@@ -47143,7 +47225,9 @@
       "ripte_mensual": 2.04,
       "ipc_mensual": 2.7,
       "ripte_anual": 148.39,
-      "ipc_anual": 117.76
+      "ipc_anual": 117.76,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2025-01",
@@ -47152,7 +47236,9 @@
       "ripte_mensual": 2.64,
       "ipc_mensual": 2.21,
       "ripte_anual": 122.35,
-      "ipc_anual": 84.54
+      "ipc_anual": 84.54,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2025-02",
@@ -47161,7 +47247,9 @@
       "ripte_mensual": 6.13,
       "ipc_mensual": 2.4,
       "ripte_anual": 111.69,
-      "ipc_anual": 66.87
+      "ipc_anual": 66.87,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2025-03",
@@ -47170,7 +47258,9 @@
       "ripte_mensual": 4.06,
       "ipc_mensual": 3.73,
       "ripte_anual": 93.18,
-      "ipc_anual": 55.93
+      "ipc_anual": 55.93,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2025-04",
@@ -47179,7 +47269,9 @@
       "ripte_mensual": 2.87,
       "ipc_mensual": 2.78,
       "ripte_anual": 71.15,
-      "ipc_anual": 47.26
+      "ipc_anual": 47.26,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2025-05",
@@ -47188,7 +47280,9 @@
       "ripte_mensual": 1.86,
       "ipc_mensual": 1.5,
       "ripte_anual": 62.44,
-      "ipc_anual": 43.48
+      "ipc_anual": 43.48,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2025-06",
@@ -47197,7 +47291,9 @@
       "ripte_mensual": 2.76,
       "ipc_mensual": 1.62,
       "ripte_anual": 57.33,
-      "ipc_anual": 39.42
+      "ipc_anual": 39.42,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2025-07",
@@ -47206,7 +47302,9 @@
       "ripte_mensual": 2.9,
       "ipc_mensual": 1.9,
       "ripte_anual": 51.88,
-      "ipc_anual": 36.57
+      "ipc_anual": 36.57,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2025-08",
@@ -47215,7 +47313,9 @@
       "ripte_mensual": 1.3,
       "ipc_mensual": 1.88,
       "ripte_anual": 48.23,
-      "ipc_anual": 33.56
+      "ipc_anual": 33.56,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2025-09",
@@ -47224,7 +47324,9 @@
       "ripte_mensual": 1.41,
       "ipc_mensual": 2.08,
       "ripte_anual": 44.34,
-      "ipc_anual": 31.76
+      "ipc_anual": 31.76,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2025-10",
@@ -47233,7 +47335,9 @@
       "ripte_mensual": 2.66,
       "ipc_mensual": 2.34,
       "ripte_anual": 38.95,
-      "ipc_anual": 31.31
+      "ipc_anual": 31.31,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2025-11",
@@ -47242,7 +47346,9 @@
       "ripte_mensual": 1.18,
       "ipc_mensual": 2.47,
       "ripte_anual": 36.72,
-      "ipc_anual": 31.37
+      "ipc_anual": 31.37,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2025-12",
@@ -47251,7 +47357,9 @@
       "ripte_mensual": 1.35,
       "ipc_mensual": 2.85,
       "ripte_anual": 35.8,
-      "ipc_anual": 31.55
+      "ipc_anual": 31.55,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2026-01",
@@ -47260,7 +47368,9 @@
       "ripte_mensual": 0.78,
       "ipc_mensual": 2.88,
       "ripte_anual": 33.34,
-      "ipc_anual": 32.41
+      "ipc_anual": 32.41,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2026-02",
@@ -47269,7 +47379,9 @@
       "ripte_mensual": 5.35,
       "ipc_mensual": 2.9,
       "ripte_anual": 32.36,
-      "ipc_anual": 33.05
+      "ipc_anual": 33.05,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2026-03",
@@ -47278,7 +47390,9 @@
       "ripte_mensual": 2.38,
       "ipc_mensual": 3.38,
       "ripte_anual": 30.23,
-      "ipc_anual": 32.61
+      "ipc_anual": 32.61,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2026-04",
@@ -47287,7 +47401,9 @@
       "ripte_mensual": 3.49,
       "ipc_mensual": 2.58,
       "ripte_anual": 31.01,
-      "ipc_anual": 32.35
+      "ipc_anual": 32.35,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2026-05",
@@ -47296,7 +47412,9 @@
       "ripte_mensual": 0.66,
       "ipc_mensual": 2.15,
       "ripte_anual": 29.47,
-      "ipc_anual": 33.2
+      "ipc_anual": 33.2,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2026-06",
@@ -47305,25 +47423,31 @@
       "ripte_mensual": 3.58,
       "ipc_mensual": 1.89,
       "ripte_anual": 30.5,
-      "ipc_anual": 33.55
+      "ipc_anual": 33.55,
+      "ripte_imputado": false,
+      "ripte_nota": ""
     },
     {
       "periodo": "2026-07",
       "periodo_texto": "jul 2026",
       "ejercicio": "Ejerc. 26/27",
-      "ripte_mensual": 0.0,
+      "ripte_mensual": 2.11,
       "ipc_mensual": 2.11,
-      "ripte_anual": 26.82,
-      "ipc_anual": 33.83
+      "ripte_anual": 29.5,
+      "ipc_anual": 33.83,
+      "ripte_imputado": true,
+      "ripte_nota": "Dato de RIPTE no publicado oficialmente; se imputa la tasa de IPC."
     },
     {
       "periodo": "2026-08",
       "periodo_texto": "ago 2026",
       "ejercicio": "Ejerc. 26/27",
-      "ripte_mensual": 0.0,
+      "ripte_mensual": 1.7,
       "ipc_mensual": 1.7,
-      "ripte_anual": 25.2,
-      "ipc_anual": 33.59
+      "ripte_anual": 30.02,
+      "ipc_anual": 33.59,
+      "ripte_imputado": true,
+      "ripte_nota": "Dato de RIPTE no publicado oficialmente; se imputa la tasa de IPC."
     }
   ]
 }
