@@ -1082,7 +1082,7 @@
         <!-- 1. Desglose Costo Siniestral -->
         <div class="chart-card col-6">
           <div class="chart-header">
-            <h3><i class="fa-solid fa-chart-column"></i> Desglose del Costo Siniestral Mensual: Pagos vs Variación de Reservas</h3>
+            <h3><i class="fa-solid fa-chart-column"></i> Desglose del Costo Siniestral: Pagos vs Variación de Reserva del Ejercicio</h3>
           </div>
           <div class="chart-container">
             <canvas id="chart_sin_costo_desglose"></canvas>
@@ -1129,17 +1129,19 @@
             <thead>
               <tr>
                 <th>Período / Mes</th>
-                <th class="num">Pagos Sin. ($)</th>
-                <th class="num">Var. Rva Mes ($)</th>
-                <th class="num">Costo Sin. ($)</th>
+                <th class="num">Pagos Mes ($)</th>
+                <th class="num">Pagos Acum. ($)</th>
+                <th class="num" style="color: var(--azul); font-weight:700;">Var. Rva. Ejercicio ($)</th>
+                <th class="num">Var. Rva. Mes ($)</th>
+                <th class="num" style="font-weight:700;">Costo Sin. Acum. ($)</th>
                 <th class="num">Ratio Mes (%)</th>
-                <th class="num" style="color: var(--rojo-seguro);">Ratio Acum. (%)</th>
+                <th class="num" style="color: var(--rojo-seguro); font-weight:800;">Ratio Acum. (%)</th>
                 <th class="num">Altas Stros.</th>
                 <th class="num">Costo Medio ($)</th>
                 <th class="num">Demandas</th>
                 <th class="num">Juicios</th>
                 <th class="num">Rva. Demandas ($)</th>
-                <th class="num">Stock Rva Total ($)</th>
+                <th class="num">Stock Rva. Total ($)</th>
               </tr>
             </thead>
             <tbody></tbody>
@@ -1832,8 +1834,9 @@
 
         pr.cur_pagos = curPagos;
         pr.cur_stock = curStock;
-        pr.variacion_reserva_mensual = curStock - prevMonthStock;
-        pr.costo_siniestral = curPagos + pr.variacion_reserva_mensual;
+        pr.var_rva_mes = curStock - prevMonthStock;
+        pr.var_rva_ejerc = curStock - initialStock;
+        pr.costo_siniestral_mes = curPagos + pr.var_rva_mes;
         prevMonthStock = curStock;
 
         const pVal = currentAdjustedMode ? pr.prima_ajust_ipc : pr.prima_emision;
@@ -1842,9 +1845,8 @@
         
         pr.prima_acum_calc = runningPrima;
         pr.pagos_acum_calc = runningPagos;
-        pr.var_rva_acum_calc = curStock - initialStock;
-        pr.costo_sin_acum_calc = pr.pagos_acum_calc + pr.var_rva_acum_calc;
-        pr.ratio_sin_mes = pVal ? ((pr.costo_siniestral / pVal) * 100) : 0;
+        pr.costo_sin_acum_calc = pr.pagos_acum_calc + pr.var_rva_ejerc;
+        pr.ratio_sin_mes = pVal ? ((pr.costo_siniestral_mes / pVal) * 100) : 0;
         pr.ratio_sin_acum = runningPrima ? ((pr.costo_sin_acum_calc / runningPrima) * 100) : 0;
         pr.costo_medio_stro = pr.altas_siniestros ? (curPagos / pr.altas_siniestros) : 0;
       });
@@ -2393,10 +2395,10 @@
       // ----------------------------------------------------
       // 8. GRÁFICOS Y TABLA SINIESTRALIDAD (MENSUAL, FLUJO Y LITIGIOS)
       // ----------------------------------------------------
-      // 8.1 Desglose Costo
+      // 8.1 Desglose Costo (Pagos vs Variación de Reserva Contable del Ejercicio)
       renderBarChart('chart_sin_costo_desglose', periodLabels, [
         { label: currentAdjustedMode ? 'Pagos Siniestros (Aj. IPC $)' : 'Pagos Siniestros ($)', data: periodRows.map(p => p.cur_pagos), backgroundColor: BRAND.rojoSeguro },
-        { label: currentAdjustedMode ? 'Variación Reserva Mes (Aj. IPC $)' : 'Variación Reserva Mes ($)', data: periodRows.map(p => p.variacion_reserva_mensual), backgroundColor: BRAND.azul }
+        { label: currentAdjustedMode ? 'Var. Reserva Ejercicio vs Jun (Aj. IPC $)' : 'Var. Reserva Ejercicio vs Jun ($)', data: periodRows.map(p => p.var_rva_ejerc), backgroundColor: BRAND.azul }
       ], 'money');
 
       // 8.2 Ratios Siniestralidad (Barras Agrupadas)
@@ -2429,7 +2431,7 @@
         periodRows.map(p => Number(((currentAdjustedMode ? p.reserva_demanda_ajust_ipc : p.reserva_demanda) / 1e6).toFixed(1)))
       );
 
-      // Tabla Siniestros Enriquecida
+      // Tabla Siniestros Enriquecida con Variación Contable y Marginal
       const tbSin = document.querySelector('#table_sin_mensual tbody');
       tbSin.innerHTML = '';
       periodRows.forEach((pr, idx) => {
@@ -2438,8 +2440,10 @@
         tr.innerHTML = `
           <td><strong>${pr.periodo} (${MONTH_NAMES_MAP[mPart] || mPart})</strong></td>
           <td class="num">${fmtMoney(pr.cur_pagos)}</td>
-          <td class="num" style="color: ${pr.variacion_reserva_mensual >= 0 ? 'inherit' : '#0d8251'};">${fmtMoney(pr.variacion_reserva_mensual)}</td>
-          <td class="num" style="font-weight:600;">${fmtMoney(pr.costo_siniestral)}</td>
+          <td class="num">${fmtMoney(pr.pagos_acum_calc)}</td>
+          <td class="num" style="color: ${pr.var_rva_ejerc >= 0 ? 'var(--azul)' : '#0d8251'}; font-weight:700;">${(pr.var_rva_ejerc >= 0 ? '+' : '') + fmtMoney(pr.var_rva_ejerc)}</td>
+          <td class="num" style="color: ${pr.var_rva_mes >= 0 ? 'inherit' : '#0d8251'};">${(pr.var_rva_mes >= 0 ? '+' : '') + fmtMoney(pr.var_rva_mes)}</td>
+          <td class="num" style="font-weight:700;">${fmtMoney(pr.costo_sin_acum_calc)}</td>
           <td class="num" style="color: var(--text-muted);">${fmtPct(pr.ratio_sin_mes)}</td>
           <td class="num" style="color: var(--rojo-seguro); font-weight:800; background: #fff5f6;">${fmtPct(pr.ratio_sin_acum)}</td>
           <td class="num">${fmtNum(pr.altas_siniestros)}</td>
