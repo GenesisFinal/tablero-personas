@@ -352,18 +352,19 @@
     /* NAVEGACIÓN POR MÓDULOS / PESTAÑAS */
     nav.tab-nav {
       background: #ffffff;
-      padding: 8px 36px;
+      padding: 6px 20px;
       display: flex;
-      gap: 8px;
+      gap: 6px;
       border-bottom: 1px solid var(--border-subtle);
       overflow-x: auto;
       white-space: nowrap;
+      align-items: center;
     }
 
     .tab-btn {
-      padding: 9px 16px;
+      padding: 7px 11px;
       border-radius: var(--radius-md);
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 600;
       color: var(--text-muted);
       background: transparent;
@@ -371,8 +372,10 @@
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       transition: all 0.2s ease;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .tab-btn:hover {
@@ -747,25 +750,25 @@
   <!-- NAVEGACIÓN 6 MÓDULOS -->
   <nav class="tab-nav">
     <button class="tab-btn active" onclick="switchTab('mod_produccion')">
-      <i class="fa-solid fa-sack-dollar"></i> 1. Producción & Macro
+      <i class="fa-solid fa-sack-dollar"></i> 1. Producción
     </button>
     <button class="tab-btn" onclick="switchTab('mod_cartera')">
-      <i class="fa-solid fa-users"></i> 2. Cartera & Flujo Pólizas
+      <i class="fa-solid fa-users"></i> 2. Cartera
     </button>
     <button class="tab-btn" onclick="switchTab('mod_siniestros')">
-      <i class="fa-solid fa-shield-halved"></i> 3. Siniestralidad & Reservas
+      <i class="fa-solid fa-shield-halved"></i> 3. Siniestralidad
     </button>
     <button class="tab-btn" onclick="switchTab('mod_productos')">
-      <i class="fa-solid fa-cubes-stacked"></i> 4. Ramos & Productos (Drill-down)
-    </button>
-    <button class="tab-btn" onclick="switchTab('mod_financiero')">
-      <i class="fa-solid fa-arrow-trend-up"></i> 5. Gestión Financiera
-    </button>
-    <button class="tab-btn" onclick="switchTab('mod_mercado')">
-      <i class="fa-solid fa-building-columns"></i> 6. Mercado & Cuota SSN
+      <i class="fa-solid fa-cubes-stacked"></i> 4. Drill-Down
     </button>
     <button class="tab-btn" onclick="switchTab('mod_mercado_drilldown')">
-      <i class="fa-solid fa-chart-pie"></i> 7. Mercado SSN (Drill-Down)
+      <i class="fa-solid fa-chart-pie"></i> 5. Drill-Down Mercado
+    </button>
+    <button class="tab-btn" onclick="switchTab('mod_financiero')">
+      <i class="fa-solid fa-arrow-trend-up"></i> 6. Financiero
+    </button>
+    <button class="tab-btn" onclick="switchTab('mod_mercado')">
+      <i class="fa-solid fa-building-columns"></i> 7. Mercado
     </button>
   </nav>
 
@@ -1199,7 +1202,104 @@
     </div>
 
     <!-- ==================================================== -->
-    <!-- MÓDULO 5: GESTIÓN FINANCIERA (DINÁMICO POR EJERCICIO / LTM) -->
+    <!-- MÓDULO 5: DRILL-DOWN MERCADO OFICIAL SSN            -->
+    <!-- ==================================================== -->
+    <div id="pane_mod_mercado_drilldown" class="tab-pane">
+
+      <!-- Header & Selector de Sub-Ramo Oficial -->
+      <div style="background: white; border-radius: var(--radius-lg); padding: 18px 24px; margin-bottom: 20px; box-shadow: var(--shadow-sm); border: 1px solid var(--border-card); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+        <div>
+          <h2 style="font-size: 1.25rem; font-weight: 700; color: var(--carbon); display: flex; align-items: center; gap: 10px;">
+            <i class="fa-solid fa-building-shield" style="color: var(--rojo-seguro);"></i>
+            Estructura y Competencia Oficial SSN (Drill-Down)
+          </h2>
+          <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 4px;">
+            Fuente oficial: Superintendencia de Seguros de la Nación (Boletín Estadístico Trimestral - Marzo 2026). Apertura por sub-ramos oficiales y modalidades de póliza.
+          </p>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <label for="sel_ssn_subramo" style="font-size: 0.85rem; font-weight: 600; color: var(--carbon);">
+            <i class="fa-solid fa-filter" style="color: var(--rojo-seguro);"></i> Ramo / Sub-Ramo SSN:
+          </label>
+          <select id="sel_ssn_subramo" onchange="updateSsnDrilldown()" style="padding: 8px 16px; border-radius: var(--radius-md); border: 1.5px solid var(--border-card); font-size: 0.88rem; font-weight: 600; color: var(--carbon); background: #f8fafc; cursor: pointer; outline: none;">
+          </select>
+        </div>
+      </div>
+
+      <!-- KPIS DRILL-DOWN MERCADO -->
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <span class="kpi-title">Mercado Total Oficial (SSN)</span>
+          <div class="kpi-value" id="kpi_ssn_mkt_total">$ 0</div>
+          <div class="kpi-subtext" id="kpi_ssn_mkt_total_sub">Primas emitidas del ramo</div>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-title">Primas La Segunda Seguros</span>
+          <div class="kpi-value" id="kpi_ssn_l2_primas" style="color: var(--rojo-seguro);">$ 0</div>
+          <div class="kpi-subtext" id="kpi_ssn_l2_primas_sub">Producción acumulada oficial</div>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-title">Posición en el Ranking Nacional</span>
+          <div class="kpi-value" id="kpi_ssn_l2_puesto"># -</div>
+          <div class="kpi-subtext" id="kpi_ssn_l2_puesto_sub">Entre - aseguradoras</div>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-title">Cuota de Mercado La Segunda</span>
+          <div class="kpi-value" id="kpi_ssn_l2_cuota">0.00 %</div>
+          <div class="kpi-subtext" id="kpi_ssn_l2_cuota_sub">Participación sobre el total</div>
+        </div>
+      </div>
+
+      <!-- GRAFICOS DRILL-DOWN -->
+      <div class="dashboard-grid" style="margin-bottom: 24px;">
+        <div class="chart-card">
+          <div class="chart-header">
+            <h3 id="title_ssn_ranking"><i class="fa-solid fa-ranking-star"></i> Ranking Top Aseguradoras (Primas $ M)</h3>
+          </div>
+          <div style="height: 380px; position: relative;">
+            <canvas id="chart_ssn_ranking"></canvas>
+          </div>
+        </div>
+
+        <div class="chart-card">
+          <div class="chart-header">
+            <h3 id="title_ssn_donut"><i class="fa-solid fa-chart-pie"></i> Distribución de Cuota de Mercado</h3>
+          </div>
+          <div style="height: 380px; position: relative;">
+            <canvas id="chart_ssn_cuota_donut"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- TABLA DETALLADA DE ASEGURADORAS COMPETIDORAS -->
+      <div class="table-card">
+        <div class="table-header" style="display: flex; justify-content: space-between; align-items: center;">
+          <h3 id="title_ssn_tabla"><i class="fa-solid fa-table-list"></i> Cuadro Oficial Completo de Entidades</h3>
+          <span id="badge_ssn_cant" style="font-size: 0.78rem; background: var(--bg-body); padding: 4px 10px; border-radius: var(--radius-pill); font-weight: 600; color: var(--text-muted);">
+            - aseguradoras
+          </span>
+        </div>
+        <div class="table-wrapper" style="max-height: 520px; overflow-y: auto;">
+          <table class="data-table" id="table_ssn_competidores">
+            <thead>
+              <tr>
+                <th style="width: 70px;">Puesto</th>
+                <th>Aseguradora</th>
+                <th style="width: 90px; text-align: center;">Tipo Jurídico</th>
+                <th class="num">Prima Emitida ($ M)</th>
+                <th class="num">Cuota Mercado (%)</th>
+                <th class="num">Cuota Acum. (%)</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ==================================================== -->
+    <!-- MÓDULO 6: GESTIÓN FINANCIERA (DINÁMICO POR EJERCICIO / LTM) -->
     <!-- ==================================================== -->
     <div id="pane_mod_financiero" class="tab-pane">
       <div class="kpi-grid">
@@ -1415,103 +1515,6 @@
           </table>
         </div>
       </div>
-    </div>
-
-    <!-- ==================================================== -->
-    <!-- MÓDULO 7: DRILL-DOWN MERCADO OFICIAL SSN            -->
-    <!-- ==================================================== -->
-    <div id="pane_mod_mercado_drilldown" class="tab-pane">
-
-      <!-- Header & Selector de Sub-Ramo Oficial -->
-      <div style="background: white; border-radius: var(--radius-lg); padding: 18px 24px; margin-bottom: 20px; box-shadow: var(--shadow-sm); border: 1px solid var(--border-card); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
-        <div>
-          <h2 style="font-size: 1.25rem; font-weight: 700; color: var(--carbon); display: flex; align-items: center; gap: 10px;">
-            <i class="fa-solid fa-building-shield" style="color: var(--rojo-seguro);"></i>
-            Estructura y Competencia Oficial SSN (Drill-Down)
-          </h2>
-          <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 4px;">
-            Fuente oficial: Superintendencia de Seguros de la Nación (Boletín Estadístico Trimestral - Marzo 2026). Apertura por sub-ramos oficiales y modalidades de póliza.
-          </p>
-        </div>
-        <div style="display: flex; align-items: center; gap: 12px;">
-          <label for="sel_ssn_subramo" style="font-size: 0.85rem; font-weight: 600; color: var(--carbon);">
-            <i class="fa-solid fa-filter" style="color: var(--rojo-seguro);"></i> Ramo / Sub-Ramo SSN:
-          </label>
-          <select id="sel_ssn_subramo" onchange="updateSsnDrilldown()" style="padding: 8px 16px; border-radius: var(--radius-md); border: 1.5px solid var(--border-card); font-size: 0.88rem; font-weight: 600; color: var(--carbon); background: #f8fafc; cursor: pointer; outline: none;">
-          </select>
-        </div>
-      </div>
-
-      <!-- KPIS DRILL-DOWN MERCADO -->
-      <div class="kpi-grid">
-        <div class="kpi-card">
-          <span class="kpi-title">Mercado Total Oficial (SSN)</span>
-          <div class="kpi-value" id="kpi_ssn_mkt_total">$ 0</div>
-          <div class="kpi-subtext" id="kpi_ssn_mkt_total_sub">Primas emitidas del ramo</div>
-        </div>
-        <div class="kpi-card">
-          <span class="kpi-title">Primas La Segunda Seguros</span>
-          <div class="kpi-value" id="kpi_ssn_l2_primas" style="color: var(--rojo-seguro);">$ 0</div>
-          <div class="kpi-subtext" id="kpi_ssn_l2_primas_sub">Producción acumulada oficial</div>
-        </div>
-        <div class="kpi-card">
-          <span class="kpi-title">Posición en el Ranking Nacional</span>
-          <div class="kpi-value" id="kpi_ssn_l2_puesto"># -</div>
-          <div class="kpi-subtext" id="kpi_ssn_l2_puesto_sub">Entre - aseguradoras</div>
-        </div>
-        <div class="kpi-card">
-          <span class="kpi-title">Cuota de Mercado La Segunda</span>
-          <div class="kpi-value" id="kpi_ssn_l2_cuota">0.00 %</div>
-          <div class="kpi-subtext" id="kpi_ssn_l2_cuota_sub">Participación sobre el total</div>
-        </div>
-      </div>
-
-      <!-- GRAFICOS DRILL-DOWN -->
-      <div class="dashboard-grid" style="margin-bottom: 24px;">
-        <div class="chart-card">
-          <div class="chart-header">
-            <h3 id="title_ssn_ranking"><i class="fa-solid fa-ranking-star"></i> Ranking Top Aseguradoras (Primas $ M)</h3>
-          </div>
-          <div style="height: 380px; position: relative;">
-            <canvas id="chart_ssn_ranking"></canvas>
-          </div>
-        </div>
-
-        <div class="chart-card">
-          <div class="chart-header">
-            <h3 id="title_ssn_donut"><i class="fa-solid fa-chart-pie"></i> Distribución de Cuota de Mercado</h3>
-          </div>
-          <div style="height: 380px; position: relative;">
-            <canvas id="chart_ssn_cuota_donut"></canvas>
-          </div>
-        </div>
-      </div>
-
-      <!-- TABLA DETALLADA DE ASEGURADORAS COMPETIDORAS -->
-      <div class="table-card">
-        <div class="table-header" style="display: flex; justify-content: space-between; align-items: center;">
-          <h3 id="title_ssn_tabla"><i class="fa-solid fa-table-list"></i> Cuadro Oficial Completo de Entidades</h3>
-          <span id="badge_ssn_cant" style="font-size: 0.78rem; background: var(--bg-body); padding: 4px 10px; border-radius: var(--radius-pill); font-weight: 600; color: var(--text-muted);">
-            - aseguradoras
-          </span>
-        </div>
-        <div class="table-wrapper" style="max-height: 520px; overflow-y: auto;">
-          <table class="data-table" id="table_ssn_competidores">
-            <thead>
-              <tr>
-                <th style="width: 70px;">Puesto</th>
-                <th>Aseguradora</th>
-                <th style="width: 90px; text-align: center;">Tipo Jurídico</th>
-                <th class="num">Prima Emitida ($ M)</th>
-                <th class="num">Cuota Mercado (%)</th>
-                <th class="num">Cuota Acum. (%)</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
-        </div>
-      </div>
-
     </div>
 
   </main>
