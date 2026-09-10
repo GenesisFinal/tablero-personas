@@ -56387,5 +56387,6255 @@
       "ripte_imputado": true,
       "ripte_nota": "Dato de RIPTE no publicado oficialmente; se imputa la tasa de IPC."
     }
-  ]
+  ],
+  "ssn_drilldown": {
+    "periodo": "2026-03",
+    "periodo_texto": "Marzo 2026 (Último Boletín Oficial SSN)",
+    "fuente": "Superintendencia de Seguros de la Nación (SSN) - Boletín Estadístico Trimestral (SINENSUP)",
+    "subramos": {
+      "Total Personas (Consolidado)": {
+        "id": "total_personas",
+        "titulo": "Total Seguros de Personas (Consolidado)",
+        "ramo_macro": "TOTAL",
+        "total_mercado": 2325727490412.0,
+        "cant_entidades": 122,
+        "la_segunda": {
+          "puesto": 14,
+          "primas": 45678718929.0,
+          "cuota": 1.96,
+          "entidad": "SEGUNDA PERSONAS"
+        },
+        "lider": {
+          "entidad": "LIFE",
+          "primas": 259387879227.0,
+          "cuota": 11.15
+        },
+        "ranking": [
+          {
+            "orden": 1,
+            "nj": "A",
+            "entidad": "LIFE",
+            "primas": 259387879227.0,
+            "part_pct": 11.15,
+            "acum_pct": 11.15,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 2,
+            "nj": "C",
+            "entidad": "SANCOR",
+            "primas": 202850978624.0,
+            "part_pct": 8.72,
+            "acum_pct": 19.88,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 3,
+            "nj": "A",
+            "entidad": "NACIÓN",
+            "primas": 107945051200.0,
+            "part_pct": 4.64,
+            "acum_pct": 24.52,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 4,
+            "nj": "A",
+            "entidad": "FED. PATRONAL",
+            "primas": 102397895468.0,
+            "part_pct": 4.4,
+            "acum_pct": 28.92,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 5,
+            "nj": "A",
+            "entidad": "CAJA GENERALES",
+            "primas": 92617483694.0,
+            "part_pct": 3.98,
+            "acum_pct": 32.9,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 6,
+            "nj": "E",
+            "entidad": "ZURICH INTERNATIONAL LIFE (*)",
+            "primas": 87362988608.0,
+            "part_pct": 3.76,
+            "acum_pct": 36.66,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 7,
+            "nj": "A",
+            "entidad": "ZURICH SANTANDER",
+            "primas": 84597673405.0,
+            "part_pct": 3.64,
+            "acum_pct": 40.3,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 8,
+            "nj": "A",
+            "entidad": "PROVINCIA",
+            "primas": 82536296663.0,
+            "part_pct": 3.55,
+            "acum_pct": 43.84,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 9,
+            "nj": "A",
+            "entidad": "CARUSO",
+            "primas": 73812657202.0,
+            "part_pct": 3.17,
+            "acum_pct": 47.02,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 10,
+            "nj": "A",
+            "entidad": "SMG VIDA",
+            "primas": 60237669691.0,
+            "part_pct": 2.59,
+            "acum_pct": 49.61,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 11,
+            "nj": "A",
+            "entidad": "QUALIA",
+            "primas": 59045816994.0,
+            "part_pct": 2.54,
+            "acum_pct": 52.15,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 12,
+            "nj": "A",
+            "entidad": "INSTITUTO SALTA",
+            "primas": 54444080605.0,
+            "part_pct": 2.34,
+            "acum_pct": 54.49,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 13,
+            "nj": "A",
+            "entidad": "GALICIA SAU",
+            "primas": 54180367533.0,
+            "part_pct": 2.33,
+            "acum_pct": 56.82,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 14,
+            "nj": "A",
+            "entidad": "SEGUNDA PERSONAS",
+            "primas": 45678718929.0,
+            "part_pct": 1.96,
+            "acum_pct": 58.78,
+            "es_la_segunda": true
+          },
+          {
+            "orden": 15,
+            "nj": "A",
+            "entidad": "STELLANTIS",
+            "primas": 44829835549.0,
+            "part_pct": 1.93,
+            "acum_pct": 60.71,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 16,
+            "nj": "A",
+            "entidad": "GGAL",
+            "primas": 39494839080.0,
+            "part_pct": 1.7,
+            "acum_pct": 62.41,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 17,
+            "nj": "A",
+            "entidad": "CNP",
+            "primas": 35120924086.0,
+            "part_pct": 1.51,
+            "acum_pct": 63.92,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 18,
+            "nj": "A",
+            "entidad": "BBVA SEGUROS",
+            "primas": 32773844882.0,
+            "part_pct": 1.41,
+            "acum_pct": 65.33,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 19,
+            "nj": "A",
+            "entidad": "ATM",
+            "primas": 31782180888.0,
+            "part_pct": 1.37,
+            "acum_pct": 66.69,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 20,
+            "nj": "A",
+            "entidad": "SURCO",
+            "primas": 31314872696.0,
+            "part_pct": 1.35,
+            "acum_pct": 68.04,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 21,
+            "nj": "A",
+            "entidad": "BINARIA VIDA",
+            "primas": 31228061978.0,
+            "part_pct": 1.34,
+            "acum_pct": 69.38,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 22,
+            "nj": "A",
+            "entidad": "SOL NACIENTE",
+            "primas": 30995948901.0,
+            "part_pct": 1.33,
+            "acum_pct": 70.71,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 23,
+            "nj": "A",
+            "entidad": "EVOLUCIÓN",
+            "primas": 28843158978.0,
+            "part_pct": 1.24,
+            "acum_pct": 71.96,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 24,
+            "nj": "A",
+            "entidad": "GALICIA S.A.",
+            "primas": 28283762945.0,
+            "part_pct": 1.22,
+            "acum_pct": 73.17,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 25,
+            "nj": "A",
+            "entidad": "PARANÁ",
+            "primas": 27605342473.0,
+            "part_pct": 1.19,
+            "acum_pct": 74.36,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 26,
+            "nj": "A",
+            "entidad": "PROVINCIA VIDA",
+            "primas": 27371923055.0,
+            "part_pct": 1.18,
+            "acum_pct": 75.54,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 27,
+            "nj": "A",
+            "entidad": "MERCANTIL ANDINA",
+            "primas": 26270536369.0,
+            "part_pct": 1.13,
+            "acum_pct": 76.66,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 28,
+            "nj": "A",
+            "entidad": "BHN VIDA",
+            "primas": 25073817880.0,
+            "part_pct": 1.08,
+            "acum_pct": 77.74,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 29,
+            "nj": "A",
+            "entidad": "SUPERVIELLE",
+            "primas": 24854968062.0,
+            "part_pct": 1.07,
+            "acum_pct": 78.81,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 30,
+            "nj": "A",
+            "entidad": "SMSV",
+            "primas": 22834637088.0,
+            "part_pct": 0.98,
+            "acum_pct": 79.79,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 31,
+            "nj": "A",
+            "entidad": "ZURICH",
+            "primas": 22145756850.0,
+            "part_pct": 0.95,
+            "acum_pct": 80.75,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 32,
+            "nj": "C",
+            "entidad": "SAN CRISTÓBAL MUTUAL",
+            "primas": 22042379578.0,
+            "part_pct": 0.95,
+            "acum_pct": 81.69,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 33,
+            "nj": "A",
+            "entidad": "PRUDENCIA",
+            "primas": 21378272134.0,
+            "part_pct": 0.92,
+            "acum_pct": 82.61,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 34,
+            "nj": "O",
+            "entidad": "CAJA DE TUCUMÁN",
+            "primas": 19453745381.0,
+            "part_pct": 0.84,
+            "acum_pct": 83.45,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 35,
+            "nj": "O",
+            "entidad": "INSTITUTO AUTÁRQUICO",
+            "primas": 17210211525.0,
+            "part_pct": 0.74,
+            "acum_pct": 84.19,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 36,
+            "nj": "C",
+            "entidad": "TRIUNFO",
+            "primas": 16821868667.0,
+            "part_pct": 0.72,
+            "acum_pct": 84.91,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 37,
+            "nj": "A",
+            "entidad": "RCI PERSONAS",
+            "primas": 16644995181.0,
+            "part_pct": 0.72,
+            "acum_pct": 85.63,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 38,
+            "nj": "A",
+            "entidad": "LIDERAR",
+            "primas": 16457280299.0,
+            "part_pct": 0.71,
+            "acum_pct": 86.34,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 39,
+            "nj": "A",
+            "entidad": "CHUBB SEGUROS",
+            "primas": 14679590154.0,
+            "part_pct": 0.63,
+            "acum_pct": 86.97,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 40,
+            "nj": "A",
+            "entidad": "EDIFICAR",
+            "primas": 14650099489.0,
+            "part_pct": 0.63,
+            "acum_pct": 87.6,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 41,
+            "nj": "A",
+            "entidad": "MAPFRE VIDA",
+            "primas": 13418885591.0,
+            "part_pct": 0.58,
+            "acum_pct": 88.17,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 42,
+            "nj": "A",
+            "entidad": "ALLIANZ",
+            "primas": 13330196150.0,
+            "part_pct": 0.57,
+            "acum_pct": 88.75,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 43,
+            "nj": "A",
+            "entidad": "HAMBURGO",
+            "primas": 13323608165.0,
+            "part_pct": 0.57,
+            "acum_pct": 89.32,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 44,
+            "nj": "A",
+            "entidad": "HORIZONTE",
+            "primas": 13318267152.0,
+            "part_pct": 0.57,
+            "acum_pct": 89.89,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 45,
+            "nj": "A",
+            "entidad": "OPCIÓN",
+            "primas": 12103581041.0,
+            "part_pct": 0.52,
+            "acum_pct": 90.41,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 46,
+            "nj": "A",
+            "entidad": "MAÑANA",
+            "primas": 11038535052.0,
+            "part_pct": 0.47,
+            "acum_pct": 90.89,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 47,
+            "nj": "A",
+            "entidad": "MERIDIONAL",
+            "primas": 10926720198.0,
+            "part_pct": 0.47,
+            "acum_pct": 91.36,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 48,
+            "nj": "A",
+            "entidad": "CONFLUENCIA",
+            "primas": 10127178560.0,
+            "part_pct": 0.44,
+            "acum_pct": 91.79,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 49,
+            "nj": "A",
+            "entidad": "BIND",
+            "primas": 9947484729.0,
+            "part_pct": 0.43,
+            "acum_pct": 92.22,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 50,
+            "nj": "A",
+            "entidad": "TRES PROVINCIAS PERSONAS",
+            "primas": 9598953231.0,
+            "part_pct": 0.41,
+            "acum_pct": 92.63,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 51,
+            "nj": "A",
+            "entidad": "EXPERTA",
+            "primas": 8578412422.0,
+            "part_pct": 0.37,
+            "acum_pct": 93.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 52,
+            "nj": "A",
+            "entidad": "BARBUSS",
+            "primas": 7844232153.0,
+            "part_pct": 0.34,
+            "acum_pct": 93.34,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 53,
+            "nj": "A",
+            "entidad": "HOLANDO SUDAMERICANA",
+            "primas": 7639828701.0,
+            "part_pct": 0.33,
+            "acum_pct": 93.67,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 54,
+            "nj": "C",
+            "entidad": "BERNARDINO RIVADAVIA",
+            "primas": 7026705927.0,
+            "part_pct": 0.3,
+            "acum_pct": 93.97,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 55,
+            "nj": "A",
+            "entidad": "BERKLEY",
+            "primas": 6645821972.0,
+            "part_pct": 0.29,
+            "acum_pct": 94.26,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 56,
+            "nj": "A",
+            "entidad": "INSTITUTO DE SEGUROS",
+            "primas": 6501050118.0,
+            "part_pct": 0.28,
+            "acum_pct": 94.54,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 57,
+            "nj": "A",
+            "entidad": "MISTA PERSONAS",
+            "primas": 6184547237.0,
+            "part_pct": 0.27,
+            "acum_pct": 94.8,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 58,
+            "nj": "A",
+            "entidad": "BENEFICIO",
+            "primas": 6102896224.0,
+            "part_pct": 0.26,
+            "acum_pct": 95.06,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 59,
+            "nj": "A",
+            "entidad": "NORTE",
+            "primas": 5930455276.0,
+            "part_pct": 0.25,
+            "acum_pct": 95.32,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 60,
+            "nj": "A",
+            "entidad": "INSTITUTO ASEGURADOR",
+            "primas": 5811911214.0,
+            "part_pct": 0.25,
+            "acum_pct": 95.57,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 61,
+            "nj": "A",
+            "entidad": "COLÓN",
+            "primas": 5652592805.0,
+            "part_pct": 0.24,
+            "acum_pct": 95.81,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 62,
+            "nj": "C",
+            "entidad": "RÍO URUGUAY",
+            "primas": 5527045061.0,
+            "part_pct": 0.24,
+            "acum_pct": 96.05,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 63,
+            "nj": "C",
+            "entidad": "SEGURCOOP",
+            "primas": 5490083758.0,
+            "part_pct": 0.24,
+            "acum_pct": 96.29,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 64,
+            "nj": "A",
+            "entidad": "EQUITATIVA DEL PLATA",
+            "primas": 4898295818.0,
+            "part_pct": 0.21,
+            "acum_pct": 96.5,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 65,
+            "nj": "A",
+            "entidad": "PREVINCA",
+            "primas": 4675284457.0,
+            "part_pct": 0.2,
+            "acum_pct": 96.7,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 66,
+            "nj": "A",
+            "entidad": "ASV",
+            "primas": 4218724999.0,
+            "part_pct": 0.18,
+            "acum_pct": 96.88,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 67,
+            "nj": "A",
+            "entidad": "SAN GERMÁN",
+            "primas": 4084129803.0,
+            "part_pct": 0.18,
+            "acum_pct": 97.05,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 68,
+            "nj": "A",
+            "entidad": "CERTEZA",
+            "primas": 3929057408.0,
+            "part_pct": 0.17,
+            "acum_pct": 97.22,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 69,
+            "nj": "C",
+            "entidad": "MUTUAL PATRONAL",
+            "primas": 3884838019.0,
+            "part_pct": 0.17,
+            "acum_pct": 97.39,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 70,
+            "nj": "A",
+            "entidad": "SMG",
+            "primas": 3677482750.0,
+            "part_pct": 0.16,
+            "acum_pct": 97.55,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 71,
+            "nj": "A",
+            "entidad": "BONACORSI PERSONAS",
+            "primas": 3610718069.0,
+            "part_pct": 0.16,
+            "acum_pct": 97.7,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 72,
+            "nj": "A",
+            "entidad": "CAMINOS PROTEGIDOS",
+            "primas": 3566879204.0,
+            "part_pct": 0.15,
+            "acum_pct": 97.86,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 73,
+            "nj": "A",
+            "entidad": "ASSURANT",
+            "primas": 3357891074.0,
+            "part_pct": 0.14,
+            "acum_pct": 98.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 74,
+            "nj": "A",
+            "entidad": "SAN PATRICIO",
+            "primas": 3309340571.0,
+            "part_pct": 0.14,
+            "acum_pct": 98.14,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 75,
+            "nj": "O",
+            "entidad": "JUJUY SOCIEDAD DEL ESTADO",
+            "primas": 3255003377.0,
+            "part_pct": 0.14,
+            "acum_pct": 98.28,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 76,
+            "nj": "A",
+            "entidad": "DIGNA",
+            "primas": 2574999421.0,
+            "part_pct": 0.11,
+            "acum_pct": 98.39,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 77,
+            "nj": "A",
+            "entidad": "SENTIR",
+            "primas": 2551510799.0,
+            "part_pct": 0.11,
+            "acum_pct": 98.5,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 78,
+            "nj": "A",
+            "entidad": "ANTICIPAR",
+            "primas": 2365846998.0,
+            "part_pct": 0.1,
+            "acum_pct": 98.61,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 79,
+            "nj": "A",
+            "entidad": "FEDERADA",
+            "primas": 2255609010.0,
+            "part_pct": 0.1,
+            "acum_pct": 98.7,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 80,
+            "nj": "A",
+            "entidad": "NIVEL",
+            "primas": 2011562195.0,
+            "part_pct": 0.09,
+            "acum_pct": 98.79,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 81,
+            "nj": "A",
+            "entidad": "INTÉGRITY",
+            "primas": 1912290171.0,
+            "part_pct": 0.08,
+            "acum_pct": 98.87,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 82,
+            "nj": "A",
+            "entidad": "GALENO",
+            "primas": 1821432810.0,
+            "part_pct": 0.08,
+            "acum_pct": 98.95,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 83,
+            "nj": "A",
+            "entidad": "PLENARIA",
+            "primas": 1820867117.0,
+            "part_pct": 0.08,
+            "acum_pct": 99.03,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 84,
+            "nj": "A",
+            "entidad": "LOGRAR PERSONAS",
+            "primas": 1762200908.0,
+            "part_pct": 0.08,
+            "acum_pct": 99.1,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 85,
+            "nj": "A",
+            "entidad": "NOBLE",
+            "primas": 1596299443.0,
+            "part_pct": 0.07,
+            "acum_pct": 99.17,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 86,
+            "nj": "A",
+            "entidad": "PIEVE",
+            "primas": 1577167766.0,
+            "part_pct": 0.07,
+            "acum_pct": 99.24,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 87,
+            "nj": "O",
+            "entidad": "CAJA DE PREVISIÓN",
+            "primas": 1524110451.0,
+            "part_pct": 0.07,
+            "acum_pct": 99.31,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 88,
+            "nj": "A",
+            "entidad": "FINISTERRE",
+            "primas": 1498067458.0,
+            "part_pct": 0.06,
+            "acum_pct": 99.37,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 89,
+            "nj": "A",
+            "entidad": "ANTÁRTIDA",
+            "primas": 1247172734.0,
+            "part_pct": 0.05,
+            "acum_pct": 99.42,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 90,
+            "nj": "A",
+            "entidad": "INCLUIR PERSONAS",
+            "primas": 1240023083.0,
+            "part_pct": 0.05,
+            "acum_pct": 99.48,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 91,
+            "nj": "A",
+            "entidad": "CRUZ SUIZA",
+            "primas": 1116289026.0,
+            "part_pct": 0.05,
+            "acum_pct": 99.52,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 92,
+            "nj": "A",
+            "entidad": "GESTIÓN",
+            "primas": 1053663905.0,
+            "part_pct": 0.05,
+            "acum_pct": 99.57,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 93,
+            "nj": "C",
+            "entidad": "LUZ Y FUERZA",
+            "primas": 1045033980.0,
+            "part_pct": 0.04,
+            "acum_pct": 99.61,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 94,
+            "nj": "A",
+            "entidad": "LIBRA",
+            "primas": 923984495.0,
+            "part_pct": 0.04,
+            "acum_pct": 99.65,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 95,
+            "nj": "A",
+            "entidad": "VICTORIA",
+            "primas": 818663534.0,
+            "part_pct": 0.04,
+            "acum_pct": 99.69,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 96,
+            "nj": "C",
+            "entidad": "COPAN",
+            "primas": 636813350.0,
+            "part_pct": 0.03,
+            "acum_pct": 99.72,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 97,
+            "nj": "C",
+            "entidad": "PRODUCTORES DE FRUTAS",
+            "primas": 581686269.0,
+            "part_pct": 0.03,
+            "acum_pct": 99.74,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 98,
+            "nj": "A",
+            "entidad": "PERSEVERANCIA",
+            "primas": 578696109.0,
+            "part_pct": 0.02,
+            "acum_pct": 99.77,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 99,
+            "nj": "A",
+            "entidad": "SANTA LUCÍA",
+            "primas": 545505860.0,
+            "part_pct": 0.02,
+            "acum_pct": 99.79,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 100,
+            "nj": "A",
+            "entidad": "OMINT",
+            "primas": 527535193.0,
+            "part_pct": 0.02,
+            "acum_pct": 99.81,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 101,
+            "nj": "A",
+            "entidad": "EUROAMÉRICA",
+            "primas": 506747541.0,
+            "part_pct": 0.02,
+            "acum_pct": 99.83,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 102,
+            "nj": "A",
+            "entidad": "AURORA",
+            "primas": 484686152.0,
+            "part_pct": 0.02,
+            "acum_pct": 99.86,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 103,
+            "nj": "A",
+            "entidad": "MERCANTIL ASEGURADORA",
+            "primas": 450578889.0,
+            "part_pct": 0.02,
+            "acum_pct": 99.88,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 104,
+            "nj": "C",
+            "entidad": "SEGUROMETAL",
+            "primas": 442831730.0,
+            "part_pct": 0.02,
+            "acum_pct": 99.89,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 105,
+            "nj": "A",
+            "entidad": "SANTA CRUZ",
+            "primas": 420893264.0,
+            "part_pct": 0.02,
+            "acum_pct": 99.91,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 106,
+            "nj": "A",
+            "entidad": "WORANZ",
+            "primas": 377907537.0,
+            "part_pct": 0.02,
+            "acum_pct": 99.93,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 107,
+            "nj": "A",
+            "entidad": "SAN MARINO",
+            "primas": 360588377.0,
+            "part_pct": 0.02,
+            "acum_pct": 99.94,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 108,
+            "nj": "A",
+            "entidad": "NATIVA",
+            "primas": 277855781.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.96,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 109,
+            "nj": "A",
+            "entidad": "PREVISORA",
+            "primas": 214548063.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.97,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 110,
+            "nj": "A",
+            "entidad": "SANTÍSIMA TRINIDAD",
+            "primas": 177300750.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.97,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 111,
+            "nj": "A",
+            "entidad": "PROVIDENCIA",
+            "primas": 163784250.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.98,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 112,
+            "nj": "A",
+            "entidad": "ESENCIA",
+            "primas": 118170863.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.98,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 113,
+            "nj": "A",
+            "entidad": "ASEGURADORA DE BIENES Y SERVICIOS",
+            "primas": 97841499.0,
+            "part_pct": 0.0,
+            "acum_pct": 99.99,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 114,
+            "nj": "A",
+            "entidad": "LATITUD SUR",
+            "primas": 95575102.0,
+            "part_pct": 0.0,
+            "acum_pct": 99.99,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 115,
+            "nj": "A",
+            "entidad": "NSA",
+            "primas": 49854522.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 116,
+            "nj": "A",
+            "entidad": "TERRITORIAL VIDA",
+            "primas": 41745009.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 117,
+            "nj": "A",
+            "entidad": "PROGRESO",
+            "primas": 34265121.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 118,
+            "nj": "A",
+            "entidad": "METROPOL",
+            "primas": 29227570.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 119,
+            "nj": "A",
+            "entidad": "SAN CRISTÓBAL RETIRO",
+            "primas": 852702.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 120,
+            "nj": "A",
+            "entidad": "LA PALABRA PERSONAS",
+            "primas": 78380.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 121,
+            "nj": "A",
+            "entidad": "SEGUROS MÉDICOS",
+            "primas": 49173.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 122,
+            "nj": "E",
+            "entidad": "ZURICH INTERNATIONAL LIFE",
+            "primas": 25755.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          }
+        ]
+      },
+      "AP Colectivo": {
+        "id": "acc_personales__colectivo",
+        "titulo": "Accidentes Personales - Colectivo",
+        "ramo_macro": "AP",
+        "total_mercado": 282539007685.0,
+        "cant_entidades": 77,
+        "la_segunda": {
+          "puesto": 5,
+          "primas": 27437286662.0,
+          "cuota": 9.71,
+          "entidad": "SEGUNDA PERSONAS"
+        },
+        "lider": {
+          "entidad": "SANCOR",
+          "primas": 50864388193.0,
+          "cuota": 18.0
+        },
+        "ranking": [
+          {
+            "orden": 1,
+            "nj": "C",
+            "entidad": "SANCOR",
+            "primas": 50864388193.0,
+            "part_pct": 18.0,
+            "acum_pct": 18.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 2,
+            "nj": "A",
+            "entidad": "FED. PATRONAL",
+            "primas": 38369526095.0,
+            "part_pct": 13.58,
+            "acum_pct": 31.58,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 3,
+            "nj": "A",
+            "entidad": "LIFE",
+            "primas": 29468232527.0,
+            "part_pct": 10.43,
+            "acum_pct": 42.01,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 4,
+            "nj": "A",
+            "entidad": "ZURICH SANTANDER",
+            "primas": 28310905077.0,
+            "part_pct": 10.02,
+            "acum_pct": 52.03,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 5,
+            "nj": "A",
+            "entidad": "SEGUNDA PERSONAS",
+            "primas": 27437286662.0,
+            "part_pct": 9.71,
+            "acum_pct": 61.74,
+            "es_la_segunda": true
+          },
+          {
+            "orden": 6,
+            "nj": "A",
+            "entidad": "GALICIA SAU",
+            "primas": 14285648721.0,
+            "part_pct": 5.06,
+            "acum_pct": 66.8,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 7,
+            "nj": "C",
+            "entidad": "SAN CRISTÓBAL MUTUAL",
+            "primas": 7821856868.0,
+            "part_pct": 2.77,
+            "acum_pct": 69.57,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 8,
+            "nj": "A",
+            "entidad": "MERCANTIL ANDINA",
+            "primas": 7751448524.0,
+            "part_pct": 2.74,
+            "acum_pct": 72.31,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 9,
+            "nj": "A",
+            "entidad": "MERIDIONAL",
+            "primas": 7125260712.0,
+            "part_pct": 2.52,
+            "acum_pct": 74.83,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 10,
+            "nj": "O",
+            "entidad": "CAJA DE TUCUMÁN",
+            "primas": 6017193311.0,
+            "part_pct": 2.13,
+            "acum_pct": 76.96,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 11,
+            "nj": "A",
+            "entidad": "BBVA SEGUROS",
+            "primas": 5314925540.0,
+            "part_pct": 1.88,
+            "acum_pct": 78.84,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 12,
+            "nj": "A",
+            "entidad": "BIND",
+            "primas": 5224560901.0,
+            "part_pct": 1.85,
+            "acum_pct": 80.69,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 13,
+            "nj": "A",
+            "entidad": "NORTE",
+            "primas": 4643432494.0,
+            "part_pct": 1.64,
+            "acum_pct": 82.34,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 14,
+            "nj": "O",
+            "entidad": "INSTITUTO AUTÁRQUICO",
+            "primas": 4627146172.0,
+            "part_pct": 1.64,
+            "acum_pct": 83.97,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 15,
+            "nj": "A",
+            "entidad": "BHN VIDA",
+            "primas": 4381011149.0,
+            "part_pct": 1.55,
+            "acum_pct": 85.53,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 16,
+            "nj": "A",
+            "entidad": "PROVINCIA",
+            "primas": 4202988155.0,
+            "part_pct": 1.49,
+            "acum_pct": 87.01,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 17,
+            "nj": "A",
+            "entidad": "HOLANDO SUDAMERICANA",
+            "primas": 3804754921.0,
+            "part_pct": 1.35,
+            "acum_pct": 88.36,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 18,
+            "nj": "C",
+            "entidad": "MUTUAL PATRONAL",
+            "primas": 3377227087.0,
+            "part_pct": 1.2,
+            "acum_pct": 89.55,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 19,
+            "nj": "A",
+            "entidad": "BERKLEY",
+            "primas": 3272682598.0,
+            "part_pct": 1.16,
+            "acum_pct": 90.71,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 20,
+            "nj": "C",
+            "entidad": "RÍO URUGUAY",
+            "primas": 3018965928.0,
+            "part_pct": 1.07,
+            "acum_pct": 91.78,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 21,
+            "nj": "A",
+            "entidad": "CAJA GENERALES",
+            "primas": 2284234763.0,
+            "part_pct": 0.81,
+            "acum_pct": 92.59,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 22,
+            "nj": "A",
+            "entidad": "SUPERVIELLE",
+            "primas": 1873490460.0,
+            "part_pct": 0.66,
+            "acum_pct": 93.25,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 23,
+            "nj": "A",
+            "entidad": "BENEFICIO",
+            "primas": 1779934735.0,
+            "part_pct": 0.63,
+            "acum_pct": 93.88,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 24,
+            "nj": "A",
+            "entidad": "BARBUSS",
+            "primas": 1340344540.0,
+            "part_pct": 0.47,
+            "acum_pct": 94.36,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 25,
+            "nj": "A",
+            "entidad": "CNP",
+            "primas": 1321653436.0,
+            "part_pct": 0.47,
+            "acum_pct": 94.83,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 26,
+            "nj": "A",
+            "entidad": "PARANÁ",
+            "primas": 1266190391.0,
+            "part_pct": 0.45,
+            "acum_pct": 95.27,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 27,
+            "nj": "A",
+            "entidad": "INTÉGRITY",
+            "primas": 1126707738.0,
+            "part_pct": 0.4,
+            "acum_pct": 95.67,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 28,
+            "nj": "A",
+            "entidad": "HAMBURGO",
+            "primas": 1088343783.0,
+            "part_pct": 0.39,
+            "acum_pct": 96.06,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 29,
+            "nj": "A",
+            "entidad": "COLÓN",
+            "primas": 1051154159.0,
+            "part_pct": 0.37,
+            "acum_pct": 96.43,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 30,
+            "nj": "A",
+            "entidad": "EXPERTA",
+            "primas": 1026116784.0,
+            "part_pct": 0.36,
+            "acum_pct": 96.79,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 31,
+            "nj": "A",
+            "entidad": "SMG VIDA",
+            "primas": 1024535458.0,
+            "part_pct": 0.36,
+            "acum_pct": 97.16,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 32,
+            "nj": "A",
+            "entidad": "MISTA PERSONAS",
+            "primas": 821448492.0,
+            "part_pct": 0.29,
+            "acum_pct": 97.45,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 33,
+            "nj": "A",
+            "entidad": "GESTIÓN",
+            "primas": 746470798.0,
+            "part_pct": 0.26,
+            "acum_pct": 97.71,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 34,
+            "nj": "A",
+            "entidad": "CRUZ SUIZA",
+            "primas": 685368312.0,
+            "part_pct": 0.24,
+            "acum_pct": 97.95,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 35,
+            "nj": "A",
+            "entidad": "CARUSO",
+            "primas": 681679498.0,
+            "part_pct": 0.24,
+            "acum_pct": 98.19,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 36,
+            "nj": "A",
+            "entidad": "DIGNA",
+            "primas": 505645228.0,
+            "part_pct": 0.18,
+            "acum_pct": 98.37,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 37,
+            "nj": "A",
+            "entidad": "ASSURANT",
+            "primas": 499777396.0,
+            "part_pct": 0.18,
+            "acum_pct": 98.55,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 38,
+            "nj": "A",
+            "entidad": "EVOLUCIÓN",
+            "primas": 443072187.0,
+            "part_pct": 0.16,
+            "acum_pct": 98.71,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 39,
+            "nj": "A",
+            "entidad": "ASV",
+            "primas": 394170037.0,
+            "part_pct": 0.14,
+            "acum_pct": 98.85,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 40,
+            "nj": "A",
+            "entidad": "LOGRAR PERSONAS",
+            "primas": 315801835.0,
+            "part_pct": 0.11,
+            "acum_pct": 98.96,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 41,
+            "nj": "C",
+            "entidad": "SEGUROMETAL",
+            "primas": 309371633.0,
+            "part_pct": 0.11,
+            "acum_pct": 99.07,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 42,
+            "nj": "A",
+            "entidad": "GALENO",
+            "primas": 292674077.0,
+            "part_pct": 0.1,
+            "acum_pct": 99.17,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 43,
+            "nj": "A",
+            "entidad": "GALICIA S.A.",
+            "primas": 265876304.0,
+            "part_pct": 0.09,
+            "acum_pct": 99.27,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 44,
+            "nj": "A",
+            "entidad": "WORANZ",
+            "primas": 249358019.0,
+            "part_pct": 0.09,
+            "acum_pct": 99.35,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 45,
+            "nj": "C",
+            "entidad": "TRIUNFO",
+            "primas": 221925772.0,
+            "part_pct": 0.08,
+            "acum_pct": 99.43,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 46,
+            "nj": "A",
+            "entidad": "SAN GERMÁN",
+            "primas": 188744959.0,
+            "part_pct": 0.07,
+            "acum_pct": 99.5,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 47,
+            "nj": "A",
+            "entidad": "INSTITUTO ASEGURADOR",
+            "primas": 188374722.0,
+            "part_pct": 0.07,
+            "acum_pct": 99.57,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 48,
+            "nj": "A",
+            "entidad": "STELLANTIS",
+            "primas": 143385575.0,
+            "part_pct": 0.05,
+            "acum_pct": 99.62,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 49,
+            "nj": "A",
+            "entidad": "NOBLE",
+            "primas": 125778724.0,
+            "part_pct": 0.04,
+            "acum_pct": 99.66,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 50,
+            "nj": "A",
+            "entidad": "ZURICH",
+            "primas": 122422764.0,
+            "part_pct": 0.04,
+            "acum_pct": 99.7,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 51,
+            "nj": "A",
+            "entidad": "SANTA LUCÍA",
+            "primas": 106029857.0,
+            "part_pct": 0.04,
+            "acum_pct": 99.74,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 52,
+            "nj": "A",
+            "entidad": "LIBRA",
+            "primas": 94341455.0,
+            "part_pct": 0.03,
+            "acum_pct": 99.78,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 53,
+            "nj": "A",
+            "entidad": "PREVINCA",
+            "primas": 94196938.0,
+            "part_pct": 0.03,
+            "acum_pct": 99.81,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 54,
+            "nj": "A",
+            "entidad": "LATITUD SUR",
+            "primas": 73360111.0,
+            "part_pct": 0.03,
+            "acum_pct": 99.83,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 55,
+            "nj": "A",
+            "entidad": "MAÑANA",
+            "primas": 61146835.0,
+            "part_pct": 0.02,
+            "acum_pct": 99.86,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 56,
+            "nj": "A",
+            "entidad": "SMSV",
+            "primas": 61070647.0,
+            "part_pct": 0.02,
+            "acum_pct": 99.88,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 57,
+            "nj": "O",
+            "entidad": "CAJA DE PREVISIÓN",
+            "primas": 60862758.0,
+            "part_pct": 0.02,
+            "acum_pct": 99.9,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 58,
+            "nj": "O",
+            "entidad": "JUJUY SOCIEDAD DEL ESTADO",
+            "primas": 58281212.0,
+            "part_pct": 0.02,
+            "acum_pct": 99.92,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 59,
+            "nj": "A",
+            "entidad": "PROVIDENCIA",
+            "primas": 50309594.0,
+            "part_pct": 0.02,
+            "acum_pct": 99.94,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 60,
+            "nj": "A",
+            "entidad": "PRUDENCIA",
+            "primas": 30264312.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.95,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 61,
+            "nj": "A",
+            "entidad": "SURCO",
+            "primas": 28476997.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.96,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 62,
+            "nj": "A",
+            "entidad": "OMINT",
+            "primas": 21571422.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.97,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 63,
+            "nj": "A",
+            "entidad": "GGAL",
+            "primas": 19391446.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.97,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 64,
+            "nj": "A",
+            "entidad": "SAN PATRICIO",
+            "primas": 18244881.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.98,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 65,
+            "nj": "A",
+            "entidad": "ANTÁRTIDA",
+            "primas": 9076164.0,
+            "part_pct": 0.0,
+            "acum_pct": 99.98,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 66,
+            "nj": "A",
+            "entidad": "PIEVE",
+            "primas": 7710422.0,
+            "part_pct": 0.0,
+            "acum_pct": 99.99,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 67,
+            "nj": "A",
+            "entidad": "OPCIÓN",
+            "primas": 7464391.0,
+            "part_pct": 0.0,
+            "acum_pct": 99.99,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 68,
+            "nj": "A",
+            "entidad": "ANTICIPAR",
+            "primas": 6134474.0,
+            "part_pct": 0.0,
+            "acum_pct": 99.99,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 69,
+            "nj": "A",
+            "entidad": "ATM",
+            "primas": 5717918.0,
+            "part_pct": 0.0,
+            "acum_pct": 99.99,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 70,
+            "nj": "A",
+            "entidad": "CAMINOS PROTEGIDOS",
+            "primas": 5605221.0,
+            "part_pct": 0.0,
+            "acum_pct": 99.99,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 71,
+            "nj": "A",
+            "entidad": "FEDERADA",
+            "primas": 4443901.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 72,
+            "nj": "A",
+            "entidad": "ESENCIA",
+            "primas": 3859656.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 73,
+            "nj": "C",
+            "entidad": "LUZ Y FUERZA",
+            "primas": 3513054.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 74,
+            "nj": "A",
+            "entidad": "PLENARIA",
+            "primas": 2986677.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 75,
+            "nj": "A",
+            "entidad": "INSTITUTO DE SEGUROS",
+            "primas": 719402.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 76,
+            "nj": "A",
+            "entidad": "NACIÓN",
+            "primas": 710541.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 77,
+            "nj": "A",
+            "entidad": "PROGRESO",
+            "primas": 23185.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          }
+        ]
+      },
+      "AP Individual": {
+        "id": "acc_personales__individual",
+        "titulo": "Accidentes Personales - Individual",
+        "ramo_macro": "AP",
+        "total_mercado": 93836710075.0,
+        "cant_entidades": 62,
+        "la_segunda": {
+          "puesto": 13,
+          "primas": 2354341768.0,
+          "cuota": 2.51,
+          "entidad": "SEGUNDA PERSONAS"
+        },
+        "lider": {
+          "entidad": "CHUBB SEGUROS",
+          "primas": 13115013530.0,
+          "cuota": 13.98
+        },
+        "ranking": [
+          {
+            "orden": 1,
+            "nj": "A",
+            "entidad": "CHUBB SEGUROS",
+            "primas": 13115013530.0,
+            "part_pct": 13.98,
+            "acum_pct": 13.98,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 2,
+            "nj": "A",
+            "entidad": "FED. PATRONAL",
+            "primas": 10412574175.0,
+            "part_pct": 11.1,
+            "acum_pct": 25.07,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 3,
+            "nj": "A",
+            "entidad": "MAPFRE VIDA",
+            "primas": 9133942528.0,
+            "part_pct": 9.73,
+            "acum_pct": 34.81,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 4,
+            "nj": "A",
+            "entidad": "GALICIA S.A.",
+            "primas": 9095401345.0,
+            "part_pct": 9.69,
+            "acum_pct": 44.5,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 5,
+            "nj": "A",
+            "entidad": "CAJA GENERALES",
+            "primas": 6385090861.0,
+            "part_pct": 6.8,
+            "acum_pct": 51.3,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 6,
+            "nj": "C",
+            "entidad": "BERNARDINO RIVADAVIA",
+            "primas": 6120616003.0,
+            "part_pct": 6.52,
+            "acum_pct": 57.83,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 7,
+            "nj": "C",
+            "entidad": "SANCOR",
+            "primas": 4897954727.0,
+            "part_pct": 5.22,
+            "acum_pct": 63.05,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 8,
+            "nj": "A",
+            "entidad": "CNP",
+            "primas": 4685712039.0,
+            "part_pct": 4.99,
+            "acum_pct": 68.04,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 9,
+            "nj": "A",
+            "entidad": "QUALIA",
+            "primas": 3895669271.0,
+            "part_pct": 4.15,
+            "acum_pct": 72.19,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 10,
+            "nj": "A",
+            "entidad": "SMG",
+            "primas": 3677482750.0,
+            "part_pct": 3.92,
+            "acum_pct": 76.11,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 11,
+            "nj": "A",
+            "entidad": "MERCANTIL ANDINA",
+            "primas": 3433922715.0,
+            "part_pct": 3.66,
+            "acum_pct": 79.77,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 12,
+            "nj": "A",
+            "entidad": "ALLIANZ",
+            "primas": 3087495208.0,
+            "part_pct": 3.29,
+            "acum_pct": 83.06,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 13,
+            "nj": "A",
+            "entidad": "SEGUNDA PERSONAS",
+            "primas": 2354341768.0,
+            "part_pct": 2.51,
+            "acum_pct": 85.57,
+            "es_la_segunda": true
+          },
+          {
+            "orden": 14,
+            "nj": "A",
+            "entidad": "NACIÓN",
+            "primas": 2229808483.0,
+            "part_pct": 2.38,
+            "acum_pct": 87.95,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 15,
+            "nj": "A",
+            "entidad": "LIFE",
+            "primas": 1664184699.0,
+            "part_pct": 1.77,
+            "acum_pct": 89.72,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 16,
+            "nj": "A",
+            "entidad": "HORIZONTE",
+            "primas": 1533943274.0,
+            "part_pct": 1.63,
+            "acum_pct": 91.35,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 17,
+            "nj": "C",
+            "entidad": "TRIUNFO",
+            "primas": 1061964085.0,
+            "part_pct": 1.13,
+            "acum_pct": 92.49,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 18,
+            "nj": "A",
+            "entidad": "ZURICH",
+            "primas": 858447796.0,
+            "part_pct": 0.91,
+            "acum_pct": 93.4,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 19,
+            "nj": "A",
+            "entidad": "GGAL",
+            "primas": 698365519.0,
+            "part_pct": 0.74,
+            "acum_pct": 94.14,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 20,
+            "nj": "A",
+            "entidad": "NOBLE",
+            "primas": 639981064.0,
+            "part_pct": 0.68,
+            "acum_pct": 94.83,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 21,
+            "nj": "C",
+            "entidad": "COPAN",
+            "primas": 629000311.0,
+            "part_pct": 0.67,
+            "acum_pct": 95.5,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 22,
+            "nj": "A",
+            "entidad": "NORTE",
+            "primas": 504378316.0,
+            "part_pct": 0.54,
+            "acum_pct": 96.03,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 23,
+            "nj": "A",
+            "entidad": "PERSEVERANCIA",
+            "primas": 478641175.0,
+            "part_pct": 0.51,
+            "acum_pct": 96.54,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 24,
+            "nj": "A",
+            "entidad": "MERIDIONAL",
+            "primas": 470492237.0,
+            "part_pct": 0.5,
+            "acum_pct": 97.05,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 25,
+            "nj": "A",
+            "entidad": "SAN MARINO",
+            "primas": 359539983.0,
+            "part_pct": 0.38,
+            "acum_pct": 97.43,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 26,
+            "nj": "A",
+            "entidad": "EQUITATIVA DEL PLATA",
+            "primas": 350193592.0,
+            "part_pct": 0.37,
+            "acum_pct": 97.8,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 27,
+            "nj": "A",
+            "entidad": "NATIVA",
+            "primas": 260549826.0,
+            "part_pct": 0.28,
+            "acum_pct": 98.08,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 28,
+            "nj": "A",
+            "entidad": "INTÉGRITY",
+            "primas": 253967883.0,
+            "part_pct": 0.27,
+            "acum_pct": 98.35,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 29,
+            "nj": "A",
+            "entidad": "CARUSO",
+            "primas": 192257896.0,
+            "part_pct": 0.2,
+            "acum_pct": 98.56,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 30,
+            "nj": "A",
+            "entidad": "LIBRA",
+            "primas": 177309872.0,
+            "part_pct": 0.19,
+            "acum_pct": 98.74,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 31,
+            "nj": "A",
+            "entidad": "COLÓN",
+            "primas": 160081292.0,
+            "part_pct": 0.17,
+            "acum_pct": 98.91,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 32,
+            "nj": "A",
+            "entidad": "VICTORIA",
+            "primas": 138765694.0,
+            "part_pct": 0.15,
+            "acum_pct": 99.06,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 33,
+            "nj": "C",
+            "entidad": "SAN CRISTÓBAL MUTUAL",
+            "primas": 114583280.0,
+            "part_pct": 0.12,
+            "acum_pct": 99.18,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 34,
+            "nj": "A",
+            "entidad": "HOLANDO SUDAMERICANA",
+            "primas": 114074993.0,
+            "part_pct": 0.12,
+            "acum_pct": 99.31,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 35,
+            "nj": "A",
+            "entidad": "NIVEL",
+            "primas": 100822553.0,
+            "part_pct": 0.11,
+            "acum_pct": 99.41,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 36,
+            "nj": "O",
+            "entidad": "INSTITUTO AUTÁRQUICO",
+            "primas": 72333450.0,
+            "part_pct": 0.08,
+            "acum_pct": 99.49,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 37,
+            "nj": "A",
+            "entidad": "DIGNA",
+            "primas": 62082234.0,
+            "part_pct": 0.07,
+            "acum_pct": 99.56,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 38,
+            "nj": "A",
+            "entidad": "SAN GERMÁN",
+            "primas": 48389295.0,
+            "part_pct": 0.05,
+            "acum_pct": 99.61,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 39,
+            "nj": "A",
+            "entidad": "BHN VIDA",
+            "primas": 42605796.0,
+            "part_pct": 0.05,
+            "acum_pct": 99.65,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 40,
+            "nj": "A",
+            "entidad": "EVOLUCIÓN",
+            "primas": 41076821.0,
+            "part_pct": 0.04,
+            "acum_pct": 99.7,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 41,
+            "nj": "A",
+            "entidad": "LIDERAR",
+            "primas": 38689695.0,
+            "part_pct": 0.04,
+            "acum_pct": 99.74,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 42,
+            "nj": "A",
+            "entidad": "GALICIA SAU",
+            "primas": 35951903.0,
+            "part_pct": 0.04,
+            "acum_pct": 99.78,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 43,
+            "nj": "A",
+            "entidad": "ASV",
+            "primas": 31055228.0,
+            "part_pct": 0.03,
+            "acum_pct": 99.81,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 44,
+            "nj": "A",
+            "entidad": "SURCO",
+            "primas": 21323446.0,
+            "part_pct": 0.02,
+            "acum_pct": 99.83,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 45,
+            "nj": "A",
+            "entidad": "GESTIÓN",
+            "primas": 20141435.0,
+            "part_pct": 0.02,
+            "acum_pct": 99.85,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 46,
+            "nj": "A",
+            "entidad": "MISTA PERSONAS",
+            "primas": 19232541.0,
+            "part_pct": 0.02,
+            "acum_pct": 99.88,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 47,
+            "nj": "A",
+            "entidad": "SMSV",
+            "primas": 17458074.0,
+            "part_pct": 0.02,
+            "acum_pct": 99.89,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 48,
+            "nj": "C",
+            "entidad": "SEGURCOOP",
+            "primas": 14752585.0,
+            "part_pct": 0.02,
+            "acum_pct": 99.91,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 49,
+            "nj": "A",
+            "entidad": "ATM",
+            "primas": 14108311.0,
+            "part_pct": 0.02,
+            "acum_pct": 99.92,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 50,
+            "nj": "A",
+            "entidad": "SMG VIDA",
+            "primas": 12771836.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.94,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 51,
+            "nj": "A",
+            "entidad": "TERRITORIAL VIDA",
+            "primas": 12589201.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.95,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 52,
+            "nj": "O",
+            "entidad": "CAJA DE PREVISIÓN",
+            "primas": 11355023.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.96,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 53,
+            "nj": "A",
+            "entidad": "PRUDENCIA",
+            "primas": 9903301.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.97,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 54,
+            "nj": "A",
+            "entidad": "METROPOL",
+            "primas": 8559904.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.98,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 55,
+            "nj": "A",
+            "entidad": "BIND",
+            "primas": 4217387.0,
+            "part_pct": 0.0,
+            "acum_pct": 99.99,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 56,
+            "nj": "C",
+            "entidad": "PRODUCTORES DE FRUTAS",
+            "primas": 3599715.0,
+            "part_pct": 0.0,
+            "acum_pct": 99.99,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 57,
+            "nj": "A",
+            "entidad": "OMINT",
+            "primas": 3291100.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 58,
+            "nj": "O",
+            "entidad": "JUJUY SOCIEDAD DEL ESTADO",
+            "primas": 2625427.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 59,
+            "nj": "A",
+            "entidad": "PREVINCA",
+            "primas": 828638.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 60,
+            "nj": "A",
+            "entidad": "FEDERADA",
+            "primas": 657473.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 61,
+            "nj": "A",
+            "entidad": "SANTA LUCÍA",
+            "primas": 513758.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 62,
+            "nj": "E",
+            "entidad": "ZURICH INTERNATIONAL LIFE",
+            "primas": 25755.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          }
+        ]
+      },
+      "Retiro Colectivo": {
+        "id": "retiro___colectivo",
+        "titulo": "Seguros de Retiro - Colectivo",
+        "ramo_macro": "RETIRO",
+        "total_mercado": 225259356140.0,
+        "cant_entidades": 12,
+        "la_segunda": {
+          "puesto": 5,
+          "primas": 11530510675.0,
+          "cuota": 5.12,
+          "entidad": "SEGUNDA RETIRO"
+        },
+        "lider": {
+          "entidad": "ESTRELLA RETIRO",
+          "primas": 97338736628.0,
+          "cuota": 43.21
+        },
+        "ranking": [
+          {
+            "orden": 1,
+            "nj": "A",
+            "entidad": "ESTRELLA RETIRO",
+            "primas": 97338736628.0,
+            "part_pct": 43.21,
+            "acum_pct": 43.21,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 2,
+            "nj": "A",
+            "entidad": "GGAL RETIRO",
+            "primas": 38482868353.0,
+            "part_pct": 17.08,
+            "acum_pct": 60.3,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 3,
+            "nj": "A",
+            "entidad": "ORÍGENES RETIRO",
+            "primas": 30517049581.0,
+            "part_pct": 13.55,
+            "acum_pct": 73.84,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 4,
+            "nj": "A",
+            "entidad": "NACIÓN RETIRO",
+            "primas": 25761299270.0,
+            "part_pct": 11.44,
+            "acum_pct": 85.28,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 5,
+            "nj": "A",
+            "entidad": "SEGUNDA RETIRO",
+            "primas": 11530510675.0,
+            "part_pct": 5.12,
+            "acum_pct": 90.4,
+            "es_la_segunda": true
+          },
+          {
+            "orden": 6,
+            "nj": "A",
+            "entidad": "SAN CRISTÓBAL RETIRO",
+            "primas": 9330323052.0,
+            "part_pct": 4.14,
+            "acum_pct": 94.54,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 7,
+            "nj": "A",
+            "entidad": "SMG RETIRO",
+            "primas": 4624031393.0,
+            "part_pct": 2.05,
+            "acum_pct": 96.59,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 8,
+            "nj": "A",
+            "entidad": "INST. ENTRE RÍOS RETIRO",
+            "primas": 3469666297.0,
+            "part_pct": 1.54,
+            "acum_pct": 98.13,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 9,
+            "nj": "A",
+            "entidad": "PREVENCIÓN RETIRO",
+            "primas": 1651314069.0,
+            "part_pct": 0.73,
+            "acum_pct": 98.87,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 10,
+            "nj": "A",
+            "entidad": "BINARIA RETIRO",
+            "primas": 1447714024.0,
+            "part_pct": 0.64,
+            "acum_pct": 99.51,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 11,
+            "nj": "A",
+            "entidad": "CREDICOOP RETIRO",
+            "primas": 1100891566.0,
+            "part_pct": 0.49,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 12,
+            "nj": "A",
+            "entidad": "SOLVENCIA RETIRO",
+            "primas": 4951232.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          }
+        ]
+      },
+      "Retiro Individual": {
+        "id": "retiro___individual",
+        "titulo": "Seguros de Retiro - Individual",
+        "ramo_macro": "RETIRO",
+        "total_mercado": 43133599355.0,
+        "cant_entidades": 13,
+        "la_segunda": {
+          "puesto": 4,
+          "primas": 2688628681.0,
+          "cuota": 6.23,
+          "entidad": "SEGUNDA RETIRO"
+        },
+        "lider": {
+          "entidad": "SAN CRISTÓBAL RETIRO",
+          "primas": 20951595159.0,
+          "cuota": 48.57
+        },
+        "ranking": [
+          {
+            "orden": 1,
+            "nj": "A",
+            "entidad": "SAN CRISTÓBAL RETIRO",
+            "primas": 20951595159.0,
+            "part_pct": 48.57,
+            "acum_pct": 48.57,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 2,
+            "nj": "A",
+            "entidad": "PREVENCIÓN RETIRO",
+            "primas": 9356002135.0,
+            "part_pct": 21.69,
+            "acum_pct": 70.26,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 3,
+            "nj": "A",
+            "entidad": "FED. PATRONAL RETIRO",
+            "primas": 4639119304.0,
+            "part_pct": 10.76,
+            "acum_pct": 81.02,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 4,
+            "nj": "A",
+            "entidad": "SEGUNDA RETIRO",
+            "primas": 2688628681.0,
+            "part_pct": 6.23,
+            "acum_pct": 87.25,
+            "es_la_segunda": true
+          },
+          {
+            "orden": 5,
+            "nj": "A",
+            "entidad": "GGAL RETIRO",
+            "primas": 2164771692.0,
+            "part_pct": 5.02,
+            "acum_pct": 92.27,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 6,
+            "nj": "A",
+            "entidad": "ORÍGENES RETIRO",
+            "primas": 1937247089.0,
+            "part_pct": 4.49,
+            "acum_pct": 96.76,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 7,
+            "nj": "A",
+            "entidad": "BINARIA RETIRO",
+            "primas": 800685053.0,
+            "part_pct": 1.86,
+            "acum_pct": 98.62,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 8,
+            "nj": "A",
+            "entidad": "INST. ENTRE RÍOS RETIRO",
+            "primas": 159517569.0,
+            "part_pct": 0.37,
+            "acum_pct": 98.99,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 9,
+            "nj": "A",
+            "entidad": "NACIÓN RETIRO",
+            "primas": 154522363.0,
+            "part_pct": 0.36,
+            "acum_pct": 99.35,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 10,
+            "nj": "A",
+            "entidad": "GALICIA RETIRO",
+            "primas": 140402459.0,
+            "part_pct": 0.33,
+            "acum_pct": 99.67,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 11,
+            "nj": "A",
+            "entidad": "SMG RETIRO",
+            "primas": 104394638.0,
+            "part_pct": 0.24,
+            "acum_pct": 99.91,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 12,
+            "nj": "A",
+            "entidad": "CREDICOOP RETIRO",
+            "primas": 33458590.0,
+            "part_pct": 0.08,
+            "acum_pct": 99.99,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 13,
+            "nj": "A",
+            "entidad": "ESTRELLA RETIRO",
+            "primas": 3254623.0,
+            "part_pct": 0.01,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          }
+        ]
+      },
+      "Salud": {
+        "id": "salud",
+        "titulo": "Seguros de Salud",
+        "ramo_macro": "SALUD",
+        "total_mercado": 41337569009.0,
+        "cant_entidades": 36,
+        "la_segunda": {
+          "puesto": 28,
+          "primas": 64182334.0,
+          "cuota": 0.16,
+          "entidad": "SEGUNDA PERSONAS"
+        },
+        "lider": {
+          "entidad": "INSTITUTO SALTA",
+          "primas": 11677944863.0,
+          "cuota": 28.25
+        },
+        "ranking": [
+          {
+            "orden": 1,
+            "nj": "A",
+            "entidad": "INSTITUTO SALTA",
+            "primas": 11677944863.0,
+            "part_pct": 28.25,
+            "acum_pct": 28.25,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 2,
+            "nj": "C",
+            "entidad": "SANCOR",
+            "primas": 10969024128.0,
+            "part_pct": 26.54,
+            "acum_pct": 54.79,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 3,
+            "nj": "A",
+            "entidad": "FED. PATRONAL",
+            "primas": 5425396023.0,
+            "part_pct": 13.12,
+            "acum_pct": 67.91,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 4,
+            "nj": "A",
+            "entidad": "LIFE",
+            "primas": 3349968782.0,
+            "part_pct": 8.1,
+            "acum_pct": 76.01,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 5,
+            "nj": "A",
+            "entidad": "SMG VIDA",
+            "primas": 1541247021.0,
+            "part_pct": 3.73,
+            "acum_pct": 79.74,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 6,
+            "nj": "A",
+            "entidad": "ASSURANT",
+            "primas": 1364730283.0,
+            "part_pct": 3.3,
+            "acum_pct": 83.04,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 7,
+            "nj": "A",
+            "entidad": "QUALIA",
+            "primas": 1115622303.0,
+            "part_pct": 2.7,
+            "acum_pct": 85.74,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 8,
+            "nj": "A",
+            "entidad": "FEDERADA",
+            "primas": 978528695.0,
+            "part_pct": 2.37,
+            "acum_pct": 88.11,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 9,
+            "nj": "A",
+            "entidad": "CAJA GENERALES",
+            "primas": 803172669.0,
+            "part_pct": 1.94,
+            "acum_pct": 90.05,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 10,
+            "nj": "A",
+            "entidad": "BHN VIDA",
+            "primas": 687937574.0,
+            "part_pct": 1.66,
+            "acum_pct": 91.72,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 11,
+            "nj": "A",
+            "entidad": "BENEFICIO",
+            "primas": 431748969.0,
+            "part_pct": 1.04,
+            "acum_pct": 92.76,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 12,
+            "nj": "A",
+            "entidad": "PREVINCA",
+            "primas": 386774625.0,
+            "part_pct": 0.94,
+            "acum_pct": 93.7,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 13,
+            "nj": "A",
+            "entidad": "COLÓN",
+            "primas": 378835458.0,
+            "part_pct": 0.92,
+            "acum_pct": 94.61,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 14,
+            "nj": "A",
+            "entidad": "PLENARIA",
+            "primas": 247995886.0,
+            "part_pct": 0.6,
+            "acum_pct": 95.21,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 15,
+            "nj": "A",
+            "entidad": "GALICIA S.A.",
+            "primas": 246543585.0,
+            "part_pct": 0.6,
+            "acum_pct": 95.81,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 16,
+            "nj": "A",
+            "entidad": "CHUBB SEGUROS",
+            "primas": 244600756.0,
+            "part_pct": 0.59,
+            "acum_pct": 96.4,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 17,
+            "nj": "A",
+            "entidad": "BBVA SEGUROS",
+            "primas": 231739521.0,
+            "part_pct": 0.56,
+            "acum_pct": 96.96,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 18,
+            "nj": "C",
+            "entidad": "RÍO URUGUAY",
+            "primas": 196444077.0,
+            "part_pct": 0.48,
+            "acum_pct": 97.44,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 19,
+            "nj": "A",
+            "entidad": "ZURICH SANTANDER",
+            "primas": 190918597.0,
+            "part_pct": 0.46,
+            "acum_pct": 97.9,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 20,
+            "nj": "A",
+            "entidad": "EXPERTA",
+            "primas": 176542528.0,
+            "part_pct": 0.43,
+            "acum_pct": 98.33,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 21,
+            "nj": "A",
+            "entidad": "CARUSO",
+            "primas": 95576614.0,
+            "part_pct": 0.23,
+            "acum_pct": 98.56,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 22,
+            "nj": "A",
+            "entidad": "MISTA PERSONAS",
+            "primas": 90820850.0,
+            "part_pct": 0.22,
+            "acum_pct": 98.78,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 23,
+            "nj": "A",
+            "entidad": "ANTICIPAR",
+            "primas": 89673165.0,
+            "part_pct": 0.22,
+            "acum_pct": 98.99,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 24,
+            "nj": "A",
+            "entidad": "SURCO",
+            "primas": 80859890.0,
+            "part_pct": 0.2,
+            "acum_pct": 99.19,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 25,
+            "nj": "A",
+            "entidad": "GALICIA SAU",
+            "primas": 71974242.0,
+            "part_pct": 0.17,
+            "acum_pct": 99.36,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 26,
+            "nj": "A",
+            "entidad": "BINARIA VIDA",
+            "primas": 69427773.0,
+            "part_pct": 0.17,
+            "acum_pct": 99.53,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 27,
+            "nj": "A",
+            "entidad": "CRUZ SUIZA",
+            "primas": 67022416.0,
+            "part_pct": 0.16,
+            "acum_pct": 99.69,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 28,
+            "nj": "A",
+            "entidad": "SEGUNDA PERSONAS",
+            "primas": 64182334.0,
+            "part_pct": 0.16,
+            "acum_pct": 99.85,
+            "es_la_segunda": true
+          },
+          {
+            "orden": 29,
+            "nj": "A",
+            "entidad": "MAPFRE VIDA",
+            "primas": 31752592.0,
+            "part_pct": 0.08,
+            "acum_pct": 99.93,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 30,
+            "nj": "A",
+            "entidad": "ASV",
+            "primas": 12168419.0,
+            "part_pct": 0.03,
+            "acum_pct": 99.96,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 31,
+            "nj": "A",
+            "entidad": "MAÑANA",
+            "primas": 12157751.0,
+            "part_pct": 0.03,
+            "acum_pct": 99.98,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 32,
+            "nj": "A",
+            "entidad": "NOBLE",
+            "primas": 3381374.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.99,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 33,
+            "nj": "A",
+            "entidad": "MERIDIONAL",
+            "primas": 1496293.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 34,
+            "nj": "A",
+            "entidad": "NORTE",
+            "primas": 1212452.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 35,
+            "nj": "A",
+            "entidad": "NACIÓN",
+            "primas": 140714.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 36,
+            "nj": "E",
+            "entidad": "ZURICH INTERNATIONAL LIFE (*)",
+            "primas": 5787.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          }
+        ]
+      },
+      "Sepelio Colectivo": {
+        "id": "sepelio___colectivo",
+        "titulo": "Seguro de Sepelio - Colectivo",
+        "ramo_macro": "SEPELIO",
+        "total_mercado": 131115317574.0,
+        "cant_entidades": 78,
+        "la_segunda": {
+          "puesto": "-",
+          "primas": 0,
+          "cuota": 0.0,
+          "entidad": "SEGUNDA PERSONAS"
+        },
+        "lider": {
+          "entidad": "INSTITUTO SALTA",
+          "primas": 31880658285.0,
+          "cuota": 24.31
+        },
+        "ranking": [
+          {
+            "orden": 1,
+            "nj": "A",
+            "entidad": "INSTITUTO SALTA",
+            "primas": 31880658285.0,
+            "part_pct": 24.31,
+            "acum_pct": 24.31,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 2,
+            "nj": "A",
+            "entidad": "SURCO",
+            "primas": 8947109854.0,
+            "part_pct": 6.82,
+            "acum_pct": 31.14,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 3,
+            "nj": "O",
+            "entidad": "INSTITUTO AUTÁRQUICO",
+            "primas": 7550234090.0,
+            "part_pct": 5.76,
+            "acum_pct": 36.9,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 4,
+            "nj": "A",
+            "entidad": "SOL NACIENTE",
+            "primas": 6707538506.0,
+            "part_pct": 5.12,
+            "acum_pct": 42.01,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 5,
+            "nj": "A",
+            "entidad": "NACIÓN",
+            "primas": 6570893469.0,
+            "part_pct": 5.01,
+            "acum_pct": 47.02,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 6,
+            "nj": "A",
+            "entidad": "MISTA PERSONAS",
+            "primas": 4827447885.0,
+            "part_pct": 3.68,
+            "acum_pct": 50.71,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 7,
+            "nj": "A",
+            "entidad": "SMSV",
+            "primas": 4813323379.0,
+            "part_pct": 3.67,
+            "acum_pct": 54.38,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 8,
+            "nj": "A",
+            "entidad": "BIND",
+            "primas": 4225387728.0,
+            "part_pct": 3.22,
+            "acum_pct": 57.6,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 9,
+            "nj": "A",
+            "entidad": "CERTEZA",
+            "primas": 3929057408.0,
+            "part_pct": 3.0,
+            "acum_pct": 60.6,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 10,
+            "nj": "A",
+            "entidad": "HAMBURGO",
+            "primas": 3890134649.0,
+            "part_pct": 2.97,
+            "acum_pct": 63.56,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 11,
+            "nj": "A",
+            "entidad": "EXPERTA",
+            "primas": 3804465571.0,
+            "part_pct": 2.9,
+            "acum_pct": 66.47,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 12,
+            "nj": "A",
+            "entidad": "BONACORSI PERSONAS",
+            "primas": 3610718069.0,
+            "part_pct": 2.75,
+            "acum_pct": 69.22,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 13,
+            "nj": "A",
+            "entidad": "PREVINCA",
+            "primas": 3216688898.0,
+            "part_pct": 2.45,
+            "acum_pct": 71.67,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 14,
+            "nj": "A",
+            "entidad": "EVOLUCIÓN",
+            "primas": 2882887651.0,
+            "part_pct": 2.2,
+            "acum_pct": 73.87,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 15,
+            "nj": "A",
+            "entidad": "OPCIÓN",
+            "primas": 2858431278.0,
+            "part_pct": 2.18,
+            "acum_pct": 76.05,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 16,
+            "nj": "A",
+            "entidad": "CAMINOS PROTEGIDOS",
+            "primas": 2685230392.0,
+            "part_pct": 2.05,
+            "acum_pct": 78.1,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 17,
+            "nj": "A",
+            "entidad": "SMG VIDA",
+            "primas": 2467355788.0,
+            "part_pct": 1.88,
+            "acum_pct": 79.98,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 18,
+            "nj": "A",
+            "entidad": "MAÑANA",
+            "primas": 2347754948.0,
+            "part_pct": 1.79,
+            "acum_pct": 81.77,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 19,
+            "nj": "A",
+            "entidad": "ANTICIPAR",
+            "primas": 2183852091.0,
+            "part_pct": 1.67,
+            "acum_pct": 83.44,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 20,
+            "nj": "A",
+            "entidad": "CAJA GENERALES",
+            "primas": 2145907430.0,
+            "part_pct": 1.64,
+            "acum_pct": 85.07,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 21,
+            "nj": "A",
+            "entidad": "SENTIR",
+            "primas": 2124123891.0,
+            "part_pct": 1.62,
+            "acum_pct": 86.69,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 22,
+            "nj": "A",
+            "entidad": "INSTITUTO DE SEGUROS",
+            "primas": 1619918773.0,
+            "part_pct": 1.24,
+            "acum_pct": 87.93,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 23,
+            "nj": "A",
+            "entidad": "HORIZONTE",
+            "primas": 1610467011.0,
+            "part_pct": 1.23,
+            "acum_pct": 89.16,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 24,
+            "nj": "A",
+            "entidad": "PARANÁ",
+            "primas": 1359720537.0,
+            "part_pct": 1.04,
+            "acum_pct": 90.19,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 25,
+            "nj": "O",
+            "entidad": "JUJUY SOCIEDAD DEL ESTADO",
+            "primas": 1046926210.0,
+            "part_pct": 0.8,
+            "acum_pct": 90.99,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 26,
+            "nj": "A",
+            "entidad": "ANTÁRTIDA",
+            "primas": 1035020994.0,
+            "part_pct": 0.79,
+            "acum_pct": 91.78,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 27,
+            "nj": "A",
+            "entidad": "PIEVE",
+            "primas": 997046115.0,
+            "part_pct": 0.76,
+            "acum_pct": 92.54,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 28,
+            "nj": "A",
+            "entidad": "INCLUIR PERSONAS",
+            "primas": 939192695.0,
+            "part_pct": 0.72,
+            "acum_pct": 93.26,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 29,
+            "nj": "A",
+            "entidad": "SAN PATRICIO",
+            "primas": 812941108.0,
+            "part_pct": 0.62,
+            "acum_pct": 93.88,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 30,
+            "nj": "A",
+            "entidad": "FEDERADA",
+            "primas": 684639019.0,
+            "part_pct": 0.52,
+            "acum_pct": 94.4,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 31,
+            "nj": "C",
+            "entidad": "LUZ Y FUERZA",
+            "primas": 667781800.0,
+            "part_pct": 0.51,
+            "acum_pct": 94.91,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 32,
+            "nj": "A",
+            "entidad": "MERIDIONAL",
+            "primas": 664388948.0,
+            "part_pct": 0.51,
+            "acum_pct": 95.42,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 33,
+            "nj": "A",
+            "entidad": "COLÓN",
+            "primas": 645847114.0,
+            "part_pct": 0.49,
+            "acum_pct": 95.91,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 34,
+            "nj": "A",
+            "entidad": "LIFE",
+            "primas": 580347587.0,
+            "part_pct": 0.44,
+            "acum_pct": 96.35,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 35,
+            "nj": "A",
+            "entidad": "PROVINCIA",
+            "primas": 539356373.0,
+            "part_pct": 0.41,
+            "acum_pct": 96.76,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 36,
+            "nj": "A",
+            "entidad": "MERCANTIL ASEGURADORA",
+            "primas": 450578889.0,
+            "part_pct": 0.34,
+            "acum_pct": 97.11,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 37,
+            "nj": "A",
+            "entidad": "ASV",
+            "primas": 425407323.0,
+            "part_pct": 0.32,
+            "acum_pct": 97.43,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 38,
+            "nj": "A",
+            "entidad": "FED. PATRONAL",
+            "primas": 418483501.0,
+            "part_pct": 0.32,
+            "acum_pct": 97.75,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 39,
+            "nj": "A",
+            "entidad": "BARBUSS",
+            "primas": 368501569.0,
+            "part_pct": 0.28,
+            "acum_pct": 98.03,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 40,
+            "nj": "A",
+            "entidad": "BENEFICIO",
+            "primas": 363359398.0,
+            "part_pct": 0.28,
+            "acum_pct": 98.31,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 41,
+            "nj": "A",
+            "entidad": "GGAL",
+            "primas": 282631189.0,
+            "part_pct": 0.22,
+            "acum_pct": 98.53,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 42,
+            "nj": "A",
+            "entidad": "LIBRA",
+            "primas": 221872732.0,
+            "part_pct": 0.17,
+            "acum_pct": 98.69,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 43,
+            "nj": "A",
+            "entidad": "PREVISORA",
+            "primas": 214548063.0,
+            "part_pct": 0.16,
+            "acum_pct": 98.86,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 44,
+            "nj": "A",
+            "entidad": "SANTA LUCÍA",
+            "primas": 188700728.0,
+            "part_pct": 0.14,
+            "acum_pct": 99.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 45,
+            "nj": "A",
+            "entidad": "CONFLUENCIA",
+            "primas": 162545918.0,
+            "part_pct": 0.12,
+            "acum_pct": 99.13,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 46,
+            "nj": "A",
+            "entidad": "CHUBB SEGUROS",
+            "primas": 152249936.0,
+            "part_pct": 0.12,
+            "acum_pct": 99.24,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 47,
+            "nj": "A",
+            "entidad": "SAN GERMÁN",
+            "primas": 151429153.0,
+            "part_pct": 0.12,
+            "acum_pct": 99.36,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 48,
+            "nj": "A",
+            "entidad": "MAPFRE VIDA",
+            "primas": 148164383.0,
+            "part_pct": 0.11,
+            "acum_pct": 99.47,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 49,
+            "nj": "A",
+            "entidad": "ESENCIA",
+            "primas": 114311207.0,
+            "part_pct": 0.09,
+            "acum_pct": 99.56,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 50,
+            "nj": "A",
+            "entidad": "CNP",
+            "primas": 102013379.0,
+            "part_pct": 0.08,
+            "acum_pct": 99.64,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 51,
+            "nj": "A",
+            "entidad": "BBVA SEGUROS",
+            "primas": 81493133.0,
+            "part_pct": 0.06,
+            "acum_pct": 99.7,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 52,
+            "nj": "A",
+            "entidad": "SANTÍSIMA TRINIDAD",
+            "primas": 79228115.0,
+            "part_pct": 0.06,
+            "acum_pct": 99.76,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 53,
+            "nj": "A",
+            "entidad": "PLENARIA",
+            "primas": 74686134.0,
+            "part_pct": 0.06,
+            "acum_pct": 99.82,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 54,
+            "nj": "A",
+            "entidad": "NSA",
+            "primas": 49854522.0,
+            "part_pct": 0.04,
+            "acum_pct": 99.85,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 55,
+            "nj": "C",
+            "entidad": "SANCOR",
+            "primas": 37248125.0,
+            "part_pct": 0.03,
+            "acum_pct": 99.88,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 56,
+            "nj": "A",
+            "entidad": "PROGRESO",
+            "primas": 34241936.0,
+            "part_pct": 0.03,
+            "acum_pct": 99.91,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 57,
+            "nj": "A",
+            "entidad": "SANTA CRUZ",
+            "primas": 30308774.0,
+            "part_pct": 0.02,
+            "acum_pct": 99.93,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 58,
+            "nj": "C",
+            "entidad": "TRIUNFO",
+            "primas": 18604189.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.95,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 59,
+            "nj": "A",
+            "entidad": "AURORA",
+            "primas": 16127337.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.96,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 60,
+            "nj": "A",
+            "entidad": "TRES PROVINCIAS PERSONAS",
+            "primas": 14382271.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.97,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 61,
+            "nj": "A",
+            "entidad": "NATIVA",
+            "primas": 7244404.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.97,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 62,
+            "nj": "A",
+            "entidad": "GALENO",
+            "primas": 4836977.0,
+            "part_pct": 0.0,
+            "acum_pct": 99.98,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 63,
+            "nj": "A",
+            "entidad": "LOGRAR PERSONAS",
+            "primas": 4581854.0,
+            "part_pct": 0.0,
+            "acum_pct": 99.98,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 64,
+            "nj": "A",
+            "entidad": "ATM",
+            "primas": 4531280.0,
+            "part_pct": 0.0,
+            "acum_pct": 99.98,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 65,
+            "nj": "C",
+            "entidad": "RÍO URUGUAY",
+            "primas": 4475396.0,
+            "part_pct": 0.0,
+            "acum_pct": 99.99,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 66,
+            "nj": "C",
+            "entidad": "SAN CRISTÓBAL MUTUAL",
+            "primas": 4214050.0,
+            "part_pct": 0.0,
+            "acum_pct": 99.99,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 67,
+            "nj": "A",
+            "entidad": "INTÉGRITY",
+            "primas": 3652454.0,
+            "part_pct": 0.0,
+            "acum_pct": 99.99,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 68,
+            "nj": "A",
+            "entidad": "NIVEL",
+            "primas": 1572687.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 69,
+            "nj": "A",
+            "entidad": "DIGNA",
+            "primas": 1464144.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 70,
+            "nj": "A",
+            "entidad": "VICTORIA",
+            "primas": 1347068.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 71,
+            "nj": "A",
+            "entidad": "CRUZ SUIZA",
+            "primas": 900062.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 72,
+            "nj": "A",
+            "entidad": "INSTITUTO ASEGURADOR",
+            "primas": 783582.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 73,
+            "nj": "A",
+            "entidad": "PRUDENCIA",
+            "primas": 646942.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 74,
+            "nj": "A",
+            "entidad": "CARUSO",
+            "primas": 635627.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 75,
+            "nj": "A",
+            "entidad": "GESTIÓN",
+            "primas": 400270.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 76,
+            "nj": "A",
+            "entidad": "WORANZ",
+            "primas": 158656.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 77,
+            "nj": "A",
+            "entidad": "LA PALABRA PERSONAS",
+            "primas": 78380.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 78,
+            "nj": "A",
+            "entidad": "PROVIDENCIA",
+            "primas": 26293.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          }
+        ]
+      },
+      "Sepelio Individual": {
+        "id": "sepelio___individual",
+        "titulo": "Seguro de Sepelio - Individual",
+        "ramo_macro": "SEPELIO",
+        "total_mercado": 20586885427.0,
+        "cant_entidades": 29,
+        "la_segunda": {
+          "puesto": "-",
+          "primas": 0,
+          "cuota": 0.0,
+          "entidad": "SEGUNDA PERSONAS"
+        },
+        "lider": {
+          "entidad": "TRES PROVINCIAS PERSONAS",
+          "primas": 7751951864.0,
+          "cuota": 37.65
+        },
+        "ranking": [
+          {
+            "orden": 1,
+            "nj": "A",
+            "entidad": "TRES PROVINCIAS PERSONAS",
+            "primas": 7751951864.0,
+            "part_pct": 37.65,
+            "acum_pct": 37.65,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 2,
+            "nj": "C",
+            "entidad": "TRIUNFO",
+            "primas": 7532951082.0,
+            "part_pct": 36.59,
+            "acum_pct": 74.25,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 3,
+            "nj": "C",
+            "entidad": "SANCOR",
+            "primas": 1978732634.0,
+            "part_pct": 9.61,
+            "acum_pct": 83.86,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 4,
+            "nj": "A",
+            "entidad": "FINISTERRE",
+            "primas": 1498067458.0,
+            "part_pct": 7.28,
+            "acum_pct": 91.13,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 5,
+            "nj": "A",
+            "entidad": "FED. PATRONAL",
+            "primas": 502245873.0,
+            "part_pct": 2.44,
+            "acum_pct": 93.57,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 6,
+            "nj": "A",
+            "entidad": "INSTITUTO SALTA",
+            "primas": 272096337.0,
+            "part_pct": 1.32,
+            "acum_pct": 94.9,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 7,
+            "nj": "A",
+            "entidad": "LIBRA",
+            "primas": 244422893.0,
+            "part_pct": 1.19,
+            "acum_pct": 96.08,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 8,
+            "nj": "A",
+            "entidad": "QUALIA",
+            "primas": 223196152.0,
+            "part_pct": 1.08,
+            "acum_pct": 97.17,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 9,
+            "nj": "A",
+            "entidad": "CNP",
+            "primas": 157134836.0,
+            "part_pct": 0.76,
+            "acum_pct": 97.93,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 10,
+            "nj": "O",
+            "entidad": "INSTITUTO AUTÁRQUICO",
+            "primas": 138473371.0,
+            "part_pct": 0.67,
+            "acum_pct": 98.6,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 11,
+            "nj": "A",
+            "entidad": "SENTIR",
+            "primas": 111439052.0,
+            "part_pct": 0.54,
+            "acum_pct": 99.14,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 12,
+            "nj": "A",
+            "entidad": "SANTA LUCÍA",
+            "primas": 51194927.0,
+            "part_pct": 0.25,
+            "acum_pct": 99.39,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 13,
+            "nj": "A",
+            "entidad": "SMSV",
+            "primas": 34205075.0,
+            "part_pct": 0.17,
+            "acum_pct": 99.56,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 14,
+            "nj": "A",
+            "entidad": "DIGNA",
+            "primas": 22451419.0,
+            "part_pct": 0.11,
+            "acum_pct": 99.67,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 15,
+            "nj": "C",
+            "entidad": "RÍO URUGUAY",
+            "primas": 15654483.0,
+            "part_pct": 0.08,
+            "acum_pct": 99.74,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 16,
+            "nj": "A",
+            "entidad": "SMG VIDA",
+            "primas": 14782511.0,
+            "part_pct": 0.07,
+            "acum_pct": 99.82,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 17,
+            "nj": "A",
+            "entidad": "SURCO",
+            "primas": 10725553.0,
+            "part_pct": 0.05,
+            "acum_pct": 99.87,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 18,
+            "nj": "A",
+            "entidad": "MISTA PERSONAS",
+            "primas": 6329554.0,
+            "part_pct": 0.03,
+            "acum_pct": 99.9,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 19,
+            "nj": "A",
+            "entidad": "NIVEL",
+            "primas": 4603462.0,
+            "part_pct": 0.02,
+            "acum_pct": 99.92,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 20,
+            "nj": "A",
+            "entidad": "ANTICIPAR",
+            "primas": 4533016.0,
+            "part_pct": 0.02,
+            "acum_pct": 99.94,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 21,
+            "nj": "C",
+            "entidad": "LUZ Y FUERZA",
+            "primas": 3900215.0,
+            "part_pct": 0.02,
+            "acum_pct": 99.96,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 22,
+            "nj": "A",
+            "entidad": "GALENO",
+            "primas": 3135192.0,
+            "part_pct": 0.02,
+            "acum_pct": 99.98,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 23,
+            "nj": "A",
+            "entidad": "PREVINCA",
+            "primas": 1984121.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.99,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 24,
+            "nj": "A",
+            "entidad": "SAN MARINO",
+            "primas": 1048394.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.99,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 25,
+            "nj": "A",
+            "entidad": "AURORA",
+            "primas": 788691.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 26,
+            "nj": "C",
+            "entidad": "SAN CRISTÓBAL MUTUAL",
+            "primas": 455096.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 27,
+            "nj": "A",
+            "entidad": "GESTIÓN",
+            "primas": 397825.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 28,
+            "nj": "A",
+            "entidad": "CAJA GENERALES",
+            "primas": 152276.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 29,
+            "nj": "A",
+            "entidad": "HOLANDO SUDAMERICANA",
+            "primas": -167935.0,
+            "part_pct": -0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          }
+        ]
+      },
+      "Vida Colectivo": {
+        "id": "vida___colectivo",
+        "titulo": "Seguro de Vida - Colectivo (Optativo / Convenios)",
+        "ramo_macro": "VIDA",
+        "total_mercado": 883541147427.0,
+        "cant_entidades": 103,
+        "la_segunda": {
+          "puesto": 26,
+          "primas": 9539572912.0,
+          "cuota": 1.08,
+          "entidad": "SEGUNDA PERSONAS"
+        },
+        "lider": {
+          "entidad": "LIFE",
+          "primas": 89813704421.0,
+          "cuota": 10.17
+        },
+        "ranking": [
+          {
+            "orden": 1,
+            "nj": "A",
+            "entidad": "LIFE",
+            "primas": 89813704421.0,
+            "part_pct": 10.17,
+            "acum_pct": 10.17,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 2,
+            "nj": "C",
+            "entidad": "SANCOR",
+            "primas": 89622841240.0,
+            "part_pct": 10.14,
+            "acum_pct": 20.31,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 3,
+            "nj": "A",
+            "entidad": "PROVINCIA",
+            "primas": 77793952135.0,
+            "part_pct": 8.8,
+            "acum_pct": 29.11,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 4,
+            "nj": "A",
+            "entidad": "CARUSO",
+            "primas": 71329971372.0,
+            "part_pct": 8.07,
+            "acum_pct": 37.19,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 5,
+            "nj": "A",
+            "entidad": "CAJA GENERALES",
+            "primas": 65592471277.0,
+            "part_pct": 7.42,
+            "acum_pct": 44.61,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 6,
+            "nj": "A",
+            "entidad": "ZURICH SANTANDER",
+            "primas": 51394159020.0,
+            "part_pct": 5.82,
+            "acum_pct": 50.43,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 7,
+            "nj": "A",
+            "entidad": "SOL NACIENTE",
+            "primas": 24288410395.0,
+            "part_pct": 2.75,
+            "acum_pct": 53.18,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 8,
+            "nj": "A",
+            "entidad": "EVOLUCIÓN",
+            "primas": 23565703488.0,
+            "part_pct": 2.67,
+            "acum_pct": 55.84,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 9,
+            "nj": "A",
+            "entidad": "GALICIA SAU",
+            "primas": 21597692480.0,
+            "part_pct": 2.44,
+            "acum_pct": 58.29,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 10,
+            "nj": "A",
+            "entidad": "SURCO",
+            "primas": 21332588419.0,
+            "part_pct": 2.41,
+            "acum_pct": 60.7,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 11,
+            "nj": "A",
+            "entidad": "SUPERVIELLE",
+            "primas": 20067498304.0,
+            "part_pct": 2.27,
+            "acum_pct": 62.97,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 12,
+            "nj": "A",
+            "entidad": "BBVA SEGUROS",
+            "primas": 18715245201.0,
+            "part_pct": 2.12,
+            "acum_pct": 65.09,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 13,
+            "nj": "A",
+            "entidad": "GALICIA S.A.",
+            "primas": 16135514129.0,
+            "part_pct": 1.83,
+            "acum_pct": 66.92,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 14,
+            "nj": "A",
+            "entidad": "SMG VIDA",
+            "primas": 14019861046.0,
+            "part_pct": 1.59,
+            "acum_pct": 68.5,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 15,
+            "nj": "O",
+            "entidad": "CAJA DE TUCUMÁN",
+            "primas": 13436552070.0,
+            "part_pct": 1.52,
+            "acum_pct": 70.03,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 16,
+            "nj": "A",
+            "entidad": "QUALIA",
+            "primas": 13424593942.0,
+            "part_pct": 1.52,
+            "acum_pct": 71.55,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 17,
+            "nj": "A",
+            "entidad": "CNP",
+            "primas": 13168586785.0,
+            "part_pct": 1.49,
+            "acum_pct": 73.04,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 18,
+            "nj": "A",
+            "entidad": "SMSV",
+            "primas": 12736864482.0,
+            "part_pct": 1.44,
+            "acum_pct": 74.48,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 19,
+            "nj": "A",
+            "entidad": "NACIÓN",
+            "primas": 12541602115.0,
+            "part_pct": 1.42,
+            "acum_pct": 75.9,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 20,
+            "nj": "A",
+            "entidad": "FED. PATRONAL",
+            "primas": 12088122567.0,
+            "part_pct": 1.37,
+            "acum_pct": 77.26,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 21,
+            "nj": "A",
+            "entidad": "ZURICH",
+            "primas": 10452164763.0,
+            "part_pct": 1.18,
+            "acum_pct": 78.45,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 22,
+            "nj": "A",
+            "entidad": "INSTITUTO SALTA",
+            "primas": 10278438639.0,
+            "part_pct": 1.16,
+            "acum_pct": 79.61,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 23,
+            "nj": "A",
+            "entidad": "HORIZONTE",
+            "primas": 10173856867.0,
+            "part_pct": 1.15,
+            "acum_pct": 80.76,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 24,
+            "nj": "A",
+            "entidad": "CONFLUENCIA",
+            "primas": 9964632642.0,
+            "part_pct": 1.13,
+            "acum_pct": 81.89,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 25,
+            "nj": "A",
+            "entidad": "ALLIANZ",
+            "primas": 9698614765.0,
+            "part_pct": 1.1,
+            "acum_pct": 82.99,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 26,
+            "nj": "A",
+            "entidad": "SEGUNDA PERSONAS",
+            "primas": 9539572912.0,
+            "part_pct": 1.08,
+            "acum_pct": 84.07,
+            "es_la_segunda": true
+          },
+          {
+            "orden": 27,
+            "nj": "A",
+            "entidad": "BHN VIDA",
+            "primas": 9464304025.0,
+            "part_pct": 1.07,
+            "acum_pct": 85.14,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 28,
+            "nj": "A",
+            "entidad": "GGAL",
+            "primas": 9034320535.0,
+            "part_pct": 1.02,
+            "acum_pct": 86.16,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 29,
+            "nj": "A",
+            "entidad": "MAÑANA",
+            "primas": 8617475518.0,
+            "part_pct": 0.98,
+            "acum_pct": 87.14,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 30,
+            "nj": "A",
+            "entidad": "BINARIA VIDA",
+            "primas": 8458027784.0,
+            "part_pct": 0.96,
+            "acum_pct": 88.09,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 31,
+            "nj": "A",
+            "entidad": "HAMBURGO",
+            "primas": 8342544193.0,
+            "part_pct": 0.94,
+            "acum_pct": 89.04,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 32,
+            "nj": "A",
+            "entidad": "BARBUSS",
+            "primas": 6122320551.0,
+            "part_pct": 0.69,
+            "acum_pct": 89.73,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 33,
+            "nj": "A",
+            "entidad": "INSTITUTO ASEGURADOR",
+            "primas": 5592235936.0,
+            "part_pct": 0.63,
+            "acum_pct": 90.36,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 34,
+            "nj": "A",
+            "entidad": "PARANÁ",
+            "primas": 5035357027.0,
+            "part_pct": 0.57,
+            "acum_pct": 90.93,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 35,
+            "nj": "A",
+            "entidad": "MERCANTIL ANDINA",
+            "primas": 4914891189.0,
+            "part_pct": 0.56,
+            "acum_pct": 91.49,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 36,
+            "nj": "A",
+            "entidad": "INSTITUTO DE SEGUROS",
+            "primas": 4911830941.0,
+            "part_pct": 0.56,
+            "acum_pct": 92.05,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 37,
+            "nj": "O",
+            "entidad": "INSTITUTO AUTÁRQUICO",
+            "primas": 4709370709.0,
+            "part_pct": 0.53,
+            "acum_pct": 92.58,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 38,
+            "nj": "A",
+            "entidad": "MAPFRE VIDA",
+            "primas": 4072208997.0,
+            "part_pct": 0.46,
+            "acum_pct": 93.04,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 39,
+            "nj": "A",
+            "entidad": "HOLANDO SUDAMERICANA",
+            "primas": 3683165037.0,
+            "part_pct": 0.42,
+            "acum_pct": 93.46,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 40,
+            "nj": "A",
+            "entidad": "SAN GERMÁN",
+            "primas": 3681789204.0,
+            "part_pct": 0.42,
+            "acum_pct": 93.87,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 41,
+            "nj": "A",
+            "entidad": "EXPERTA",
+            "primas": 3569682690.0,
+            "part_pct": 0.4,
+            "acum_pct": 94.28,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 42,
+            "nj": "C",
+            "entidad": "SAN CRISTÓBAL MUTUAL",
+            "primas": 3441583895.0,
+            "part_pct": 0.39,
+            "acum_pct": 94.67,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 43,
+            "nj": "A",
+            "entidad": "BERKLEY",
+            "primas": 3371235333.0,
+            "part_pct": 0.38,
+            "acum_pct": 95.05,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 44,
+            "nj": "C",
+            "entidad": "SEGURCOOP",
+            "primas": 3352478272.0,
+            "part_pct": 0.38,
+            "acum_pct": 95.43,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 45,
+            "nj": "A",
+            "entidad": "COLÓN",
+            "primas": 3341145443.0,
+            "part_pct": 0.38,
+            "acum_pct": 95.81,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 46,
+            "nj": "A",
+            "entidad": "ASV",
+            "primas": 3236284701.0,
+            "part_pct": 0.37,
+            "acum_pct": 96.17,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 47,
+            "nj": "A",
+            "entidad": "EDIFICAR",
+            "primas": 3094972648.0,
+            "part_pct": 0.35,
+            "acum_pct": 96.52,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 48,
+            "nj": "A",
+            "entidad": "SAN PATRICIO",
+            "primas": 2468120053.0,
+            "part_pct": 0.28,
+            "acum_pct": 96.8,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 49,
+            "nj": "O",
+            "entidad": "JUJUY SOCIEDAD DEL ESTADO",
+            "primas": 2000637013.0,
+            "part_pct": 0.23,
+            "acum_pct": 97.03,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 50,
+            "nj": "A",
+            "entidad": "MERIDIONAL",
+            "primas": 1757483102.0,
+            "part_pct": 0.2,
+            "acum_pct": 97.23,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 51,
+            "nj": "A",
+            "entidad": "BENEFICIO",
+            "primas": 1695133643.0,
+            "part_pct": 0.19,
+            "acum_pct": 97.42,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 52,
+            "nj": "A",
+            "entidad": "GALENO",
+            "primas": 1520786564.0,
+            "part_pct": 0.17,
+            "acum_pct": 97.59,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 53,
+            "nj": "A",
+            "entidad": "PLENARIA",
+            "primas": 1495197653.0,
+            "part_pct": 0.17,
+            "acum_pct": 97.76,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 54,
+            "nj": "A",
+            "entidad": "ASSURANT",
+            "primas": 1487919159.0,
+            "part_pct": 0.17,
+            "acum_pct": 97.93,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 55,
+            "nj": "A",
+            "entidad": "LOGRAR PERSONAS",
+            "primas": 1441817219.0,
+            "part_pct": 0.16,
+            "acum_pct": 98.09,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 56,
+            "nj": "A",
+            "entidad": "OPCIÓN",
+            "primas": 1349172048.0,
+            "part_pct": 0.15,
+            "acum_pct": 98.25,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 57,
+            "nj": "A",
+            "entidad": "DIGNA",
+            "primas": 1222019213.0,
+            "part_pct": 0.14,
+            "acum_pct": 98.38,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 58,
+            "nj": "A",
+            "entidad": "PREVINCA",
+            "primas": 948762477.0,
+            "part_pct": 0.11,
+            "acum_pct": 98.49,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 59,
+            "nj": "O",
+            "entidad": "CAJA DE PREVISIÓN",
+            "primas": 925375653.0,
+            "part_pct": 0.1,
+            "acum_pct": 98.6,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 60,
+            "nj": "A",
+            "entidad": "CAMINOS PROTEGIDOS",
+            "primas": 876043591.0,
+            "part_pct": 0.1,
+            "acum_pct": 98.69,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 61,
+            "nj": "A",
+            "entidad": "NOBLE",
+            "primas": 747504796.0,
+            "part_pct": 0.08,
+            "acum_pct": 98.78,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 62,
+            "nj": "A",
+            "entidad": "NORTE",
+            "primas": 746657977.0,
+            "part_pct": 0.08,
+            "acum_pct": 98.86,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 63,
+            "nj": "C",
+            "entidad": "RÍO URUGUAY",
+            "primas": 689410266.0,
+            "part_pct": 0.08,
+            "acum_pct": 98.94,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 64,
+            "nj": "A",
+            "entidad": "VICTORIA",
+            "primas": 669709041.0,
+            "part_pct": 0.08,
+            "acum_pct": 99.02,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 65,
+            "nj": "C",
+            "entidad": "PRODUCTORES DE FRUTAS",
+            "primas": 578086554.0,
+            "part_pct": 0.07,
+            "acum_pct": 99.08,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 66,
+            "nj": "A",
+            "entidad": "EQUITATIVA DEL PLATA",
+            "primas": 572645884.0,
+            "part_pct": 0.06,
+            "acum_pct": 99.15,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 67,
+            "nj": "A",
+            "entidad": "PIEVE",
+            "primas": 572411229.0,
+            "part_pct": 0.06,
+            "acum_pct": 99.21,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 68,
+            "nj": "A",
+            "entidad": "INTÉGRITY",
+            "primas": 527962096.0,
+            "part_pct": 0.06,
+            "acum_pct": 99.27,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 69,
+            "nj": "A",
+            "entidad": "OMINT",
+            "primas": 502341124.0,
+            "part_pct": 0.06,
+            "acum_pct": 99.33,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 70,
+            "nj": "A",
+            "entidad": "BIND",
+            "primas": 493318713.0,
+            "part_pct": 0.06,
+            "acum_pct": 99.39,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 71,
+            "nj": "A",
+            "entidad": "AURORA",
+            "primas": 467770124.0,
+            "part_pct": 0.05,
+            "acum_pct": 99.44,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 72,
+            "nj": "C",
+            "entidad": "BERNARDINO RIVADAVIA",
+            "primas": 448064864.0,
+            "part_pct": 0.05,
+            "acum_pct": 99.49,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 73,
+            "nj": "A",
+            "entidad": "MISTA PERSONAS",
+            "primas": 400252404.0,
+            "part_pct": 0.05,
+            "acum_pct": 99.53,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 74,
+            "nj": "A",
+            "entidad": "SANTA CRUZ",
+            "primas": 390584490.0,
+            "part_pct": 0.04,
+            "acum_pct": 99.58,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 75,
+            "nj": "C",
+            "entidad": "TRIUNFO",
+            "primas": 384689451.0,
+            "part_pct": 0.04,
+            "acum_pct": 99.62,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 76,
+            "nj": "C",
+            "entidad": "LUZ Y FUERZA",
+            "primas": 369838911.0,
+            "part_pct": 0.04,
+            "acum_pct": 99.66,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 77,
+            "nj": "A",
+            "entidad": "NIVEL",
+            "primas": 352489361.0,
+            "part_pct": 0.04,
+            "acum_pct": 99.7,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 78,
+            "nj": "A",
+            "entidad": "SENTIR",
+            "primas": 315947856.0,
+            "part_pct": 0.04,
+            "acum_pct": 99.74,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 79,
+            "nj": "A",
+            "entidad": "INCLUIR PERSONAS",
+            "primas": 300830388.0,
+            "part_pct": 0.03,
+            "acum_pct": 99.77,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 80,
+            "nj": "A",
+            "entidad": "GESTIÓN",
+            "primas": 283759927.0,
+            "part_pct": 0.03,
+            "acum_pct": 99.81,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 81,
+            "nj": "A",
+            "entidad": "FEDERADA",
+            "primas": 282574636.0,
+            "part_pct": 0.03,
+            "acum_pct": 99.84,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 82,
+            "nj": "A",
+            "entidad": "SANTA LUCÍA",
+            "primas": 199066590.0,
+            "part_pct": 0.02,
+            "acum_pct": 99.86,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 83,
+            "nj": "A",
+            "entidad": "CRUZ SUIZA",
+            "primas": 162780243.0,
+            "part_pct": 0.02,
+            "acum_pct": 99.88,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 84,
+            "nj": "A",
+            "entidad": "LIBRA",
+            "primas": 131533038.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.89,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 85,
+            "nj": "C",
+            "entidad": "SEGUROMETAL",
+            "primas": 126585451.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.91,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 86,
+            "nj": "A",
+            "entidad": "WORANZ",
+            "primas": 124930926.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.92,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 87,
+            "nj": "A",
+            "entidad": "PROVIDENCIA",
+            "primas": 109982123.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.93,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 88,
+            "nj": "A",
+            "entidad": "PRUDENCIA",
+            "primas": 105055015.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.95,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 89,
+            "nj": "A",
+            "entidad": "PERSEVERANCIA",
+            "primas": 98455067.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.96,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 90,
+            "nj": "A",
+            "entidad": "SANTÍSIMA TRINIDAD",
+            "primas": 98072635.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.97,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 91,
+            "nj": "A",
+            "entidad": "ANTICIPAR",
+            "primas": 71506966.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.98,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 92,
+            "nj": "A",
+            "entidad": "CHUBB SEGUROS",
+            "primas": 66894286.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.98,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 93,
+            "nj": "C",
+            "entidad": "MUTUAL PATRONAL",
+            "primas": 53285518.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.99,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 94,
+            "nj": "A",
+            "entidad": "TERRITORIAL VIDA",
+            "primas": 29155589.0,
+            "part_pct": 0.0,
+            "acum_pct": 99.99,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 95,
+            "nj": "A",
+            "entidad": "LATITUD SUR",
+            "primas": 22214991.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 96,
+            "nj": "A",
+            "entidad": "ANTÁRTIDA",
+            "primas": 21721796.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 97,
+            "nj": "A",
+            "entidad": "METROPOL",
+            "primas": 18152302.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 98,
+            "nj": "A",
+            "entidad": "NATIVA",
+            "primas": 10061551.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 99,
+            "nj": "C",
+            "entidad": "COPAN",
+            "primas": 7813039.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 100,
+            "nj": "A",
+            "entidad": "LIDERAR",
+            "primas": 3323562.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 101,
+            "nj": "A",
+            "entidad": "SEGUROS MÉDICOS",
+            "primas": 49173.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 102,
+            "nj": "A",
+            "entidad": "ATM",
+            "primas": 17410.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 103,
+            "nj": "A",
+            "entidad": "TRES PROVINCIAS PERSONAS",
+            "primas": -25267428.0,
+            "part_pct": -0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          }
+        ]
+      },
+      "Vida Individual": {
+        "id": "vida___individual",
+        "titulo": "Seguro de Vida - Individual",
+        "ramo_macro": "VIDA",
+        "total_mercado": 483986462542.0,
+        "cant_entidades": 65,
+        "la_segunda": {
+          "puesto": 24,
+          "primas": 624244050.0,
+          "cuota": 0.13,
+          "entidad": "SEGUNDA PERSONAS"
+        },
+        "lider": {
+          "entidad": "ZURICH INTERNATIONAL LIFE (*)",
+          "primas": 87362982821.0,
+          "cuota": 18.05
+        },
+        "ranking": [
+          {
+            "orden": 1,
+            "nj": "E",
+            "entidad": "ZURICH INTERNATIONAL LIFE (*)",
+            "primas": 87362982821.0,
+            "part_pct": 18.05,
+            "acum_pct": 18.05,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 2,
+            "nj": "A",
+            "entidad": "LIFE",
+            "primas": 83401423785.0,
+            "part_pct": 17.23,
+            "acum_pct": 35.28,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 3,
+            "nj": "A",
+            "entidad": "SMG VIDA",
+            "primas": 38196096550.0,
+            "part_pct": 7.89,
+            "acum_pct": 43.17,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 4,
+            "nj": "A",
+            "entidad": "FED. PATRONAL",
+            "primas": 34938922484.0,
+            "part_pct": 7.22,
+            "acum_pct": 50.39,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 5,
+            "nj": "A",
+            "entidad": "ATM",
+            "primas": 31757805969.0,
+            "part_pct": 6.56,
+            "acum_pct": 56.96,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 6,
+            "nj": "A",
+            "entidad": "GGAL",
+            "primas": 29265898246.0,
+            "part_pct": 6.05,
+            "acum_pct": 63.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 7,
+            "nj": "A",
+            "entidad": "PROVINCIA VIDA",
+            "primas": 27371923055.0,
+            "part_pct": 5.66,
+            "acum_pct": 68.66,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 8,
+            "nj": "A",
+            "entidad": "BINARIA VIDA",
+            "primas": 22700606421.0,
+            "part_pct": 4.69,
+            "acum_pct": 73.35,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 9,
+            "nj": "A",
+            "entidad": "PRUDENCIA",
+            "primas": 21232402564.0,
+            "part_pct": 4.39,
+            "acum_pct": 77.74,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 10,
+            "nj": "A",
+            "entidad": "PARANÁ",
+            "primas": 19944074518.0,
+            "part_pct": 4.12,
+            "acum_pct": 81.86,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 11,
+            "nj": "A",
+            "entidad": "LIDERAR",
+            "primas": 16415267042.0,
+            "part_pct": 3.39,
+            "acum_pct": 85.25,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 12,
+            "nj": "A",
+            "entidad": "CNP",
+            "primas": 15326915966.0,
+            "part_pct": 3.17,
+            "acum_pct": 88.41,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 13,
+            "nj": "A",
+            "entidad": "EDIFICAR",
+            "primas": 11555126841.0,
+            "part_pct": 2.39,
+            "acum_pct": 90.8,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 14,
+            "nj": "A",
+            "entidad": "GALICIA SAU",
+            "primas": 9370098709.0,
+            "part_pct": 1.94,
+            "acum_pct": 92.74,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 15,
+            "nj": "C",
+            "entidad": "SANCOR",
+            "primas": 7905415665.0,
+            "part_pct": 1.63,
+            "acum_pct": 94.37,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 16,
+            "nj": "C",
+            "entidad": "TRIUNFO",
+            "primas": 7601734088.0,
+            "part_pct": 1.57,
+            "acum_pct": 95.94,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 17,
+            "nj": "A",
+            "entidad": "SMSV",
+            "primas": 4774387646.0,
+            "part_pct": 0.99,
+            "acum_pct": 96.93,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 18,
+            "nj": "A",
+            "entidad": "EQUITATIVA DEL PLATA",
+            "primas": 3955696763.0,
+            "part_pct": 0.82,
+            "acum_pct": 97.75,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 19,
+            "nj": "A",
+            "entidad": "GALICIA S.A.",
+            "primas": 2540427582.0,
+            "part_pct": 0.52,
+            "acum_pct": 98.27,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 20,
+            "nj": "C",
+            "entidad": "RÍO URUGUAY",
+            "primas": 1578032234.0,
+            "part_pct": 0.33,
+            "acum_pct": 98.6,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 21,
+            "nj": "A",
+            "entidad": "NIVEL",
+            "primas": 1552074132.0,
+            "part_pct": 0.32,
+            "acum_pct": 98.92,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 22,
+            "nj": "A",
+            "entidad": "DIGNA",
+            "primas": 761337183.0,
+            "part_pct": 0.16,
+            "acum_pct": 99.07,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 23,
+            "nj": "A",
+            "entidad": "BENEFICIO",
+            "primas": 634749784.0,
+            "part_pct": 0.13,
+            "acum_pct": 99.21,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 24,
+            "nj": "A",
+            "entidad": "SEGUNDA PERSONAS",
+            "primas": 624244050.0,
+            "part_pct": 0.13,
+            "acum_pct": 99.33,
+            "es_la_segunda": true
+          },
+          {
+            "orden": 25,
+            "nj": "A",
+            "entidad": "EUROAMÉRICA",
+            "primas": 506747541.0,
+            "part_pct": 0.1,
+            "acum_pct": 99.44,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 26,
+            "nj": "A",
+            "entidad": "TRES PROVINCIAS PERSONAS",
+            "primas": 466617543.0,
+            "part_pct": 0.1,
+            "acum_pct": 99.54,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 27,
+            "nj": "C",
+            "entidad": "BERNARDINO RIVADAVIA",
+            "primas": 458025060.0,
+            "part_pct": 0.09,
+            "acum_pct": 99.63,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 28,
+            "nj": "A",
+            "entidad": "INSTITUTO SALTA",
+            "primas": 330563215.0,
+            "part_pct": 0.07,
+            "acum_pct": 99.7,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 29,
+            "nj": "A",
+            "entidad": "FEDERADA",
+            "primas": 210220862.0,
+            "part_pct": 0.04,
+            "acum_pct": 99.74,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 30,
+            "nj": "A",
+            "entidad": "ANTÁRTIDA",
+            "primas": 181353780.0,
+            "part_pct": 0.04,
+            "acum_pct": 99.78,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 31,
+            "nj": "A",
+            "entidad": "ALLIANZ",
+            "primas": 178817687.0,
+            "part_pct": 0.04,
+            "acum_pct": 99.82,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 32,
+            "nj": "A",
+            "entidad": "ZURICH",
+            "primas": 156785299.0,
+            "part_pct": 0.03,
+            "acum_pct": 99.85,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 33,
+            "nj": "C",
+            "entidad": "MUTUAL PATRONAL",
+            "primas": 114918238.0,
+            "part_pct": 0.02,
+            "acum_pct": 99.87,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 34,
+            "nj": "A",
+            "entidad": "ASEGURADORA DE BIENES Y SERVICIOS",
+            "primas": 97841499.0,
+            "part_pct": 0.02,
+            "acum_pct": 99.89,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 35,
+            "nj": "C",
+            "entidad": "SAN CRISTÓBAL MUTUAL",
+            "primas": 84023324.0,
+            "part_pct": 0.02,
+            "acum_pct": 99.91,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 36,
+            "nj": "A",
+            "entidad": "NOBLE",
+            "primas": 79653485.0,
+            "part_pct": 0.02,
+            "acum_pct": 99.93,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 37,
+            "nj": "A",
+            "entidad": "LIBRA",
+            "primas": 54504505.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.94,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 38,
+            "nj": "O",
+            "entidad": "INSTITUTO AUTÁRQUICO",
+            "primas": 47951357.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.95,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 39,
+            "nj": "A",
+            "entidad": "BHN VIDA",
+            "primas": 33870065.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.96,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 40,
+            "nj": "A",
+            "entidad": "CARUSO",
+            "primas": 30934155.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.96,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 41,
+            "nj": "A",
+            "entidad": "QUALIA",
+            "primas": 26416918.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.97,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 42,
+            "nj": "A",
+            "entidad": "EVOLUCIÓN",
+            "primas": 26090358.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.97,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 43,
+            "nj": "A",
+            "entidad": "CAJA GENERALES",
+            "primas": 22964698.0,
+            "part_pct": 0.0,
+            "acum_pct": 99.98,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 44,
+            "nj": "A",
+            "entidad": "HOLANDO SUDAMERICANA",
+            "primas": 22723477.0,
+            "part_pct": 0.0,
+            "acum_pct": 99.98,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 45,
+            "nj": "A",
+            "entidad": "MERCANTIL ANDINA",
+            "primas": 15631766.0,
+            "part_pct": 0.0,
+            "acum_pct": 99.99,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 46,
+            "nj": "A",
+            "entidad": "MISTA PERSONAS",
+            "primas": 12881641.0,
+            "part_pct": 0.0,
+            "acum_pct": 99.99,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 47,
+            "nj": "A",
+            "entidad": "ANTICIPAR",
+            "primas": 10147286.0,
+            "part_pct": 0.0,
+            "acum_pct": 99.99,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 48,
+            "nj": "A",
+            "entidad": "PREVINCA",
+            "primas": 10062874.0,
+            "part_pct": 0.0,
+            "acum_pct": 99.99,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 49,
+            "nj": "A",
+            "entidad": "SAN PATRICIO",
+            "primas": 10034529.0,
+            "part_pct": 0.0,
+            "acum_pct": 99.99,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 50,
+            "nj": "A",
+            "entidad": "MAPFRE VIDA",
+            "primas": 6972293.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 51,
+            "nj": "A",
+            "entidad": "INSTITUTO ASEGURADOR",
+            "primas": 4863772.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 52,
+            "nj": "A",
+            "entidad": "PROVIDENCIA",
+            "primas": 3466240.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 53,
+            "nj": "A",
+            "entidad": "NACIÓN",
+            "primas": 2631665.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 54,
+            "nj": "A",
+            "entidad": "HAMBURGO",
+            "primas": 2573825.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 55,
+            "nj": "A",
+            "entidad": "BERKLEY",
+            "primas": 1904041.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 56,
+            "nj": "A",
+            "entidad": "PERSEVERANCIA",
+            "primas": 1599867.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 57,
+            "nj": "A",
+            "entidad": "SUPERVIELLE",
+            "primas": 1484493.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 58,
+            "nj": "A",
+            "entidad": "SURCO",
+            "primas": 1253206.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 59,
+            "nj": "A",
+            "entidad": "SAN CRISTÓBAL RETIRO",
+            "primas": 852702.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 60,
+            "nj": "C",
+            "entidad": "SEGUROMETAL",
+            "primas": 718363.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 61,
+            "nj": "A",
+            "entidad": "BARBUSS",
+            "primas": 623012.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 62,
+            "nj": "A",
+            "entidad": "ASSURANT",
+            "primas": 61715.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 63,
+            "nj": "A",
+            "entidad": "WORANZ",
+            "primas": 21170.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 64,
+            "nj": "O",
+            "entidad": "CAJA DE PREVISIÓN",
+            "primas": 10151.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 65,
+            "nj": "A",
+            "entidad": "PLENARIA",
+            "primas": 767.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          }
+        ]
+      },
+      "Vida Obligatorios": {
+        "id": "vida___obligatorios",
+        "titulo": "Seguro Colectivo de Vida Obligatorio (Dec. 1567/74 y Leyes)",
+        "ramo_macro": "VIDA",
+        "total_mercado": 5151555394.0,
+        "cant_entidades": 21,
+        "la_segunda": {
+          "puesto": 1,
+          "primas": 3649687435.0,
+          "cuota": 70.85,
+          "entidad": "SEGUNDA PERSONAS"
+        },
+        "lider": {
+          "entidad": "SEGUNDA PERSONAS",
+          "primas": 3649687435.0,
+          "cuota": 70.85
+        },
+        "ranking": [
+          {
+            "orden": 1,
+            "nj": "A",
+            "entidad": "SEGUNDA PERSONAS",
+            "primas": 3649687435.0,
+            "part_pct": 70.85,
+            "acum_pct": 70.85,
+            "es_la_segunda": true
+          },
+          {
+            "orden": 2,
+            "nj": "A",
+            "entidad": "SURCO",
+            "primas": 892535331.0,
+            "part_pct": 17.33,
+            "acum_pct": 88.17,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 3,
+            "nj": "C",
+            "entidad": "MUTUAL PATRONAL",
+            "primas": 339407176.0,
+            "part_pct": 6.59,
+            "acum_pct": 94.76,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 4,
+            "nj": "A",
+            "entidad": "CAJA GENERALES",
+            "primas": 137525238.0,
+            "part_pct": 2.67,
+            "acum_pct": 97.43,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 5,
+            "nj": "A",
+            "entidad": "BENEFICIO",
+            "primas": 31661598.0,
+            "part_pct": 0.61,
+            "acum_pct": 98.04,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 6,
+            "nj": "A",
+            "entidad": "MAPFRE VIDA",
+            "primas": 25844798.0,
+            "part_pct": 0.5,
+            "acum_pct": 98.55,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 7,
+            "nj": "A",
+            "entidad": "INSTITUTO ASEGURADOR",
+            "primas": 25653202.0,
+            "part_pct": 0.5,
+            "acum_pct": 99.04,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 8,
+            "nj": "C",
+            "entidad": "RÍO URUGUAY",
+            "primas": 24062677.0,
+            "part_pct": 0.47,
+            "acum_pct": 99.51,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 9,
+            "nj": "A",
+            "entidad": "EQUITATIVA DEL PLATA",
+            "primas": 19759579.0,
+            "part_pct": 0.38,
+            "acum_pct": 99.89,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 10,
+            "nj": "A",
+            "entidad": "BARBUSS",
+            "primas": 9645536.0,
+            "part_pct": 0.19,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 11,
+            "nj": "A",
+            "entidad": "VICTORIA",
+            "primas": 8841731.0,
+            "part_pct": 0.17,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 12,
+            "nj": "C",
+            "entidad": "SEGUROMETAL",
+            "primas": 6156283.0,
+            "part_pct": 0.12,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 13,
+            "nj": "O",
+            "entidad": "INSTITUTO AUTÁRQUICO",
+            "primas": 3102044.0,
+            "part_pct": 0.06,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 14,
+            "nj": "A",
+            "entidad": "CRUZ SUIZA",
+            "primas": 2643522.0,
+            "part_pct": 0.05,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 15,
+            "nj": "A",
+            "entidad": "METROPOL",
+            "primas": 2515364.0,
+            "part_pct": 0.05,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 16,
+            "nj": "A",
+            "entidad": "NACIÓN",
+            "primas": 2011218.0,
+            "part_pct": 0.04,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 17,
+            "nj": "A",
+            "entidad": "SMG VIDA",
+            "primas": 1971840.0,
+            "part_pct": 0.04,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 18,
+            "nj": "A",
+            "entidad": "OMINT",
+            "primas": 331547.0,
+            "part_pct": 0.01,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 19,
+            "nj": "A",
+            "entidad": "TERRITORIAL VIDA",
+            "primas": 219.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 20,
+            "nj": "A",
+            "entidad": "BBVA SEGUROS",
+            "primas": -381946.0,
+            "part_pct": -0.01,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 21,
+            "nj": "A",
+            "entidad": "INSTITUTO DE SEGUROS",
+            "primas": -31418998.0,
+            "part_pct": -0.61,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          }
+        ]
+      },
+      "Vida Saldo Deudor": {
+        "id": "vida___saldo_deudor",
+        "titulo": "Seguro de Vida - Saldo Deudor (Bancario y Financiero)",
+        "ramo_macro": "VIDA",
+        "total_mercado": 383632835279.0,
+        "cant_entidades": 49,
+        "la_segunda": {
+          "puesto": 19,
+          "primas": 2009403768.0,
+          "cuota": 0.52,
+          "entidad": "SEGUNDA PERSONAS"
+        },
+        "lider": {
+          "entidad": "NACIÓN",
+          "primas": 86597252995.0,
+          "cuota": 22.57
+        },
+        "ranking": [
+          {
+            "orden": 1,
+            "nj": "A",
+            "entidad": "NACIÓN",
+            "primas": 86597252995.0,
+            "part_pct": 22.57,
+            "acum_pct": 22.57,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 2,
+            "nj": "A",
+            "entidad": "LIFE",
+            "primas": 51110017426.0,
+            "part_pct": 13.32,
+            "acum_pct": 35.9,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 3,
+            "nj": "A",
+            "entidad": "STELLANTIS",
+            "primas": 44686449974.0,
+            "part_pct": 11.65,
+            "acum_pct": 47.54,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 4,
+            "nj": "A",
+            "entidad": "QUALIA",
+            "primas": 40360318408.0,
+            "part_pct": 10.52,
+            "acum_pct": 58.06,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 5,
+            "nj": "C",
+            "entidad": "SANCOR",
+            "primas": 36575373912.0,
+            "part_pct": 9.53,
+            "acum_pct": 67.6,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 6,
+            "nj": "A",
+            "entidad": "RCI PERSONAS",
+            "primas": 16644995181.0,
+            "part_pct": 4.34,
+            "acum_pct": 71.94,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 7,
+            "nj": "A",
+            "entidad": "CAJA GENERALES",
+            "primas": 15245964482.0,
+            "part_pct": 3.97,
+            "acum_pct": 75.91,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 8,
+            "nj": "C",
+            "entidad": "SAN CRISTÓBAL MUTUAL",
+            "primas": 10575663065.0,
+            "part_pct": 2.76,
+            "acum_pct": 78.67,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 9,
+            "nj": "A",
+            "entidad": "ZURICH",
+            "primas": 10555936228.0,
+            "part_pct": 2.75,
+            "acum_pct": 81.42,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 10,
+            "nj": "A",
+            "entidad": "BHN VIDA",
+            "primas": 10464089271.0,
+            "part_pct": 2.73,
+            "acum_pct": 84.15,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 11,
+            "nj": "A",
+            "entidad": "MERCANTIL ANDINA",
+            "primas": 10154642175.0,
+            "part_pct": 2.65,
+            "acum_pct": 86.79,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 12,
+            "nj": "A",
+            "entidad": "GALICIA SAU",
+            "primas": 8819001478.0,
+            "part_pct": 2.3,
+            "acum_pct": 89.09,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 13,
+            "nj": "A",
+            "entidad": "BBVA SEGUROS",
+            "primas": 8430823433.0,
+            "part_pct": 2.2,
+            "acum_pct": 91.29,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 14,
+            "nj": "A",
+            "entidad": "OPCIÓN",
+            "primas": 7888513324.0,
+            "part_pct": 2.06,
+            "acum_pct": 93.35,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 15,
+            "nj": "A",
+            "entidad": "ZURICH SANTANDER",
+            "primas": 4701690711.0,
+            "part_pct": 1.23,
+            "acum_pct": 94.57,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 16,
+            "nj": "A",
+            "entidad": "SMG VIDA",
+            "primas": 2959047641.0,
+            "part_pct": 0.77,
+            "acum_pct": 95.34,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 17,
+            "nj": "A",
+            "entidad": "SUPERVIELLE",
+            "primas": 2912494805.0,
+            "part_pct": 0.76,
+            "acum_pct": 96.1,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 18,
+            "nj": "C",
+            "entidad": "SEGURCOOP",
+            "primas": 2122852901.0,
+            "part_pct": 0.55,
+            "acum_pct": 96.66,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 19,
+            "nj": "A",
+            "entidad": "SEGUNDA PERSONAS",
+            "primas": 2009403768.0,
+            "part_pct": 0.52,
+            "acum_pct": 97.18,
+            "es_la_segunda": true
+          },
+          {
+            "orden": 20,
+            "nj": "A",
+            "entidad": "EVOLUCIÓN",
+            "primas": 1884328473.0,
+            "part_pct": 0.49,
+            "acum_pct": 97.67,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 21,
+            "nj": "A",
+            "entidad": "CARUSO",
+            "primas": 1481602040.0,
+            "part_pct": 0.39,
+            "acum_pct": 98.06,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 22,
+            "nj": "A",
+            "entidad": "TRES PROVINCIAS PERSONAS",
+            "primas": 1391268981.0,
+            "part_pct": 0.36,
+            "acum_pct": 98.42,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 23,
+            "nj": "A",
+            "entidad": "BENEFICIO",
+            "primas": 1166308097.0,
+            "part_pct": 0.3,
+            "acum_pct": 98.72,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 24,
+            "nj": "A",
+            "entidad": "CHUBB SEGUROS",
+            "primas": 1100831646.0,
+            "part_pct": 0.29,
+            "acum_pct": 99.01,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 25,
+            "nj": "A",
+            "entidad": "MERIDIONAL",
+            "primas": 907598906.0,
+            "part_pct": 0.24,
+            "acum_pct": 99.25,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 26,
+            "nj": "O",
+            "entidad": "CAJA DE PREVISIÓN",
+            "primas": 526506866.0,
+            "part_pct": 0.14,
+            "acum_pct": 99.38,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 27,
+            "nj": "A",
+            "entidad": "SMSV",
+            "primas": 397327785.0,
+            "part_pct": 0.1,
+            "acum_pct": 99.49,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 28,
+            "nj": "A",
+            "entidad": "ALLIANZ",
+            "primas": 365268490.0,
+            "part_pct": 0.1,
+            "acum_pct": 99.58,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 29,
+            "nj": "A",
+            "entidad": "CNP",
+            "primas": 358907645.0,
+            "part_pct": 0.09,
+            "acum_pct": 99.68,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 30,
+            "nj": "A",
+            "entidad": "FED. PATRONAL",
+            "primas": 242624750.0,
+            "part_pct": 0.06,
+            "acum_pct": 99.74,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 31,
+            "nj": "A",
+            "entidad": "CRUZ SUIZA",
+            "primas": 197574471.0,
+            "part_pct": 0.05,
+            "acum_pct": 99.79,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 32,
+            "nj": "A",
+            "entidad": "GGAL",
+            "primas": 194232145.0,
+            "part_pct": 0.05,
+            "acum_pct": 99.84,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 33,
+            "nj": "O",
+            "entidad": "JUJUY SOCIEDAD DEL ESTADO",
+            "primas": 146533515.0,
+            "part_pct": 0.04,
+            "acum_pct": 99.88,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 34,
+            "nj": "A",
+            "entidad": "ASV",
+            "primas": 119639291.0,
+            "part_pct": 0.03,
+            "acum_pct": 99.91,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 35,
+            "nj": "A",
+            "entidad": "FEDERADA",
+            "primas": 94544424.0,
+            "part_pct": 0.02,
+            "acum_pct": 99.94,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 36,
+            "nj": "A",
+            "entidad": "COLÓN",
+            "primas": 75529339.0,
+            "part_pct": 0.02,
+            "acum_pct": 99.96,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 37,
+            "nj": "O",
+            "entidad": "INSTITUTO AUTÁRQUICO",
+            "primas": 61600332.0,
+            "part_pct": 0.02,
+            "acum_pct": 99.97,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 38,
+            "nj": "A",
+            "entidad": "NORTE",
+            "primas": 34774037.0,
+            "part_pct": 0.01,
+            "acum_pct": 99.98,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 39,
+            "nj": "A",
+            "entidad": "PREVINCA",
+            "primas": 15985886.0,
+            "part_pct": 0.0,
+            "acum_pct": 99.99,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 40,
+            "nj": "A",
+            "entidad": "HOLANDO SUDAMERICANA",
+            "primas": 15278208.0,
+            "part_pct": 0.0,
+            "acum_pct": 99.99,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 41,
+            "nj": "A",
+            "entidad": "SAN GERMÁN",
+            "primas": 13777192.0,
+            "part_pct": 0.0,
+            "acum_pct": 99.99,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 42,
+            "nj": "A",
+            "entidad": "MISTA PERSONAS",
+            "primas": 6133870.0,
+            "part_pct": 0.0,
+            "acum_pct": 99.99,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 43,
+            "nj": "A",
+            "entidad": "ASSURANT",
+            "primas": 5402521.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 44,
+            "nj": "A",
+            "entidad": "INSTITUTO SALTA",
+            "primas": 4379266.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 45,
+            "nj": "A",
+            "entidad": "WORANZ",
+            "primas": 3438766.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 46,
+            "nj": "A",
+            "entidad": "BARBUSS",
+            "primas": 2796945.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 47,
+            "nj": "A",
+            "entidad": "GESTIÓN",
+            "primas": 2493650.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 48,
+            "nj": "A",
+            "entidad": "EXPERTA",
+            "primas": 1604849.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          },
+          {
+            "orden": 49,
+            "nj": "A",
+            "entidad": "HAMBURGO",
+            "primas": 11715.0,
+            "part_pct": 0.0,
+            "acum_pct": 100.0,
+            "es_la_segunda": false
+          }
+        ]
+      }
+    }
+  }
 }
