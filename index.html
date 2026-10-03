@@ -1030,8 +1030,18 @@
           <span class="kpi-title">Siniestros Denunciados (Altas)</span>
           <div class="kpi-value" id="kpi_sin_altas">0</div>
           <div class="kpi-subtext" id="kpi_sin_altas_sub">
-            <span class="kpi-delta neutral" id="kpi_sin_freq_badge" style="font-weight:700;">0,0 ‰</span>
-            <span>Frecuencia por 1.000 asegurados</span>
+            <span class="kpi-delta neutral" id="kpi_sin_altas_delta">-</span>
+            <span id="kpi_sin_altas_text">vs período anterior</span>
+          </div>
+          <div style="margin-top: 6px; padding-top: 6px; border-top: 1px dashed var(--border-card); font-size: 11.5px; color: var(--carbon); display: flex; flex-direction: column; gap: 3px;" id="kpi_sin_altas_mes_container">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <span><strong>Mes cierre:</strong> <span id="kpi_sin_altas_mes_val" style="font-weight:700;">0</span></span>
+              <span class="kpi-delta neutral" id="kpi_sin_altas_mes_delta_yoy" style="font-size:10px; padding:2px 6px;">-</span>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; font-size: 10.5px; color: var(--text-muted);">
+              <span>vs mes anterior:</span>
+              <span class="kpi-delta neutral" id="kpi_sin_altas_mes_delta_mom" style="font-size:10px; padding:2px 6px;">-</span>
+            </div>
           </div>
         </div>
 
@@ -1040,7 +1050,8 @@
           <span class="kpi-title">Costo Medio x Siniestro Pagado</span>
           <div class="kpi-value" id="kpi_sin_costo_medio">$ 0</div>
           <div class="kpi-subtext" id="kpi_sin_costo_medio_sub">
-            <span>Pagos / Altas de Siniestros</span>
+            <span class="kpi-delta neutral" id="kpi_sin_costo_medio_delta">-</span>
+            <span id="kpi_sin_costo_medio_text">vs período anterior</span>
           </div>
         </div>
 
@@ -1069,8 +1080,8 @@
           <span class="kpi-title">Litigiosidad Activa (Cierre)</span>
           <div class="kpi-value" id="kpi_sin_demandas">0</div>
           <div class="kpi-subtext" id="kpi_sin_demandas_sub">
-            <span class="kpi-delta neutral" id="kpi_sin_mediaciones_badge" style="font-weight:700;">0 Mediaciones</span>
-            <span>Juicios y Demandas</span>
+            <span class="kpi-delta neutral" id="kpi_sin_demandas_delta">-</span>
+            <span id="kpi_sin_demandas_text">vs período anterior</span>
           </div>
         </div>
 
@@ -1078,8 +1089,9 @@
         <div class="kpi-card">
           <span class="kpi-title">Reserva Judicial Promedio</span>
           <div class="kpi-value" id="kpi_sin_rva_demanda_prom">$ 0 M</div>
-          <div class="kpi-subtext" id="kpi_sin_rva_demanda_tot">
-            <span>Total Rva. Demandas: $ 0 M</span>
+          <div class="kpi-subtext" id="kpi_sin_rva_demanda_sub">
+            <span class="kpi-delta neutral" id="kpi_sin_rva_demanda_delta">-</span>
+            <span id="kpi_sin_rva_demanda_text">vs período anterior</span>
           </div>
         </div>
       </div>
@@ -2032,8 +2044,13 @@
       let prevTotVarRva = 0;
       let prevTotCostoSin = 0;
       let prevTotEmitidas = 0;
+      let prevTotAltasSiniestros = 0;
       let prevLastPolizas = 0;
       let prevLastAsegurados = 0;
+      let prevLastDemandas = 0;
+      let prevLastJuicios = 0;
+      let prevLastMediaciones = 0;
+      let prevLastRvaDemanda = 0;
 
       if (prevTargetPeriods.length > 0) {
         const prevSet = new Set(prevTargetPeriods);
@@ -2054,6 +2071,7 @@
         prevPeriodRows = prevTargetPeriods.map(p => {
           const pRecs = prevFiltered.filter(r => r.periodo === p);
           let sumP = 0, sumPg = 0, sumStock = 0, sumPol = 0, sumAseg = 0, sumEmit = 0;
+          let sumAltas = 0, sumDem = 0, sumJui = 0, sumMed = 0, sumRvaDem = 0;
           pRecs.forEach(r => {
             sumP += currentAdjustedMode ? (r.prima_ajustx_ipc || 0) : (r.prima_emisión || 0);
             sumPg += currentAdjustedMode ? (r.pagos_siniestros_ajustx_ipc || 0) : (r.pagos_siniestros || 0);
@@ -2061,6 +2079,11 @@
             sumPol += (r.cant_pólizas_vigentes || 0);
             sumAseg += (r.cant_asegurados || 0);
             sumEmit += (r.cant_pólizas_emitidas || 0);
+            sumAltas += (r.cant_altas_siniestros || 0);
+            sumDem += (r.cant_demandas || 0);
+            sumJui += (r.cant_juicios || 0);
+            sumMed += (r.cant_mediaciones || 0);
+            sumRvaDem += currentAdjustedMode ? (r.reserva_demanda_ajustx_ipc || 0) : (r.reserva_demanda || 0);
           });
           const varRvaM = sumStock - prevMStock;
           prevMStock = sumStock;
@@ -2073,7 +2096,12 @@
             costo: sumPg + varRvaM,
             polizas: sumPol,
             asegurados: sumAseg,
-            emitidas: sumEmit
+            emitidas: sumEmit,
+            altas: sumAltas,
+            demandas: sumDem,
+            juicios: sumJui,
+            mediaciones: sumMed,
+            rvaDemanda: sumRvaDem
           };
         });
 
@@ -2081,10 +2109,15 @@
         prevTotPrima = prevPeriodRows.reduce((a, b) => a + b.prima, 0);
         prevTotPagos = prevPeriodRows.reduce((a, b) => a + b.pagos, 0);
         prevTotEmitidas = prevPeriodRows.reduce((a, b) => a + b.emitidas, 0);
+        prevTotAltasSiniestros = prevPeriodRows.reduce((a, b) => a + b.altas, 0);
         
         const lastPrevSample = prevPeriodRows[prevPeriodRows.length - 1] || {};
         prevLastPolizas = lastPrevSample.polizas || 0;
         prevLastAsegurados = lastPrevSample.asegurados || 0;
+        prevLastDemandas = lastPrevSample.demandas || 0;
+        prevLastJuicios = lastPrevSample.juicios || 0;
+        prevLastMediaciones = lastPrevSample.mediaciones || 0;
+        prevLastRvaDemanda = lastPrevSample.rvaDemanda || 0;
 
         const prevSampleFinalStock = lastPrevSample.stock || 0;
         prevTotVarRva = prevSampleFinalStock - prevInitialStock;
@@ -2268,28 +2301,42 @@
       document.getElementById('kpi_sin_pagos').textContent = fmtMoney(totPagos);
       document.getElementById('kpi_sin_var_rva').textContent = (totVarRva >= 0 ? '+' : '') + fmtMoney(totVarRva);
 
+      // KPI 3: Siniestros Denunciados (Altas Totales + Cierre Mes + Variaciones)
       document.getElementById('kpi_sin_altas').textContent = fmtNum(totAltasSiniestros);
-      const freqPorMil = curAsegurados ? ((totAltasSiniestros / curAsegurados) * 1000) : 0;
-      document.getElementById('kpi_sin_freq_badge').textContent = freqPorMil.toFixed(1) + ' ‰';
+      const curMonthAltas = lastP.altas_siniestros || 0;
+      document.getElementById('kpi_sin_altas_mes_val').textContent = fmtNum(curMonthAltas);
 
+      // Siniestros mes anterior dentro de la serie
+      let prevMonthAltas = null;
+      if (periodRows.length > 1) {
+        prevMonthAltas = periodRows[periodRows.length - 2].altas_siniestros || 0;
+      } else {
+        // Si hay solo 1 mes en el ejercicio, buscar el mes calendario previo en DB
+        const curFirstPeriod = targetPeriods[0];
+        const idxInAll = ALL_AVAILABLE_PERIODS.indexOf(curFirstPeriod);
+        if (idxInAll > 0) {
+          const pPrevCal = ALL_AVAILABLE_PERIODS[idxInAll - 1];
+          const recsPrevCal = filterDataByPeriods(new Set([pPrevCal]));
+          prevMonthAltas = recsPrevCal.reduce((a, b) => a + (b.cant_altas_siniestros || 0), 0);
+        }
+      }
+
+      // KPI 4: Costo Medio por Siniestro Pagado
       const costoMedioStro = totAltasSiniestros ? (totPagos / totAltasSiniestros) : 0;
       document.getElementById('kpi_sin_costo_medio').textContent = fmtMoney(costoMedioStro);
-      document.getElementById('kpi_sin_costo_medio_sub').innerHTML = currentAdjustedMode 
-        ? '<span>Pagos (Aj. IPC) / Altas</span>' 
-        : '<span>Pagos / Altas de Siniestros</span>';
 
+      // KPI 7: Litigiosidad Activa
       const curDemandas = lastP.demandas || 0;
       const curJuicios = lastP.juicios || 0;
       const curMediaciones = lastP.mediaciones || 0;
       const curRvaDemanda = currentAdjustedMode ? (lastP.reserva_demanda_ajust_ipc || 0) : (lastP.reserva_demanda || 0);
-
       document.getElementById('kpi_sin_demandas').textContent = fmtNum(curDemandas);
-      document.getElementById('kpi_sin_mediaciones_badge').textContent = `${fmtNum(curJuicios)} Juicios | ${fmtNum(curMediaciones)} Med.`;
 
+      // KPI 8: Reserva Judicial Promedio
       const rvaDemandaProm = curDemandas ? (curRvaDemanda / curDemandas) : 0;
       document.getElementById('kpi_sin_rva_demanda_prom').textContent = fmtMoney(rvaDemandaProm / 1e6) + ' M';
-      document.getElementById('kpi_sin_rva_demanda_tot').innerHTML = `<span>Total Rva. Demandas: <strong>${fmtMoney(curRvaDemanda / 1e6)} M</strong>${currentAdjustedMode ? ' <small style="color:var(--azul); font-weight:700;">(Aj. IPC)</small>' : ''}</span>`;
 
+      // Elementos delta de Siniestros
       const elDeltaRatio = document.getElementById('kpi_sin_ratio_delta');
       const elTextRatio = document.getElementById('kpi_sin_ratio_text');
       const elDeltaCosto = document.getElementById('kpi_sin_costo_delta');
@@ -2299,38 +2346,109 @@
       const elDeltaVarRva = document.getElementById('kpi_sin_var_rva_delta');
       const elTextVarRva = document.getElementById('kpi_sin_var_rva_text');
 
+      const elDeltaAltasTot = document.getElementById('kpi_sin_altas_delta');
+      const elTextAltasTot = document.getElementById('kpi_sin_altas_text');
+      const elDeltaAltasMesYoY = document.getElementById('kpi_sin_altas_mes_delta_yoy');
+      const elDeltaAltasMesMoM = document.getElementById('kpi_sin_altas_mes_delta_mom');
+
+      const elDeltaCostoMedio = document.getElementById('kpi_sin_costo_medio_delta');
+      const elTextCostoMedio = document.getElementById('kpi_sin_costo_medio_text');
+
+      const elDeltaDemandas = document.getElementById('kpi_sin_demandas_delta');
+      const elTextDemandas = document.getElementById('kpi_sin_demandas_text');
+
+      const elDeltaRvaDem = document.getElementById('kpi_sin_rva_demanda_delta');
+      const elTextRvaDem = document.getElementById('kpi_sin_rva_demanda_text');
+
+      // MoM Altas Mes de Cierre (vs mes anterior)
+      if (prevMonthAltas !== null && prevMonthAltas !== undefined) {
+        const diffAltasMoM = curMonthAltas - prevMonthAltas;
+        const pctAltasMoM = prevMonthAltas ? ((diffAltasMoM / prevMonthAltas) * 100) : 0;
+        const isGoodAltasMoM = diffAltasMoM <= 0;
+        elDeltaAltasMesMoM.className = 'kpi-delta ' + (isGoodAltasMoM ? 'positive' : 'negative');
+        elDeltaAltasMesMoM.innerHTML = `<i class="fa-solid fa-arrow-${diffAltasMoM >= 0 ? 'up' : 'down'}"></i> ${diffAltasMoM >= 0 ? '+' : ''}${pctAltasMoM.toFixed(1)} % (${diffAltasMoM >= 0 ? '+' : ''}${fmtNum(diffAltasMoM)})`;
+        elDeltaAltasMesMoM.title = `Mes anterior: ${fmtNum(prevMonthAltas)} siniestros`;
+      } else {
+        elDeltaAltasMesMoM.className = 'kpi-delta neutral';
+        elDeltaAltasMesMoM.textContent = '-';
+      }
+
       if (prevPeriodRows.length > 0) {
+        // KPI 1 Ratio
         const prevSinRatio = prevTotPrima ? ((prevTotCostoSin / prevTotPrima) * 100) : 0;
         const deltaPp = sinRatio - prevSinRatio;
         const isGoodRatio = deltaPp <= 0;
-        
         elDeltaRatio.className = 'kpi-delta ' + (isGoodRatio ? 'positive' : 'negative');
         elDeltaRatio.innerHTML = `<i class="fa-solid fa-arrow-${deltaPp <= 0 ? 'down' : 'up'}"></i> ${deltaPp >= 0 ? '+' : ''}${deltaPp.toFixed(2)} p.p.`;
         elTextRatio.textContent = `${prevComparisonLabel} (${prevSinRatio.toFixed(2)} %)`;
 
+        // KPI 2 Costo
         const diffCosto = totCostoSin - prevTotCostoSin;
         const pctCosto = prevTotCostoSin ? ((diffCosto / prevTotCostoSin) * 100) : 0;
         const isGoodCosto = diffCosto <= 0;
-        
         elDeltaCosto.className = 'kpi-delta ' + (isGoodCosto ? 'positive' : 'negative');
         elDeltaCosto.innerHTML = `<i class="fa-solid fa-arrow-${diffCosto >= 0 ? 'up' : 'down'}"></i> ${diffCosto >= 0 ? '+' : ''}${pctCosto.toFixed(2)} %`;
         elTextCosto.textContent = `${prevComparisonLabel} (${diffCosto >= 0 ? '+' : ''}${fmtMoney(diffCosto)})`;
 
+        // KPI 3 Altas Totales (Variación Interanual del período)
+        const diffAltasTot = totAltasSiniestros - prevTotAltasSiniestros;
+        const pctAltasTot = prevTotAltasSiniestros ? ((diffAltasTot / prevTotAltasSiniestros) * 100) : 0;
+        const isGoodAltasTot = diffAltasTot <= 0;
+        elDeltaAltasTot.className = 'kpi-delta ' + (isGoodAltasTot ? 'positive' : 'negative');
+        elDeltaAltasTot.innerHTML = `<i class="fa-solid fa-arrow-${diffAltasTot >= 0 ? 'up' : 'down'}"></i> ${diffAltasTot >= 0 ? '+' : ''}${pctAltasTot.toFixed(2)} %`;
+        elTextAltasTot.textContent = `${prevComparisonLabel} (${diffAltasTot >= 0 ? '+' : ''}${fmtNum(diffAltasTot)})`;
+
+        // Altas Mes de Cierre: YoY vs mismo mes del ejercicio anterior
+        const lastPrevRow = prevPeriodRows[prevPeriodRows.length - 1];
+        const prevMonthAltasYoY = lastPrevRow ? (lastPrevRow.altas || 0) : 0;
+        const diffAltasYoY = curMonthAltas - prevMonthAltasYoY;
+        const pctAltasYoY = prevMonthAltasYoY ? ((diffAltasYoY / prevMonthAltasYoY) * 100) : 0;
+        const isGoodAltasYoY = diffAltasYoY <= 0;
+        elDeltaAltasMesYoY.className = 'kpi-delta ' + (isGoodAltasYoY ? 'positive' : 'negative');
+        elDeltaAltasMesYoY.innerHTML = `i.a. <i class="fa-solid fa-arrow-${diffAltasYoY >= 0 ? 'up' : 'down'}"></i> ${diffAltasYoY >= 0 ? '+' : ''}${pctAltasYoY.toFixed(1)} %`;
+        elDeltaAltasMesYoY.title = `Mismo mes ejercicio anterior (${lastPrevRow.periodo}): ${fmtNum(prevMonthAltasYoY)} siniestros`;
+
+        // KPI 4 Costo Medio Pagado x Siniestro (Variación Interanual)
+        const prevCostoMedio = prevTotAltasSiniestros ? (prevTotPagos / prevTotAltasSiniestros) : 0;
+        const diffCostoMedio = costoMedioStro - prevCostoMedio;
+        const pctCostoMedio = prevCostoMedio ? ((diffCostoMedio / prevCostoMedio) * 100) : 0;
+        const isGoodCostoMedio = diffCostoMedio <= 0;
+        elDeltaCostoMedio.className = 'kpi-delta ' + (isGoodCostoMedio ? 'positive' : 'negative');
+        elDeltaCostoMedio.innerHTML = `<i class="fa-solid fa-arrow-${diffCostoMedio >= 0 ? 'up' : 'down'}"></i> ${diffCostoMedio >= 0 ? '+' : ''}${pctCostoMedio.toFixed(2)} %`;
+        elTextCostoMedio.textContent = `${prevComparisonLabel} (${diffCostoMedio >= 0 ? '+' : ''}${fmtMoney(diffCostoMedio)})`;
+
+        // KPI 5 Pagos
         const diffPagos = totPagos - prevTotPagos;
         const pctPagos = prevTotPagos ? ((diffPagos / prevTotPagos) * 100) : 0;
         const isGoodPagos = diffPagos <= 0;
-        
         elDeltaPagos.className = 'kpi-delta ' + (isGoodPagos ? 'positive' : 'negative');
         elDeltaPagos.innerHTML = `<i class="fa-solid fa-arrow-${diffPagos >= 0 ? 'up' : 'down'}"></i> ${diffPagos >= 0 ? '+' : ''}${pctPagos.toFixed(2)} %`;
         elTextPagos.textContent = `${prevComparisonLabel} (${diffPagos >= 0 ? '+' : ''}${fmtMoney(diffPagos)})`;
 
+        // KPI 6 Variación Reserva
         const diffVarRva = totVarRva - prevTotVarRva;
         const pctVarRva = prevTotVarRva ? ((diffVarRva / Math.abs(prevTotVarRva)) * 100) : 0;
         const isGoodVarRva = diffVarRva <= 0;
-        
         elDeltaVarRva.className = 'kpi-delta ' + (isGoodVarRva ? 'positive' : 'negative');
         elDeltaVarRva.innerHTML = `<i class="fa-solid fa-arrow-${diffVarRva >= 0 ? 'up' : 'down'}"></i> ${diffVarRva >= 0 ? '+' : ''}${pctVarRva.toFixed(2)} %`;
         elTextVarRva.textContent = `${prevComparisonLabel} (${diffVarRva >= 0 ? '+' : ''}${fmtMoney(diffVarRva)})`;
+
+        // KPI 7 Litigiosidad Activa (Variación Interanual al corte)
+        const diffDemandas = curDemandas - prevLastDemandas;
+        const pctDemandas = prevLastDemandas ? ((diffDemandas / prevLastDemandas) * 100) : 0;
+        const isGoodDemandas = diffDemandas <= 0;
+        elDeltaDemandas.className = 'kpi-delta ' + (isGoodDemandas ? 'positive' : 'negative');
+        elDeltaDemandas.innerHTML = `<i class="fa-solid fa-arrow-${diffDemandas >= 0 ? 'up' : 'down'}"></i> ${diffDemandas >= 0 ? '+' : ''}${pctDemandas.toFixed(2)} %`;
+        elTextDemandas.textContent = `${prevComparisonLabel} (${diffDemandas >= 0 ? '+' : ''}${fmtNum(diffDemandas)})`;
+
+        // KPI 8 Reserva Judicial Promedio (Variación Interanual al corte)
+        const prevRvaDemandaProm = prevLastDemandas ? (prevLastRvaDemanda / prevLastDemandas) : 0;
+        const diffRvaDem = rvaDemandaProm - prevRvaDemandaProm;
+        const pctRvaDem = prevRvaDemandaProm ? ((diffRvaDem / prevRvaDemandaProm) * 100) : 0;
+        const isGoodRvaDem = diffRvaDem <= 0;
+        elDeltaRvaDem.className = 'kpi-delta ' + (isGoodRvaDem ? 'positive' : 'negative');
+        elDeltaRvaDem.innerHTML = `<i class="fa-solid fa-arrow-${diffRvaDem >= 0 ? 'up' : 'down'}"></i> ${diffRvaDem >= 0 ? '+' : ''}${pctRvaDem.toFixed(2)} %`;
+        elTextRvaDem.textContent = `${prevComparisonLabel} (${diffRvaDem >= 0 ? '+' : ''}${fmtMoney(diffRvaDem / 1e6)} M)`;
 
       } else {
         elDeltaRatio.className = 'kpi-delta neutral';
@@ -2339,15 +2457,33 @@
 
         elDeltaCosto.className = 'kpi-delta neutral';
         elDeltaCosto.textContent = 'Base histórica';
-        textCosto.textContent = `Primer período registrado (${numMonths} meses)`;
+        elTextCosto.textContent = `Primer período registrado (${numMonths} meses)`;
+
+        elDeltaAltasTot.className = 'kpi-delta neutral';
+        elDeltaAltasTot.textContent = 'Base histórica';
+        elTextAltasTot.textContent = `Primer período registrado (${numMonths} meses)`;
+        elDeltaAltasMesYoY.className = 'kpi-delta neutral';
+        elDeltaAltasMesYoY.textContent = '-';
+
+        elDeltaCostoMedio.className = 'kpi-delta neutral';
+        elDeltaCostoMedio.textContent = 'Base histórica';
+        elTextCostoMedio.textContent = `Primer período registrado (${numMonths} meses)`;
 
         elDeltaPagos.className = 'kpi-delta neutral';
         elDeltaPagos.textContent = 'Base histórica';
-        textPagos.textContent = `Primer período registrado (${numMonths} meses)`;
+        elTextPagos.textContent = `Primer período registrado (${numMonths} meses)`;
 
         elDeltaVarRva.className = 'kpi-delta neutral';
         elDeltaVarRva.textContent = 'Base histórica';
-        textVarRva.textContent = `Primer período registrado (${numMonths} meses)`;
+        elTextVarRva.textContent = `Primer período registrado (${numMonths} meses)`;
+
+        elDeltaDemandas.className = 'kpi-delta neutral';
+        elDeltaDemandas.textContent = 'Base histórica';
+        elTextDemandas.textContent = `Primer período registrado (${numMonths} meses)`;
+
+        elDeltaRvaDem.className = 'kpi-delta neutral';
+        elDeltaRvaDem.textContent = 'Base histórica';
+        elTextRvaDem.textContent = `Primer período registrado (${numMonths} meses)`;
       }
 
       // ----------------------------------------------------
