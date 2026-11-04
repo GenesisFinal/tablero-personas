@@ -1486,7 +1486,17 @@
           </div>
         </div>
 
-        <!-- KPI 4: TAMAÑO MERCADO NACIONAL -->
+        <!-- KPI 4: CUOTA SALUD -->
+        <div class="kpi-card" style="border-left: 4px solid #0891b2;">
+          <span class="kpi-title">Cuota Salud</span>
+          <div class="kpi-value" id="kpi_mkt_cuota_salud" style="color: #0891b2;">0,14 %</div>
+          <div class="kpi-subtext">
+            <span class="kpi-delta positive" id="kpi_mkt_cuota_salud_delta">+0,12 p.p.</span>
+            <span>vs año anterior</span>
+          </div>
+        </div>
+
+        <!-- KPI 5: TAMAÑO MERCADO NACIONAL -->
         <div class="kpi-card accent-coral">
           <span class="kpi-title">Mercado Asegurador Personas (SSN)</span>
           <div class="kpi-value" id="kpi_mkt_vol_total">$ 3,36 B</div>
@@ -1628,7 +1638,10 @@
     function switchTab(modId) {
       document.querySelectorAll('.tab-btn').forEach(b => {
         b.classList.remove('active');
-        if (b.getAttribute('onclick').includes(modId)) b.classList.add('active');
+        const attr = b.getAttribute('onclick') || '';
+        if (attr.includes(`'${modId}'`) || attr.includes(`"${modId}"`)) {
+          b.classList.add('active');
+        }
       });
       document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
       const target = document.getElementById('pane_' + modId);
@@ -3571,6 +3584,17 @@
 
       document.getElementById('kpi_mkt_cuota_ap').textContent = fmtPct(last.cuota_mercado.ap);
       document.getElementById('kpi_mkt_cuota_vc').textContent = fmtPct(last.cuota_mercado.vida_colectivo);
+
+      const elCuotaSalud = document.getElementById('kpi_mkt_cuota_salud');
+      if (elCuotaSalud) elCuotaSalud.textContent = fmtPct(last.cuota_mercado.salud);
+      const diffCuotaSalud = (last.cuota_mercado.salud !== undefined && prevYear.cuota_mercado.salud !== undefined)
+        ? (last.cuota_mercado.salud - prevYear.cuota_mercado.salud)
+        : 0;
+      const elDeltaCuotaSalud = document.getElementById('kpi_mkt_cuota_salud_delta');
+      if (elDeltaCuotaSalud) {
+        elDeltaCuotaSalud.className = 'kpi-delta ' + (diffCuotaSalud >= 0 ? 'positive' : 'negative');
+        elDeltaCuotaSalud.textContent = `${diffCuotaSalud >= 0 ? '+' : ''}${diffCuotaSalud.toFixed(2)} p.p.`;
+      }
 
       const totMktVal = currentAdjustedMode ? last.mercado.total_ajust : last.mercado.total_hist;
       document.getElementById('kpi_mkt_vol_total').textContent = '$ ' + (totMktVal / 1e12).toFixed(2) + ' B';
