@@ -3799,6 +3799,16 @@
       document.getElementById('kpi_ssn_l2_cuota').textContent = fmtPct(l2.cuota);
       document.getElementById('kpi_ssn_l2_cuota_sub').textContent = `Cuota de mercado en ${subData.titulo}`;
 
+      // Actualizar títulos dinámicos con el sub-ramo seleccionado
+      const titleRankEl = document.getElementById('title_ssn_ranking');
+      if (titleRankEl) titleRankEl.innerHTML = `<i class="fa-solid fa-ranking-star"></i> Ranking Top Aseguradoras — ${subData.titulo} (Primas $ M)`;
+
+      const titleDonutEl = document.getElementById('title_ssn_donut');
+      if (titleDonutEl) titleDonutEl.innerHTML = `<i class="fa-solid fa-chart-pie"></i> Distribución de Cuota de Mercado — ${subData.titulo}`;
+
+      const titleTablaEl = document.getElementById('title_ssn_tabla');
+      if (titleTablaEl) titleTablaEl.innerHTML = `<i class="fa-solid fa-table-list"></i> Cuadro Oficial Completo de Entidades — ${subData.titulo}`;
+
       // Ranking Top Aseguradoras
       const ranking = subData.ranking || [];
       let topList = ranking.slice(0, 10);
