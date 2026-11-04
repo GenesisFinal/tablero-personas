@@ -1233,7 +1233,7 @@
           <label for="sel_ssn_subramo" style="font-size: 0.85rem; font-weight: 600; color: var(--carbon);">
             <i class="fa-solid fa-filter" style="color: var(--rojo-seguro);"></i> Ramo / Sub-Ramo SSN:
           </label>
-          <select id="sel_ssn_subramo" onchange="updateSsnDrilldown()" style="padding: 8px 16px; border-radius: var(--radius-md); border: 1.5px solid var(--border-card); font-size: 0.88rem; font-weight: 600; color: var(--carbon); background: #f8fafc; cursor: pointer; outline: none;">
+          <select id="sel_ssn_subramo" onchange="syncSsnDrilldown(this.value)" style="padding: 8px 16px; border-radius: var(--radius-md); border: 1.5px solid var(--border-card); font-size: 0.88rem; font-weight: 600; color: var(--carbon); background: #f8fafc; cursor: pointer; outline: none;">
           </select>
         </div>
       </div>
@@ -1289,13 +1289,9 @@
       <div style="background: white; border-radius: var(--radius-lg); padding: 16px 24px; margin-bottom: 20px; box-shadow: var(--shadow-sm); border: 1px solid var(--border-card); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
         <div style="display: flex; align-items: center; gap: 10px;">
           <label for="sel_drill_scope" style="font-size: 0.88rem; font-weight: 700; color: var(--carbon);">
-            <i class="fa-solid fa-layer-group" style="color: var(--rojo-seguro);"></i> Apertura Drill-Down:
+            <i class="fa-solid fa-filter" style="color: var(--rojo-seguro);"></i> Ramo / Sub-Ramo SSN:
           </label>
-          <select id="sel_drill_scope" onchange="updateDrillDownComparison()" style="padding: 8px 16px; border-radius: var(--radius-md); border: 1.5px solid var(--border-card); font-size: 0.86rem; font-weight: 600; color: var(--carbon); background: #f8fafc; cursor: pointer; outline: none;">
-            <option value="todo_personas" selected>Todo Personas</option>
-            <option value="todo_vida">Todo Vida (Colectivo e Individual)</option>
-            <option value="todo_ap">Todo Acc Personales</option>
-            <option value="todo_salud">Todo Salud</option>
+          <select id="sel_drill_scope" onchange="syncSsnDrilldown(this.value)" style="padding: 8px 16px; border-radius: var(--radius-md); border: 1.5px solid var(--border-card); font-size: 0.86rem; font-weight: 600; color: var(--carbon); background: #f8fafc; cursor: pointer; outline: none; min-width: 280px;">
           </select>
         </div>
 
@@ -3722,10 +3718,16 @@
     // ====================================================
     // MÓDULO 7: DRILL-DOWN MERCADO OFICIAL SSN
     // ====================================================
+    function syncSsnDrilldown(selectedKey) {
+      const selTop = document.getElementById('sel_ssn_subramo');
+      const selMid = document.getElementById('sel_drill_scope');
+      if (selTop && selTop.value !== selectedKey) selTop.value = selectedKey;
+      if (selMid && selMid.value !== selectedKey) selMid.value = selectedKey;
+      updateSsnDrilldown();
+    }
+
     function initSsnDrilldownSelectors() {
-      const sel = document.getElementById('sel_ssn_subramo');
-      if (!sel || !DB.ssn_drilldown || !DB.ssn_drilldown.subramos) return;
-      sel.innerHTML = '';
+      if (!DB.ssn_drilldown || !DB.ssn_drilldown.subramos) return;
 
       const items = [
         { key: "Total Personas (sin retiro)", text: "Total Personas (sin retiro) - todos los segmentos", bold: true },
@@ -3742,15 +3744,20 @@
         { key: "Total Sepelio", text: "Total Sepelio", bold: true }
       ];
 
-      items.forEach(it => {
-        if (DB.ssn_drilldown.subramos[it.key]) {
-          const opt = document.createElement('option');
-          opt.value = it.key;
-          opt.textContent = it.text;
-          if (it.bold) opt.style.fontWeight = '700';
-          if (it.key === "Total Personas (sin retiro)") opt.selected = true;
-          sel.appendChild(opt);
-        }
+      ['sel_ssn_subramo', 'sel_drill_scope'].forEach(selId => {
+        const s = document.getElementById(selId);
+        if (!s) return;
+        s.innerHTML = '';
+        items.forEach(it => {
+          if (DB.ssn_drilldown.subramos[it.key]) {
+            const opt = document.createElement('option');
+            opt.value = it.key;
+            opt.textContent = it.text;
+            if (it.bold) opt.style.fontWeight = '700';
+            if (it.key === "Total Personas (sin retiro)") opt.selected = true;
+            s.appendChild(opt);
+          }
+        });
       });
 
       // Poblar selector de competidor para drill-down comparativo
@@ -3781,6 +3788,10 @@
       const selectedKey = sel ? sel.value : 'Total Personas (sin retiro)';
       const subData = DB.ssn_drilldown.subramos[selectedKey];
       if (!subData) return;
+
+      // Asegurar sincronización en el selector secundario
+      const selMid = document.getElementById('sel_drill_scope');
+      if (selMid && selMid.value !== selectedKey) selMid.value = selectedKey;
 
       const mktTotalM = (subData.total_mercado || 0) / 1e6;
       const l2 = subData.la_segunda || { puesto: '-', primas: 0, cuota: 0 };
@@ -3915,11 +3926,11 @@
     function updateDrillDownComparison() {
       if (!DB.ssn_drilldown || !DB.ssn_drilldown.competitors_portfolio) return;
 
-      const scopeEl = document.getElementById('sel_drill_scope');
+      const scopeEl = document.getElementById('sel_drill_scope') || document.getElementById('sel_ssn_subramo');
       const compEl = document.getElementById('sel_drill_competitor');
-      if (!scopeEl || !compEl) return;
+      if (!compEl) return;
 
-      const scope = scopeEl.value;
+      const scope = scopeEl ? scopeEl.value : 'Total Personas (sin retiro)';
       const compName = compEl.value;
 
       const l2Data = DB.ssn_drilldown.competitors_portfolio['SEGUNDA PERSONAS'] || {};
@@ -3928,23 +3939,27 @@
       let categories = [];
       let colors = [];
 
-      if (scope === 'todo_personas') {
-        categories = ['AP Colectivo', 'Vida Colectivo', 'Vida Obligatorios', 'AP Individual', 'Vida Saldo Deudor', 'Vida Individual', 'Salud', 'Sepelio'];
-        colors = ['#8b5cf6', BRAND.azul, BRAND.rojoSeguro, BRAND.coral, BRAND.amarillo, BRAND.verde, '#06b6d4', '#64748b'];
-      } else if (scope === 'todo_vida') {
+      if (scope.includes('Vida')) {
         categories = ['Vida Colectivo', 'Vida Obligatorios', 'Vida Saldo Deudor', 'Vida Individual'];
         colors = [BRAND.azul, BRAND.rojoSeguro, BRAND.amarillo, BRAND.verde];
-      } else if (scope === 'todo_ap') {
+      } else if (scope.includes('Accidentes') || scope.includes('AP')) {
         categories = ['AP Colectivo', 'AP Individual'];
         colors = ['#8b5cf6', BRAND.coral];
-      } else if (scope === 'todo_salud') {
+      } else if (scope.includes('Salud')) {
         categories = ['Salud Colectivo', 'Salud Individual'];
         colors = ['#0891b2', '#06b6d4'];
+      } else if (scope.includes('Sepelio')) {
+        categories = ['Sepelio Colectivo', 'Sepelio Individual'];
+        colors = ['#475569', '#94a3b8'];
+      } else {
+        // Total Personas (sin retiro)
+        categories = ['AP Colectivo', 'Vida Colectivo', 'Vida Obligatorios', 'AP Individual', 'Vida Saldo Deudor', 'Vida Individual', 'Salud', 'Sepelio'];
+        colors = ['#8b5cf6', BRAND.azul, BRAND.rojoSeguro, BRAND.coral, BRAND.amarillo, BRAND.verde, '#06b6d4', '#64748b'];
       }
 
       const getVal = (dataObj, cat) => {
         if (dataObj[cat] !== undefined) return dataObj[cat];
-        if (scope === 'todo_salud' && cat === 'Salud Colectivo' && dataObj['Salud'] !== undefined) {
+        if (cat === 'Salud Colectivo' && dataObj['Salud'] !== undefined) {
           return dataObj['Salud'];
         }
         return 0;
