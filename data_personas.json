@@ -59914,10 +59914,10 @@
       "periodo": "2026-09",
       "periodo_texto": "sep 2026",
       "ejercicio": "Ejerc. 26/27",
-      "ripte_mensual": 1.9,
-      "ipc_mensual": 1.9,
-      "ripte_anual": 30.18,
-      "ipc_anual": 33.4,
+      "ripte_mensual": 1.93,
+      "ipc_mensual": 1.93,
+      "ripte_anual": 30.22,
+      "ipc_anual": 33.35,
       "ripte_imputado": true,
       "ripte_nota": "Dato de RIPTE no publicado oficialmente; se imputa la tasa de IPC."
     },
@@ -59927,7 +59927,7 @@
       "ejercicio": "Ejerc. 26/27",
       "ripte_mensual": 1.8,
       "ipc_mensual": 1.8,
-      "ripte_anual": 29.1,
+      "ripte_anual": 29.14,
       "ipc_anual": 32.65,
       "ripte_imputado": true,
       "ripte_nota": "Dato de RIPTE no publicado oficialmente; se imputa la tasa de IPC."
