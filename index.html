@@ -663,23 +663,23 @@
     }
 
     /* ======================================================================
-       ARMADOR DE PRESENTACIONES EJECUTIVAS EN PDF (DECK BUILDER 100% OFFLINE)
+       ARMADOR DE PRESENTACIÓN PDF (ESTILO BALANCES MERCADO ASEGURADOR)
        ====================================================================== */
 
     /* Botón superior siempre visible: Presentación (N) */
     .btn-deck-open {
-      background: #fff5f7;
-      color: var(--rojo-seguro);
-      border: 1.5px solid rgba(226, 0, 57, 0.35);
-      padding: 7px 15px;
-      border-radius: var(--radius-md);
-      font-size: 12.5px;
+      background: #fff1f4;
+      color: #b91f38;
+      border: 1px solid rgba(226, 0, 57, 0.35);
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 12px;
       font-weight: 700;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      transition: all 0.2s ease;
+      gap: 7px;
+      transition: all 0.16s ease;
       white-space: nowrap;
     }
 
@@ -688,7 +688,7 @@
       background: var(--rojo-seguro);
       color: #ffffff;
       border-color: var(--rojo-seguro);
-      box-shadow: var(--shadow-red);
+      box-shadow: 0 2px 10px rgba(226, 0, 57, 0.24);
     }
 
     .btn-deck-open.has-items:hover {
@@ -697,49 +697,10 @@
     }
 
     .btn-deck-open.bump {
-      transform: scale(1.06);
+      transform: scale(1.05);
     }
 
-    /* Barra sobre cada grilla de KPIs */
-    .deck-kpi-panel-bar {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      margin-bottom: 8px;
-      margin-top: -2px;
-    }
-
-    .deck-add-panel-btn {
-      background: #ffffff;
-      color: var(--rojo-seguro);
-      border: 1px solid rgba(226, 0, 57, 0.28);
-      border-radius: var(--radius-pill);
-      padding: 5px 13px;
-      font-size: 11.5px;
-      font-weight: 700;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.18s ease;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
-    }
-
-    .deck-add-panel-btn:hover {
-      background: var(--rojo-seguro);
-      color: #ffffff;
-      border-color: var(--rojo-seguro);
-      box-shadow: var(--shadow-red);
-    }
-
-    .deck-add-panel-btn.just-added {
-      background: #0d8251 !important;
-      border-color: #0d8251 !important;
-      color: #ffffff !important;
-      box-shadow: none !important;
-    }
-
-    /* Botón discreto + en KPI, gráfico y tabla */
+    /* Botones de captura (+) y barra de panel KPI */
     .kpi-card .kpi-title {
       padding-right: 30px;
     }
@@ -747,96 +708,209 @@
     .deck-header-actions {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       margin-left: auto;
       flex-shrink: 0;
     }
 
     .deck-add-btn {
-      width: 26px;
-      height: 26px;
-      border-radius: 8px;
-      border: 1px solid var(--border-card);
-      background: #f8fafc;
-      color: var(--text-muted);
+      width: 28px;
+      height: 28px;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #e4e4e8;
+      border-radius: 6px;
+      background: #ffffff;
+      color: #666661;
       font-size: 15px;
       font-weight: 700;
       line-height: 1;
       cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.16s ease;
       flex-shrink: 0;
-      padding: 0;
+      transition: border-color 0.15s, color 0.15s, background 0.15s, opacity 0.15s, transform 0.12s;
+    }
+
+    .deck-add-btn:hover,
+    .deck-add-btn:focus-visible {
+      border-color: #e20039;
+      color: #e20039;
+      background: #fff1f4;
+      outline: none;
+    }
+
+    .deck-add-btn:active {
+      transform: scale(0.95);
+    }
+
+    .deck-add-btn.just-added {
+      border-color: #157347 !important;
+      color: #157347 !important;
+      background: #e6f7f0 !important;
+      opacity: 1 !important;
     }
 
     .kpi-card > .deck-add-btn {
       position: absolute;
-      top: 10px;
+      top: 9px;
       right: 10px;
+      width: 24px;
+      height: 24px;
+      opacity: 0.68;
+      background: rgba(255, 255, 255, 0.94);
       z-index: 4;
-      opacity: 0.72;
     }
 
-    .kpi-card:hover > .deck-add-btn {
+    .kpi-card:hover > .deck-add-btn,
+    .kpi-card > .deck-add-btn:focus-visible {
       opacity: 1;
     }
 
-    .deck-add-btn:hover {
-      background: var(--rojo-seguro);
+    .deck-kpi-panel-bar {
+      display: flex;
+      justify-content: flex-end;
+      margin: -4px 0 8px;
+    }
+
+    .deck-add-panel-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 11px;
+      border-radius: 999px;
+      border: 1px solid #e4e4e8;
+      background: #ffffff;
+      color: #666661;
+      font-family: inherit;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: border-color 0.15s, color 0.15s, background 0.15s;
+    }
+
+    .deck-add-panel-btn:hover,
+    .deck-add-panel-btn:focus-visible {
+      border-color: #e20039;
+      color: #e20039;
+      background: #fff1f4;
+      outline: none;
+    }
+
+    .deck-add-panel-btn.just-added {
+      border-color: #157347 !important;
+      color: #157347 !important;
+      background: #e6f7f0 !important;
+    }
+
+    /* FAB flotante inferior derecho */
+    .deck-fab {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 950;
+      display: inline-flex;
+      align-items: center;
+      background: #30302d;
       color: #ffffff;
-      border-color: var(--rojo-seguro);
-      box-shadow: 0 3px 10px rgba(226, 0, 57, 0.25);
-      transform: translateY(-1px);
-      opacity: 1;
+      border-radius: 999px;
+      box-shadow: 0 10px 26px rgba(24, 24, 28, 0.28);
+      padding: 4px;
+      gap: 4px;
     }
 
-    .deck-add-btn.just-added {
-      background: #0d8251 !important;
-      border-color: #0d8251 !important;
-      color: #ffffff !important;
-      opacity: 1 !important;
+    .deck-fab[hidden] {
+      display: none !important;
     }
 
-    /* Toast de confirmación */
+    .deck-fab-main {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      border: none;
+      background: transparent;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 10px 6px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
+    .deck-fab-main:hover {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .deck-count-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 18px;
+      height: 18px;
+      padding: 0 5px;
+      border-radius: 999px;
+      background: #e20039;
+      color: #ffffff;
+      font-size: 10.5px;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .deck-fab-pdf {
+      border: none;
+      background: #e20039;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 6px 13px;
+      border-radius: 999px;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+    }
+
+    .deck-fab-pdf:hover {
+      background: #b91f38;
+    }
+
+    /* Toast confirmación */
     .deck-toast {
       position: fixed;
+      left: 50%;
       bottom: 24px;
-      right: 24px;
-      z-index: 1500;
-      background: var(--carbon);
+      transform: translateX(-50%) translateY(10px);
+      z-index: 9998;
+      background: #1f1f23;
       color: #ffffff;
-      padding: 11px 18px;
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-lg);
-      font-size: 12.5px;
+      padding: 9px 16px;
+      border-radius: 999px;
+      font-size: 12px;
       font-weight: 600;
-      display: flex;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+      display: inline-flex;
       align-items: center;
       gap: 10px;
-      border-left: 4px solid var(--verde);
       opacity: 0;
-      transform: translateY(14px);
       pointer-events: none;
-      transition: opacity 0.22s ease, transform 0.22s ease;
+      transition: opacity 0.18s ease, transform 0.18s ease;
     }
 
     .deck-toast.show {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateX(-50%) translateY(0);
     }
 
-    /* Backdrop y Drawer Lateral Derecho */
+    /* Drawer lateral derecho de miniaturas */
     .deck-drawer-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(15, 23, 42, 0.42);
+      z-index: 9980;
+      background: rgba(24, 24, 28, 0.52);
       backdrop-filter: blur(2px);
-      z-index: 1190;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.24s ease;
+      transition: opacity 0.18s ease;
     }
 
     .deck-drawer-backdrop.open {
@@ -848,564 +922,606 @@
       position: fixed;
       top: 0;
       right: 0;
-      width: 475px;
-      max-width: 95vw;
-      height: 100vh;
-      background: #f8fafc;
-      border-left: 1px solid var(--border-card);
-      box-shadow: -12px 0 38px rgba(15, 23, 42, 0.18);
-      z-index: 1200;
+      bottom: 0;
+      z-index: 9985;
+      width: min(475px, 96vw);
+      background: #ffffff;
+      box-shadow: -12px 0 36px rgba(0, 0, 0, 0.24);
       display: flex;
       flex-direction: column;
       transform: translateX(102%);
-      transition: transform 0.26s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: transform 0.22s ease;
     }
 
     aside.deck-drawer.open {
       transform: translateX(0);
     }
 
-    .deck-drawer-header {
-      background: #ffffff;
-      padding: 16px 20px;
-      border-bottom: 1px solid var(--border-card);
+    .deck-drawer-hdr {
+      padding: 14px 18px;
+      border-bottom: 1px solid #e4e4e8;
+      border-top: 4px solid #e20039;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 12px;
+      justify-content: space-between;
+      gap: 10px;
       flex-shrink: 0;
     }
 
-    .deck-drawer-title-wrap h2 {
-      font-size: 15.5px;
-      font-weight: 800;
-      color: var(--carbon);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .deck-drawer-title-wrap p {
-      font-size: 11.5px;
-      color: var(--text-muted);
-      margin-top: 2px;
-      font-weight: 500;
-    }
-
-    .deck-drawer-top-actions {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .deck-btn-clear {
-      background: #ffffff;
-      color: var(--rojo-seguro);
-      border: 1px solid rgba(226, 0, 57, 0.28);
-      border-radius: var(--radius-sm);
-      padding: 5px 10px;
-      font-size: 11.5px;
+    .deck-drawer-title {
+      margin: 0;
+      font-size: 15px;
       font-weight: 700;
-      cursor: pointer;
-      transition: all 0.15s ease;
+      color: #30302d;
     }
 
-    .deck-btn-clear:hover:not(:disabled) {
-      background: #fff1f2;
-      border-color: var(--rojo-seguro);
+    .deck-summary-pill {
+      display: inline-block;
+      margin-top: 3px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #b91f38;
+      background: #fff1f4;
+      border-radius: 999px;
+      padding: 2px 9px;
     }
 
-    .deck-btn-clear:disabled {
-      opacity: 0.4;
-      cursor: not-allowed;
+    .deck-drawer-hdr-actions {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
 
-    .deck-btn-icon-close {
-      width: 32px;
+    .deck-btn-ui {
       height: 32px;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--border-card);
-      background: #f8fafc;
-      color: var(--carbon);
-      font-size: 16px;
-      font-weight: 700;
+      padding: 0 12px;
+      border-radius: 6px;
+      border: 1px solid #d1d1d8;
+      background: #ffffff;
+      color: #30302d;
+      font-family: inherit;
+      font-size: 11.5px;
+      font-weight: 600;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      transition: all 0.15s ease;
+      gap: 6px;
+      transition: all 0.15s;
+      white-space: nowrap;
     }
 
-    .deck-btn-icon-close:hover {
-      background: var(--rojo-seguro);
+    .deck-btn-ui:hover:not(:disabled) {
+      border-color: #30302d;
+      background: #fafafc;
+    }
+
+    .deck-btn-ui:disabled {
+      opacity: 0.42;
+      cursor: not-allowed;
+      background: #fafafc;
+      color: #666661;
+      border-color: #e4e4e8;
+    }
+
+    .deck-btn-ui.primary {
+      background: #e20039;
+      border-color: #e20039;
       color: #ffffff;
-      border-color: var(--rojo-seguro);
     }
 
-    /* Cuerpo del Drawer */
-    .deck-drawer-body {
-      flex: 1;
-      overflow-y: auto;
-      padding: 14px 16px 20px 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
+    .deck-btn-ui.primary:hover:not(:disabled) {
+      background: #b91f38;
+      border-color: #b91f38;
     }
 
-    /* Tarjeta de Configuración de Portada y Agrupamiento */
-    .deck-config-card {
+    .deck-btn-ui.sm {
+      height: 26px;
+      padding: 0 9px;
+      font-size: 11px;
+    }
+
+    .deck-close-icon-btn {
+      width: 30px;
+      height: 30px;
+      border-radius: 6px;
+      border: 1px solid #e4e4e8;
       background: #ffffff;
-      border: 1px solid var(--border-card);
-      border-radius: var(--radius-md);
-      padding: 13px 14px;
-      box-shadow: var(--shadow-sm);
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
+      color: #30302d;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .deck-close-icon-btn:hover {
+      border-color: #e20039;
+      color: #e20039;
+      background: #fff1f4;
+    }
+
+    .deck-settings {
+      padding: 10px 18px 12px;
+      background: #fafafc;
+      border-bottom: 1px solid #e4e4e8;
       flex-shrink: 0;
     }
 
-    .deck-config-row {
+    .deck-check-row {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 10px;
-    }
-
-    .deck-switch-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+      gap: 7px;
       font-size: 12px;
-      font-weight: 700;
-      color: var(--carbon);
+      font-weight: 600;
+      color: #30302d;
       cursor: pointer;
+      margin-bottom: 8px;
       user-select: none;
     }
 
-    .deck-switch-label input[type="checkbox"] {
-      accent-color: var(--rojo-seguro);
-      width: 15px;
-      height: 15px;
+    .deck-check-row input[type="checkbox"] {
+      accent-color: #e20039;
+      width: 14px;
+      height: 14px;
       cursor: pointer;
     }
 
-    .deck-cover-fields {
-      display: flex;
-      flex-direction: column;
-      gap: 7px;
-      padding-top: 6px;
-      border-top: 1px dashed var(--border-card);
+    .deck-settings-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
     }
 
-    .deck-cover-fields.hidden {
+    .deck-settings-grid.hidden-cover .deck-cover-only {
       display: none;
     }
 
-    .deck-field-group label {
-      display: block;
-      font-size: 10.5px;
+    .deck-field {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .deck-field.full {
+      grid-column: 1 / -1;
+    }
+
+    .deck-field label {
+      font-size: 10px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.4px;
-      color: var(--text-muted);
-      margin-bottom: 3px;
+      letter-spacing: 0.03em;
+      color: #666661;
     }
 
-    .deck-input,
-    .deck-textarea {
+    .deck-inline-input {
       width: 100%;
-      border: 1px solid var(--border-card);
-      border-radius: 7px;
-      padding: 6px 9px;
-      font-size: 12px;
-      color: var(--carbon);
-      background: #f8fafc;
-      outline: none;
-      transition: border-color 0.16s ease, background 0.16s ease;
-    }
-
-    .deck-input:focus,
-    .deck-textarea:focus {
-      border-color: var(--rojo-seguro);
+      height: 30px;
+      padding: 0 8px;
+      border: 1px solid #d1d1d8;
+      border-radius: 6px;
       background: #ffffff;
+      color: #30302d;
+      font-family: inherit;
+      font-size: 11.5px;
+      font-weight: 500;
+      outline: none;
     }
 
-    .deck-textarea {
-      resize: vertical;
-      min-height: 42px;
-      line-height: 1.35;
-      font-weight: 400;
+    .deck-inline-input:focus {
+      border-color: #e20039;
+      box-shadow: 0 0 0 2px rgba(226, 0, 57, 0.14);
     }
 
-    /* Lista de Ítems con Miniaturas */
-    .deck-items-list {
+    .deck-list {
+      flex: 1 1 auto;
+      overflow-y: auto;
+      padding: 12px 16px;
       display: flex;
       flex-direction: column;
       gap: 10px;
+      background: #f5f5f8;
     }
 
-    .deck-empty-state {
-      background: #ffffff;
-      border: 1.5px dashed #cbd5e1;
-      border-radius: var(--radius-md);
-      padding: 28px 20px;
+    .deck-empty {
+      margin: auto 0;
       text-align: center;
-      color: var(--text-muted);
-    }
-
-    .deck-empty-state h4 {
-      font-size: 13.5px;
-      font-weight: 700;
-      color: var(--carbon);
-      margin-bottom: 6px;
-    }
-
-    .deck-empty-state p {
-      font-size: 12px;
-      line-height: 1.5;
-    }
-
-    .deck-item-card {
+      padding: 28px 18px;
+      color: #666661;
+      font-size: 12.5px;
+      line-height: 1.55;
       background: #ffffff;
-      border: 1px solid var(--border-card);
-      border-radius: var(--radius-md);
-      padding: 11px 12px;
-      box-shadow: var(--shadow-sm);
+      border: 1px dashed #d1d1d8;
+      border-radius: 10px;
+    }
+
+    .deck-empty strong {
+      color: #30302d;
+      display: block;
+      margin-bottom: 6px;
+      font-size: 13.5px;
+    }
+
+    .deck-item {
       display: flex;
-      flex-direction: column;
-      gap: 9px;
-      transition: box-shadow 0.16s ease, border-color 0.16s ease, opacity 0.16s ease;
-      position: relative;
+      gap: 10px;
+      align-items: flex-start;
+      background: #ffffff;
+      border: 1px solid #e4e4e8;
+      border-radius: 10px;
+      padding: 9px 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+      transition: opacity 0.14s, border-color 0.14s, box-shadow 0.14s;
     }
 
-    .deck-item-card:hover {
-      border-color: #cbd5e1;
-      box-shadow: var(--shadow-md);
-    }
-
-    .deck-item-card.dragging {
+    .deck-item.dragging {
       opacity: 0.45;
-      border-color: var(--rojo-seguro);
     }
 
-    .deck-item-card.drag-over-top {
-      box-shadow: 0 -3px 0 0 var(--rojo-seguro);
+    .deck-item.drag-over-top {
+      border-top: 2.5px solid #e20039;
     }
 
-    .deck-item-card.drag-over-bottom {
-      box-shadow: 0 3px 0 0 var(--rojo-seguro);
-    }
-
-    .deck-item-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .deck-item-meta-left {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      min-width: 0;
+    .deck-item.drag-over-bottom {
+      border-bottom: 2.5px solid #e20039;
     }
 
     .deck-drag-handle {
+      color: #a1a1aa;
       cursor: grab;
-      color: #94a3b8;
-      font-size: 13px;
-      padding: 2px 3px;
-      user-select: none;
+      font-size: 14px;
       line-height: 1;
+      padding: 4px 2px;
+      user-select: none;
+      flex-shrink: 0;
     }
 
     .deck-drag-handle:active {
       cursor: grabbing;
     }
 
-    .deck-item-num {
-      background: var(--rojo-seguro);
-      color: #ffffff;
-      font-size: 11px;
-      font-weight: 800;
-      min-width: 22px;
-      height: 22px;
-      padding: 0 6px;
-      border-radius: 6px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .deck-item-type-tag {
-      font-size: 10.5px;
-      font-weight: 700;
-      color: var(--text-muted);
-      background: #f1f5f9;
-      border: 1px solid #e2e8f0;
-      padding: 2px 8px;
-      border-radius: var(--radius-pill);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .deck-item-controls {
-      display: inline-flex;
+    .deck-thumb-col {
+      display: flex;
+      flex-direction: column;
       align-items: center;
       gap: 4px;
       flex-shrink: 0;
     }
 
-    .deck-ctrl-btn {
-      width: 25px;
-      height: 25px;
-      border-radius: 6px;
-      border: 1px solid var(--border-card);
-      background: #f8fafc;
-      color: var(--carbon);
-      font-size: 12px;
-      font-weight: 700;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.14s ease;
-    }
-
-    .deck-ctrl-btn:hover:not(:disabled) {
-      background: #e2e8f0;
-    }
-
-    .deck-ctrl-btn:disabled {
-      opacity: 0.35;
-      cursor: not-allowed;
-    }
-
-    .deck-ctrl-btn.remove:hover {
-      background: #fee2e2;
-      color: var(--rojo-seguro);
-      border-color: #fca5a5;
-    }
-
-    .deck-item-main {
-      display: grid;
-      grid-template-columns: 126px minmax(0, 1fr);
-      gap: 10px;
-      align-items: start;
-    }
-
-    /* Miniatura visual real 16:9 */
-    .deck-thumb-box {
-      width: 126px;
-      height: 71px;
-      border-radius: 7px;
-      border: 1px solid #cbd5e1;
+    .deck-thumb-frame {
+      width: 120px;
+      height: 68px;
+      border: 1px solid #e4e4e8;
+      border-radius: 5px;
       background: #ffffff;
       overflow: hidden;
       position: relative;
-      cursor: pointer;
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.5);
       display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .deck-thumb-frame:hover {
+      border-color: #e20039;
+    }
+
+    .deck-thumb-num-badge {
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      z-index: 3;
+      background: rgba(48, 48, 45, 0.85);
+      color: #ffffff;
+      font-size: 9px;
+      font-weight: 700;
+      min-width: 16px;
+      height: 16px;
+      padding: 0 4px;
+      border-radius: 4px;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
     }
 
-    .deck-thumb-box:hover {
-      border-color: var(--rojo-seguro);
-    }
-
-    .deck-thumb-box img {
+    .deck-thumb-img {
       width: 100%;
       height: 100%;
       object-fit: contain;
-      padding: 3px;
-      background: #ffffff;
+      display: block;
     }
 
-    .deck-thumb-kpi-grid {
-      width: 100%;
-      height: 100%;
-      padding: 5px;
-      display: grid;
-      gap: 3px;
-      background: #f8fafc;
-    }
-
-    .deck-thumb-kpi-grid.k1 { grid-template-columns: 1fr; grid-template-rows: 1fr; }
-    .deck-thumb-kpi-grid.k2 { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr; }
-    .deck-thumb-kpi-grid.k3,
-    .deck-thumb-kpi-grid.k4 { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }
-
-    .deck-thumb-kpi-mini {
+    .deck-thumb-html-inner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 960px;
+      height: 544px;
+      transform: scale(0.125);
+      transform-origin: top left;
+      padding: 20px;
       background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 3px;
-      padding: 2px 4px 2px 5px;
-      position: relative;
+      pointer-events: none;
       overflow: hidden;
+      border-top: 22px solid #e20039;
+      box-sizing: border-box;
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
 
-    .deck-thumb-kpi-mini span.bar {
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 2.5px;
-    }
-
-    .deck-thumb-kpi-mini .t {
-      font-size: 5.5px;
-      color: #64748b;
+    .deck-slide-num-pill {
+      font-size: 9.5px;
       font-weight: 700;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      text-transform: uppercase;
-    }
-
-    .deck-thumb-kpi-mini .v {
-      font-size: 8px;
-      color: #30302d;
-      font-weight: 800;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      line-height: 1.15;
-    }
-
-    .deck-thumb-more-badge {
-      position: absolute;
-      right: 3px;
-      bottom: 3px;
-      background: rgba(48, 48, 45, 0.85);
-      color: #ffffff;
-      font-size: 8px;
-      font-weight: 700;
-      padding: 1px 4px;
-      border-radius: 4px;
-    }
-
-    .deck-thumb-table-mini {
-      width: 100%;
-      height: 100%;
-      padding: 4px;
-      background: #ffffff;
-      overflow: hidden;
-    }
-
-    .deck-thumb-table-mini table {
-      width: 100%;
-      border-collapse: collapse;
-      table-layout: fixed;
-    }
-
-    .deck-thumb-table-mini th {
-      background: #f1f5f9;
-      font-size: 4.8px;
-      font-weight: 800;
-      color: #475569;
-      padding: 1.5px 2px;
-      border-bottom: 1px solid #cbd5e1;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      text-align: left;
-    }
-
-    .deck-thumb-table-mini td {
-      font-size: 4.8px;
-      color: #30302d;
-      padding: 1.5px 2px;
-      border-bottom: 0.5px solid #f1f5f9;
+      color: #666661;
+      background: #f0f0f5;
+      border-radius: 999px;
+      padding: 1px 7px;
+      max-width: 120px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
 
-    .deck-item-inputs {
+    .deck-item-body {
+      flex: 1 1 auto;
+      min-width: 0;
       display: flex;
       flex-direction: column;
-      gap: 6px;
-      min-width: 0;
+      gap: 4px;
     }
 
-    .deck-group-hint {
+    .deck-item-title-input {
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      padding: 2px 5px;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 700;
+      color: #30302d;
+      background: transparent;
+    }
+
+    .deck-item-title-input:hover,
+    .deck-item-title-input:focus {
+      border-color: #d1d1d8;
+      background: #fafafc;
+      outline: none;
+    }
+
+    .deck-item-ctx {
       font-size: 10px;
-      color: var(--azul);
-      font-weight: 600;
-      line-height: 1.25;
+      color: #666661;
+      line-height: 1.3;
+      padding: 0 5px;
     }
 
-    /* Footer fijo del Drawer */
-    .deck-drawer-footer {
+    .deck-item-note-input {
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid #e4e4e8;
+      border-radius: 4px;
+      padding: 4px 6px;
+      font-family: inherit;
+      font-size: 10.5px;
+      color: #30302d;
+      background: #fcfcfd;
+      resize: vertical;
+      min-height: 28px;
+    }
+
+    .deck-item-note-input:focus {
+      border-color: #e20039;
+      outline: none;
       background: #ffffff;
-      border-top: 1px solid var(--border-card);
-      padding: 13px 16px;
-      display: grid;
-      grid-template-columns: 1fr 1.25fr;
-      gap: 10px;
+    }
+
+    .deck-item-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
       flex-shrink: 0;
     }
 
-    .deck-btn-preview {
+    .deck-mini-btn {
+      width: 24px;
+      height: 22px;
+      padding: 0;
+      border: 1px solid #e4e4e8;
+      border-radius: 4px;
       background: #ffffff;
-      color: var(--carbon);
-      border: 1.5px solid var(--border-card);
-      border-radius: var(--radius-md);
-      padding: 10px 12px;
-      font-size: 12.5px;
+      color: #30302d;
+      font-size: 11px;
       font-weight: 700;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 7px;
-      transition: all 0.16s ease;
     }
 
-    .deck-btn-preview:hover {
-      border-color: var(--carbon);
-      background: #f8fafc;
+    .deck-mini-btn:hover:not(:disabled) {
+      border-color: #e20039;
+      color: #e20039;
+      background: #fff1f4;
     }
 
-    .deck-btn-pdf {
-      background: linear-gradient(135deg, var(--rojo-seguro) 0%, var(--rojo-oscuro) 100%);
+    .deck-mini-btn:disabled {
+      opacity: 0.32;
+      cursor: default;
+    }
+
+    .deck-mini-btn.del:hover {
+      border-color: #b91f38;
+      background: #e20039;
       color: #ffffff;
-      border: none;
-      border-radius: var(--radius-md);
-      padding: 10px 14px;
-      font-size: 12.5px;
-      font-weight: 700;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      box-shadow: var(--shadow-red);
-      transition: filter 0.16s ease, transform 0.16s ease;
     }
 
-    .deck-btn-pdf:hover {
-      filter: brightness(1.06);
-      transform: translateY(-1px);
+    .deck-drawer-ftr {
+      padding: 12px 18px 14px;
+      border-top: 1px solid #e4e4e8;
+      background: #ffffff;
+      flex-shrink: 0;
+    }
+
+    .deck-print-tip {
+      margin: 0 0 9px;
+      font-size: 10.5px;
+      color: #666661;
+      line-height: 1.35;
+    }
+
+    .deck-drawer-ftr-btns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
     }
 
     /* ======================================================================
-       DISEÑO DE DIAPOSITIVAS 16:9 (297mm x 167mm EXACTO - PREVIEW & PRINT)
+       MODAL VISTA PREVIA 16:9 INTERACTIVA
        ====================================================================== */
+    .deck-preview-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 9995;
+      background: rgba(18, 18, 22, 0.92);
+      display: none;
+      flex-direction: column;
+    }
 
+    .deck-preview-modal.open {
+      display: flex;
+    }
+
+    .deck-preview-topbar {
+      padding: 10px 20px;
+      background: rgba(30, 30, 34, 0.95);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      flex-shrink: 0;
+    }
+
+    .deck-preview-meta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .deck-preview-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #e20039;
+      display: inline-block;
+    }
+
+    .deck-preview-title {
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .deck-preview-counter {
+      font-size: 11.5px;
+      background: rgba(255, 255, 255, 0.14);
+      padding: 2px 10px;
+      border-radius: 999px;
+    }
+
+    .deck-preview-actions {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .deck-preview-close-btn {
+      height: 26px;
+      padding: 0 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .deck-preview-close-btn:hover {
+      background: rgba(255, 255, 255, 0.22);
+    }
+
+    .deck-preview-stage-wrap {
+      flex: 1 1 auto;
+      min-height: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      overflow: hidden;
+    }
+
+    .deck-preview-stage {
+      position: relative;
+      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.55);
+      border-radius: 4px;
+      overflow: hidden;
+      background: #ffffff;
+    }
+
+    .deck-preview-stage > .deck-slide {
+      transform-origin: top left;
+    }
+
+    .deck-preview-strip {
+      padding: 8px 18px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      overflow-x: auto;
+      background: rgba(24, 24, 28, 0.96);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      flex-shrink: 0;
+    }
+
+    .deck-strip-pill {
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.08);
+      color: #e4e4e7;
+      border-radius: 999px;
+      padding: 4px 11px;
+      font-family: inherit;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .deck-strip-pill:hover {
+      border-color: #ffffff;
+      color: #ffffff;
+    }
+
+    .deck-strip-pill.active {
+      background: #e20039;
+      border-color: #e20039;
+      color: #ffffff;
+    }
+
+    /* ======================================================================
+       DIAPOSITIVA 16:9 — ESTILO EXACTO "BALANCES MERCADO ASEGURADOR"
+       ====================================================================== */
     .deck-measure-host {
       position: fixed;
       left: -20000px;
       top: 0;
       width: 297mm;
-      height: 167mm;
+      height: 166.5mm;
       visibility: hidden;
       pointer-events: none;
       z-index: -1;
@@ -1418,703 +1534,416 @@
 
     .deck-slide {
       width: 297mm;
-      height: 167mm;
+      height: 166.5mm;
       min-width: 297mm;
-      min-height: 167mm;
+      min-height: 166.5mm;
       max-width: 297mm;
-      max-height: 167mm;
-      background: #ffffff;
-      color: var(--carbon);
+      max-height: 166.5mm;
       box-sizing: border-box;
-      position: relative;
-      overflow: hidden;
+      background: #ffffff;
+      color: #30302d;
+      font-family: 'Sora', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       display: flex;
       flex-direction: column;
-      font-family: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      overflow: hidden;
+      position: relative;
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
     }
 
-    /* PORTADA INSTITUCIONAL (DIAPOSITIVA 1) */
-    .deck-slide.deck-slide-cover {
-      background: #ffffff;
-      justify-content: space-between;
-      padding: 46px 64px 42px 76px;
-    }
-
-    .deck-cover-left-stripe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      width: 18px;
-      background: linear-gradient(180deg, var(--rojo-seguro) 0%, var(--rojo-oscuro) 100%);
-    }
-
-    .deck-cover-decor-shape {
-      position: absolute;
-      right: -90px;
-      top: -90px;
-      width: 430px;
-      height: 430px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(226, 0, 57, 0.08) 0%, rgba(226, 0, 57, 0.02) 60%, transparent 72%);
-      pointer-events: none;
-    }
-
-    .deck-cover-decor-corner {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      width: 280px;
-      height: 12px;
-      background: linear-gradient(90deg, var(--amarillo) 0%, var(--rojo-seguro) 100%);
-    }
-
-    .deck-cover-top {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .deck-logo-badge-lg {
-      background: linear-gradient(135deg, var(--rojo-seguro) 0%, var(--rojo-oscuro) 100%);
+    /* Portada 16:9 Institucional La Segunda */
+    .deck-slide-cover {
+      background: linear-gradient(135deg, #b91f38 0%, #e4002b 58%, #f2385a 100%);
       color: #ffffff;
-      font-weight: 800;
-      font-size: 21px;
-      letter-spacing: 0.6px;
-      padding: 12px 22px;
-      border-radius: 14px;
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      box-shadow: 0 6px 20px rgba(226, 0, 57, 0.22);
+      justify-content: space-between;
     }
 
-    .deck-logo-badge-lg .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--amarillo);
-      flex-shrink: 0;
+    .deck-cover-main {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 16mm 22mm 10mm;
     }
 
-    .deck-logo-subbrand {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--text-muted);
-      letter-spacing: 1.2px;
+    .deck-cover-logo .brand-logo-svg {
+      height: 60px;
+      width: auto;
+      display: block;
+    }
+
+    .deck-cover-kicker {
+      margin-top: 12mm;
+      font-size: 10.5pt;
+      font-weight: 600;
       text-transform: uppercase;
-    }
-
-    .deck-cover-center {
-      position: relative;
-      z-index: 2;
-      max-width: 880px;
-      margin: auto 0;
-    }
-
-    .deck-cover-rule {
-      width: 72px;
-      height: 6px;
-      border-radius: 999px;
-      background: var(--rojo-seguro);
-      margin-bottom: 24px;
+      letter-spacing: 0.12em;
+      opacity: 0.88;
+      color: #ffffff;
     }
 
     .deck-cover-title {
-      font-size: 42px;
-      font-weight: 800;
-      color: var(--carbon);
-      line-height: 1.16;
-      letter-spacing: -0.8px;
-      margin-bottom: 18px;
-      word-break: break-word;
+      margin: 4mm 0 0;
+      font-size: 30pt;
+      line-height: 1.15;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      max-width: 240mm;
+      color: #ffffff;
     }
 
     .deck-cover-subtitle {
-      font-size: 19px;
-      font-weight: 500;
-      color: var(--text-muted);
-      line-height: 1.45;
-      max-width: 780px;
-      word-break: break-word;
-    }
-
-    .deck-cover-bottom {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-top: 1px solid #e2e8f0;
-      padding-top: 16px;
-    }
-
-    .deck-cover-claim {
-      font-size: 13.5px;
-      font-weight: 700;
-      color: var(--rojo-seguro);
-    }
-
-    .deck-cover-org {
-      font-size: 12.5px;
-      font-weight: 600;
-      color: var(--text-muted);
-    }
-
-    /* DIAPOSITIVAS INTERIORES LIMPIAS (SIN SUBTÍTULOS NI PÍLDORAS DE CONTEXTO) */
-    .deck-slide.deck-slide-interior {
-      padding: 22px 38px 16px 38px;
-      justify-content: space-between;
-    }
-
-    .deck-slide-top-accent {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--rojo-seguro) 0%, var(--rojo-oscuro) 75%, var(--amarillo) 100%);
-    }
-
-    .deck-slide-header {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding-bottom: 11px;
-      border-bottom: 1.5px solid #edf2f7;
-      flex-shrink: 0;
-    }
-
-    .deck-logo-badge-sm {
-      background: linear-gradient(135deg, var(--rojo-seguro) 0%, var(--rojo-oscuro) 100%);
+      margin: 4mm 0 0;
+      font-size: 14.5pt;
+      font-weight: 400;
+      opacity: 0.94;
       color: #ffffff;
-      font-weight: 800;
-      font-size: 12.5px;
-      letter-spacing: 0.4px;
-      padding: 6px 12px;
-      border-radius: 8px;
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      flex-shrink: 0;
     }
 
-    .deck-logo-badge-sm .dot {
-      width: 6.5px;
-      height: 6.5px;
-      border-radius: 50%;
-      background: var(--amarillo);
+    .deck-cover-ftr {
+      padding: 0 22mm 7mm;
+      display: flex;
+      justify-content: space-between;
+      font-size: 9pt;
+      opacity: 0.88;
+      color: #ffffff;
+    }
+
+    .deck-mosaic-strip {
+      display: grid;
+      grid-template-columns: 16% 12% 24% 18% 14% 16%;
+      height: 9px;
+      width: 100%;
+      flex-shrink: 0;
+    }
+    .deck-mosaic-strip span:nth-child(1) { background: #b91f38; }
+    .deck-mosaic-strip span:nth-child(2) { background: #ff4c60; }
+    .deck-mosaic-strip span:nth-child(3) { background: #e20039; }
+    .deck-mosaic-strip span:nth-child(4) { background: #f42c4b; }
+    .deck-mosaic-strip span:nth-child(5) { background: #b91f38; }
+    .deck-mosaic-strip span:nth-child(6) { background: #ff4c60; }
+
+    /* Diapositivas Interiores 16:9 */
+    .deck-slide-hdr {
+      height: 14.5mm;
+      flex-shrink: 0;
+      background: linear-gradient(90deg, #b91f38 0%, #e4002b 65%, #f02c4d 100%);
+      color: #ffffff;
+      padding: 0 9mm;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .deck-slide-hdr-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      flex: 1 1 auto;
+    }
+
+    .deck-slide-logo .brand-logo-svg {
+      height: 24px;
+      width: auto;
+      display: block;
+    }
+
+    .deck-slide-title-wrap {
+      border-left: 1px solid rgba(255, 255, 255, 0.35);
+      padding-left: 12px;
+      min-width: 0;
+      flex: 1 1 auto;
     }
 
     .deck-slide-title {
-      font-size: 20px;
-      font-weight: 800;
-      color: var(--carbon);
-      letter-spacing: -0.3px;
-      line-height: 1.22;
       margin: 0;
-      flex: 1;
-      min-width: 0;
-      overflow: hidden;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-    }
-
-    /* Área útil central */
-    .deck-slide-body {
-      flex: 1;
-      min-height: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 11px;
-      padding: 14px 0 10px 0;
-    }
-
-    .deck-slide-content-area {
-      flex: 1;
-      min-height: 0;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* GRILLA DE TARJETAS KPI EN DIAPOSITIVAS (MÁX 4 POR SLIDE: 2x2 o 1x2) */
-    .deck-kpi-stage {
-      flex: 1;
-      min-height: 0;
-      width: 100%;
-      height: 100%;
-      display: grid;
-    }
-
-    /* 1 KPI: 1 tarjeta ampliada ocupando el área útil */
-    .deck-kpi-stage[data-count="1"] {
-      grid-template-columns: minmax(0, 1fr);
-      grid-template-rows: minmax(0, 1fr);
-      padding: 18px 90px;
-    }
-
-    /* 2 KPIs: 1x2 ampliadas lado a lado */
-    .deck-kpi-stage[data-count="2"] {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      grid-template-rows: minmax(0, 1fr);
-      gap: 26px;
-      padding: 12px 0;
-    }
-
-    /* 3 o 4 KPIs: cuadrícula 2x2 estricta (nunca 4 en una sola fila) */
-    .deck-kpi-stage[data-count="3"],
-    .deck-kpi-stage[data-count="4"] {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      grid-template-rows: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .deck-slide-kpi-card {
-      background: #ffffff;
-      border: 1.5px solid #e2e8f0;
-      border-radius: 16px;
-      padding: 22px 28px 20px 32px;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 10px;
-      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
-    }
-
-    .deck-slide-kpi-card .deck-kpi-accent {
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      width: 8px;
-    }
-
-    .deck-slide-kpi-card .dk-title {
-      font-size: 14.5px;
+      font-size: 13pt;
       font-weight: 700;
-      color: #64748b;
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
-      line-height: 1.25;
+      line-height: 1.2;
+      color: #ffffff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    .deck-slide-kpi-card .dk-value {
-      font-size: 42px;
-      font-weight: 800;
-      color: var(--carbon);
-      letter-spacing: -0.8px;
-      line-height: 1.08;
-      font-variant-numeric: tabular-nums;
-    }
-
-    .deck-slide-kpi-card.has-extra {
-      padding: 16px 24px 14px 28px;
-      gap: 6px;
-    }
-
-    .deck-slide-kpi-card.has-extra .dk-value {
-      font-size: 34px;
-    }
-
-    /* Escala tipográfica aún mayor para 1x2 y 1x1 */
-    .deck-kpi-stage[data-count="2"] .deck-slide-kpi-card {
-      padding: 32px 36px 30px 40px;
-      gap: 16px;
-    }
-
-    .deck-kpi-stage[data-count="2"] .deck-slide-kpi-card .dk-title {
-      font-size: 17px;
-    }
-
-    .deck-kpi-stage[data-count="2"] .deck-slide-kpi-card .dk-value {
-      font-size: 52px;
-    }
-
-    .deck-kpi-stage[data-count="2"] .deck-slide-kpi-card .dk-sub {
-      font-size: 15.5px;
-    }
-
-    .deck-kpi-stage[data-count="2"] .deck-slide-kpi-card .kpi-delta {
-      font-size: 14px;
-      padding: 5px 12px;
-    }
-
-    .deck-kpi-stage[data-count="1"] .deck-slide-kpi-card {
-      padding: 40px 52px 40px 56px;
-      gap: 20px;
-    }
-
-    .deck-kpi-stage[data-count="1"] .deck-slide-kpi-card .dk-title {
-      font-size: 20px;
-    }
-
-    .deck-kpi-stage[data-count="1"] .deck-slide-kpi-card .dk-value {
-      font-size: 64px;
-    }
-
-    .deck-kpi-stage[data-count="1"] .deck-slide-kpi-card .dk-sub {
-      font-size: 18px;
-    }
-
-    .deck-kpi-stage[data-count="1"] .deck-slide-kpi-card .kpi-delta {
-      font-size: 16px;
-      padding: 6px 14px;
-    }
-
-    .deck-slide-kpi-card .dk-sub {
-      font-size: 13.5px;
-      color: #64748b;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 8px;
-      line-height: 1.35;
-    }
-
-    .deck-slide-kpi-card .kpi-delta {
-      font-size: 12.5px;
-      padding: 4px 10px;
-    }
-
-    .deck-slide-kpi-card .dk-extra {
-      margin-top: 2px;
-      padding-top: 7px;
-      border-top: 1px dashed #cbd5e1;
-      font-size: 12px;
-      color: var(--carbon);
+    .deck-slide-body {
+      flex: 1 1 auto;
+      min-height: 0;
+      padding: 6mm 9mm 4.5mm;
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      justify-content: center;
+      gap: 3mm;
+      overflow: hidden;
     }
 
-    /* STAGE DE GRÁFICOS 2X PNG */
+    /* Gráficos HD 2x */
     .deck-chart-stage {
-      flex: 1;
+      flex: 1 1 auto;
       min-height: 0;
-      width: 100%;
-      height: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 3mm;
     }
 
-    .deck-chart-img-wrap {
-      flex: 1;
-      min-height: 0;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #ffffff;
-      border: 1px solid #edf2f7;
-      border-radius: 12px;
-      padding: 10px 14px;
-    }
-
-    .deck-chart-img-wrap img {
+    .deck-chart-stage img {
       max-width: 100%;
       max-height: 100%;
-      width: auto;
-      height: auto;
+      min-height: 0;
       object-fit: contain;
       display: block;
     }
 
-    .deck-chart-notes {
+    /* Tarjetas KPI en diapositivas (borde superior de color estilo Balances Mercado Asegurador) */
+    .deck-kpi-stage {
+      display: grid;
+      gap: 5mm;
       width: 100%;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      align-items: center;
-      font-size: 11px;
-      font-weight: 600;
-      color: #475569;
-      flex-shrink: 0;
+      align-content: stretch;
     }
 
-    .deck-chart-note-item {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 6px;
-      padding: 3px 10px;
-      display: inline-flex;
+    .deck-kpi-card {
+      margin: 0;
+      background: #ffffff;
+      box-shadow: none;
+      border: 1.5px solid #d4d6de;
+      border-top: 4px solid #e20039;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 6px;
+      height: 100%;
+      min-height: 0;
+      box-sizing: border-box;
+    }
+
+    .deck-kpi-card .dk-label {
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: #666661;
+      line-height: 1.25;
+    }
+
+    .deck-kpi-card .dk-value {
+      font-weight: 700;
+      color: #30302d;
+      letter-spacing: -0.02em;
+      font-variant-numeric: tabular-nums;
+      line-height: 1.12;
+    }
+
+    .deck-kpi-card .dk-sub {
+      color: #666661;
+      display: flex;
       align-items: center;
       gap: 6px;
+      flex-wrap: wrap;
+      font-variant-numeric: tabular-nums;
+      line-height: 1.3;
     }
 
-    /* STAGE DE TABLAS VECTORIALES PAGINADAS */
-    .deck-table-stage {
-      flex: 1;
+    .deck-kpi-card .dk-extra {
+      margin-top: 2px;
+      padding-top: 6px;
+      border-top: 1px dashed #d4d6de;
+      font-size: 9.5pt;
+      color: #30302d;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    /* 1 KPI: centrado ampliado */
+    .deck-kpi-stage.kpi-layout-1 {
+      flex: 1 1 auto;
       min-height: 0;
+      max-height: 98mm;
+      margin: auto 0;
+      grid-template-columns: minmax(0, 195mm);
+      justify-content: center;
+    }
+    .deck-kpi-stage.kpi-layout-1 .deck-kpi-card { padding: 26px 32px; }
+    .deck-kpi-stage.kpi-layout-1 .dk-label { font-size: 13.5pt; }
+    .deck-kpi-stage.kpi-layout-1 .dk-value { font-size: 38pt; }
+    .deck-kpi-stage.kpi-layout-1 .dk-sub { font-size: 12.5pt; }
+    .deck-kpi-stage.kpi-layout-1 .kpi-delta { font-size: 11.5pt; padding: 4px 11px; }
+
+    /* 2 KPIs: 1x2 ampliadas */
+    .deck-kpi-stage.kpi-layout-2 {
+      flex: 1 1 auto;
+      min-height: 0;
+      max-height: 104mm;
+      margin: auto 0;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: minmax(0, 1fr);
+    }
+    .deck-kpi-stage.kpi-layout-2 .deck-kpi-card { padding: 22px 26px; }
+    .deck-kpi-stage.kpi-layout-2 .dk-label { font-size: 12.5pt; }
+    .deck-kpi-stage.kpi-layout-2 .dk-value { font-size: 32pt; }
+    .deck-kpi-stage.kpi-layout-2 .dk-sub { font-size: 11.5pt; }
+    .deck-kpi-stage.kpi-layout-2 .kpi-delta { font-size: 10.5pt; padding: 3px 10px; }
+
+    /* 3 o 4 KPIs: cuadrícula 2x2 estricta */
+    .deck-kpi-stage.kpi-layout-3,
+    .deck-kpi-stage.kpi-layout-4 {
+      flex: 1 1 auto;
+      min-height: 0;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+    }
+    .deck-kpi-stage.kpi-layout-3 .deck-kpi-card,
+    .deck-kpi-stage.kpi-layout-4 .deck-kpi-card { padding: 18px 24px; }
+    .deck-kpi-stage.kpi-layout-3 .dk-label,
+    .deck-kpi-stage.kpi-layout-4 .dk-label { font-size: 11.5pt; }
+    .deck-kpi-stage.kpi-layout-3 .dk-value,
+    .deck-kpi-stage.kpi-layout-4 .dk-value { font-size: 28pt; }
+    .deck-kpi-stage.kpi-layout-3 .dk-sub,
+    .deck-kpi-stage.kpi-layout-4 .dk-sub { font-size: 10.5pt; }
+    .deck-kpi-stage.kpi-layout-3 .kpi-delta,
+    .deck-kpi-stage.kpi-layout-4 .kpi-delta { font-size: 9.5pt; padding: 3px 8px; }
+
+    .deck-kpi-stage .deck-kpi-card.has-extra {
+      padding: 13px 20px;
+      gap: 4px;
+    }
+    .deck-kpi-stage .deck-kpi-card.has-extra .dk-value {
+      font-size: 23pt;
+    }
+
+    /* Tablas vectoriales paginadas */
+    .deck-table-stage {
       width: 100%;
+      border: 1px solid #e4e4e8;
+      border-radius: 6px;
       overflow: hidden;
-      border: 1px solid #e2e8f0;
-      border-radius: 10px;
       background: #ffffff;
     }
 
-    table.deck-slide-table {
-      width: 100%;
+    .deck-table-stage table.deck-slide-table {
+      width: 100% !important;
+      table-layout: auto !important;
       border-collapse: collapse;
-      font-size: 11px;
-      text-align: left;
+      font-size: 7.8pt;
+      background: #ffffff;
     }
 
-    table.deck-slide-table th {
-      background: #f1f5f9;
-      color: #334155;
-      font-weight: 800;
+    .deck-table-stage table.deck-slide-table thead th {
+      position: static;
+      background: #f8f8fa;
+      color: #666661;
+      font-size: 7.2pt;
+      font-weight: 700;
       text-transform: uppercase;
-      font-size: 10px;
-      letter-spacing: 0.35px;
-      padding: 8px 10px;
-      border-bottom: 2px solid #cbd5e1;
+      letter-spacing: 0.015em;
+      padding: 4px 6px;
+      border-bottom: 2px solid #e4e4e8;
       line-height: 1.2;
+      white-space: normal;
     }
 
-    table.deck-slide-table td {
-      padding: 6.5px 10px;
-      border-bottom: 1px solid #edf2f7;
-      color: var(--carbon);
-      font-weight: 500;
-      line-height: 1.25;
+    .deck-table-stage table.deck-slide-table tbody td {
+      padding: 3.5px 6px;
+      line-height: 1.22;
+      border-bottom: 1px solid #ededf0;
+      color: #30302d;
       font-variant-numeric: tabular-nums;
     }
 
-    table.deck-slide-table tr:nth-child(even) td {
-      background-color: #fafbfd;
+    .deck-table-stage table.deck-slide-table tbody tr:nth-child(even) td {
+      background-color: #fafafc;
     }
 
-    table.deck-slide-table tr.deck-row-total td {
-      background-color: #f1f5f9 !important;
-      font-weight: 800 !important;
-      border-top: 2px solid #94a3b8;
-      border-bottom: none;
-    }
-
-    /* Densidad adaptativa para tablas anchas (10 a 14 columnas) */
-    table.deck-slide-table.cols-medium {
-      font-size: 10px;
-    }
-    table.deck-slide-table.cols-medium th {
-      font-size: 9px;
-      padding: 7px 7px;
-    }
-    table.deck-slide-table.cols-medium td {
-      padding: 5.5px 7px;
-    }
-
-    table.deck-slide-table.cols-wide {
-      font-size: 9px;
-    }
-    table.deck-slide-table.cols-wide th {
-      font-size: 8.2px;
-      padding: 6px 5px;
-      letter-spacing: 0.15px;
-    }
-    table.deck-slide-table.cols-wide td {
-      padding: 5px 5px;
-    }
-
-    /* Nota / conclusión ejecutiva opcional por diapositiva */
-    .deck-exec-note {
-      background: #fff8f9;
-      border: 1px solid rgba(226, 0, 57, 0.18);
-      border-left: 4px solid var(--rojo-seguro);
-      border-radius: 8px;
-      padding: 8px 14px;
-      font-size: 12px;
-      line-height: 1.38;
-      color: var(--carbon);
-      flex-shrink: 0;
-    }
-
-    .deck-exec-note strong {
-      color: var(--rojo-seguro);
-      font-weight: 700;
-      margin-right: 6px;
-    }
-
-    /* Pie de página discreto con fuente y numeración Diapositiva X / Y */
-    .deck-slide-footer {
-      border-top: 1px solid #e2e8f0;
-      padding-top: 8px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 10.5px;
-      color: #64748b;
-      flex-shrink: 0;
-    }
-
-    .deck-slide-footer-source {
-      font-weight: 500;
+    .deck-table-stage table.deck-slide-table tbody td.num {
       white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      max-width: 80%;
     }
 
-    .deck-slide-footer-page {
-      font-weight: 700;
-      color: #475569;
-      font-variant-numeric: tabular-nums;
+    .deck-table-stage table.deck-slide-table tr.deck-row-total td {
+      background: #22232a !important;
+      color: #ffffff !important;
+      font-weight: 700 !important;
+      border-top: 2px solid #22232a;
     }
 
-    /* ======================================================================
-       VISTA PREVIA INTERACTIVA A PANTALLA COMPLETA
-       ====================================================================== */
-    .deck-preview-modal {
-      position: fixed;
-      inset: 0;
-      background: rgba(15, 23, 42, 0.96);
-      z-index: 1350;
-      display: none;
-      flex-direction: column;
-      user-select: none;
+    .deck-table-stage.dense-cols table.deck-slide-table {
+      font-size: 7pt;
+    }
+    .deck-table-stage.dense-cols table.deck-slide-table thead th {
+      font-size: 6.5pt;
+    }
+    .deck-table-stage.dense-cols table.deck-slide-table th,
+    .deck-table-stage.dense-cols table.deck-slide-table td {
+      padding: 2.8px 4.2px;
     }
 
-    .deck-preview-modal.open {
+    .deck-table-stage.ultra-dense-cols table.deck-slide-table {
+      font-size: 6.5pt;
+    }
+    .deck-table-stage.ultra-dense-cols table.deck-slide-table thead th {
+      font-size: 6pt;
+    }
+    .deck-table-stage.ultra-dense-cols table.deck-slide-table th,
+    .deck-table-stage.ultra-dense-cols table.deck-slide-table td {
+      padding: 2.5px 3.5px;
+    }
+
+    /* Notas aclaratorias de gráficos y notas ejecutivas */
+    .deck-slide-notes {
       display: flex;
-    }
-
-    .deck-preview-topbar {
-      height: 58px;
-      padding: 0 24px;
-      background: rgba(15, 23, 42, 0.9);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: #ffffff;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px;
       flex-shrink: 0;
     }
 
-    .deck-preview-info {
-      display: flex;
-      align-items: center;
-      gap: 14px;
+    .deck-slide-notes .chart-info-note {
+      margin: 0;
+      font-size: 7.5pt;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 6px;
+      background: #eef4fb;
+      border: 1px solid #b6d0ee;
+      color: #1f4a7c;
     }
 
-    .deck-preview-counter {
-      background: rgba(255, 255, 255, 0.12);
-      padding: 5px 12px;
-      border-radius: var(--radius-pill);
-      font-size: 12px;
-      font-weight: 700;
-      color: #f8fafc;
-    }
-
-    .deck-preview-hint {
-      font-size: 11.5px;
-      color: #94a3b8;
-    }
-
-    .deck-preview-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .deck-preview-btn {
-      background: rgba(255, 255, 255, 0.1);
-      color: #ffffff;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      border-radius: 8px;
-      padding: 7px 14px;
-      font-size: 12px;
-      font-weight: 700;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      transition: all 0.15s ease;
-    }
-
-    .deck-preview-btn:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
-
-    .deck-preview-btn.primary {
-      background: var(--rojo-seguro);
-      border-color: var(--rojo-seguro);
-    }
-
-    .deck-preview-btn.primary:hover {
-      background: var(--rojo-oscuro);
-    }
-
-    .deck-preview-stage {
-      flex: 1;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      padding: 20px 72px;
-    }
-
-    .deck-preview-viewport {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .deck-preview-viewport .deck-slide {
-      transform-origin: center center;
-      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.55);
+    .deck-slide-exec-note {
+      flex-shrink: 0;
+      background: #fff7f8;
+      border-left: 3.5px solid #e20039;
       border-radius: 4px;
+      padding: 4px 10px;
+      font-size: 8.4pt;
+      line-height: 1.35;
+      color: #30302d;
     }
 
-    .deck-nav-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 46px;
-      height: 46px;
-      border-radius: 50%;
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      background: rgba(30, 41, 59, 0.85);
-      color: #ffffff;
-      font-size: 18px;
-      font-weight: 800;
-      cursor: pointer;
-      display: inline-flex;
+    .deck-slide-exec-note strong {
+      color: #b91f38;
+      margin-right: 4px;
+    }
+
+    /* Pie de página discreto */
+    .deck-slide-ftr {
+      height: 7mm;
+      flex-shrink: 0;
+      border-top: 1px solid #e4e5ea;
+      padding: 0 9mm;
+      display: flex;
       align-items: center;
-      justify-content: center;
-      transition: all 0.15s ease;
-      z-index: 5;
+      justify-content: space-between;
+      font-size: 7.4pt;
+      color: #666661;
+      background: #fafafa;
     }
-
-    .deck-nav-arrow:hover:not(:disabled) {
-      background: var(--rojo-seguro);
-      border-color: var(--rojo-seguro);
-      transform: translateY(-50%) scale(1.06);
-    }
-
-    .deck-nav-arrow:disabled {
-      opacity: 0.25;
-      cursor: not-allowed;
-    }
-
-    .deck-nav-arrow.prev { left: 18px; }
-    .deck-nav-arrow.next { right: 18px; }
 
     /* ======================================================================
-       HOJA DE ESTILOS @media print DEDICADA — PDF VECTORIAL 16:9 NATIVO
+       IMPRESIÓN VECTORIAL NATIVA 16:9 (@media print)
        ====================================================================== */
     @page {
       size: 297mm 167mm;
@@ -2122,55 +1951,42 @@
     }
 
     @media print {
-      * {
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-        color-adjust: exact !important;
+      .deck-add-btn, .deck-kpi-panel-bar, .btn-deck-open, .deck-fab,
+      .deck-drawer, .deck-drawer-backdrop, .deck-preview-modal, .deck-toast {
+        display: none !important;
       }
+      #deck_print_root { display: none; }
 
-      html, body {
-        width: 297mm !important;
-        height: auto !important;
-        min-height: 0 !important;
+      body.deck-printing {
         margin: 0 !important;
         padding: 0 !important;
         background: #ffffff !important;
-        overflow: visible !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
       }
-
       body.deck-printing > *:not(#deck_print_root) {
         display: none !important;
       }
-
       body.deck-printing #deck_print_root {
         display: block !important;
-        width: 297mm !important;
         margin: 0 !important;
         padding: 0 !important;
-        background: #ffffff !important;
       }
-
       body.deck-printing #deck_print_root .deck-slide {
-        width: 297mm !important;
-        height: 167mm !important;
-        min-width: 297mm !important;
-        min-height: 167mm !important;
-        max-width: 297mm !important;
-        max-height: 167mm !important;
-        margin: 0 !important;
         box-shadow: none !important;
-        border-radius: 0 !important;
+        border: none !important;
+        margin: 0 !important;
         transform: none !important;
-        overflow: hidden !important;
-        page-break-after: always !important;
-        break-after: page !important;
-        page-break-inside: avoid !important;
-        break-inside: avoid !important;
+        break-after: page;
+        page-break-after: always;
+        break-inside: avoid;
+        page-break-inside: avoid;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
       }
-
       body.deck-printing #deck_print_root .deck-slide:last-child {
-        page-break-after: auto !important;
-        break-after: auto !important;
+        break-after: auto;
+        page-break-after: auto;
       }
     }
 
@@ -5531,110 +5347,110 @@
   </script>
 
   <!-- ==================================================================== -->
-  <!-- ARMADOR DE PRESENTACIONES EJECUTIVAS EN PDF (DECK BUILDER OFFLINE)   -->
+  <!-- ARMADOR DE PRESENTACIÓN PDF (ESTILO BALANCES MERCADO ASEGURADOR)     -->
   <!-- ==================================================================== -->
+
+  <template id="tpl_l2_brand_logo_svg">
+    <svg class="brand-logo-svg" viewBox="0 0 799.37 178.23" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="La Segunda Seguros">
+  <title>La Segunda Seguros</title>
+  <g fill="#ffffff" fill-rule="nonzero">
+    <path d="M382.24 178.23C379.92 178.23 377.93 177.84 376.3 177.07C374.66 176.31 373.4 175.25 372.53 173.89C371.66 172.53 371.23 171 371.23 169.28L374.99 169.28C374.99 170.13 375.21 170.97 375.66 171.82C376.11 172.66 376.86 173.36 377.93 173.93C378.99 174.49 380.43 174.77 382.24 174.77C383.93 174.77 385.31 174.52 386.39 174.02C387.46 173.52 388.26 172.87 388.77 172.07C389.28 171.26 389.54 170.38 389.54 169.44C389.54 168.29 389.04 167.33 388.04 166.58C387.04 165.82 385.58 165.36 383.67 165.18L380.56 164.91C378.07 164.7 376.09 163.94 374.61 162.61C373.12 161.28 372.38 159.52 372.38 157.35C372.38 155.63 372.8 154.14 373.63 152.86C374.46 151.58 375.62 150.57 377.1 149.84C378.59 149.12 380.31 148.75 382.28 148.75C384.23 148.75 385.94 149.11 387.43 149.82C388.91 150.54 390.07 151.55 390.9 152.84C391.73 154.13 392.15 155.67 392.15 157.46L388.39 157.46C388.39 156.57 388.17 155.72 387.75 154.93C387.33 154.14 386.67 153.48 385.78 152.97C384.88 152.46 383.72 152.2 382.28 152.2C380.9 152.2 379.76 152.45 378.85 152.93C377.94 153.42 377.26 154.05 376.81 154.83C376.37 155.61 376.14 156.45 376.14 157.35C376.14 158.37 376.54 159.28 377.33 160.07C378.12 160.87 379.3 161.33 380.86 161.45L383.97 161.72C385.89 161.88 387.55 162.28 388.94 162.93C390.34 163.58 391.41 164.45 392.17 165.54C392.92 166.63 393.3 167.93 393.3 169.44C393.3 171.15 392.84 172.67 391.92 174C391 175.33 389.7 176.37 388.04 177.11C386.38 177.85 384.45 178.23 382.24 178.23Z"/>
+    <path d="M409.11 174.16L423.58 174.16L423.58 177.54L409.11 177.54ZM409.11 177.53ZM409.11 161.61L422.39 161.61L422.39 164.99L409.11 164.99ZM409.11 164.99ZM409.11 149.52L423.2 149.52L423.2 152.9L409.11 152.9ZM409.11 152.9ZM406.12 149.52L409.88 149.52L409.88 177.54L406.12 177.54Z"/>
+    <path d="M447.84 163.95L462.84 163.95L462.84 167.1L447.84 167.1ZM447.84 167.1ZM448.84 178.23C446.66 178.23 444.69 177.87 442.93 177.15C441.16 176.44 439.64 175.42 438.38 174.12C437.11 172.81 436.13 171.27 435.44 169.49C434.75 167.72 434.4 165.78 434.4 163.68L434.4 162.84C434.4 161.05 434.72 159.31 435.35 157.64C435.97 155.96 436.88 154.45 438.07 153.11C439.26 151.76 440.71 150.7 442.43 149.92C444.14 149.14 446.07 148.75 448.22 148.75C450.55 148.75 452.62 149.19 454.44 150.08C456.26 150.96 457.71 152.19 458.82 153.76C459.91 155.33 460.56 157.15 460.73 159.23L456.9 159.23C456.72 157.67 456.2 156.37 455.36 155.33C454.52 154.3 453.47 153.52 452.23 152.99C450.99 152.47 449.65 152.2 448.22 152.2C446.76 152.2 445.42 152.47 444.19 152.99C442.96 153.52 441.91 154.26 441.03 155.24C440.14 156.21 439.46 157.37 438.97 158.73C438.49 160.09 438.24 161.61 438.24 163.3C438.24 165.22 438.51 166.9 439.03 168.34C439.55 169.79 440.29 170.99 441.24 171.95C442.18 172.91 443.3 173.63 444.6 174.12C445.89 174.61 447.3 174.85 448.84 174.85C451.01 174.85 452.92 174.41 454.57 173.52C456.22 172.64 457.47 171.5 458.32 170.09L456.93 174.66L456.93 166.33L460.46 166.33L460.46 173.01C459.21 174.64 457.6 175.92 455.63 176.84C453.66 177.76 451.39 178.23 448.84 178.23Z"/>
+    <path d="M485.83 178.23C483.3 178.23 481.17 177.73 479.44 176.75C477.72 175.76 476.41 174.38 475.53 172.6C474.65 170.83 474.21 168.76 474.21 166.4L474.21 149.52L477.97 149.52L477.97 166.87C477.97 168.43 478.27 169.8 478.87 170.99C479.47 172.18 480.36 173.11 481.54 173.77C482.71 174.44 484.15 174.77 485.83 174.77C487.52 174.77 488.95 174.45 490.11 173.79C491.28 173.14 492.16 172.22 492.76 171.03C493.36 169.84 493.66 168.45 493.66 166.87L493.66 149.52L497.42 149.52L497.42 166.4C497.42 168.76 496.99 170.83 496.12 172.6C495.25 174.38 493.96 175.76 492.24 176.75C490.53 177.73 488.39 178.23 485.83 178.23Z"/>
+    <path d="M528.63 177.53L522.91 164.6L526.94 164.6L532.81 177.53ZM514.54 165.52L514.54 162.18L523.21 162.18C524.85 162.18 526.05 161.75 526.82 160.9C527.59 160.04 527.97 158.88 527.97 157.42C527.97 155.97 527.58 154.81 526.78 153.95C525.99 153.09 524.8 152.67 523.21 152.67L514.54 152.67L514.54 149.36L522.48 149.36C524.56 149.36 526.28 149.67 527.67 150.29C529.05 150.9 530.08 151.79 530.78 152.95C531.47 154.12 531.81 155.5 531.81 157.12L531.81 157.73C531.81 159.34 531.47 160.73 530.78 161.89C530.08 163.06 529.05 163.96 527.67 164.58C526.28 165.21 524.56 165.52 522.48 165.52ZM511.55 149.36L515.31 149.36L515.31 177.53L511.55 177.53Z"/>
+    <path d="M557.56 174.77C559.2 174.77 560.68 174.46 562 173.85C563.31 173.24 564.43 172.4 565.35 171.34C566.27 170.27 566.98 169.07 567.46 167.73C567.95 166.39 568.19 164.97 568.19 163.49C568.19 161.93 567.95 160.47 567.46 159.11C566.98 157.76 566.27 156.56 565.35 155.52C564.43 154.49 563.31 153.68 562 153.09C560.68 152.5 559.2 152.21 557.56 152.21C555.93 152.21 554.45 152.5 553.13 153.09C551.81 153.68 550.69 154.49 549.77 155.52C548.85 156.56 548.15 157.76 547.66 159.11C547.18 160.47 546.93 161.93 546.93 163.49C546.93 164.97 547.18 166.39 547.66 167.73C548.15 169.07 548.85 170.27 549.77 171.34C550.69 172.4 551.81 173.24 553.13 173.85C554.45 174.46 555.93 174.77 557.56 174.77ZM557.56 178.23C555.06 178.23 552.89 177.78 551.08 176.88C549.26 175.99 547.76 174.81 546.59 173.35C545.41 171.89 544.53 170.33 543.96 168.67C543.38 167.01 543.09 165.41 543.09 163.87L543.09 163.03C543.09 161.36 543.39 159.69 543.98 158C544.57 156.31 545.46 154.77 546.66 153.38C547.87 151.98 549.37 150.86 551.17 150.02C552.98 149.17 555.11 148.75 557.56 148.75C560.02 148.75 562.15 149.17 563.95 150.02C565.76 150.86 567.26 151.98 568.46 153.38C569.66 154.77 570.56 156.31 571.15 158C571.74 159.69 572.03 161.36 572.03 163.03L572.03 163.87C572.03 165.41 571.74 167.01 571.17 168.67C570.59 170.33 569.72 171.89 568.54 173.35C567.36 174.81 565.87 175.99 564.05 176.88C562.23 177.78 560.07 178.23 557.56 178.23Z"/>
+    <path d="M593.83 178.23C591.5 178.23 589.52 177.84 587.88 177.07C586.24 176.31 584.99 175.25 584.12 173.89C583.25 172.53 582.82 171 582.82 169.28L586.58 169.28C586.58 170.13 586.8 170.97 587.25 171.82C587.7 172.66 588.45 173.36 589.51 173.93C590.57 174.49 592.01 174.77 593.83 174.77C595.52 174.77 596.9 174.52 597.98 174.02C599.05 173.52 599.84 172.87 600.35 172.07C600.87 171.26 601.12 170.38 601.12 169.44C601.12 168.29 600.62 167.33 599.63 166.58C598.63 165.82 597.17 165.36 595.25 165.18L592.14 164.91C589.66 164.7 587.68 163.94 586.19 162.61C584.71 161.28 583.97 159.52 583.97 157.35C583.97 155.63 584.38 154.14 585.21 152.86C586.05 151.58 587.2 150.57 588.69 149.84C590.17 149.12 591.9 148.75 593.87 148.75C595.81 148.75 597.53 149.11 599.01 149.82C600.5 150.54 601.65 151.55 602.48 152.84C603.32 154.13 603.73 155.67 603.73 157.46L599.97 157.46C599.97 156.57 599.76 155.72 599.34 154.93C598.92 154.14 598.26 153.48 597.36 152.97C596.47 152.46 595.3 152.2 593.87 152.2C592.49 152.2 591.34 152.45 590.43 152.93C589.53 153.42 588.85 154.05 588.4 154.83C587.95 155.61 587.73 156.45 587.73 157.35C587.73 158.37 588.12 159.28 588.92 160.07C589.71 160.87 590.89 161.33 592.45 161.45L595.56 161.72C597.48 161.88 599.13 162.28 600.53 162.93C601.92 163.58 603 164.45 603.75 165.54C604.51 166.63 604.88 167.93 604.88 169.44C604.88 171.15 604.42 172.67 603.5 174C602.58 175.33 601.29 176.37 599.63 177.11C597.96 177.85 596.03 178.23 593.83 178.23Z"/>
+    <path d="M243.96 81.33C237.7 81.33 234.2 78.07 233.36 73C233 70.87 232.91 69.71 232.91 65.56C232.91 62.88 233.13 60.63 233.48 58.47C234.25 53.7 237.78 50.34 243.96 50.31C250.64 50.34 254.47 54.32 254.48 59.62L254.48 71.8C254.48 78.6 249.55 81.33 243.96 81.33ZM275.81 33.29L262.49 33.29C262.15 33.29 261.84 33.47 261.66 33.75L255.04 44.33C254.82 44.69 254.28 44.66 254.1 44.27C250.12 35.93 244.22 32.59 235.1 32.59C220.25 32.59 211.57 44.41 211.57 61.45L211.57 69.54C211.57 87.61 220.25 98.89 235.1 98.89C245.59 98.89 250.4 93.79 254.07 87.12C254.27 86.76 254.78 86.75 255 87.1L261.66 97.75C261.84 98.04 262.15 98.21 262.49 98.21L275.81 98.21C276.11 98.21 276.35 97.97 276.35 97.67L276.35 33.83C276.35 33.54 276.11 33.29 275.81 33.29ZM132.21 70.17L66.66 70.17C64.5 70.17 62.79 68.21 63.23 65.96C63.54 64.32 65.01 63.16 66.67 63.16L101.75 63.16C114.91 63.16 126.19 55.11 130.93 43.67C132.89 38.94 131.86 33.5 128.34 29.78L118.31 19.17C116.97 17.75 115.58 16.37 114.16 15.02L107.08 8.32C101.43 2.98 93.95 0 86.18 0L36.21 0C35.59 0 35.09 0.5 35.09 1.12L35.09 26.94C35.09 27.57 35.59 28.07 36.21 28.07L101.71 28.07C103.57 28.07 105.14 29.5 105.25 31.36C105.38 33.4 103.76 35.09 101.75 35.09L66.67 35.09C49.23 35.09 35.09 49.23 35.09 66.67L35.09 97.12C35.09 97.74 35.59 98.24 36.21 98.24L132.21 98.24C132.83 98.24 133.33 97.74 133.33 97.12L133.33 71.3C133.33 70.68 132.83 70.17 132.21 70.17ZM132.21 105.26L29.19 105.26C28.57 105.26 28.07 104.76 28.07 104.14L28.07 1.13C28.07 0.5 27.57 0 26.94 0L1.12 0C0.5 0 0 0.5 0 1.13L0 86.18C0 93.96 2.98 101.44 8.32 107.09L15.03 114.18C16.37 115.59 17.74 116.97 19.16 118.3L26.24 125.01C31.89 130.35 39.37 133.33 47.15 133.33L132.21 133.33C132.83 133.33 133.33 132.83 133.33 132.21L133.33 106.39C133.33 105.77 132.83 105.26 132.21 105.26ZM207.95 81.79L202.58 81.79C200.86 81.79 199.48 80.41 199.48 78.7L199.48 7.2C199.48 6.91 199.24 6.66 198.94 6.66L178.18 6.66C177.88 6.66 177.64 6.91 177.64 7.2L177.64 74.2L177.64 86.67C177.64 91.21 180.19 95.47 184.36 97.26C185.77 97.88 187.33 98.21 188.95 98.21L207.95 98.21C208.25 98.21 208.49 97.97 208.49 97.67L208.49 82.33C208.49 82.04 208.25 81.79 207.95 81.79ZM487.41 72.4C487.41 77.36 483.5 81.33 476.91 81.33C470.65 81.33 467.15 78.07 466.31 73C465.95 70.87 465.87 69.71 465.87 65.56C465.87 62.88 466.09 60.63 466.43 58.47C467.2 53.7 470.73 50.34 476.91 50.31C483.59 50.34 487.4 54.32 487.41 59.62ZM508.76 33.29L495.44 33.29C495.1 33.29 494.78 33.47 494.61 33.75L487.99 44.34C487.76 44.69 487.23 44.66 487.05 44.28C483.08 35.93 477.17 32.59 468.05 32.59C453.2 32.59 444.52 44.41 444.52 61.45L444.52 69.54C444.52 87.61 453.2 98.89 468.05 98.89C478.02 98.89 482.93 94.29 486.56 88.12C486.84 87.64 487.56 87.84 487.56 88.39L487.56 92.49C487.56 99.93 486.02 105.54 476.06 105.54L455.8 105.54C455.45 105.54 455.19 105.87 455.28 106.21L459.23 121.56C459.29 121.8 459.5 121.97 459.75 121.97L480.37 121.97C497.02 121.97 509.3 118.11 509.3 98.21L509.3 33.83C509.3 33.54 509.06 33.29 508.76 33.29ZM633.92 32.59C623.15 32.59 617.13 37.22 612.77 43.38C612.54 43.69 612.08 43.68 611.87 43.35L605.75 33.55C605.65 33.39 605.47 33.29 605.29 33.29L592.24 33.29C591.94 33.29 591.7 33.54 591.7 33.83L591.7 97.67C591.7 97.97 591.94 98.21 592.24 98.21L613 98.21C613.3 98.21 613.54 97.97 613.54 97.67L613.54 60.92C613.54 55.02 618.22 49.97 624.13 49.95C630.74 49.94 634.64 54.81 634.64 61.55L634.64 97.67C634.64 97.97 634.88 98.21 635.18 98.21L655.94 98.21C656.24 98.21 656.48 97.97 656.48 97.67L656.48 54.89C656.48 42.13 647.21 32.59 633.92 32.59ZM582.07 33.29L561.31 33.29C561.01 33.29 560.76 33.54 560.76 33.83L560.76 70.84C560.76 76.7 556.05 81.54 550.18 81.55C543.57 81.57 539.67 76.69 539.67 69.95L539.67 33.83C539.67 33.54 539.42 33.29 539.13 33.29L518.37 33.29C518.07 33.29 517.83 33.54 517.83 33.83L517.83 76.61C517.83 89.37 527.09 98.91 540.39 98.91C551.15 98.91 557.18 94.28 561.54 88.13C561.77 87.81 562.24 87.82 562.44 88.15L568.43 97.75C568.61 98.04 568.92 98.21 569.26 98.21L582.07 98.21C582.36 98.21 582.61 97.97 582.61 97.67L582.61 33.83C582.61 33.54 582.36 33.29 582.07 33.29ZM415.59 60.55L395.5 60.55C395.2 60.55 394.96 60.31 394.96 60.01L394.95 57.96C394.96 52.66 398.83 48.68 405.51 48.66C411.69 48.68 415.45 52.1 415.98 56.81C415.98 56.81 416.06 58.11 416.13 59.99C416.14 60.29 415.9 60.55 415.59 60.55ZM405.57 32.11C387.89 32.11 373.11 42.18 373.11 61.11L373.11 69.98C373.11 88.92 387.48 98.89 405.57 98.89C422.07 98.89 434.92 91.75 437.43 78.47C437.49 78.14 437.23 77.83 436.89 77.83L415.39 77.83C415.2 77.83 415.03 77.93 414.93 78.1C413.29 80.95 410.03 82.66 405.51 82.68C399.24 82.65 395.46 79.15 395 74.34C395 74.27 394.99 73.3 394.98 71.86C394.98 71.56 395.23 71.32 395.52 71.32L437.35 71.32C437.65 71.32 437.89 71.08 437.89 70.78L437.89 61.11C437.89 42.18 423.26 32.11 405.57 32.11ZM339.81 58.92C331.63 57.54 328.99 56.34 329.07 52.7L329.08 52.54C329.14 49.41 331.72 46.15 337.47 46.26C342.8 46.4 345.36 49.23 345.42 52.51L345.44 54.79C345.44 55.09 345.68 55.33 345.98 55.33L365.28 55.33C365.57 55.33 365.81 55.1 365.82 54.8L365.84 53.87C366.14 40.65 354.35 31.68 337.87 31.32C321.62 30.96 308.74 39.37 308.46 52.04L308.44 52.92C308.14 66.12 320.18 70.03 335.34 72.86L335.33 72.88C342.57 74.27 347.05 74.5 346.95 78.74C346.95 78.96 346.94 79.05 346.94 79.08C346.84 83.7 342.44 85.15 336.69 85.02C331.62 84.91 327.35 82.62 326.95 78.03L326.85 76.68C326.83 76.4 326.6 76.18 326.31 76.18L306.84 76.18C306.54 76.18 306.3 76.42 306.3 76.72C306.28 91.19 318.54 99.3 335.89 99.68C351.96 100.04 367.29 95.04 367.63 79.48L367.67 77.77C367.97 64.56 355.25 61.54 339.81 58.92ZM706.03 72.46C706.03 77.29 702.04 81.33 695.53 81.33C689.27 81.33 685.77 78.07 684.93 73C684.58 70.87 684.49 69.71 684.49 65.56C684.49 62.88 684.7 60.63 685.05 58.47C685.82 53.7 689.35 50.34 695.53 50.31C702.19 50.34 706 54.29 706.03 59.57ZM727.38 6.66L706.62 6.66C706.32 6.66 706.08 6.91 706.08 7.2L706.08 42.82C706.08 43.39 705.33 43.57 705.06 43.07C701.1 35.61 695.33 32.59 686.67 32.59C671.82 32.59 663.14 44.41 663.14 61.45L663.14 69.54C663.14 87.61 671.82 98.89 686.67 98.89C697.16 98.89 701.97 93.79 705.64 87.12C705.84 86.76 706.36 86.75 706.57 87.1L713.23 97.75C713.41 98.04 713.72 98.21 714.06 98.21L727.38 98.21C727.68 98.21 727.92 97.97 727.92 97.67L727.92 7.2C727.92 6.91 727.68 6.66 727.38 6.66ZM766.97 81.33C760.71 81.33 757.21 78.07 756.37 73C756.02 70.87 755.93 69.71 755.93 65.56C755.93 62.88 756.15 60.63 756.5 58.47C757.26 53.7 760.79 50.34 766.97 50.31C773.65 50.34 777.49 54.32 777.49 59.62L777.49 71.8C777.49 78.6 772.56 81.33 766.97 81.33ZM798.83 33.29L785.5 33.29C785.16 33.29 784.85 33.47 784.67 33.75L778.05 44.33C777.83 44.69 777.29 44.66 777.11 44.27C773.14 35.93 767.23 32.59 758.11 32.59C743.26 32.59 734.58 44.41 734.58 61.45L734.58 69.54C734.58 87.61 743.26 98.89 758.11 98.89C768.61 98.89 773.41 93.79 777.09 87.12C777.28 86.76 777.8 86.75 778.02 87.1L784.67 97.75C784.85 98.04 785.16 98.21 785.5 98.21L798.83 98.21C799.12 98.21 799.37 97.97 799.37 97.67L799.37 33.83C799.37 33.54 799.12 33.29 798.83 33.29Z"/>
+  </g>
+</svg>
+  </template>
+
+  <div id="deck_fab" class="deck-fab" hidden>
+    <button type="button" class="deck-fab-main" onclick="DeckBuilder.openDrawer()" title="Ver y ordenar diapositivas">
+      <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="9" rx="1.5"/><path d="M5.5 14h5M8 11.5V14"/></svg>
+      <span>Presentación</span>
+      <span class="deck-count-badge" id="fab_deck_count">0</span>
+    </button>
+    <button type="button" class="deck-fab-pdf" onclick="DeckBuilder.exportPDF()" title="Generar PDF de presentación 16:9">PDF</button>
+  </div>
 
   <div id="deck_toast" class="deck-toast" role="status" aria-live="polite"></div>
 
   <div id="deck_drawer_backdrop" class="deck-drawer-backdrop" onclick="DeckBuilder.closeDrawer()"></div>
 
-  <aside id="deck_drawer" class="deck-drawer" aria-label="Armador de Presentaciones">
-    <div class="deck-drawer-header">
-      <div class="deck-drawer-title-wrap">
-        <h2>
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--rojo-seguro)" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
-          Presentación Ejecutiva
-        </h2>
-        <p id="deck_drawer_summary">0 elementos capturados • 1 diapositiva (16:9)</p>
+  <aside id="deck_drawer" class="deck-drawer" role="dialog" aria-modal="true" aria-label="Armador de Presentación">
+    <div class="deck-drawer-hdr">
+      <div>
+        <h3 class="deck-drawer-title">Armador de Presentación</h3>
+        <span class="deck-summary-pill" id="deck_drawer_summary">0 ítems · 0 slides</span>
       </div>
-      <div class="deck-drawer-top-actions">
-        <button type="button" id="btn_deck_clear" class="deck-btn-clear" onclick="DeckBuilder.clearAll()" title="Vaciar todos los elementos de la presentación">
-          Vaciar
-        </button>
-        <button type="button" class="deck-btn-icon-close" onclick="DeckBuilder.closeDrawer()" title="Cerrar panel">
-          ✕
+      <div class="deck-drawer-hdr-actions">
+        <button type="button" class="deck-btn-ui sm" id="btn_deck_clear" onclick="DeckBuilder.clearAll()" title="Vaciar toda la lista">Vaciar</button>
+        <button type="button" class="deck-close-icon-btn" onclick="DeckBuilder.closeDrawer()" aria-label="Cerrar armador">
+          <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9"/></svg>
         </button>
       </div>
     </div>
 
-    <div class="deck-drawer-body">
-      <!-- Configuración de Portada y Agrupación KPI -->
-      <div class="deck-config-card">
-        <div class="deck-config-row">
-          <label class="deck-switch-label">
-            <input type="checkbox" id="chk_deck_cover" checked onchange="DeckBuilder.onCoverToggle(this.checked)" />
-            <span>Incluir Portada Institucional (Diapositiva 1)</span>
-          </label>
+    <div class="deck-settings">
+      <label class="deck-check-row">
+        <input type="checkbox" id="chk_deck_cover" checked onchange="DeckBuilder.onCoverToggle(this.checked)" />
+        <span>Incluir carátula institucional La Segunda</span>
+      </label>
+      <div class="deck-settings-grid" id="deck_settings_grid">
+        <div class="deck-field deck-cover-only">
+          <label for="inp_deck_cover_title">Título de portada</label>
+          <input type="text" id="inp_deck_cover_title" class="deck-inline-input" maxlength="140" oninput="DeckBuilder.onCoverFieldChange()" />
         </div>
-
-        <div id="deck_cover_fields" class="deck-cover-fields">
-          <div class="deck-field-group">
-            <label for="inp_deck_cover_title">Título de Portada</label>
-            <input type="text" id="inp_deck_cover_title" class="deck-input" placeholder="Título principal de la presentación" oninput="DeckBuilder.onCoverFieldChange()" />
-          </div>
-          <div class="deck-field-group">
-            <label for="inp_deck_cover_subtitle">Subtítulo de Portada</label>
-            <input type="text" id="inp_deck_cover_subtitle" class="deck-input" placeholder="Subtítulo institucional" oninput="DeckBuilder.onCoverFieldChange()" />
-          </div>
+        <div class="deck-field deck-cover-only">
+          <label for="inp_deck_cover_subtitle">Subtítulo / Reunión</label>
+          <input type="text" id="inp_deck_cover_subtitle" class="deck-inline-input" maxlength="140" oninput="DeckBuilder.onCoverFieldChange()" />
         </div>
-
-        <div class="deck-config-row" style="padding-top: 6px; border-top: 1px dashed var(--border-card);">
-          <label class="deck-switch-label" title="Agrupa tarjetas KPI individuales consecutivas en una misma diapositiva (hasta 4 KPIs por slide en grilla 2x2 o 1x2)">
-            <input type="checkbox" id="chk_deck_group_kpis" checked onchange="DeckBuilder.onGroupKpisToggle(this.checked)" />
-            <span>Agrupar KPIs sueltos consecutivos (máx. 4 / slide)</span>
-          </label>
+        <div class="deck-field full">
+          <label for="sel_deck_kpi_group">Agrupación de tarjetas KPI por diapositiva</label>
+          <select id="sel_deck_kpi_group" class="deck-inline-input" onchange="DeckBuilder.onKpiGroupChange(this.value)">
+            <option value="4" selected>Hasta 4 KPIs por diapositiva (cuadrícula 2×2 / 1×2)</option>
+            <option value="2">Hasta 2 KPIs por diapositiva (1×2 ampliadas)</option>
+            <option value="1">1 KPI suelto por diapositiva</option>
+          </select>
         </div>
       </div>
-
-      <!-- Lista editable con miniaturas reales -->
-      <div id="deck_items_list" class="deck-items-list"></div>
     </div>
 
-    <div class="deck-drawer-footer">
-      <button type="button" class="deck-btn-preview" onclick="DeckBuilder.openPreview(0)">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
-        Vista Previa
-      </button>
-      <button type="button" class="deck-btn-pdf" onclick="DeckBuilder.exportPDF()">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-        Exportar / Generar PDF
-      </button>
+    <div class="deck-list" id="deck_items_list"></div>
+
+    <div class="deck-drawer-ftr">
+      <p class="deck-print-tip">Tip PDF: en el diálogo de impresión elegí <strong>"Guardar como PDF"</strong> y activá <strong>"Gráficos de fondo"</strong>.</p>
+      <div class="deck-drawer-ftr-btns">
+        <button type="button" class="deck-btn-ui" id="btn_deck_preview" onclick="DeckBuilder.openPreview(0)">Vista Previa 16:9</button>
+        <button type="button" class="deck-btn-ui primary" id="btn_deck_print" onclick="DeckBuilder.exportPDF()">Generar PDF</button>
+      </div>
     </div>
   </aside>
 
-  <!-- Modal de Vista Previa Interactiva Pantalla Completa -->
+  <!-- Modal Vista Previa 16:9 -->
   <div id="deck_preview_modal" class="deck-preview-modal" role="dialog" aria-modal="true" aria-label="Vista previa de presentación 16:9">
     <div class="deck-preview-topbar">
-      <div class="deck-preview-info">
-        <span id="deck_preview_counter" class="deck-preview-counter">Diapositiva 1 / 1</span>
-        <span class="deck-preview-hint">Navegá con ← / → • Esc para salir</span>
+      <div class="deck-preview-meta">
+        <span class="deck-preview-dot" aria-hidden="true"></span>
+        <span class="deck-preview-title">Vista Previa 16:9</span>
+        <span class="deck-preview-counter" id="deck_preview_counter">Slide 1 de 1</span>
       </div>
       <div class="deck-preview-actions">
-        <button type="button" class="deck-preview-btn" onclick="DeckBuilder.closePreview(); DeckBuilder.openDrawer();">
-          Editar Lista
-        </button>
-        <button type="button" class="deck-preview-btn primary" onclick="DeckBuilder.exportPDF()">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-          Exportar / Generar PDF
-        </button>
-        <button type="button" class="deck-preview-btn" onclick="DeckBuilder.closePreview()">
-          ✕ Cerrar
-        </button>
+        <button type="button" class="deck-btn-ui sm" id="btn_preview_prev" onclick="DeckBuilder.stepPreview(-1)">← Anterior</button>
+        <button type="button" class="deck-btn-ui sm" id="btn_preview_next" onclick="DeckBuilder.stepPreview(1)">Siguiente →</button>
+        <button type="button" class="deck-btn-ui primary sm" onclick="DeckBuilder.exportPDF()">Generar PDF</button>
+        <button type="button" class="deck-preview-close-btn" onclick="DeckBuilder.closePreview()">Cerrar</button>
       </div>
     </div>
-
-    <div id="deck_preview_stage" class="deck-preview-stage">
-      <button type="button" id="btn_preview_prev" class="deck-nav-arrow prev" onclick="DeckBuilder.stepPreview(-1)" title="Diapositiva anterior (←)">
-        &#8592;
-      </button>
-      <div id="deck_preview_viewport" class="deck-preview-viewport"></div>
-      <button type="button" id="btn_preview_next" class="deck-nav-arrow next" onclick="DeckBuilder.stepPreview(1)" title="Diapositiva siguiente (→)">
-        &#8594;
-      </button>
+    <div class="deck-preview-stage-wrap" id="deck_preview_stage_wrap">
+      <div class="deck-preview-stage" id="deck_preview_stage"></div>
     </div>
+    <div class="deck-preview-strip" id="deck_preview_strip"></div>
   </div>
 
-  <!-- Host oculto 297mm x 167mm para medición exacta de paginación de tablas -->
+  <!-- Host oculto 297mm x 166.5mm para medición exacta de paginación de tablas -->
   <div id="deck_measure_host" class="deck-measure-host" aria-hidden="true"></div>
 
   <!-- Contenedor raíz vectorial para @media print -->
@@ -5652,46 +5468,46 @@
       const DEFAULT_STATE = {
         coverEnabled: true,
         coverTitle: 'Tablero de Gestión — Seguros de Personas',
-        coverSubtitle: 'Informe Ejecutivo de Producción, Cartera, Siniestralidad, Finanzas y Mercado SSN',
-        groupLooseKpis: true,
+        coverSubtitle: 'La Segunda Seguros · Producción, Cartera, Siniestralidad y Mercado SSN',
+        kpiGroupSize: 4,
         items: []
       };
 
       const MODULE_META = {
         pane_mod_produccion: {
-          name: 'Producción y Macroeconomía',
+          name: 'Producción',
           panelTitle: 'Indicadores Clave — Producción y Macroeconomía',
-          source: 'Fuente: La Segunda Seguros • Tablero de Gestión de Seguros de Personas'
+          source: 'La Segunda Seguros · Tablero de Gestión de Seguros de Personas'
         },
         pane_mod_cartera: {
-          name: 'Cartera y Flujo de Pólizas',
+          name: 'Cartera',
           panelTitle: 'Indicadores Clave — Cartera y Flujo de Pólizas',
-          source: 'Fuente: La Segunda Seguros • Tablero de Gestión de Seguros de Personas'
+          source: 'La Segunda Seguros · Tablero de Gestión de Seguros de Personas'
         },
         pane_mod_siniestros: {
-          name: 'Siniestralidad y Litigiosidad',
+          name: 'Siniestralidad',
           panelTitle: 'Indicadores Clave — Siniestralidad y Litigiosidad',
-          source: 'Fuente: La Segunda Seguros • Tablero de Gestión de Seguros de Personas'
+          source: 'La Segunda Seguros · Tablero de Gestión de Seguros de Personas'
         },
         pane_mod_productos: {
           name: 'Drill-Down Productos',
           panelTitle: 'Indicadores Clave — Ramos y Productos',
-          source: 'Fuente: La Segunda Seguros • Tablero de Gestión de Seguros de Personas'
+          source: 'La Segunda Seguros · Tablero de Gestión de Seguros de Personas'
         },
         pane_mod_mercado_drilldown: {
           name: 'Drill-Down Mercado SSN',
           panelTitle: 'Indicadores Clave — Competencia Oficial SSN',
-          source: 'Fuente: Superintendencia de Seguros de la Nación (SSN) • La Segunda Seguros'
+          source: 'La Segunda Seguros · Tablero de Gestión Personas (Fuente: SSN SINENSUP)'
         },
         pane_mod_financiero: {
-          name: 'Gestión Financiera',
+          name: 'Financiero',
           panelTitle: 'Indicadores Clave — Gestión Financiera',
-          source: 'Fuente: La Segunda Seguros • Tablero de Gestión de Seguros de Personas'
+          source: 'La Segunda Seguros · Tablero de Gestión de Seguros de Personas'
         },
         pane_mod_mercado: {
-          name: 'Mercado y Cuota SSN',
+          name: 'Mercado SSN',
           panelTitle: 'Indicadores Clave — Mercado y Cuota SSN',
-          source: 'Fuente: Superintendencia de Seguros de la Nación (SSN) • La Segunda Seguros'
+          source: 'La Segunda Seguros · Tablero de Gestión Personas (Fuente: SSN SINENSUP)'
         }
       };
 
@@ -5700,20 +5516,29 @@
       let isPreviewOpen = false;
       let previewSlidesCache = [];
       let currentPreviewIdx = 0;
-      let dragSrcIndex = null;
+      let dragSrcIndex = -1;
       let toastTimer = null;
       let savedDocTitle = null;
+
+      function getBrandLogoSvg() {
+        const tpl = document.getElementById('tpl_l2_brand_logo_svg');
+        return tpl ? tpl.innerHTML.trim() : '';
+      }
 
       function loadState() {
         try {
           const raw = localStorage.getItem(STORAGE_KEY);
           if (!raw) return cloneDefaults();
           const parsed = JSON.parse(raw);
+          let kpiSize = Number(parsed.kpiGroupSize);
+          if (![1, 2, 4].includes(kpiSize)) {
+            kpiSize = parsed.groupLooseKpis === false ? 1 : 4;
+          }
           return {
             coverEnabled: typeof parsed.coverEnabled === 'boolean' ? parsed.coverEnabled : DEFAULT_STATE.coverEnabled,
             coverTitle: typeof parsed.coverTitle === 'string' ? parsed.coverTitle : DEFAULT_STATE.coverTitle,
             coverSubtitle: typeof parsed.coverSubtitle === 'string' ? parsed.coverSubtitle : DEFAULT_STATE.coverSubtitle,
-            groupLooseKpis: typeof parsed.groupLooseKpis === 'boolean' ? parsed.groupLooseKpis : DEFAULT_STATE.groupLooseKpis,
+            kpiGroupSize: kpiSize,
             items: Array.isArray(parsed.items) ? parsed.items : []
           };
         } catch (err) {
@@ -5726,7 +5551,7 @@
           coverEnabled: DEFAULT_STATE.coverEnabled,
           coverTitle: DEFAULT_STATE.coverTitle,
           coverSubtitle: DEFAULT_STATE.coverSubtitle,
-          groupLooseKpis: DEFAULT_STATE.groupLooseKpis,
+          kpiGroupSize: DEFAULT_STATE.kpiGroupSize,
           items: []
         };
       }
@@ -5735,7 +5560,7 @@
         try {
           localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
         } catch (err) {
-          showToast('Aviso: Límite de almacenamiento del navegador alcanzado; la sesión sigue activa en memoria.');
+          showToast('Aviso: Límite de almacenamiento del navegador alcanzado; la sesión sigue activa.');
         }
       }
 
@@ -5755,13 +5580,22 @@
         const pane = el ? el.closest('.tab-pane') : null;
         const paneId = pane ? pane.id : '';
         return MODULE_META[paneId] || {
-          name: 'Seguros de Personas',
+          name: 'Personas',
           panelTitle: 'Indicadores Ejecutivos',
-          source: 'Fuente: La Segunda Seguros • Tablero de Gestión de Seguros de Personas'
+          source: 'La Segunda Seguros · Tablero de Gestión de Seguros de Personas'
         };
       }
 
-      // Convierte íconos FontAwesome dentro de fragmentos clonados a SVG inline 100% offline y remueve IDs duplicados
+      // Resumen de contexto solo para referencia interna en el Drawer (NUNCA se imprime en encabezados de slides)
+      function buildActiveContextSummary(el) {
+        const selEj = document.getElementById('sel_ejercicio');
+        const ejTxt = selEj && selEj.options[selEj.selectedIndex] ? selEj.options[selEj.selectedIndex].text : '';
+        const ramosTxt = document.getElementById('label_ms_ramos')?.textContent?.trim() || '';
+        const monTxt = (typeof currentAdjustedMode !== 'undefined' && currentAdjustedMode) ? 'Ajustado x IPC' : 'Histórico ($)';
+        const mod = getModuleInfo(el);
+        return [mod.name, ejTxt, ramosTxt, monTxt].filter(Boolean).join(' · ');
+      }
+
       function sanitizeSnapshotFragment(rootEl) {
         const clone = rootEl.cloneNode(true);
         clone.querySelectorAll('.deck-add-btn, .deck-add-panel-btn, button, input, select, textarea').forEach(n => n.remove());
@@ -5790,10 +5624,9 @@
       }
 
       // --------------------------------------------------------------------
-      // INYECCIÓN DE BOTONES DE CAPTURA EN CADA KPI, PANEL KPI, GRÁFICO Y TABLA
+      // INYECCIÓN DE BOTONES DE CAPTURA (+)
       // --------------------------------------------------------------------
       function injectCaptureButtons() {
-        // 1. Botón "+ Agregar panel KPI a presentación" sobre cada grilla .kpi-grid
         document.querySelectorAll('.kpi-grid').forEach(grid => {
           if (grid.dataset.deckReady === '1') return;
           grid.dataset.deckReady = '1';
@@ -5803,7 +5636,7 @@
           const btn = document.createElement('button');
           btn.type = 'button';
           btn.className = 'deck-add-panel-btn';
-          btn.innerHTML = '<span>+ Agregar panel KPI a presentación</span>';
+          btn.textContent = '+ Agregar panel KPI a presentación';
           btn.addEventListener('click', (e) => {
             e.stopPropagation();
             captureKpiPanel(grid, btn);
@@ -5812,7 +5645,6 @@
           grid.parentNode.insertBefore(bar, grid);
         });
 
-        // 2. Botón discreto "+" en cada tarjeta .kpi-card
         document.querySelectorAll('.kpi-card').forEach(card => {
           if (card.querySelector(':scope > .deck-add-btn')) return;
           const btn = createPlusButton('Agregar tarjeta KPI a la presentación');
@@ -5823,13 +5655,11 @@
           card.appendChild(btn);
         });
 
-        // 3. Botón discreto "+" en cada .chart-card (junto a controles/badges derechos si existen)
         document.querySelectorAll('.chart-card').forEach(card => {
           const header = card.querySelector('.chart-header');
           if (!header || header.querySelector('.deck-add-btn')) return;
-
           const actionsWrap = ensureHeaderActionsWrap(header);
-          const btn = createPlusButton('Agregar gráfico (instantánea HD 2x) a la presentación');
+          const btn = createPlusButton('Agregar gráfico (instantánea HD 2×) a la presentación');
           btn.addEventListener('click', (e) => {
             e.stopPropagation();
             captureChartCard(card, btn);
@@ -5837,11 +5667,9 @@
           actionsWrap.appendChild(btn);
         });
 
-        // 4. Botón discreto "+" en cada .table-card (junto a buscador/badges/ampliar si existen)
         document.querySelectorAll('.table-card').forEach(card => {
           const header = card.querySelector('.table-header');
           if (!header || header.querySelector('.deck-add-btn')) return;
-
           const actionsWrap = ensureHeaderActionsWrap(header);
           const btn = createPlusButton('Agregar tabla visible a la presentación');
           btn.addEventListener('click', (e) => {
@@ -5857,8 +5685,6 @@
         if (wrap) return wrap;
         wrap = document.createElement('div');
         wrap.className = 'deck-header-actions';
-
-        // Mover controles secundarios a la derecha (buscador, badges, botón ampliar si existiera) dentro del contenedor
         const extraChildren = Array.from(headerEl.children).filter(ch => ch.tagName !== 'H3' && ch.tagName !== 'H2');
         extraChildren.forEach(ch => wrap.appendChild(ch));
         headerEl.appendChild(wrap);
@@ -5871,7 +5697,7 @@
         btn.className = 'deck-add-btn';
         btn.title = tooltip;
         btn.setAttribute('aria-label', tooltip);
-        btn.textContent = '+';
+        btn.innerHTML = '<svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"><path d="M8 3.2v9.6M3.2 8h9.6"/></svg>';
         return btn;
       }
 
@@ -5879,11 +5705,11 @@
         if (!btn) return;
         const origHtml = btn.innerHTML;
         btn.classList.add('just-added');
-        btn.innerHTML = isPanel ? '<span>&#10003; Panel agregado</span>' : '&#10003;';
+        btn.innerHTML = isPanel ? '✓ Panel agregado' : '✓';
         setTimeout(() => {
           btn.classList.remove('just-added');
           btn.innerHTML = origHtml;
-        }, 950);
+        }, 1200);
       }
 
       function showToast(msg) {
@@ -5894,11 +5720,11 @@
         if (toastTimer) clearTimeout(toastTimer);
         toastTimer = setTimeout(() => {
           toast.classList.remove('show');
-        }, 2400);
+        }, 2300);
       }
 
       // --------------------------------------------------------------------
-      // CAPTURA DE INSTANTÁNEAS CONGELADAS (SNAPSHOTS)
+      // CAPTURA DE INSTANTÁNEAS CONGELADAS
       // --------------------------------------------------------------------
       function extractKpiCardSnapshot(card) {
         let accentColor = '#e20039';
@@ -5918,24 +5744,14 @@
 
         let subHtml = '';
         if (subEl) {
-          const cleanSub = sanitizeSnapshotFragment(subEl);
-          subHtml = cleanSub.innerHTML.trim();
+          subHtml = sanitizeSnapshotFragment(subEl).innerHTML.trim();
         }
 
-        // Capturar bloques adicionales visibles dentro de la tarjeta KPI (ej. cierre mes y variaciones en Siniestros)
         const extraBlocks = [];
         Array.from(card.children).forEach(ch => {
-          if (
-            ch === titleEl ||
-            ch === valEl ||
-            ch === subEl ||
-            ch.classList.contains('deck-add-btn')
-          ) {
-            return;
-          }
+          if (ch === titleEl || ch === valEl || ch === subEl || ch.classList.contains('deck-add-btn')) return;
           if (getComputedStyle(ch).display !== 'none' && ch.innerText.trim()) {
-            const cleanExtra = sanitizeSnapshotFragment(ch);
-            extraBlocks.push(cleanExtra.innerHTML.trim());
+            extraBlocks.push(sanitizeSnapshotFragment(ch).innerHTML.trim());
           }
         });
 
@@ -5958,13 +5774,14 @@
           title: snap.title,
           defaultTitle: snap.title,
           titleEdited: false,
+          contextText: buildActiveContextSummary(card),
           note: '',
           moduleName: modInfo.name,
           panelTitle: modInfo.panelTitle,
           source: modInfo.source,
           cards: [snap]
         };
-        addItem(item, `KPI "${snap.title}" agregado a la presentación`);
+        addItem(item, `Agregado a la presentación (${state.items.length + 1})`);
         flashAddedButton(btn, false);
       }
 
@@ -5975,16 +5792,14 @@
           .map(extractKpiCardSnapshot);
 
         if (!cards.length) {
-          showToast('No hay tarjetas KPI visibles en este panel.');
+          showToast('El panel KPI no tiene tarjetas visibles en este momento.');
           return;
         }
 
         let panelTitle = modInfo.panelTitle;
         if (grid.closest('#pane_mod_mercado_drilldown')) {
           const sel = document.getElementById('sel_ssn_subramo');
-          if (sel && sel.value) {
-            panelTitle = `Posicionamiento Oficial SSN — ${sel.value}`;
-          }
+          if (sel && sel.value) panelTitle = `Posicionamiento Oficial SSN — ${sel.value}`;
         }
 
         const item = {
@@ -5993,24 +5808,24 @@
           title: panelTitle,
           defaultTitle: panelTitle,
           titleEdited: false,
+          contextText: buildActiveContextSummary(grid),
           note: '',
           moduleName: modInfo.name,
           panelTitle,
           source: modInfo.source,
           cards
         };
-        addItem(item, `Panel de ${cards.length} KPIs agregado a la presentación`);
+        addItem(item, `Panel KPI (${cards.length} tarjetas) agregado a la presentación`);
         flashAddedButton(btn, true);
       }
 
       function captureChartCard(card, btn) {
         const canvas = card.querySelector('canvas');
         if (!canvas) {
-          showToast('No se encontró el lienzo del gráfico.');
+          showToast('No se encontró el gráfico para capturar.');
           return;
         }
 
-        // Asegurar fin de animaciones de Chart.js y resolución mínima 2x
         const chartInstance = (typeof charts === 'object' && canvas.id && charts[canvas.id])
           ? charts[canvas.id]
           : (window.Chart && typeof Chart.getChart === 'function' ? Chart.getChart(canvas) : null);
@@ -6048,11 +5863,10 @@
           chartInstance.update('none');
         }
 
-        // Extraer título limpio y notas visibles (ej. aclaraciones RIPTE/IPC, IPIM, outliers, totales)
         const modInfo = getModuleInfo(card);
         const header = card.querySelector('.chart-header');
         const h3 = header ? header.querySelector('h3') : null;
-        let cleanTitle = 'Gráfico Ejecutivo';
+        let cleanTitle = 'Gráfico del Tablero';
         const chartNotes = [];
 
         if (h3) {
@@ -6070,7 +5884,6 @@
           }
         }
 
-        // Capturar badges informativos visibles en el header (ej. total prima en comparativas drill-down)
         if (header) {
           const actionsWrap = header.querySelector('.deck-header-actions');
           if (actionsWrap) {
@@ -6084,7 +5897,6 @@
           }
         }
 
-        // Capturar cualquier nota o aclaración de outliers visible en el cuerpo de la tarjeta
         Array.from(card.children).forEach(ch => {
           if (ch === header || ch.contains(canvas) || ch.classList.contains('deck-add-btn')) return;
           if (getComputedStyle(ch).display !== 'none') {
@@ -6099,6 +5911,7 @@
           title: cleanTitle,
           defaultTitle: cleanTitle,
           titleEdited: false,
+          contextText: buildActiveContextSummary(card),
           note: '',
           moduleName: modInfo.name,
           source: modInfo.source,
@@ -6107,7 +5920,7 @@
           imgHeight: targetH,
           chartNotes
         };
-        addItem(item, `Gráfico "${cleanTitle}" agregado en alta definición (2x)`);
+        addItem(item, `Agregado a la presentación (${state.items.length + 1})`);
         flashAddedButton(btn, false);
       }
 
@@ -6120,14 +5933,11 @@
 
         const modInfo = getModuleInfo(card);
         const h3 = card.querySelector('.table-header h3');
-        const cleanTitle = h3 ? h3.innerText.trim() : 'Tabla de Detalle';
+        const cleanTitle = h3 ? h3.innerText.trim() : 'Tabla del Tablero';
 
-        // Capturar encabezados limpios (removiendo controles/botones/inputs)
         const headers = Array.from(table.querySelectorAll('thead tr th')).map(th => {
           const clone = sanitizeSnapshotFragment(th);
-          const align = th.classList.contains('num')
-            ? 'right'
-            : (th.style.textAlign || 'left');
+          const align = th.classList.contains('num') ? 'right' : (th.style.textAlign || 'left');
           return {
             text: clone.innerText.replace(/\s+/g, ' ').trim(),
             align,
@@ -6144,12 +5954,12 @@
 
           const cells = Array.from(tr.querySelectorAll('td, th')).map(td => {
             const clone = sanitizeSnapshotFragment(td);
-            const align = td.classList.contains('num')
-              ? 'right'
-              : (td.style.textAlign || 'left');
+            const isNum = td.classList.contains('num');
+            const align = isNum ? 'right' : (td.style.textAlign || 'left');
             return {
               html: clone.innerHTML.trim(),
               text: clone.innerText.replace(/\s+/g, ' ').trim(),
+              isNum,
               align,
               colspan: td.colSpan > 1 ? td.colSpan : 1,
               color: td.style.color || '',
@@ -6166,7 +5976,6 @@
           };
         };
 
-        // Filas visibles de tbody respetando el filtro y orden activos (incluyendo siempre fila TOTAL si existiera)
         const visibleBodyRows = Array.from(table.querySelectorAll('tbody tr'))
           .filter(tr => {
             const firstTxt = (tr.cells && tr.cells[0]) ? tr.cells[0].innerText.trim() : '';
@@ -6176,12 +5985,10 @@
           })
           .map(tr => extractRowData(tr, false));
 
-        // Incluir siempre filas TOTAL de tfoot si existen
         const tfootRows = Array.from(table.querySelectorAll('tfoot tr'))
           .map(tr => extractRowData(tr, true));
 
         const rows = visibleBodyRows.concat(tfootRows);
-
         if (!rows.length) {
           showToast('No hay filas visibles en la tabla con el filtro actual.');
           return;
@@ -6193,35 +6000,35 @@
           title: cleanTitle,
           defaultTitle: cleanTitle,
           titleEdited: false,
+          contextText: buildActiveContextSummary(card),
           note: '',
           moduleName: modInfo.name,
           source: modInfo.source,
           headers,
           rows
         };
-        addItem(item, `Tabla "${cleanTitle}" (${rows.length} filas) agregada`);
+        addItem(item, `Agregado a la presentación (${state.items.length + 1})`);
         flashAddedButton(btn, false);
       }
 
       function addItem(item, toastMsg) {
         state.items.push(item);
         saveState();
-        updateHeaderCounter(true);
+        syncCounters(true);
         if (isDrawerOpen) renderDrawer();
         if (toastMsg) showToast(toastMsg);
       }
 
       // --------------------------------------------------------------------
-      // MOTOR DE PAGINACIÓN Y DIAGRAMACIÓN 16:9 (REGLAS ESTRICTAS)
+      // MOTOR DE RENDERIZADO Y PAGINACIÓN 16:9 (ESTILO BALANCES MERCADO)
       // --------------------------------------------------------------------
-      function getTableColDensityClass(colCount) {
-        if (colCount >= 12) return 'cols-wide';
-        if (colCount >= 9) return 'cols-medium';
-        return 'cols-normal';
+      function getTableStageDensityClass(colCount) {
+        if (colCount >= 12) return 'ultra-dense-cols';
+        if (colCount >= 9) return 'dense-cols';
+        return '';
       }
 
       function renderTableMarkup(headers, rows) {
-        const density = getTableColDensityClass(headers.length);
         const theadHtml = headers.map(h => {
           const st = [
             `text-align:${h.align || 'left'}`,
@@ -6232,62 +6039,89 @@
 
         const tbodyHtml = rows.map(r => {
           const trClass = r.isTotal ? ' class="deck-row-total"' : '';
-          const rowSt = [
+          const rowSt = (!r.isTotal ? [
             r.rowBg ? `background-color:${r.rowBg}` : '',
             r.rowFontWeight ? `font-weight:${r.rowFontWeight}` : ''
-          ].filter(Boolean).join(';');
+          ] : []).filter(Boolean).join(';');
 
           const tds = r.cells.map(c => {
-            const cellSt = [
+            const cellSt = (!r.isTotal ? [
               `text-align:${c.align || 'left'}`,
               c.color ? `color:${c.color}` : '',
               c.bg ? `background-color:${c.bg}` : '',
               c.fontWeight ? `font-weight:${c.fontWeight}` : ''
-            ].filter(Boolean).join(';');
+            ] : [`text-align:${c.align || 'left'}`]).filter(Boolean).join(';');
+            const clsAttr = c.isNum ? ' class="num"' : '';
             const colspanAttr = c.colspan && c.colspan > 1 ? ` colspan="${c.colspan}"` : '';
-            return `<td${colspanAttr} style="${cellSt}">${c.html}</td>`;
+            return `<td${clsAttr}${colspanAttr} style="${cellSt}">${c.html}</td>`;
           }).join('');
 
           return `<tr${trClass}${rowSt ? ` style="${rowSt}"` : ''}>${tds}</tr>`;
         }).join('');
 
-        return `<table class="deck-slide-table ${density}"><thead><tr>${theadHtml}</tr></thead><tbody>${tbodyHtml}</tbody></table>`;
+        return `<table class="deck-slide-table"><thead><tr>${theadHtml}</tr></thead><tbody>${tbodyHtml}</tbody></table>`;
       }
 
-      // Mide en el contenedor oculto exacto de 297mm x 167mm cuántas filas caben por página sin cortar filas
+      function renderKpiCardsHtml(cards) {
+        return (cards || []).map(c => {
+          const hasExtra = Boolean(c.extraHtml && c.extraHtml.trim());
+          const valStyle = c.valueColor ? ` style="color:${c.valueColor}"` : '';
+          return `
+            <div class="deck-kpi-card${hasExtra ? ' has-extra' : ''}" style="border-top-color:${c.accentColor || '#e20039'}">
+              <div class="dk-label">${escapeHtml(c.title)}</div>
+              <div class="dk-value"${valStyle}>${escapeHtml(c.value)}</div>
+              ${c.subHtml ? `<div class="dk-sub">${c.subHtml}</div>` : ''}
+              ${hasExtra ? `<div class="dk-extra">${c.extraHtml}</div>` : ''}
+            </div>
+          `;
+        }).join('');
+      }
+
+      function kpiLayoutClassForCount(count) {
+        const n = Math.min(4, Math.max(1, Number(count) || 1));
+        if (n === 1) return 'kpi-layout-1';
+        if (n === 2) return 'kpi-layout-2';
+        if (n === 3) return 'kpi-layout-3';
+        return 'kpi-layout-4';
+      }
+
       function paginateTableRows(item) {
         const allRows = item.rows || [];
         if (!allRows.length) return [[]];
 
         const host = document.getElementById('deck_measure_host');
         if (!host) {
-          const fallbackPages = [];
-          for (let i = 0; i < allRows.length; i += 12) fallbackPages.push(allRows.slice(i, i + 12));
-          return fallbackPages;
+          const fallback = [];
+          for (let i = 0; i < allRows.length; i += 14) fallback.push(allRows.slice(i, i + 14));
+          return fallback;
         }
+
+        const densityCls = getTableStageDensityClass((item.headers || []).length);
+        const logoSvg = getBrandLogoSvg();
 
         const measureAvailableHeight = (withNote) => {
           const noteHtml = (withNote && item.note && item.note.trim())
-            ? `<div class="deck-exec-note"><strong>Nota ejecutiva:</strong> ${escapeHtml(item.note.trim())}</div>`
+            ? `<div class="deck-slide-exec-note"><strong>Nota:</strong> ${escapeHtml(item.note.trim())}</div>`
             : '';
           host.innerHTML = `
-            <section class="deck-slide deck-slide-interior">
-              <div class="deck-slide-top-accent"></div>
-              <header class="deck-slide-header">
-                <div class="deck-logo-badge-sm"><span class="dot"></span>LA SEGUNDA</div>
-                <h2 class="deck-slide-title">${escapeHtml(item.title)}</h2>
-              </header>
-              <div class="deck-slide-body">
-                <div class="deck-slide-content-area">
-                  <div class="deck-table-stage" id="deck_measure_stage">
-                    ${renderTableMarkup(item.headers, allRows)}
+            <section class="deck-slide deck-slide-content">
+              <header class="deck-slide-hdr">
+                <div class="deck-slide-hdr-left">
+                  <div class="deck-slide-logo">${logoSvg}</div>
+                  <div class="deck-slide-title-wrap">
+                    <h2 class="deck-slide-title">${escapeHtml(item.title)}</h2>
                   </div>
+                </div>
+              </header>
+              <div class="deck-slide-body" id="deck_measure_body">
+                <div class="deck-table-stage ${densityCls}" id="deck_measure_stage" style="flex:1 1 auto; min-height:0;">
+                  ${renderTableMarkup(item.headers, allRows)}
                 </div>
                 ${noteHtml}
               </div>
-              <footer class="deck-slide-footer">
-                <span class="deck-slide-footer-source">${escapeHtml(item.source || '')}</span>
-                <span class="deck-slide-footer-page">Diapositiva 1 / 1</span>
+              <footer class="deck-slide-ftr">
+                <span>${escapeHtml(item.source || '')}</span>
+                <span>Diapositiva 1 / 1</span>
               </footer>
             </section>
           `;
@@ -6295,28 +6129,30 @@
           const thead = stage.querySelector('thead');
           const trs = Array.from(stage.querySelectorAll('tbody tr'));
           const stageH = stage.getBoundingClientRect().height;
-          const theadH = thead ? thead.getBoundingClientRect().height : 34;
-          const rowHeights = trs.map(tr => tr.getBoundingClientRect().height || 26);
+          const theadH = thead ? thead.getBoundingClientRect().height : 28;
+          const rowHeights = trs.map(tr => tr.getBoundingClientRect().height || 22);
           return { stageH, theadH, rowHeights };
         };
 
         const hasNote = Boolean(item.note && item.note.trim());
-        const firstMeasure = measureAvailableHeight(hasNote);
-        const nextMeasure = hasNote ? measureAvailableHeight(false) : firstMeasure;
+        const mWithoutNote = measureAvailableHeight(false);
+        const mWithNote = hasNote ? measureAvailableHeight(true) : mWithoutNote;
         host.innerHTML = '';
 
         const pages = [];
         let cursor = 0;
-        let pageIdx = 0;
 
         while (cursor < allRows.length) {
-          const m = pageIdx === 0 ? firstMeasure : nextMeasure;
-          const maxBodyH = Math.max(40, m.stageH - m.theadH - 4);
+          // Si hay nota ejecutiva, reservar espacio en la última página (o página única)
+          const remainingH = mWithoutNote.rowHeights.slice(cursor).reduce((a, b) => a + b, 0);
+          const maxBodyWithNote = Math.max(40, mWithNote.stageH - mWithNote.theadH - 4);
+          const maxBodyNoNote = Math.max(40, mWithoutNote.stageH - mWithoutNote.theadH - 4);
+          const maxBodyH = (hasNote && remainingH <= maxBodyNoNote) ? maxBodyWithNote : maxBodyNoNote;
+
           let accH = 0;
           const chunk = [];
-
           while (cursor < allRows.length) {
-            const rh = firstMeasure.rowHeights[cursor] || 26;
+            const rh = mWithoutNote.rowHeights[cursor] || 22;
             if (chunk.length > 0 && (accH + rh) > maxBodyH) {
               break;
             }
@@ -6325,18 +6161,16 @@
             cursor++;
           }
           pages.push(chunk);
-          pageIdx++;
         }
 
         return pages;
       }
 
-      // Construye la lista final de diapositivas y el mapeo de qué slide ocupa cada ítem del drawer
       function buildSlidesAndMapping() {
         const slides = [];
         const itemSlideRanges = {};
+        const maxKpiPerSlide = Math.min(4, Math.max(1, Number(state.kpiGroupSize) || 4));
 
-        // 1. Portada institucional (Diapositiva 1)
         if (state.coverEnabled) {
           slides.push({
             kind: 'cover',
@@ -6345,58 +6179,49 @@
           });
         }
 
-        // 2. Diapositivas interiores
         let idx = 0;
         const items = state.items;
 
         while (idx < items.length) {
           const it = items[idx];
 
-          // Agrupar tarjetas KPI sueltas consecutivas en slides de hasta 4 KPIs
-          if (it.type === 'kpi-single' && state.groupLooseKpis) {
+          // Agrupar tarjetas KPI sueltas consecutivas (máx 4 por slide: ej. 6 -> 4 + 2, 7 -> 4 + 3, 8 -> 4 + 4)
+          if (it.type === 'kpi-single' && maxKpiPerSlide > 1) {
             const looseGroup = [];
             let j = idx;
             while (j < items.length && items[j].type === 'kpi-single') {
-              looseGroup.push({ item: items[j], itemIdx: j });
+              looseGroup.push(items[j]);
               j++;
             }
 
-            for (let c = 0; c < looseGroup.length; c += 4) {
-              const slice = looseGroup.slice(c, c + 4);
+            for (let c = 0; c < looseGroup.length; c += maxKpiPerSlide) {
+              const slice = looseGroup.slice(c, c + maxKpiPerSlide);
               const slideNum = slides.length + 1;
-              slice.forEach(entry => {
-                itemSlideRanges[entry.item.id] = {
+              slice.forEach(g => {
+                itemSlideRanges[g.id] = {
                   start: slideNum,
                   end: slideNum,
-                  groupedCount: slice.length,
-                  isGroupLeader: entry === slice[0]
+                  groupedCount: slice.length
                 };
               });
 
-              let slideTitle = slice[0].item.title;
+              let slideTitle = slice[0].title;
               if (slice.length > 1) {
-                const editedEntry = slice.find(e => e.item.titleEdited);
-                if (editedEntry) {
-                  slideTitle = editedEntry.item.title;
-                } else {
-                  const sameModule = slice.every(e => e.item.moduleName === slice[0].item.moduleName);
-                  slideTitle = sameModule
-                    ? (slice[0].item.panelTitle || `Indicadores Clave — ${slice[0].item.moduleName}`)
-                    : 'Indicadores Ejecutivos Seleccionados';
-                }
+                const edited = slice.find(g => g.titleEdited);
+                slideTitle = edited ? edited.title : slice.map(g => g.title).join(' · ');
               }
 
               const combinedNotes = slice
-                .map(e => (e.item.note || '').trim())
+                .map(g => (g.note && g.note.trim()) ? (slice.length > 1 ? `${g.title}: ${g.note.trim()}` : g.note.trim()) : '')
                 .filter(Boolean)
-                .join(' • ');
+                .join(' · ');
 
               slides.push({
                 kind: 'kpi',
                 title: slideTitle,
-                cards: slice.map(e => e.item.cards[0]),
+                cards: slice.map(g => g.cards[0]),
                 note: combinedNotes,
-                source: slice[0].item.source
+                source: slice[0].source
               });
             }
 
@@ -6404,22 +6229,28 @@
             continue;
           }
 
-          // Panel KPI o KPI individual sin agrupar -> dividir automáticamente en bloques de hasta 4 KPIs
+          // Panel KPI o KPI suelto individual -> partición en bloques de hasta maxKpiPerSlide (máx 4: 6->4+2, 7->4+3, 8->4+4)
           if (it.type === 'kpi-panel' || it.type === 'kpi-single') {
             const cards = it.cards || [];
+            const chunks = [];
+            for (let c = 0; c < cards.length; c += maxKpiPerSlide) {
+              chunks.push(cards.slice(c, c + maxKpiPerSlide));
+            }
             const startSlide = slides.length + 1;
-            for (let c = 0; c < cards.length; c += 4) {
-              const chunk = cards.slice(c, c + 4);
+            chunks.forEach((chunk, partIdx) => {
               slides.push({
                 kind: 'kpi',
-                title: it.title,
+                title: chunks.length > 1 ? `${it.title} (${partIdx + 1}/${chunks.length})` : it.title,
                 cards: chunk,
-                note: c === 0 ? (it.note || '').trim() : '',
+                note: partIdx === chunks.length - 1 ? (it.note || '').trim() : '',
                 source: it.source
               });
-            }
-            const endSlide = slides.length;
-            itemSlideRanges[it.id] = { start: startSlide, end: endSlide };
+            });
+            itemSlideRanges[it.id] = {
+              start: startSlide,
+              end: slides.length,
+              groupedCount: 1
+            };
             idx++;
             continue;
           }
@@ -6435,27 +6266,27 @@
               note: (it.note || '').trim(),
               source: it.source
             });
-            itemSlideRanges[it.id] = { start: sNum, end: sNum };
+            itemSlideRanges[it.id] = { start: sNum, end: sNum, groupedCount: 1 };
             idx++;
             continue;
           }
 
-          // Tabla con paginación automática 16:9 y repetición de thead
+          // Tabla paginada con thead repetido
           if (it.type === 'table') {
             const rowPages = paginateTableRows(it);
             const startSlide = slides.length + 1;
+            const totalParts = rowPages.length;
             rowPages.forEach((rowsChunk, pIdx) => {
               slides.push({
                 kind: 'table',
-                title: it.title,
+                title: totalParts > 1 ? `${it.title} (parte ${pIdx + 1}/${totalParts})` : it.title,
                 headers: it.headers || [],
                 rows: rowsChunk,
-                note: pIdx === 0 ? (it.note || '').trim() : '',
+                note: pIdx === totalParts - 1 ? (it.note || '').trim() : '',
                 source: it.source
               });
             });
-            const endSlide = slides.length;
-            itemSlideRanges[it.id] = { start: startSlide, end: endSlide, pageCount: rowPages.length };
+            itemSlideRanges[it.id] = { start: startSlide, end: slides.length, groupedCount: 1 };
             idx++;
             continue;
           }
@@ -6466,107 +6297,72 @@
         return { slides, itemSlideRanges };
       }
 
-      // Renderiza el HTML exacto de una diapositiva 16:9
-      function renderSlideHtml(slide, indexZero, totalSlides) {
+      function renderSlideHtml(slide, idx, total) {
+        const logoSvg = getBrandLogoSvg();
+
+        // Portada 16:9 estilo Balances Mercado Asegurador (SIN cantidad de diapositivas NI fecha Generado)
         if (slide.kind === 'cover') {
-          // Portada institucional limpia: logo, título y subtítulo (SIN cantidad de slides NI fecha Generado)
           return `
             <section class="deck-slide deck-slide-cover">
-              <div class="deck-cover-left-stripe"></div>
-              <div class="deck-cover-decor-shape"></div>
-              <div class="deck-cover-decor-corner"></div>
-
-              <div class="deck-cover-top">
-                <div class="deck-logo-badge-lg">
-                  <span class="dot"></span>
-                  LA SEGUNDA
-                </div>
-                <span class="deck-logo-subbrand">Seguros de Personas</span>
-              </div>
-
-              <div class="deck-cover-center">
-                <div class="deck-cover-rule"></div>
+              <div class="deck-cover-main">
+                <div class="deck-cover-logo">${logoSvg}</div>
+                <div class="deck-cover-kicker">Tablero de Gestión de Seguros de Personas</div>
                 <h1 class="deck-cover-title">${escapeHtml(slide.title)}</h1>
                 ${slide.subtitle ? `<p class="deck-cover-subtitle">${escapeHtml(slide.subtitle)}</p>` : ''}
               </div>
-
-              <div class="deck-cover-bottom">
-                <span class="deck-cover-org">La Segunda Seguros • Grupo Asegurador</span>
-                <span class="deck-cover-claim">Primero las personas. Lo primero sos vos.</span>
+              <div class="deck-cover-ftr">
+                <span>La Segunda Seguros · Seguros de Personas</span>
+                <span>Diapositiva 1 / ${total}</span>
+              </div>
+              <div class="deck-mosaic-strip" aria-hidden="true">
+                <span></span><span></span><span></span><span></span><span></span><span></span>
               </div>
             </section>
           `;
         }
 
-        // Diapositiva interior limpia: logo + SOLO título (sin subtítulo ni píldoras de filtros/contexto)
-        let bodyContentHtml = '';
-
-        if (slide.kind === 'kpi') {
-          const cards = slide.cards || [];
-          const kCount = Math.min(4, Math.max(1, cards.length));
-          const cardsHtml = cards.map(c => {
-            const hasExtra = Boolean(c.extraHtml && c.extraHtml.trim());
-            const valStyle = c.valueColor ? ` style="color:${c.valueColor}"` : '';
-            return `
-              <div class="deck-slide-kpi-card${hasExtra ? ' has-extra' : ''}">
-                <span class="deck-kpi-accent" style="background:${c.accentColor || '#e20039'}"></span>
-                <div class="dk-title">${escapeHtml(c.title)}</div>
-                <div class="dk-value"${valStyle}>${escapeHtml(c.value)}</div>
-                ${c.subHtml ? `<div class="dk-sub">${c.subHtml}</div>` : ''}
-                ${hasExtra ? `<div class="dk-extra">${c.extraHtml}</div>` : ''}
-              </div>
-            `;
-          }).join('');
-
-          bodyContentHtml = `<div class="deck-kpi-stage" data-count="${kCount}">${cardsHtml}</div>`;
-        } else if (slide.kind === 'chart') {
+        // Diapositivas interiores limpias estilo Balances Mercado Asegurador
+        let bodyHtml = '';
+        if (slide.kind === 'chart') {
           const notesHtml = (slide.chartNotes && slide.chartNotes.length)
-            ? `<div class="deck-chart-notes">${slide.chartNotes.map(n => `<span class="deck-chart-note-item">&#9432; ${escapeHtml(n)}</span>`).join('')}</div>`
+            ? `<div class="deck-slide-notes">${slide.chartNotes.map(n => `<p class="chart-info-note">${escapeHtml(n)}</p>`).join('')}</div>`
             : '';
-          bodyContentHtml = `
+          bodyHtml = `
             <div class="deck-chart-stage">
-              <div class="deck-chart-img-wrap">
-                <img src="${slide.imgDataUrl}" alt="${escapeHtml(slide.title)}" />
-              </div>
+              <img src="${slide.imgDataUrl}" alt="${escapeHtml(slide.title)}" />
               ${notesHtml}
             </div>
           `;
+        } else if (slide.kind === 'kpi') {
+          const cards = slide.cards || [];
+          const layoutCls = kpiLayoutClassForCount(cards.length);
+          bodyHtml = `<div class="deck-kpi-stage ${layoutCls}">${renderKpiCardsHtml(cards)}</div>`;
         } else if (slide.kind === 'table') {
-          bodyContentHtml = `
-            <div class="deck-table-stage">
-              ${renderTableMarkup(slide.headers, slide.rows)}
-            </div>
-          `;
+          const densityCls = getTableStageDensityClass((slide.headers || []).length);
+          bodyHtml = `<div class="deck-table-stage ${densityCls}">${renderTableMarkup(slide.headers, slide.rows)}</div>`;
         }
 
-        const execNoteHtml = slide.note
-          ? `<div class="deck-exec-note"><strong>Nota ejecutiva:</strong> ${escapeHtml(slide.note)}</div>`
+        const execNoteHtml = (slide.note && slide.note.trim())
+          ? `<div class="deck-slide-exec-note"><strong>Nota:</strong> ${escapeHtml(slide.note.trim())}</div>`
           : '';
 
-        const slideNumber = indexZero + 1;
-
         return `
-          <section class="deck-slide deck-slide-interior">
-            <div class="deck-slide-top-accent"></div>
-
-            <header class="deck-slide-header">
-              <div class="deck-logo-badge-sm">
-                <span class="dot"></span>
-                LA SEGUNDA
+          <section class="deck-slide deck-slide-content">
+            <header class="deck-slide-hdr">
+              <div class="deck-slide-hdr-left">
+                <div class="deck-slide-logo">${logoSvg}</div>
+                <div class="deck-slide-title-wrap">
+                  <h2 class="deck-slide-title">${escapeHtml(slide.title)}</h2>
+                </div>
               </div>
-              <h2 class="deck-slide-title">${escapeHtml(slide.title)}</h2>
             </header>
-
             <div class="deck-slide-body">
-              <div class="deck-slide-content-area">
-                ${bodyContentHtml}
-              </div>
+              ${bodyHtml}
               ${execNoteHtml}
             </div>
-
-            <footer class="deck-slide-footer">
-              <span class="deck-slide-footer-source">${escapeHtml(slide.source || 'Fuente: La Segunda Seguros')}</span>
-              <span class="deck-slide-footer-page">Diapositiva ${slideNumber} / ${totalSlides}</span>
+            <footer class="deck-slide-ftr">
+              <span>${escapeHtml(slide.source || 'La Segunda Seguros · Tablero de Gestión de Seguros de Personas')}</span>
+              <span>Diapositiva ${idx + 1} / ${total}</span>
             </footer>
           </section>
         `;
@@ -6575,262 +6371,215 @@
       // --------------------------------------------------------------------
       // DRAWER LATERAL DERECHO Y MINIATURAS REALES
       // --------------------------------------------------------------------
-      function updateHeaderCounter(animate = false) {
+      function syncCounters(animate = false) {
+        const n = state.items.length;
         const cntEl = document.getElementById('deck_live_count');
         const btnEl = document.getElementById('btn_open_deck');
-        const count = state.items.length;
-        if (cntEl) cntEl.textContent = String(count);
+        const fabEl = document.getElementById('deck_fab');
+        const fabCntEl = document.getElementById('fab_deck_count');
+
+        if (cntEl) cntEl.textContent = String(n);
+        if (fabCntEl) fabCntEl.textContent = String(n);
+        if (fabEl) fabEl.hidden = n === 0;
         if (btnEl) {
-          btnEl.classList.toggle('has-items', count > 0);
+          btnEl.classList.toggle('has-items', n > 0);
           if (animate) {
             btnEl.classList.add('bump');
-            setTimeout(() => btnEl.classList.remove('bump'), 220);
+            setTimeout(() => btnEl.classList.remove('bump'), 200);
           }
         }
       }
 
-      function renderItemThumbnailHtml(item) {
-        if (item.type === 'chart') {
-          return `<img src="${item.imgDataUrl}" alt="Miniatura gráfico" />`;
+      function renderItemThumbnailHtml(item, idx) {
+        const numBadge = `<span class="deck-thumb-num-badge">${idx + 1}</span>`;
+        if (item.type === 'chart' && item.imgDataUrl) {
+          return `${numBadge}<img class="deck-thumb-img" src="${item.imgDataUrl}" alt="" />`;
         }
+        let innerStage = '';
         if (item.type === 'kpi-single' || item.type === 'kpi-panel') {
-          const cards = item.cards || [];
-          const visible = cards.slice(0, 4);
-          const kClass = 'k' + Math.max(1, visible.length);
-          const minis = visible.map(c => `
-            <div class="deck-thumb-kpi-mini">
-              <span class="bar" style="background:${c.accentColor || '#e20039'}"></span>
-              <div class="t">${escapeHtml(c.title)}</div>
-              <div class="v">${escapeHtml(c.value)}</div>
-            </div>
-          `).join('');
-          const more = cards.length > 4
-            ? `<span class="deck-thumb-more-badge">+${cards.length - 4}</span>`
-            : '';
-          return `<div class="deck-thumb-kpi-grid ${kClass}">${minis}</div>${more}`;
+          const cardsSlice = (item.cards || []).slice(0, 4);
+          innerStage = `<div class="deck-kpi-stage ${kpiLayoutClassForCount(cardsSlice.length)}" style="flex:1 1 auto;">${renderKpiCardsHtml(cardsSlice)}</div>`;
+        } else if (item.type === 'table') {
+          const densityCls = getTableStageDensityClass((item.headers || []).length);
+          innerStage = `<div class="deck-table-stage ${densityCls}">${renderTableMarkup(item.headers || [], (item.rows || []).slice(0, 12))}</div>`;
         }
-        if (item.type === 'table') {
-          const cols = (item.headers || []).slice(0, 5);
-          const topRows = (item.rows || []).slice(0, 5);
-          const ths = cols.map(h => `<th>${escapeHtml(h.text)}</th>`).join('');
-          const trs = topRows.map(r => {
-            const tds = r.cells.slice(0, 5).map(c => `<td style="text-align:${c.align || 'left'}">${escapeHtml(c.text)}</td>`).join('');
-            return `<tr>${tds}</tr>`;
-          }).join('');
-          return `<div class="deck-thumb-table-mini"><table><thead><tr>${ths}</tr></thead><tbody>${trs}</tbody></table></div>`;
-        }
-        return '';
+        return `${numBadge}<div class="deck-thumb-html-inner">${innerStage}</div>`;
       }
 
-      function getTypeAndSlideLabel(item, rangeInfo) {
-        let typeStr = 'Elemento';
-        if (item.type === 'kpi-single') typeStr = 'KPI';
-        else if (item.type === 'kpi-panel') typeStr = `Panel (${(item.cards || []).length} KPIs)`;
-        else if (item.type === 'chart') typeStr = 'Gráfico 2x';
-        else if (item.type === 'table') typeStr = `Tabla (${(item.rows || []).length} filas)`;
-
-        if (!rangeInfo) return typeStr;
-        if (rangeInfo.start === rangeInfo.end) {
-          return `${typeStr} • Diap. ${rangeInfo.start}`;
-        }
-        return `${typeStr} • Diap. ${rangeInfo.start}–${rangeInfo.end}`;
+      function formatSlideBadge(range) {
+        if (!range) return 'Slide —';
+        if (range.end > range.start) return `Slides ${range.start}–${range.end}`;
+        if (range.groupedCount > 1) return `Slide ${range.start} (×${range.groupedCount})`;
+        return `Slide ${range.start}`;
       }
 
-      function syncDrawerSummaryAndBadges() {
+      function updateDrawerSummaryOnly() {
+        const nItems = state.items.length;
         const { slides, itemSlideRanges } = buildSlidesAndMapping();
-        const summaryEl = document.getElementById('deck_drawer_summary');
-        if (summaryEl) {
-          const nItems = state.items.length;
-          const nSlides = slides.length;
-          summaryEl.textContent = `${nItems} ${nItems === 1 ? 'elemento capturado' : 'elementos capturados'} • ${nSlides} ${nSlides === 1 ? 'diapositiva' : 'diapositivas'} (16:9)`;
+        const nSlides = nItems === 0 && !state.coverEnabled ? 0 : slides.length;
+        const sumPill = document.getElementById('deck_drawer_summary');
+        if (sumPill) {
+          sumPill.textContent = `${nItems} ${nItems === 1 ? 'ítem' : 'ítems'} · ${nSlides} ${nSlides === 1 ? 'slide' : 'slides'}`;
         }
-        const clearBtn = document.getElementById('btn_deck_clear');
-        if (clearBtn) clearBtn.disabled = state.items.length === 0;
-
-        document.querySelectorAll('#deck_items_list .deck-item-card').forEach(cardEl => {
-          const id = cardEl.dataset.itemId;
-          const item = state.items.find(x => x.id === id);
-          if (!item) return;
-          const tagEl = cardEl.querySelector('.deck-item-type-tag');
-          if (tagEl) tagEl.textContent = getTypeAndSlideLabel(item, itemSlideRanges[id]);
+        document.querySelectorAll('#deck_items_list .deck-item[data-id]').forEach(row => {
+          const pill = row.querySelector('.deck-slide-num-pill');
+          if (pill) pill.textContent = formatSlideBadge(itemSlideRanges[row.dataset.id]);
         });
       }
 
       function renderDrawer() {
         const chkCover = document.getElementById('chk_deck_cover');
-        const coverFields = document.getElementById('deck_cover_fields');
+        const gridEl = document.getElementById('deck_settings_grid');
         const inpTitle = document.getElementById('inp_deck_cover_title');
         const inpSub = document.getElementById('inp_deck_cover_subtitle');
-        const chkGroup = document.getElementById('chk_deck_group_kpis');
+        const selGroup = document.getElementById('sel_deck_kpi_group');
 
         if (chkCover) chkCover.checked = state.coverEnabled;
-        if (coverFields) coverFields.classList.toggle('hidden', !state.coverEnabled);
+        if (gridEl) gridEl.classList.toggle('hidden-cover', !state.coverEnabled);
         if (inpTitle && document.activeElement !== inpTitle) inpTitle.value = state.coverTitle;
         if (inpSub && document.activeElement !== inpSub) inpSub.value = state.coverSubtitle;
-        if (chkGroup) chkGroup.checked = state.groupLooseKpis;
+        if (selGroup) selGroup.value = String(state.kpiGroupSize || 4);
 
+        const nItems = state.items.length;
         const { slides, itemSlideRanges } = buildSlidesAndMapping();
+        const nSlides = (nItems === 0 && !state.coverEnabled) ? 0 : slides.length;
 
-        const summaryEl = document.getElementById('deck_drawer_summary');
-        if (summaryEl) {
-          const nItems = state.items.length;
-          const nSlides = slides.length;
-          summaryEl.textContent = `${nItems} ${nItems === 1 ? 'elemento capturado' : 'elementos capturados'} • ${nSlides} ${nSlides === 1 ? 'diapositiva' : 'diapositivas'} (16:9)`;
+        const sumPill = document.getElementById('deck_drawer_summary');
+        if (sumPill) {
+          sumPill.textContent = `${nItems} ${nItems === 1 ? 'ítem' : 'ítems'} · ${nSlides} ${nSlides === 1 ? 'slide' : 'slides'}`;
         }
 
-        const clearBtn = document.getElementById('btn_deck_clear');
-        if (clearBtn) clearBtn.disabled = state.items.length === 0;
+        const btnClr = document.getElementById('btn_deck_clear');
+        const btnPrev = document.getElementById('btn_deck_preview');
+        const btnPrn = document.getElementById('btn_deck_print');
+        if (btnClr) btnClr.disabled = nItems === 0;
+        if (btnPrev) btnPrev.disabled = nSlides === 0;
+        if (btnPrn) btnPrn.disabled = nSlides === 0;
 
         const listEl = document.getElementById('deck_items_list');
         if (!listEl) return;
 
-        if (state.items.length === 0) {
+        if (nItems === 0) {
           listEl.innerHTML = `
-            <div class="deck-empty-state">
-              <h4>Tu presentación aún no tiene capturas</h4>
-              <p>
-                Hacé click en el botón <strong>+</strong> de cualquier tarjeta KPI, gráfico o tabla, o usá
-                <strong>+ Agregar panel KPI a presentación</strong> para congelar instantáneas con los filtros activos.
-              </p>
+            <div class="deck-empty">
+              <strong>Tu presentación está vacía</strong>
+              Hacé click en el botón <strong>+</strong> de cualquier tarjeta KPI, gráfico o tabla (o en <em>+ Agregar panel KPI a presentación</em>) desde cualquier pestaña y filtro.<br /><br />
+              Cada ítem se guarda como instantánea fija del filtro activo para combinar distintas vistas en un único PDF vectorial 16:9.
             </div>
           `;
           return;
         }
 
-        listEl.innerHTML = '';
-
-        state.items.forEach((item, idx) => {
-          const rangeInfo = itemSlideRanges[item.id];
-          const card = document.createElement('div');
-          card.className = 'deck-item-card';
-          card.dataset.index = String(idx);
-          card.dataset.itemId = item.id;
-          card.draggable = true;
-
-          const groupHintHtml = (rangeInfo && rangeInfo.groupedCount > 1)
-            ? `<div class="deck-group-hint">${rangeInfo.isGroupLeader ? `Agrupado (${rangeInfo.groupedCount} KPIs en Diap. ${rangeInfo.start})` : `Integrado en grupo de Diap. ${rangeInfo.start}`}</div>`
-            : '';
-
-          const targetSlideIdx = rangeInfo ? Math.max(0, rangeInfo.start - 1) : 0;
-
-          card.innerHTML = `
-            <div class="deck-item-top">
-              <div class="deck-item-meta-left">
-                <span class="deck-drag-handle" title="Arrastrar para reordenar">&#8942;&#8942;</span>
-                <span class="deck-item-num">${idx + 1}</span>
-                <span class="deck-item-type-tag">${escapeHtml(getTypeAndSlideLabel(item, rangeInfo))}</span>
+        listEl.innerHTML = state.items.map((item, idx) => {
+          const range = itemSlideRanges[item.id];
+          const slideBadge = formatSlideBadge(range);
+          const targetSlideIdx = range ? Math.max(0, range.start - 1) : 0;
+          return `
+            <div class="deck-item" data-idx="${idx}" data-id="${escapeHtml(item.id)}" data-slide-idx="${targetSlideIdx}" draggable="true">
+              <div class="deck-drag-handle" title="Arrastrar para reordenar">⋮⋮</div>
+              <div class="deck-thumb-col">
+                <div class="deck-thumb-frame" title="Abrir vista previa en esta diapositiva">${renderItemThumbnailHtml(item, idx)}</div>
+                <span class="deck-slide-num-pill">${escapeHtml(slideBadge)}</span>
               </div>
-              <div class="deck-item-controls">
-                <button type="button" class="deck-ctrl-btn" data-action="up" ${idx === 0 ? 'disabled' : ''} title="Subir (↑)">&#8593;</button>
-                <button type="button" class="deck-ctrl-btn" data-action="down" ${idx === state.items.length - 1 ? 'disabled' : ''} title="Bajar (↓)">&#8595;</button>
-                <button type="button" class="deck-ctrl-btn remove" data-action="remove" title="Quitar ítem">&#10005;</button>
+              <div class="deck-item-body">
+                <input type="text" class="deck-item-title-input" value="${escapeHtml(item.title)}" title="Editar título de la diapositiva" aria-label="Título de diapositiva" />
+                ${item.contextText ? `<div class="deck-item-ctx">${escapeHtml(item.contextText)}</div>` : ''}
+                <textarea rows="1" class="deck-item-note-input" placeholder="Agregar nota o conclusión ejecutiva opcional...">${escapeHtml(item.note || '')}</textarea>
               </div>
-            </div>
-
-            <div class="deck-item-main">
-              <div class="deck-thumb-box" data-action="preview" title="Ver diapositiva en pantalla completa">
-                ${renderItemThumbnailHtml(item)}
-              </div>
-              <div class="deck-item-inputs">
-                <input type="text" class="deck-input deck-item-title-inp" value="${escapeHtml(item.title)}" placeholder="Título de la diapositiva" />
-                <textarea class="deck-textarea deck-item-note-inp" rows="2" placeholder="Nota o conclusión ejecutiva opcional...">${escapeHtml(item.note || '')}</textarea>
-                ${groupHintHtml}
+              <div class="deck-item-actions">
+                <button type="button" class="deck-mini-btn up" ${idx === 0 ? 'disabled' : ''} title="Subir (↑)">↑</button>
+                <button type="button" class="deck-mini-btn down" ${idx === nItems - 1 ? 'disabled' : ''} title="Bajar (↓)">↓</button>
+                <button type="button" class="deck-mini-btn del" title="Quitar de la presentación">×</button>
               </div>
             </div>
           `;
+        }).join('');
 
-          // Evitar que draggable interfiera con edición de texto en inputs/textareas
-          card.addEventListener('mousedown', (ev) => {
-            if (ev.target.closest('input, textarea, button')) {
-              card.draggable = false;
-            } else {
-              card.draggable = true;
-            }
+        listEl.querySelectorAll('.deck-item').forEach(row => {
+          const idx = Number(row.dataset.idx);
+          const item = state.items[idx];
+          if (!item) return;
+
+          row.addEventListener('mousedown', (ev) => {
+            row.draggable = !ev.target.closest('input, textarea, button');
           });
-          card.addEventListener('mouseup', () => {
-            card.draggable = true;
+          row.addEventListener('mouseup', () => { row.draggable = true; });
+
+          row.querySelector('.deck-thumb-frame').addEventListener('click', () => {
+            openPreview(Number(row.dataset.slideIdx) || 0);
           });
 
-          // Eventos de controles
-          card.querySelector('[data-action="up"]').addEventListener('click', () => moveItem(idx, -1));
-          card.querySelector('[data-action="down"]').addEventListener('click', () => moveItem(idx, 1));
-          card.querySelector('[data-action="remove"]').addEventListener('click', () => removeItem(idx));
-          card.querySelector('[data-action="preview"]').addEventListener('click', () => openPreview(targetSlideIdx));
-
-          // Edición en vivo de título y nota ejecutiva
-          const titleInp = card.querySelector('.deck-item-title-inp');
-          titleInp.addEventListener('input', (ev) => {
-            item.title = ev.target.value;
+          row.querySelector('.deck-item-title-input').addEventListener('input', (e) => {
+            item.title = e.target.value;
             item.titleEdited = item.title.trim() !== (item.defaultTitle || '').trim();
             saveState();
           });
 
-          const noteInp = card.querySelector('.deck-item-note-inp');
-          noteInp.addEventListener('input', (ev) => {
-            item.note = ev.target.value;
+          row.querySelector('.deck-item-note-input').addEventListener('input', (e) => {
+            item.note = e.target.value;
             saveState();
-            if (item.type === 'table') {
-              syncDrawerSummaryAndBadges();
-            }
+            updateDrawerSummaryOnly();
           });
 
-          // Drag & Drop nativo para reordenar
-          card.addEventListener('dragstart', (ev) => {
+          row.querySelector('.deck-mini-btn.up').addEventListener('click', () => moveItem(idx, -1));
+          row.querySelector('.deck-mini-btn.down').addEventListener('click', () => moveItem(idx, 1));
+          row.querySelector('.deck-mini-btn.del').addEventListener('click', () => removeItem(idx));
+
+          row.addEventListener('dragstart', (e) => {
+            if (e.target.closest('input, textarea, button')) {
+              e.preventDefault();
+              return;
+            }
             dragSrcIndex = idx;
-            card.classList.add('dragging');
-            if (ev.dataTransfer) {
-              ev.dataTransfer.effectAllowed = 'move';
-              ev.dataTransfer.setData('text/plain', String(idx));
+            row.classList.add('dragging');
+            if (e.dataTransfer) {
+              e.dataTransfer.effectAllowed = 'move';
+              e.dataTransfer.setData('text/plain', String(idx));
             }
           });
 
-          card.addEventListener('dragover', (ev) => {
-            ev.preventDefault();
-            if (dragSrcIndex === null || dragSrcIndex === idx) return;
-            const rect = card.getBoundingClientRect();
-            const isTopHalf = (ev.clientY - rect.top) < (rect.height / 2);
-            card.classList.toggle('drag-over-top', isTopHalf);
-            card.classList.toggle('drag-over-bottom', !isTopHalf);
+          row.addEventListener('dragover', (e) => {
+            if (dragSrcIndex < 0 || dragSrcIndex === idx) return;
+            e.preventDefault();
+            const rect = row.getBoundingClientRect();
+            const isTop = (e.clientY - rect.top) < rect.height / 2;
+            row.classList.toggle('drag-over-top', isTop);
+            row.classList.toggle('drag-over-bottom', !isTop);
           });
 
-          card.addEventListener('dragleave', () => {
-            card.classList.remove('drag-over-top', 'drag-over-bottom');
+          row.addEventListener('dragleave', () => {
+            row.classList.remove('drag-over-top', 'drag-over-bottom');
           });
 
-          card.addEventListener('drop', (ev) => {
-            ev.preventDefault();
-            const isBottom = card.classList.contains('drag-over-bottom');
-            card.classList.remove('drag-over-top', 'drag-over-bottom');
-            if (dragSrcIndex === null || dragSrcIndex === idx) return;
-
-            const moved = state.items.splice(dragSrcIndex, 1)[0];
-            let destIdx = idx;
-            if (dragSrcIndex < idx) destIdx -= 1;
-            if (isBottom) destIdx += 1;
-            destIdx = Math.max(0, Math.min(state.items.length, destIdx));
-            state.items.splice(destIdx, 0, moved);
-            dragSrcIndex = null;
+          row.addEventListener('drop', (e) => {
+            e.preventDefault();
+            row.classList.remove('drag-over-top', 'drag-over-bottom');
+            if (dragSrcIndex < 0 || dragSrcIndex === idx) return;
+            const rect = row.getBoundingClientRect();
+            const isTop = (e.clientY - rect.top) < rect.height / 2;
+            let targetIdx = isTop ? idx : idx + 1;
+            const [moved] = state.items.splice(dragSrcIndex, 1);
+            if (dragSrcIndex < targetIdx) targetIdx -= 1;
+            state.items.splice(targetIdx, 0, moved);
+            dragSrcIndex = -1;
             saveState();
             renderDrawer();
           });
 
-          card.addEventListener('dragend', () => {
-            dragSrcIndex = null;
-            listEl.querySelectorAll('.deck-item-card').forEach(c => {
-              c.classList.remove('dragging', 'drag-over-top', 'drag-over-bottom');
+          row.addEventListener('dragend', () => {
+            dragSrcIndex = -1;
+            listEl.querySelectorAll('.deck-item').forEach(r => {
+              r.classList.remove('dragging', 'drag-over-top', 'drag-over-bottom');
             });
           });
-
-          listEl.appendChild(card);
         });
       }
 
       function moveItem(idx, delta) {
         const target = idx + delta;
         if (target < 0 || target >= state.items.length) return;
-        const tmp = state.items[idx];
-        state.items[idx] = state.items[target];
-        state.items[target] = tmp;
+        const [moved] = state.items.splice(idx, 1);
+        state.items.splice(target, 0, moved);
         saveState();
         renderDrawer();
       }
@@ -6839,18 +6588,17 @@
         if (idx < 0 || idx >= state.items.length) return;
         state.items.splice(idx, 1);
         saveState();
-        updateHeaderCounter(false);
+        syncCounters(false);
         renderDrawer();
       }
 
       function clearAll() {
         if (!state.items.length) return;
-        if (!window.confirm('¿Deseás vaciar todos los elementos capturados de la presentación?')) return;
         state.items = [];
         saveState();
-        updateHeaderCounter(false);
+        syncCounters(false);
         renderDrawer();
-        showToast('Lista de presentación vaciada');
+        showToast('Lista de presentación vaciada.');
       }
 
       function onCoverToggle(enabled) {
@@ -6867,17 +6615,17 @@
         saveState();
       }
 
-      function onGroupKpisToggle(enabled) {
-        state.groupLooseKpis = Boolean(enabled);
+      function onKpiGroupChange(val) {
+        state.kpiGroupSize = Number(val) || 4;
         saveState();
         renderDrawer();
       }
 
       function openDrawer() {
         isDrawerOpen = true;
+        renderDrawer();
         document.getElementById('deck_drawer')?.classList.add('open');
         document.getElementById('deck_drawer_backdrop')?.classList.add('open');
-        renderDrawer();
       }
 
       function closeDrawer() {
@@ -6892,70 +6640,93 @@
       }
 
       // --------------------------------------------------------------------
-      // VISTA PREVIA INTERACTIVA A PANTALLA COMPLETA (← / → / Esc)
+      // VISTA PREVIA 16:9 INTERACTIVA
       // --------------------------------------------------------------------
+      function resizePreviewSlide() {
+        if (!isPreviewOpen) return;
+        const wrap = document.getElementById('deck_preview_stage_wrap');
+        const stage = document.getElementById('deck_preview_stage');
+        const slideEl = stage ? stage.querySelector(':scope > .deck-slide') : null;
+        if (!wrap || !stage || !slideEl) return;
+
+        slideEl.style.transform = 'none';
+        const natW = slideEl.offsetWidth || 1122.5;
+        const natH = slideEl.offsetHeight || 629.3;
+        const availW = Math.max(200, wrap.clientWidth - 36);
+        const availH = Math.max(150, wrap.clientHeight - 36);
+        const scale = Math.min(availW / natW, availH / natH, 1.45);
+        stage.style.width = Math.floor(natW * scale) + 'px';
+        stage.style.height = Math.floor(natH * scale) + 'px';
+        slideEl.style.transform = `scale(${scale})`;
+      }
+
+      function renderPreview() {
+        const { slides } = buildSlidesAndMapping();
+        previewSlidesCache = slides;
+        if (!slides.length) {
+          closePreview();
+          return;
+        }
+        if (currentPreviewIdx >= slides.length) currentPreviewIdx = slides.length - 1;
+        if (currentPreviewIdx < 0) currentPreviewIdx = 0;
+
+        const idx = currentPreviewIdx;
+        const stage = document.getElementById('deck_preview_stage');
+        const counter = document.getElementById('deck_preview_counter');
+        const prevBtn = document.getElementById('btn_preview_prev');
+        const nextBtn = document.getElementById('btn_preview_next');
+        const strip = document.getElementById('deck_preview_strip');
+
+        if (counter) counter.textContent = `Slide ${idx + 1} de ${slides.length}`;
+        if (prevBtn) prevBtn.disabled = idx === 0;
+        if (nextBtn) nextBtn.disabled = idx >= slides.length - 1;
+        if (stage) stage.innerHTML = renderSlideHtml(slides[idx], idx, slides.length);
+
+        if (strip) {
+          strip.innerHTML = slides.map((s, sIdx) => `
+            <button type="button" class="deck-strip-pill ${sIdx === idx ? 'active' : ''}" data-sidx="${sIdx}">
+              ${s.kind === 'cover' ? 'Portada' : `Slide ${sIdx + 1}`}
+            </button>
+          `).join('');
+          strip.querySelectorAll('.deck-strip-pill').forEach(b => {
+            b.addEventListener('click', () => {
+              currentPreviewIdx = Number(b.dataset.sidx) || 0;
+              renderPreview();
+            });
+          });
+        }
+
+        resizePreviewSlide();
+        requestAnimationFrame(resizePreviewSlide);
+      }
+
       function openPreview(startIdx = 0) {
         const { slides } = buildSlidesAndMapping();
         if (!slides.length) {
-          showToast('Agregá al menos un elemento o activá la portada para ver la vista previa.');
+          showToast('Agregá al menos un elemento antes de abrir la vista previa.');
           return;
         }
-        previewSlidesCache = slides;
-        currentPreviewIdx = Math.max(0, Math.min(slides.length - 1, startIdx));
+        currentPreviewIdx = startIdx;
         isPreviewOpen = true;
-
-        const modal = document.getElementById('deck_preview_modal');
-        if (modal) modal.classList.add('open');
-
-        renderCurrentPreviewSlide();
-        fitPreviewSlideToScreen();
+        document.getElementById('deck_preview_modal')?.classList.add('open');
+        renderPreview();
       }
 
       function closePreview() {
         isPreviewOpen = false;
-        const modal = document.getElementById('deck_preview_modal');
-        if (modal) modal.classList.remove('open');
+        document.getElementById('deck_preview_modal')?.classList.remove('open');
       }
 
       function stepPreview(delta) {
-        if (!isPreviewOpen || !previewSlidesCache.length) return;
+        if (!isPreviewOpen) return;
         const next = currentPreviewIdx + delta;
         if (next < 0 || next >= previewSlidesCache.length) return;
         currentPreviewIdx = next;
-        renderCurrentPreviewSlide();
-        fitPreviewSlideToScreen();
-      }
-
-      function renderCurrentPreviewSlide() {
-        const viewport = document.getElementById('deck_preview_viewport');
-        const counter = document.getElementById('deck_preview_counter');
-        const prevBtn = document.getElementById('btn_preview_prev');
-        const nextBtn = document.getElementById('btn_preview_next');
-        if (!viewport || !previewSlidesCache.length) return;
-
-        const total = previewSlidesCache.length;
-        viewport.innerHTML = renderSlideHtml(previewSlidesCache[currentPreviewIdx], currentPreviewIdx, total);
-        if (counter) counter.textContent = `Diapositiva ${currentPreviewIdx + 1} / ${total}`;
-        if (prevBtn) prevBtn.disabled = currentPreviewIdx <= 0;
-        if (nextBtn) nextBtn.disabled = currentPreviewIdx >= total - 1;
-      }
-
-      function fitPreviewSlideToScreen() {
-        if (!isPreviewOpen) return;
-        const stage = document.getElementById('deck_preview_stage');
-        const slideEl = document.querySelector('#deck_preview_viewport .deck-slide');
-        if (!stage || !slideEl) return;
-
-        const availW = Math.max(280, stage.clientWidth - 140);
-        const availH = Math.max(180, stage.clientHeight - 44);
-        const natW = slideEl.offsetWidth || 1122.5;
-        const natH = slideEl.offsetHeight || 631.2;
-        const scale = Math.min(availW / natW, availH / natH);
-        slideEl.style.transform = `scale(${scale})`;
+        renderPreview();
       }
 
       // --------------------------------------------------------------------
-      // EXPORTACIÓN A PDF VECTORIAL NATIVO (@media print + window.print)
+      // EXPORTACIÓN PDF VECTORIAL NATIVO (@media print + window.print)
       // --------------------------------------------------------------------
       function populatePrintRoot() {
         const { slides } = buildSlidesAndMapping();
@@ -6965,95 +6736,92 @@
         return slides.length;
       }
 
+      function cleanupAfterPrint() {
+        document.body.classList.remove('deck-printing');
+        const st = document.getElementById('deck_page_style_override');
+        if (st) st.remove();
+        const printRoot = document.getElementById('deck_print_root');
+        if (printRoot) printRoot.innerHTML = '';
+        if (savedDocTitle !== null) {
+          document.title = savedDocTitle;
+          savedDocTitle = null;
+        }
+      }
+
       async function exportPDF() {
         if (state.items.length === 0 && !state.coverEnabled) {
-          showToast('Agregá al menos un elemento del tablero antes de generar el PDF.');
+          showToast('Agregá al menos un elemento antes de generar el PDF.');
           return;
         }
         const count = populatePrintRoot();
         if (!count) {
-          showToast('No hay diapositivas para exportar.');
+          showToast('Agregá al menos un elemento antes de generar el PDF.');
           return;
         }
 
-        const printRoot = document.getElementById('deck_print_root');
-        document.body.classList.add('deck-printing');
+        let styleEl = document.getElementById('deck_page_style_override');
+        if (!styleEl) {
+          styleEl = document.createElement('style');
+          styleEl.id = 'deck_page_style_override';
+          styleEl.textContent = '@media print { @page { size: 297mm 167mm; margin: 0; } }';
+          document.head.appendChild(styleEl);
+        }
 
         savedDocTitle = document.title;
-        const cleanFileTitle = (state.coverTitle || 'Presentacion_La_Segunda')
+        const cleanFileTitle = (state.coverTitle || 'Presentacion_La_Segunda_Personas')
           .replace(/[\\/:*?"<>|]+/g, ' ')
           .trim();
         if (cleanFileTitle) document.title = cleanFileTitle;
 
-        // Decodificar imágenes PNG de alta resolución antes de abrir el diálogo nativo de impresión
+        const printRoot = document.getElementById('deck_print_root');
         const imgs = Array.from(printRoot.querySelectorAll('img'));
-        await Promise.all(imgs.map(img => {
-          if (typeof img.decode === 'function') {
-            return img.decode().catch(() => {});
-          }
-          return Promise.resolve();
-        }));
+        await Promise.all(imgs.map(img => (img.decode ? img.decode().catch(() => {}) : Promise.resolve())));
 
-        setTimeout(() => {
+        document.body.classList.add('deck-printing');
+        window.addEventListener('afterprint', cleanupAfterPrint, { once: true });
+        requestAnimationFrame(() => {
           window.print();
-        }, 60);
-      }
-
-      function cleanupAfterPrint() {
-        if (document.body.classList.contains('deck-printing')) {
-          document.body.classList.remove('deck-printing');
-          if (savedDocTitle !== null) {
-            document.title = savedDocTitle;
-            savedDocTitle = null;
-          }
-        }
+        });
       }
 
       function init() {
         injectCaptureButtons();
-        updateHeaderCounter(false);
+        syncCounters(false);
 
-        window.addEventListener('resize', () => {
-          if (isPreviewOpen) fitPreviewSlideToScreen();
-        });
+        window.addEventListener('resize', resizePreviewSlide);
 
-        document.addEventListener('keydown', (ev) => {
+        document.addEventListener('keydown', (e) => {
           if (isPreviewOpen) {
-            if (ev.key === 'Escape') {
-              ev.preventDefault();
+            if (e.key === 'Escape') {
+              e.preventDefault();
               closePreview();
-            } else if (ev.key === 'ArrowRight' || ev.key === 'PageDown') {
-              ev.preventDefault();
-              stepPreview(1);
-            } else if (ev.key === 'ArrowLeft' || ev.key === 'PageUp') {
-              ev.preventDefault();
+            } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+              e.preventDefault();
               stepPreview(-1);
+            } else if (e.key === 'ArrowRight' || e.key === 'PageDown') {
+              e.preventDefault();
+              stepPreview(1);
             }
             return;
           }
-          if (isDrawerOpen && ev.key === 'Escape') {
-            const activeTag = document.activeElement ? document.activeElement.tagName : '';
-            if (activeTag !== 'INPUT' && activeTag !== 'TEXTAREA') {
-              ev.preventDefault();
+          if (isDrawerOpen && e.key === 'Escape') {
+            const tag = document.activeElement ? document.activeElement.tagName : '';
+            if (tag !== 'INPUT' && tag !== 'TEXTAREA') {
+              e.preventDefault();
               closeDrawer();
             }
           }
         });
 
-        // Soporte si el usuario presiona Cmd+P / Ctrl+P con la Vista Previa o el Drawer abiertos
         window.addEventListener('beforeprint', () => {
           if (isPreviewOpen || isDrawerOpen || document.body.classList.contains('deck-printing')) {
             const printRoot = document.getElementById('deck_print_root');
             if (!document.body.classList.contains('deck-printing') || (printRoot && !printRoot.children.length)) {
               const n = populatePrintRoot();
-              if (n > 0) {
-                document.body.classList.add('deck-printing');
-              }
+              if (n > 0) document.body.classList.add('deck-printing');
             }
           }
         });
-
-        window.addEventListener('afterprint', cleanupAfterPrint);
       }
 
       return {
@@ -7064,7 +6832,7 @@
         clearAll,
         onCoverToggle,
         onCoverFieldChange,
-        onGroupKpisToggle,
+        onKpiGroupChange,
         openPreview,
         closePreview,
         stepPreview,
