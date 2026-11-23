@@ -661,6 +661,1519 @@
       color: var(--rojo-seguro);
       font-weight: 700;
     }
+
+    /* ======================================================================
+       ARMADOR DE PRESENTACIONES EJECUTIVAS EN PDF (DECK BUILDER 100% OFFLINE)
+       ====================================================================== */
+
+    /* Botón superior siempre visible: Presentación (N) */
+    .btn-deck-open {
+      background: #fff5f7;
+      color: var(--rojo-seguro);
+      border: 1.5px solid rgba(226, 0, 57, 0.35);
+      padding: 7px 15px;
+      border-radius: var(--radius-md);
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn-deck-open:hover,
+    .btn-deck-open.has-items {
+      background: var(--rojo-seguro);
+      color: #ffffff;
+      border-color: var(--rojo-seguro);
+      box-shadow: var(--shadow-red);
+    }
+
+    .btn-deck-open.has-items:hover {
+      background: var(--rojo-oscuro);
+      border-color: var(--rojo-oscuro);
+    }
+
+    .btn-deck-open.bump {
+      transform: scale(1.06);
+    }
+
+    /* Barra sobre cada grilla de KPIs */
+    .deck-kpi-panel-bar {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-bottom: 8px;
+      margin-top: -2px;
+    }
+
+    .deck-add-panel-btn {
+      background: #ffffff;
+      color: var(--rojo-seguro);
+      border: 1px solid rgba(226, 0, 57, 0.28);
+      border-radius: var(--radius-pill);
+      padding: 5px 13px;
+      font-size: 11.5px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.18s ease;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+    }
+
+    .deck-add-panel-btn:hover {
+      background: var(--rojo-seguro);
+      color: #ffffff;
+      border-color: var(--rojo-seguro);
+      box-shadow: var(--shadow-red);
+    }
+
+    .deck-add-panel-btn.just-added {
+      background: #0d8251 !important;
+      border-color: #0d8251 !important;
+      color: #ffffff !important;
+      box-shadow: none !important;
+    }
+
+    /* Botón discreto + en KPI, gráfico y tabla */
+    .kpi-card .kpi-title {
+      padding-right: 30px;
+    }
+
+    .deck-header-actions {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+
+    .deck-add-btn {
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      border: 1px solid var(--border-card);
+      background: #f8fafc;
+      color: var(--text-muted);
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.16s ease;
+      flex-shrink: 0;
+      padding: 0;
+    }
+
+    .kpi-card > .deck-add-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 4;
+      opacity: 0.72;
+    }
+
+    .kpi-card:hover > .deck-add-btn {
+      opacity: 1;
+    }
+
+    .deck-add-btn:hover {
+      background: var(--rojo-seguro);
+      color: #ffffff;
+      border-color: var(--rojo-seguro);
+      box-shadow: 0 3px 10px rgba(226, 0, 57, 0.25);
+      transform: translateY(-1px);
+      opacity: 1;
+    }
+
+    .deck-add-btn.just-added {
+      background: #0d8251 !important;
+      border-color: #0d8251 !important;
+      color: #ffffff !important;
+      opacity: 1 !important;
+    }
+
+    /* Toast de confirmación */
+    .deck-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 1500;
+      background: var(--carbon);
+      color: #ffffff;
+      padding: 11px 18px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      font-size: 12.5px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-left: 4px solid var(--verde);
+      opacity: 0;
+      transform: translateY(14px);
+      pointer-events: none;
+      transition: opacity 0.22s ease, transform 0.22s ease;
+    }
+
+    .deck-toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Backdrop y Drawer Lateral Derecho */
+    .deck-drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.42);
+      backdrop-filter: blur(2px);
+      z-index: 1190;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.24s ease;
+    }
+
+    .deck-drawer-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    aside.deck-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 475px;
+      max-width: 95vw;
+      height: 100vh;
+      background: #f8fafc;
+      border-left: 1px solid var(--border-card);
+      box-shadow: -12px 0 38px rgba(15, 23, 42, 0.18);
+      z-index: 1200;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(102%);
+      transition: transform 0.26s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    aside.deck-drawer.open {
+      transform: translateX(0);
+    }
+
+    .deck-drawer-header {
+      background: #ffffff;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-card);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .deck-drawer-title-wrap h2 {
+      font-size: 15.5px;
+      font-weight: 800;
+      color: var(--carbon);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .deck-drawer-title-wrap p {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      margin-top: 2px;
+      font-weight: 500;
+    }
+
+    .deck-drawer-top-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .deck-btn-clear {
+      background: #ffffff;
+      color: var(--rojo-seguro);
+      border: 1px solid rgba(226, 0, 57, 0.28);
+      border-radius: var(--radius-sm);
+      padding: 5px 10px;
+      font-size: 11.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .deck-btn-clear:hover:not(:disabled) {
+      background: #fff1f2;
+      border-color: var(--rojo-seguro);
+    }
+
+    .deck-btn-clear:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .deck-btn-icon-close {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-card);
+      background: #f8fafc;
+      color: var(--carbon);
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s ease;
+    }
+
+    .deck-btn-icon-close:hover {
+      background: var(--rojo-seguro);
+      color: #ffffff;
+      border-color: var(--rojo-seguro);
+    }
+
+    /* Cuerpo del Drawer */
+    .deck-drawer-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 14px 16px 20px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    /* Tarjeta de Configuración de Portada y Agrupamiento */
+    .deck-config-card {
+      background: #ffffff;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      padding: 13px 14px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .deck-config-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .deck-switch-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--carbon);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .deck-switch-label input[type="checkbox"] {
+      accent-color: var(--rojo-seguro);
+      width: 15px;
+      height: 15px;
+      cursor: pointer;
+    }
+
+    .deck-cover-fields {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      padding-top: 6px;
+      border-top: 1px dashed var(--border-card);
+    }
+
+    .deck-cover-fields.hidden {
+      display: none;
+    }
+
+    .deck-field-group label {
+      display: block;
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      color: var(--text-muted);
+      margin-bottom: 3px;
+    }
+
+    .deck-input,
+    .deck-textarea {
+      width: 100%;
+      border: 1px solid var(--border-card);
+      border-radius: 7px;
+      padding: 6px 9px;
+      font-size: 12px;
+      color: var(--carbon);
+      background: #f8fafc;
+      outline: none;
+      transition: border-color 0.16s ease, background 0.16s ease;
+    }
+
+    .deck-input:focus,
+    .deck-textarea:focus {
+      border-color: var(--rojo-seguro);
+      background: #ffffff;
+    }
+
+    .deck-textarea {
+      resize: vertical;
+      min-height: 42px;
+      line-height: 1.35;
+      font-weight: 400;
+    }
+
+    /* Lista de Ítems con Miniaturas */
+    .deck-items-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .deck-empty-state {
+      background: #ffffff;
+      border: 1.5px dashed #cbd5e1;
+      border-radius: var(--radius-md);
+      padding: 28px 20px;
+      text-align: center;
+      color: var(--text-muted);
+    }
+
+    .deck-empty-state h4 {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--carbon);
+      margin-bottom: 6px;
+    }
+
+    .deck-empty-state p {
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .deck-item-card {
+      background: #ffffff;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      padding: 11px 12px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      transition: box-shadow 0.16s ease, border-color 0.16s ease, opacity 0.16s ease;
+      position: relative;
+    }
+
+    .deck-item-card:hover {
+      border-color: #cbd5e1;
+      box-shadow: var(--shadow-md);
+    }
+
+    .deck-item-card.dragging {
+      opacity: 0.45;
+      border-color: var(--rojo-seguro);
+    }
+
+    .deck-item-card.drag-over-top {
+      box-shadow: 0 -3px 0 0 var(--rojo-seguro);
+    }
+
+    .deck-item-card.drag-over-bottom {
+      box-shadow: 0 3px 0 0 var(--rojo-seguro);
+    }
+
+    .deck-item-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .deck-item-meta-left {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      min-width: 0;
+    }
+
+    .deck-drag-handle {
+      cursor: grab;
+      color: #94a3b8;
+      font-size: 13px;
+      padding: 2px 3px;
+      user-select: none;
+      line-height: 1;
+    }
+
+    .deck-drag-handle:active {
+      cursor: grabbing;
+    }
+
+    .deck-item-num {
+      background: var(--rojo-seguro);
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 800;
+      min-width: 22px;
+      height: 22px;
+      padding: 0 6px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .deck-item-type-tag {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: var(--text-muted);
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .deck-item-controls {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      flex-shrink: 0;
+    }
+
+    .deck-ctrl-btn {
+      width: 25px;
+      height: 25px;
+      border-radius: 6px;
+      border: 1px solid var(--border-card);
+      background: #f8fafc;
+      color: var(--carbon);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.14s ease;
+    }
+
+    .deck-ctrl-btn:hover:not(:disabled) {
+      background: #e2e8f0;
+    }
+
+    .deck-ctrl-btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    .deck-ctrl-btn.remove:hover {
+      background: #fee2e2;
+      color: var(--rojo-seguro);
+      border-color: #fca5a5;
+    }
+
+    .deck-item-main {
+      display: grid;
+      grid-template-columns: 126px minmax(0, 1fr);
+      gap: 10px;
+      align-items: start;
+    }
+
+    /* Miniatura visual real 16:9 */
+    .deck-thumb-box {
+      width: 126px;
+      height: 71px;
+      border-radius: 7px;
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .deck-thumb-box:hover {
+      border-color: var(--rojo-seguro);
+    }
+
+    .deck-thumb-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 3px;
+      background: #ffffff;
+    }
+
+    .deck-thumb-kpi-grid {
+      width: 100%;
+      height: 100%;
+      padding: 5px;
+      display: grid;
+      gap: 3px;
+      background: #f8fafc;
+    }
+
+    .deck-thumb-kpi-grid.k1 { grid-template-columns: 1fr; grid-template-rows: 1fr; }
+    .deck-thumb-kpi-grid.k2 { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr; }
+    .deck-thumb-kpi-grid.k3,
+    .deck-thumb-kpi-grid.k4 { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }
+
+    .deck-thumb-kpi-mini {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 3px;
+      padding: 2px 4px 2px 5px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .deck-thumb-kpi-mini span.bar {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2.5px;
+    }
+
+    .deck-thumb-kpi-mini .t {
+      font-size: 5.5px;
+      color: #64748b;
+      font-weight: 700;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-transform: uppercase;
+    }
+
+    .deck-thumb-kpi-mini .v {
+      font-size: 8px;
+      color: #30302d;
+      font-weight: 800;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.15;
+    }
+
+    .deck-thumb-more-badge {
+      position: absolute;
+      right: 3px;
+      bottom: 3px;
+      background: rgba(48, 48, 45, 0.85);
+      color: #ffffff;
+      font-size: 8px;
+      font-weight: 700;
+      padding: 1px 4px;
+      border-radius: 4px;
+    }
+
+    .deck-thumb-table-mini {
+      width: 100%;
+      height: 100%;
+      padding: 4px;
+      background: #ffffff;
+      overflow: hidden;
+    }
+
+    .deck-thumb-table-mini table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
+    .deck-thumb-table-mini th {
+      background: #f1f5f9;
+      font-size: 4.8px;
+      font-weight: 800;
+      color: #475569;
+      padding: 1.5px 2px;
+      border-bottom: 1px solid #cbd5e1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: left;
+    }
+
+    .deck-thumb-table-mini td {
+      font-size: 4.8px;
+      color: #30302d;
+      padding: 1.5px 2px;
+      border-bottom: 0.5px solid #f1f5f9;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .deck-item-inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-width: 0;
+    }
+
+    .deck-group-hint {
+      font-size: 10px;
+      color: var(--azul);
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    /* Footer fijo del Drawer */
+    .deck-drawer-footer {
+      background: #ffffff;
+      border-top: 1px solid var(--border-card);
+      padding: 13px 16px;
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .deck-btn-preview {
+      background: #ffffff;
+      color: var(--carbon);
+      border: 1.5px solid var(--border-card);
+      border-radius: var(--radius-md);
+      padding: 10px 12px;
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      transition: all 0.16s ease;
+    }
+
+    .deck-btn-preview:hover {
+      border-color: var(--carbon);
+      background: #f8fafc;
+    }
+
+    .deck-btn-pdf {
+      background: linear-gradient(135deg, var(--rojo-seguro) 0%, var(--rojo-oscuro) 100%);
+      color: #ffffff;
+      border: none;
+      border-radius: var(--radius-md);
+      padding: 10px 14px;
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: var(--shadow-red);
+      transition: filter 0.16s ease, transform 0.16s ease;
+    }
+
+    .deck-btn-pdf:hover {
+      filter: brightness(1.06);
+      transform: translateY(-1px);
+    }
+
+    /* ======================================================================
+       DISEÑO DE DIAPOSITIVAS 16:9 (297mm x 167mm EXACTO - PREVIEW & PRINT)
+       ====================================================================== */
+
+    .deck-measure-host {
+      position: fixed;
+      left: -20000px;
+      top: 0;
+      width: 297mm;
+      height: 167mm;
+      visibility: hidden;
+      pointer-events: none;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    #deck_print_root {
+      display: none;
+    }
+
+    .deck-slide {
+      width: 297mm;
+      height: 167mm;
+      min-width: 297mm;
+      min-height: 167mm;
+      max-width: 297mm;
+      max-height: 167mm;
+      background: #ffffff;
+      color: var(--carbon);
+      box-sizing: border-box;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      font-family: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* PORTADA INSTITUCIONAL (DIAPOSITIVA 1) */
+    .deck-slide.deck-slide-cover {
+      background: #ffffff;
+      justify-content: space-between;
+      padding: 46px 64px 42px 76px;
+    }
+
+    .deck-cover-left-stripe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 18px;
+      background: linear-gradient(180deg, var(--rojo-seguro) 0%, var(--rojo-oscuro) 100%);
+    }
+
+    .deck-cover-decor-shape {
+      position: absolute;
+      right: -90px;
+      top: -90px;
+      width: 430px;
+      height: 430px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(226, 0, 57, 0.08) 0%, rgba(226, 0, 57, 0.02) 60%, transparent 72%);
+      pointer-events: none;
+    }
+
+    .deck-cover-decor-corner {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 280px;
+      height: 12px;
+      background: linear-gradient(90deg, var(--amarillo) 0%, var(--rojo-seguro) 100%);
+    }
+
+    .deck-cover-top {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .deck-logo-badge-lg {
+      background: linear-gradient(135deg, var(--rojo-seguro) 0%, var(--rojo-oscuro) 100%);
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 21px;
+      letter-spacing: 0.6px;
+      padding: 12px 22px;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 6px 20px rgba(226, 0, 57, 0.22);
+    }
+
+    .deck-logo-badge-lg .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--amarillo);
+      flex-shrink: 0;
+    }
+
+    .deck-logo-subbrand {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    .deck-cover-center {
+      position: relative;
+      z-index: 2;
+      max-width: 880px;
+      margin: auto 0;
+    }
+
+    .deck-cover-rule {
+      width: 72px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--rojo-seguro);
+      margin-bottom: 24px;
+    }
+
+    .deck-cover-title {
+      font-size: 42px;
+      font-weight: 800;
+      color: var(--carbon);
+      line-height: 1.16;
+      letter-spacing: -0.8px;
+      margin-bottom: 18px;
+      word-break: break-word;
+    }
+
+    .deck-cover-subtitle {
+      font-size: 19px;
+      font-weight: 500;
+      color: var(--text-muted);
+      line-height: 1.45;
+      max-width: 780px;
+      word-break: break-word;
+    }
+
+    .deck-cover-bottom {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 16px;
+    }
+
+    .deck-cover-claim {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--rojo-seguro);
+    }
+
+    .deck-cover-org {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    /* DIAPOSITIVAS INTERIORES LIMPIAS (SIN SUBTÍTULOS NI PÍLDORAS DE CONTEXTO) */
+    .deck-slide.deck-slide-interior {
+      padding: 22px 38px 16px 38px;
+      justify-content: space-between;
+    }
+
+    .deck-slide-top-accent {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--rojo-seguro) 0%, var(--rojo-oscuro) 75%, var(--amarillo) 100%);
+    }
+
+    .deck-slide-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding-bottom: 11px;
+      border-bottom: 1.5px solid #edf2f7;
+      flex-shrink: 0;
+    }
+
+    .deck-logo-badge-sm {
+      background: linear-gradient(135deg, var(--rojo-seguro) 0%, var(--rojo-oscuro) 100%);
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 12.5px;
+      letter-spacing: 0.4px;
+      padding: 6px 12px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      flex-shrink: 0;
+    }
+
+    .deck-logo-badge-sm .dot {
+      width: 6.5px;
+      height: 6.5px;
+      border-radius: 50%;
+      background: var(--amarillo);
+    }
+
+    .deck-slide-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--carbon);
+      letter-spacing: -0.3px;
+      line-height: 1.22;
+      margin: 0;
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+
+    /* Área útil central */
+    .deck-slide-body {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 11px;
+      padding: 14px 0 10px 0;
+    }
+
+    .deck-slide-content-area {
+      flex: 1;
+      min-height: 0;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* GRILLA DE TARJETAS KPI EN DIAPOSITIVAS (MÁX 4 POR SLIDE: 2x2 o 1x2) */
+    .deck-kpi-stage {
+      flex: 1;
+      min-height: 0;
+      width: 100%;
+      height: 100%;
+      display: grid;
+    }
+
+    /* 1 KPI: 1 tarjeta ampliada ocupando el área útil */
+    .deck-kpi-stage[data-count="1"] {
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-rows: minmax(0, 1fr);
+      padding: 18px 90px;
+    }
+
+    /* 2 KPIs: 1x2 ampliadas lado a lado */
+    .deck-kpi-stage[data-count="2"] {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: minmax(0, 1fr);
+      gap: 26px;
+      padding: 12px 0;
+    }
+
+    /* 3 o 4 KPIs: cuadrícula 2x2 estricta (nunca 4 en una sola fila) */
+    .deck-kpi-stage[data-count="3"],
+    .deck-kpi-stage[data-count="4"] {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .deck-slide-kpi-card {
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 22px 28px 20px 32px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+    }
+
+    .deck-slide-kpi-card .deck-kpi-accent {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 8px;
+    }
+
+    .deck-slide-kpi-card .dk-title {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      line-height: 1.25;
+    }
+
+    .deck-slide-kpi-card .dk-value {
+      font-size: 42px;
+      font-weight: 800;
+      color: var(--carbon);
+      letter-spacing: -0.8px;
+      line-height: 1.08;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .deck-slide-kpi-card.has-extra {
+      padding: 16px 24px 14px 28px;
+      gap: 6px;
+    }
+
+    .deck-slide-kpi-card.has-extra .dk-value {
+      font-size: 34px;
+    }
+
+    /* Escala tipográfica aún mayor para 1x2 y 1x1 */
+    .deck-kpi-stage[data-count="2"] .deck-slide-kpi-card {
+      padding: 32px 36px 30px 40px;
+      gap: 16px;
+    }
+
+    .deck-kpi-stage[data-count="2"] .deck-slide-kpi-card .dk-title {
+      font-size: 17px;
+    }
+
+    .deck-kpi-stage[data-count="2"] .deck-slide-kpi-card .dk-value {
+      font-size: 52px;
+    }
+
+    .deck-kpi-stage[data-count="2"] .deck-slide-kpi-card .dk-sub {
+      font-size: 15.5px;
+    }
+
+    .deck-kpi-stage[data-count="2"] .deck-slide-kpi-card .kpi-delta {
+      font-size: 14px;
+      padding: 5px 12px;
+    }
+
+    .deck-kpi-stage[data-count="1"] .deck-slide-kpi-card {
+      padding: 40px 52px 40px 56px;
+      gap: 20px;
+    }
+
+    .deck-kpi-stage[data-count="1"] .deck-slide-kpi-card .dk-title {
+      font-size: 20px;
+    }
+
+    .deck-kpi-stage[data-count="1"] .deck-slide-kpi-card .dk-value {
+      font-size: 64px;
+    }
+
+    .deck-kpi-stage[data-count="1"] .deck-slide-kpi-card .dk-sub {
+      font-size: 18px;
+    }
+
+    .deck-kpi-stage[data-count="1"] .deck-slide-kpi-card .kpi-delta {
+      font-size: 16px;
+      padding: 6px 14px;
+    }
+
+    .deck-slide-kpi-card .dk-sub {
+      font-size: 13.5px;
+      color: #64748b;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      line-height: 1.35;
+    }
+
+    .deck-slide-kpi-card .kpi-delta {
+      font-size: 12.5px;
+      padding: 4px 10px;
+    }
+
+    .deck-slide-kpi-card .dk-extra {
+      margin-top: 2px;
+      padding-top: 7px;
+      border-top: 1px dashed #cbd5e1;
+      font-size: 12px;
+      color: var(--carbon);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    /* STAGE DE GRÁFICOS 2X PNG */
+    .deck-chart-stage {
+      flex: 1;
+      min-height: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .deck-chart-img-wrap {
+      flex: 1;
+      min-height: 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      border: 1px solid #edf2f7;
+      border-radius: 12px;
+      padding: 10px 14px;
+    }
+
+    .deck-chart-img-wrap img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    .deck-chart-notes {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      font-size: 11px;
+      font-weight: 600;
+      color: #475569;
+      flex-shrink: 0;
+    }
+
+    .deck-chart-note-item {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 3px 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* STAGE DE TABLAS VECTORIALES PAGINADAS */
+    .deck-table-stage {
+      flex: 1;
+      min-height: 0;
+      width: 100%;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      background: #ffffff;
+    }
+
+    table.deck-slide-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11px;
+      text-align: left;
+    }
+
+    table.deck-slide-table th {
+      background: #f1f5f9;
+      color: #334155;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 10px;
+      letter-spacing: 0.35px;
+      padding: 8px 10px;
+      border-bottom: 2px solid #cbd5e1;
+      line-height: 1.2;
+    }
+
+    table.deck-slide-table td {
+      padding: 6.5px 10px;
+      border-bottom: 1px solid #edf2f7;
+      color: var(--carbon);
+      font-weight: 500;
+      line-height: 1.25;
+      font-variant-numeric: tabular-nums;
+    }
+
+    table.deck-slide-table tr:nth-child(even) td {
+      background-color: #fafbfd;
+    }
+
+    table.deck-slide-table tr.deck-row-total td {
+      background-color: #f1f5f9 !important;
+      font-weight: 800 !important;
+      border-top: 2px solid #94a3b8;
+      border-bottom: none;
+    }
+
+    /* Densidad adaptativa para tablas anchas (10 a 14 columnas) */
+    table.deck-slide-table.cols-medium {
+      font-size: 10px;
+    }
+    table.deck-slide-table.cols-medium th {
+      font-size: 9px;
+      padding: 7px 7px;
+    }
+    table.deck-slide-table.cols-medium td {
+      padding: 5.5px 7px;
+    }
+
+    table.deck-slide-table.cols-wide {
+      font-size: 9px;
+    }
+    table.deck-slide-table.cols-wide th {
+      font-size: 8.2px;
+      padding: 6px 5px;
+      letter-spacing: 0.15px;
+    }
+    table.deck-slide-table.cols-wide td {
+      padding: 5px 5px;
+    }
+
+    /* Nota / conclusión ejecutiva opcional por diapositiva */
+    .deck-exec-note {
+      background: #fff8f9;
+      border: 1px solid rgba(226, 0, 57, 0.18);
+      border-left: 4px solid var(--rojo-seguro);
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-size: 12px;
+      line-height: 1.38;
+      color: var(--carbon);
+      flex-shrink: 0;
+    }
+
+    .deck-exec-note strong {
+      color: var(--rojo-seguro);
+      font-weight: 700;
+      margin-right: 6px;
+    }
+
+    /* Pie de página discreto con fuente y numeración Diapositiva X / Y */
+    .deck-slide-footer {
+      border-top: 1px solid #e2e8f0;
+      padding-top: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 10.5px;
+      color: #64748b;
+      flex-shrink: 0;
+    }
+
+    .deck-slide-footer-source {
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 80%;
+    }
+
+    .deck-slide-footer-page {
+      font-weight: 700;
+      color: #475569;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ======================================================================
+       VISTA PREVIA INTERACTIVA A PANTALLA COMPLETA
+       ====================================================================== */
+    .deck-preview-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.96);
+      z-index: 1350;
+      display: none;
+      flex-direction: column;
+      user-select: none;
+    }
+
+    .deck-preview-modal.open {
+      display: flex;
+    }
+
+    .deck-preview-topbar {
+      height: 58px;
+      padding: 0 24px;
+      background: rgba(15, 23, 42, 0.9);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #ffffff;
+      flex-shrink: 0;
+    }
+
+    .deck-preview-info {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .deck-preview-counter {
+      background: rgba(255, 255, 255, 0.12);
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+      font-size: 12px;
+      font-weight: 700;
+      color: #f8fafc;
+    }
+
+    .deck-preview-hint {
+      font-size: 11.5px;
+      color: #94a3b8;
+    }
+
+    .deck-preview-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .deck-preview-btn {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 8px;
+      padding: 7px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      transition: all 0.15s ease;
+    }
+
+    .deck-preview-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .deck-preview-btn.primary {
+      background: var(--rojo-seguro);
+      border-color: var(--rojo-seguro);
+    }
+
+    .deck-preview-btn.primary:hover {
+      background: var(--rojo-oscuro);
+    }
+
+    .deck-preview-stage {
+      flex: 1;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 20px 72px;
+    }
+
+    .deck-preview-viewport {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .deck-preview-viewport .deck-slide {
+      transform-origin: center center;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.55);
+      border-radius: 4px;
+    }
+
+    .deck-nav-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      background: rgba(30, 41, 59, 0.85);
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s ease;
+      z-index: 5;
+    }
+
+    .deck-nav-arrow:hover:not(:disabled) {
+      background: var(--rojo-seguro);
+      border-color: var(--rojo-seguro);
+      transform: translateY(-50%) scale(1.06);
+    }
+
+    .deck-nav-arrow:disabled {
+      opacity: 0.25;
+      cursor: not-allowed;
+    }
+
+    .deck-nav-arrow.prev { left: 18px; }
+    .deck-nav-arrow.next { right: 18px; }
+
+    /* ======================================================================
+       HOJA DE ESTILOS @media print DEDICADA — PDF VECTORIAL 16:9 NATIVO
+       ====================================================================== */
+    @page {
+      size: 297mm 167mm;
+      margin: 0;
+    }
+
+    @media print {
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+      }
+
+      html, body {
+        width: 297mm !important;
+        height: auto !important;
+        min-height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #ffffff !important;
+        overflow: visible !important;
+      }
+
+      body.deck-printing > *:not(#deck_print_root) {
+        display: none !important;
+      }
+
+      body.deck-printing #deck_print_root {
+        display: block !important;
+        width: 297mm !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #ffffff !important;
+      }
+
+      body.deck-printing #deck_print_root .deck-slide {
+        width: 297mm !important;
+        height: 167mm !important;
+        min-width: 297mm !important;
+        min-height: 167mm !important;
+        max-width: 297mm !important;
+        max-height: 167mm !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        transform: none !important;
+        overflow: hidden !important;
+        page-break-after: always !important;
+        break-after: page !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+
+      body.deck-printing #deck_print_root .deck-slide:last-child {
+        page-break-after: auto !important;
+        break-after: auto !important;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -686,6 +2199,10 @@
       </div>
       <button class="btn-export" onclick="exportCurrentTable()">
         <i class="fa-solid fa-download"></i> Exportar Tabla
+      </button>
+      <button type="button" id="btn_open_deck" class="btn-deck-open" onclick="DeckBuilder.toggleDrawer()" title="Abrir Armador de Presentaciones Ejecutivas en PDF">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+        <span>Presentación (<span id="deck_live_count">0</span>)</span>
       </button>
     </div>
   </header>
@@ -2288,19 +3805,19 @@
       } else {
         elDeltaCartPol.className = 'kpi-delta neutral';
         elDeltaCartPol.textContent = 'Base histórica';
-        textCartPol.textContent = `Primer período registrado (${numMonths} meses)`;
+        elTextCartPol.textContent = `Primer período registrado (${numMonths} meses)`;
 
         elDeltaCartAseg.className = 'kpi-delta neutral';
         elDeltaCartAseg.textContent = 'Base histórica';
-        textCartAseg.textContent = `Primer período registrado (${numMonths} meses)`;
+        elTextCartAseg.textContent = `Primer período registrado (${numMonths} meses)`;
 
         elDeltaCartRatio.className = 'kpi-delta neutral';
         elDeltaCartRatio.textContent = 'Base histórica';
-        textCartRatio.textContent = `Primer período registrado (${numMonths} meses)`;
+        elTextCartRatio.textContent = `Primer período registrado (${numMonths} meses)`;
 
         elDeltaCartEmit.className = 'kpi-delta neutral';
         elDeltaCartEmit.textContent = 'Base histórica';
-        textCartEmit.textContent = `Primer período registrado (${numMonths} meses)`;
+        elTextCartEmit.textContent = `Primer período registrado (${numMonths} meses)`;
       }
 
       // ----------------------------------------------------
@@ -4012,5 +5529,1553 @@
       updateDashboard();
     });
   </script>
+
+  <!-- ==================================================================== -->
+  <!-- ARMADOR DE PRESENTACIONES EJECUTIVAS EN PDF (DECK BUILDER OFFLINE)   -->
+  <!-- ==================================================================== -->
+
+  <div id="deck_toast" class="deck-toast" role="status" aria-live="polite"></div>
+
+  <div id="deck_drawer_backdrop" class="deck-drawer-backdrop" onclick="DeckBuilder.closeDrawer()"></div>
+
+  <aside id="deck_drawer" class="deck-drawer" aria-label="Armador de Presentaciones">
+    <div class="deck-drawer-header">
+      <div class="deck-drawer-title-wrap">
+        <h2>
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--rojo-seguro)" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+          Presentación Ejecutiva
+        </h2>
+        <p id="deck_drawer_summary">0 elementos capturados • 1 diapositiva (16:9)</p>
+      </div>
+      <div class="deck-drawer-top-actions">
+        <button type="button" id="btn_deck_clear" class="deck-btn-clear" onclick="DeckBuilder.clearAll()" title="Vaciar todos los elementos de la presentación">
+          Vaciar
+        </button>
+        <button type="button" class="deck-btn-icon-close" onclick="DeckBuilder.closeDrawer()" title="Cerrar panel">
+          ✕
+        </button>
+      </div>
+    </div>
+
+    <div class="deck-drawer-body">
+      <!-- Configuración de Portada y Agrupación KPI -->
+      <div class="deck-config-card">
+        <div class="deck-config-row">
+          <label class="deck-switch-label">
+            <input type="checkbox" id="chk_deck_cover" checked onchange="DeckBuilder.onCoverToggle(this.checked)" />
+            <span>Incluir Portada Institucional (Diapositiva 1)</span>
+          </label>
+        </div>
+
+        <div id="deck_cover_fields" class="deck-cover-fields">
+          <div class="deck-field-group">
+            <label for="inp_deck_cover_title">Título de Portada</label>
+            <input type="text" id="inp_deck_cover_title" class="deck-input" placeholder="Título principal de la presentación" oninput="DeckBuilder.onCoverFieldChange()" />
+          </div>
+          <div class="deck-field-group">
+            <label for="inp_deck_cover_subtitle">Subtítulo de Portada</label>
+            <input type="text" id="inp_deck_cover_subtitle" class="deck-input" placeholder="Subtítulo institucional" oninput="DeckBuilder.onCoverFieldChange()" />
+          </div>
+        </div>
+
+        <div class="deck-config-row" style="padding-top: 6px; border-top: 1px dashed var(--border-card);">
+          <label class="deck-switch-label" title="Agrupa tarjetas KPI individuales consecutivas en una misma diapositiva (hasta 4 KPIs por slide en grilla 2x2 o 1x2)">
+            <input type="checkbox" id="chk_deck_group_kpis" checked onchange="DeckBuilder.onGroupKpisToggle(this.checked)" />
+            <span>Agrupar KPIs sueltos consecutivos (máx. 4 / slide)</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Lista editable con miniaturas reales -->
+      <div id="deck_items_list" class="deck-items-list"></div>
+    </div>
+
+    <div class="deck-drawer-footer">
+      <button type="button" class="deck-btn-preview" onclick="DeckBuilder.openPreview(0)">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+        Vista Previa
+      </button>
+      <button type="button" class="deck-btn-pdf" onclick="DeckBuilder.exportPDF()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        Exportar / Generar PDF
+      </button>
+    </div>
+  </aside>
+
+  <!-- Modal de Vista Previa Interactiva Pantalla Completa -->
+  <div id="deck_preview_modal" class="deck-preview-modal" role="dialog" aria-modal="true" aria-label="Vista previa de presentación 16:9">
+    <div class="deck-preview-topbar">
+      <div class="deck-preview-info">
+        <span id="deck_preview_counter" class="deck-preview-counter">Diapositiva 1 / 1</span>
+        <span class="deck-preview-hint">Navegá con ← / → • Esc para salir</span>
+      </div>
+      <div class="deck-preview-actions">
+        <button type="button" class="deck-preview-btn" onclick="DeckBuilder.closePreview(); DeckBuilder.openDrawer();">
+          Editar Lista
+        </button>
+        <button type="button" class="deck-preview-btn primary" onclick="DeckBuilder.exportPDF()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          Exportar / Generar PDF
+        </button>
+        <button type="button" class="deck-preview-btn" onclick="DeckBuilder.closePreview()">
+          ✕ Cerrar
+        </button>
+      </div>
+    </div>
+
+    <div id="deck_preview_stage" class="deck-preview-stage">
+      <button type="button" id="btn_preview_prev" class="deck-nav-arrow prev" onclick="DeckBuilder.stepPreview(-1)" title="Diapositiva anterior (←)">
+        &#8592;
+      </button>
+      <div id="deck_preview_viewport" class="deck-preview-viewport"></div>
+      <button type="button" id="btn_preview_next" class="deck-nav-arrow next" onclick="DeckBuilder.stepPreview(1)" title="Diapositiva siguiente (→)">
+        &#8594;
+      </button>
+    </div>
+  </div>
+
+  <!-- Host oculto 297mm x 167mm para medición exacta de paginación de tablas -->
+  <div id="deck_measure_host" class="deck-measure-host" aria-hidden="true"></div>
+
+  <!-- Contenedor raíz vectorial para @media print -->
+  <div id="deck_print_root" aria-hidden="true"></div>
+
+  <script>
+    // Forzar renderizado Chart.js en alta definición (>= 2x) antes de inicializar los gráficos
+    if (window.Chart && Chart.defaults) {
+      Chart.defaults.devicePixelRatio = Math.max(2, window.devicePixelRatio || 1);
+    }
+
+    const DeckBuilder = (() => {
+      const STORAGE_KEY = 'l2_tablero_personas_deck_builder_v1';
+
+      const DEFAULT_STATE = {
+        coverEnabled: true,
+        coverTitle: 'Tablero de Gestión — Seguros de Personas',
+        coverSubtitle: 'Informe Ejecutivo de Producción, Cartera, Siniestralidad, Finanzas y Mercado SSN',
+        groupLooseKpis: true,
+        items: []
+      };
+
+      const MODULE_META = {
+        pane_mod_produccion: {
+          name: 'Producción y Macroeconomía',
+          panelTitle: 'Indicadores Clave — Producción y Macroeconomía',
+          source: 'Fuente: La Segunda Seguros • Tablero de Gestión de Seguros de Personas'
+        },
+        pane_mod_cartera: {
+          name: 'Cartera y Flujo de Pólizas',
+          panelTitle: 'Indicadores Clave — Cartera y Flujo de Pólizas',
+          source: 'Fuente: La Segunda Seguros • Tablero de Gestión de Seguros de Personas'
+        },
+        pane_mod_siniestros: {
+          name: 'Siniestralidad y Litigiosidad',
+          panelTitle: 'Indicadores Clave — Siniestralidad y Litigiosidad',
+          source: 'Fuente: La Segunda Seguros • Tablero de Gestión de Seguros de Personas'
+        },
+        pane_mod_productos: {
+          name: 'Drill-Down Productos',
+          panelTitle: 'Indicadores Clave — Ramos y Productos',
+          source: 'Fuente: La Segunda Seguros • Tablero de Gestión de Seguros de Personas'
+        },
+        pane_mod_mercado_drilldown: {
+          name: 'Drill-Down Mercado SSN',
+          panelTitle: 'Indicadores Clave — Competencia Oficial SSN',
+          source: 'Fuente: Superintendencia de Seguros de la Nación (SSN) • La Segunda Seguros'
+        },
+        pane_mod_financiero: {
+          name: 'Gestión Financiera',
+          panelTitle: 'Indicadores Clave — Gestión Financiera',
+          source: 'Fuente: La Segunda Seguros • Tablero de Gestión de Seguros de Personas'
+        },
+        pane_mod_mercado: {
+          name: 'Mercado y Cuota SSN',
+          panelTitle: 'Indicadores Clave — Mercado y Cuota SSN',
+          source: 'Fuente: Superintendencia de Seguros de la Nación (SSN) • La Segunda Seguros'
+        }
+      };
+
+      let state = loadState();
+      let isDrawerOpen = false;
+      let isPreviewOpen = false;
+      let previewSlidesCache = [];
+      let currentPreviewIdx = 0;
+      let dragSrcIndex = null;
+      let toastTimer = null;
+      let savedDocTitle = null;
+
+      function loadState() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (!raw) return cloneDefaults();
+          const parsed = JSON.parse(raw);
+          return {
+            coverEnabled: typeof parsed.coverEnabled === 'boolean' ? parsed.coverEnabled : DEFAULT_STATE.coverEnabled,
+            coverTitle: typeof parsed.coverTitle === 'string' ? parsed.coverTitle : DEFAULT_STATE.coverTitle,
+            coverSubtitle: typeof parsed.coverSubtitle === 'string' ? parsed.coverSubtitle : DEFAULT_STATE.coverSubtitle,
+            groupLooseKpis: typeof parsed.groupLooseKpis === 'boolean' ? parsed.groupLooseKpis : DEFAULT_STATE.groupLooseKpis,
+            items: Array.isArray(parsed.items) ? parsed.items : []
+          };
+        } catch (err) {
+          return cloneDefaults();
+        }
+      }
+
+      function cloneDefaults() {
+        return {
+          coverEnabled: DEFAULT_STATE.coverEnabled,
+          coverTitle: DEFAULT_STATE.coverTitle,
+          coverSubtitle: DEFAULT_STATE.coverSubtitle,
+          groupLooseKpis: DEFAULT_STATE.groupLooseKpis,
+          items: []
+        };
+      }
+
+      function saveState() {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        } catch (err) {
+          showToast('Aviso: Límite de almacenamiento del navegador alcanzado; la sesión sigue activa en memoria.');
+        }
+      }
+
+      function uid() {
+        return 'dk_' + Date.now().toString(36) + '_' + Math.random().toString(36).slice(2, 7);
+      }
+
+      function escapeHtml(str) {
+        return String(str ?? '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;');
+      }
+
+      function getModuleInfo(el) {
+        const pane = el ? el.closest('.tab-pane') : null;
+        const paneId = pane ? pane.id : '';
+        return MODULE_META[paneId] || {
+          name: 'Seguros de Personas',
+          panelTitle: 'Indicadores Ejecutivos',
+          source: 'Fuente: La Segunda Seguros • Tablero de Gestión de Seguros de Personas'
+        };
+      }
+
+      // Convierte íconos FontAwesome dentro de fragmentos clonados a SVG inline 100% offline y remueve IDs duplicados
+      function sanitizeSnapshotFragment(rootEl) {
+        const clone = rootEl.cloneNode(true);
+        clone.querySelectorAll('.deck-add-btn, .deck-add-panel-btn, button, input, select, textarea').forEach(n => n.remove());
+        clone.removeAttribute('id');
+        clone.querySelectorAll('[id]').forEach(n => n.removeAttribute('id'));
+
+        clone.querySelectorAll('i').forEach(icon => {
+          const cls = icon.className || '';
+          const span = document.createElement('span');
+          span.style.display = 'inline-flex';
+          span.style.alignItems = 'center';
+          if (cls.includes('fa-arrow-up')) {
+            span.innerHTML = '<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>';
+            icon.replaceWith(span);
+          } else if (cls.includes('fa-arrow-down')) {
+            span.innerHTML = '<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>';
+            icon.replaceWith(span);
+          } else if (cls.includes('fa-circle-info')) {
+            span.innerHTML = '&#9432;';
+            icon.replaceWith(span);
+          } else {
+            icon.remove();
+          }
+        });
+        return clone;
+      }
+
+      // --------------------------------------------------------------------
+      // INYECCIÓN DE BOTONES DE CAPTURA EN CADA KPI, PANEL KPI, GRÁFICO Y TABLA
+      // --------------------------------------------------------------------
+      function injectCaptureButtons() {
+        // 1. Botón "+ Agregar panel KPI a presentación" sobre cada grilla .kpi-grid
+        document.querySelectorAll('.kpi-grid').forEach(grid => {
+          if (grid.dataset.deckReady === '1') return;
+          grid.dataset.deckReady = '1';
+
+          const bar = document.createElement('div');
+          bar.className = 'deck-kpi-panel-bar';
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'deck-add-panel-btn';
+          btn.innerHTML = '<span>+ Agregar panel KPI a presentación</span>';
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            captureKpiPanel(grid, btn);
+          });
+          bar.appendChild(btn);
+          grid.parentNode.insertBefore(bar, grid);
+        });
+
+        // 2. Botón discreto "+" en cada tarjeta .kpi-card
+        document.querySelectorAll('.kpi-card').forEach(card => {
+          if (card.querySelector(':scope > .deck-add-btn')) return;
+          const btn = createPlusButton('Agregar tarjeta KPI a la presentación');
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            captureSingleKpi(card, btn);
+          });
+          card.appendChild(btn);
+        });
+
+        // 3. Botón discreto "+" en cada .chart-card (junto a controles/badges derechos si existen)
+        document.querySelectorAll('.chart-card').forEach(card => {
+          const header = card.querySelector('.chart-header');
+          if (!header || header.querySelector('.deck-add-btn')) return;
+
+          const actionsWrap = ensureHeaderActionsWrap(header);
+          const btn = createPlusButton('Agregar gráfico (instantánea HD 2x) a la presentación');
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            captureChartCard(card, btn);
+          });
+          actionsWrap.appendChild(btn);
+        });
+
+        // 4. Botón discreto "+" en cada .table-card (junto a buscador/badges/ampliar si existen)
+        document.querySelectorAll('.table-card').forEach(card => {
+          const header = card.querySelector('.table-header');
+          if (!header || header.querySelector('.deck-add-btn')) return;
+
+          const actionsWrap = ensureHeaderActionsWrap(header);
+          const btn = createPlusButton('Agregar tabla visible a la presentación');
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            captureTableCard(card, btn);
+          });
+          actionsWrap.appendChild(btn);
+        });
+      }
+
+      function ensureHeaderActionsWrap(headerEl) {
+        let wrap = headerEl.querySelector(':scope > .deck-header-actions');
+        if (wrap) return wrap;
+        wrap = document.createElement('div');
+        wrap.className = 'deck-header-actions';
+
+        // Mover controles secundarios a la derecha (buscador, badges, botón ampliar si existiera) dentro del contenedor
+        const extraChildren = Array.from(headerEl.children).filter(ch => ch.tagName !== 'H3' && ch.tagName !== 'H2');
+        extraChildren.forEach(ch => wrap.appendChild(ch));
+        headerEl.appendChild(wrap);
+        return wrap;
+      }
+
+      function createPlusButton(tooltip) {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'deck-add-btn';
+        btn.title = tooltip;
+        btn.setAttribute('aria-label', tooltip);
+        btn.textContent = '+';
+        return btn;
+      }
+
+      function flashAddedButton(btn, isPanel = false) {
+        if (!btn) return;
+        const origHtml = btn.innerHTML;
+        btn.classList.add('just-added');
+        btn.innerHTML = isPanel ? '<span>&#10003; Panel agregado</span>' : '&#10003;';
+        setTimeout(() => {
+          btn.classList.remove('just-added');
+          btn.innerHTML = origHtml;
+        }, 950);
+      }
+
+      function showToast(msg) {
+        const toast = document.getElementById('deck_toast');
+        if (!toast) return;
+        toast.textContent = msg;
+        toast.classList.add('show');
+        if (toastTimer) clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => {
+          toast.classList.remove('show');
+        }, 2400);
+      }
+
+      // --------------------------------------------------------------------
+      // CAPTURA DE INSTANTÁNEAS CONGELADAS (SNAPSHOTS)
+      // --------------------------------------------------------------------
+      function extractKpiCardSnapshot(card) {
+        let accentColor = '#e20039';
+        if (card.classList.contains('accent-blue')) accentColor = '#4183ca';
+        else if (card.classList.contains('accent-green')) accentColor = '#3ac792';
+        else if (card.classList.contains('accent-yellow')) accentColor = '#f8cc59';
+        else if (card.classList.contains('accent-coral')) accentColor = '#ff593e';
+        else if (card.classList.contains('accent-cyan')) accentColor = '#0891b2';
+
+        const titleEl = card.querySelector('.kpi-title');
+        const valEl = card.querySelector('.kpi-value');
+        const subEl = card.querySelector('.kpi-subtext');
+
+        const title = titleEl ? titleEl.innerText.trim() : 'Indicador';
+        const value = valEl ? valEl.innerText.trim() : '-';
+        const valueColor = (valEl && valEl.style && valEl.style.color) ? valEl.style.color : '';
+
+        let subHtml = '';
+        if (subEl) {
+          const cleanSub = sanitizeSnapshotFragment(subEl);
+          subHtml = cleanSub.innerHTML.trim();
+        }
+
+        // Capturar bloques adicionales visibles dentro de la tarjeta KPI (ej. cierre mes y variaciones en Siniestros)
+        const extraBlocks = [];
+        Array.from(card.children).forEach(ch => {
+          if (
+            ch === titleEl ||
+            ch === valEl ||
+            ch === subEl ||
+            ch.classList.contains('deck-add-btn')
+          ) {
+            return;
+          }
+          if (getComputedStyle(ch).display !== 'none' && ch.innerText.trim()) {
+            const cleanExtra = sanitizeSnapshotFragment(ch);
+            extraBlocks.push(cleanExtra.innerHTML.trim());
+          }
+        });
+
+        return {
+          title,
+          value,
+          valueColor,
+          accentColor,
+          subHtml,
+          extraHtml: extraBlocks.join('')
+        };
+      }
+
+      function captureSingleKpi(card, btn) {
+        const modInfo = getModuleInfo(card);
+        const snap = extractKpiCardSnapshot(card);
+        const item = {
+          id: uid(),
+          type: 'kpi-single',
+          title: snap.title,
+          defaultTitle: snap.title,
+          titleEdited: false,
+          note: '',
+          moduleName: modInfo.name,
+          panelTitle: modInfo.panelTitle,
+          source: modInfo.source,
+          cards: [snap]
+        };
+        addItem(item, `KPI "${snap.title}" agregado a la presentación`);
+        flashAddedButton(btn, false);
+      }
+
+      function captureKpiPanel(grid, btn) {
+        const modInfo = getModuleInfo(grid);
+        const cards = Array.from(grid.querySelectorAll(':scope > .kpi-card'))
+          .filter(c => getComputedStyle(c).display !== 'none')
+          .map(extractKpiCardSnapshot);
+
+        if (!cards.length) {
+          showToast('No hay tarjetas KPI visibles en este panel.');
+          return;
+        }
+
+        let panelTitle = modInfo.panelTitle;
+        if (grid.closest('#pane_mod_mercado_drilldown')) {
+          const sel = document.getElementById('sel_ssn_subramo');
+          if (sel && sel.value) {
+            panelTitle = `Posicionamiento Oficial SSN — ${sel.value}`;
+          }
+        }
+
+        const item = {
+          id: uid(),
+          type: 'kpi-panel',
+          title: panelTitle,
+          defaultTitle: panelTitle,
+          titleEdited: false,
+          note: '',
+          moduleName: modInfo.name,
+          panelTitle,
+          source: modInfo.source,
+          cards
+        };
+        addItem(item, `Panel de ${cards.length} KPIs agregado a la presentación`);
+        flashAddedButton(btn, true);
+      }
+
+      function captureChartCard(card, btn) {
+        const canvas = card.querySelector('canvas');
+        if (!canvas) {
+          showToast('No se encontró el lienzo del gráfico.');
+          return;
+        }
+
+        // Asegurar fin de animaciones de Chart.js y resolución mínima 2x
+        const chartInstance = (typeof charts === 'object' && canvas.id && charts[canvas.id])
+          ? charts[canvas.id]
+          : (window.Chart && typeof Chart.getChart === 'function' ? Chart.getChart(canvas) : null);
+
+        let restoredDpr = null;
+        if (chartInstance) {
+          chartInstance.stop();
+          if ((chartInstance.currentDevicePixelRatio || 1) < 2 && chartInstance.options) {
+            restoredDpr = chartInstance.options.devicePixelRatio;
+            chartInstance.options.devicePixelRatio = 2;
+            chartInstance.resize();
+            chartInstance.update('none');
+          }
+        }
+
+        const cssW = canvas.clientWidth || Math.round(canvas.width / 2) || 800;
+        const cssH = canvas.clientHeight || Math.round(canvas.height / 2) || 400;
+        const targetW = Math.max(canvas.width, Math.round(cssW * 2));
+        const targetH = Math.max(canvas.height, Math.round(cssH * 2));
+
+        const off = document.createElement('canvas');
+        off.width = targetW;
+        off.height = targetH;
+        const ctx = off.getContext('2d');
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, targetW, targetH);
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = 'high';
+        ctx.drawImage(canvas, 0, 0, targetW, targetH);
+        const imgDataUrl = off.toDataURL('image/png', 1.0);
+
+        if (chartInstance && restoredDpr !== null) {
+          chartInstance.options.devicePixelRatio = restoredDpr;
+          chartInstance.resize();
+          chartInstance.update('none');
+        }
+
+        // Extraer título limpio y notas visibles (ej. aclaraciones RIPTE/IPC, IPIM, outliers, totales)
+        const modInfo = getModuleInfo(card);
+        const header = card.querySelector('.chart-header');
+        const h3 = header ? header.querySelector('h3') : null;
+        let cleanTitle = 'Gráfico Ejecutivo';
+        const chartNotes = [];
+
+        if (h3) {
+          const childSpans = Array.from(h3.children).filter(el => el.tagName === 'SPAN');
+          if (childSpans.length >= 2) {
+            cleanTitle = childSpans[0].innerText.trim();
+            childSpans.slice(1).forEach(sp => {
+              if (getComputedStyle(sp).display !== 'none') {
+                const txt = sp.innerText.trim();
+                if (txt) chartNotes.push(txt);
+              }
+            });
+          } else {
+            cleanTitle = h3.innerText.trim();
+          }
+        }
+
+        // Capturar badges informativos visibles en el header (ej. total prima en comparativas drill-down)
+        if (header) {
+          const actionsWrap = header.querySelector('.deck-header-actions');
+          if (actionsWrap) {
+            Array.from(actionsWrap.children).forEach(ch => {
+              if (ch.classList.contains('deck-add-btn') || ch.tagName === 'BUTTON' || ch.tagName === 'INPUT') return;
+              if (getComputedStyle(ch).display !== 'none') {
+                const t = ch.innerText.trim();
+                if (t) chartNotes.push(`Total cartera: ${t}`);
+              }
+            });
+          }
+        }
+
+        // Capturar cualquier nota o aclaración de outliers visible en el cuerpo de la tarjeta
+        Array.from(card.children).forEach(ch => {
+          if (ch === header || ch.contains(canvas) || ch.classList.contains('deck-add-btn')) return;
+          if (getComputedStyle(ch).display !== 'none') {
+            const noteTxt = ch.innerText.trim();
+            if (noteTxt) chartNotes.push(noteTxt);
+          }
+        });
+
+        const item = {
+          id: uid(),
+          type: 'chart',
+          title: cleanTitle,
+          defaultTitle: cleanTitle,
+          titleEdited: false,
+          note: '',
+          moduleName: modInfo.name,
+          source: modInfo.source,
+          imgDataUrl,
+          imgWidth: targetW,
+          imgHeight: targetH,
+          chartNotes
+        };
+        addItem(item, `Gráfico "${cleanTitle}" agregado en alta definición (2x)`);
+        flashAddedButton(btn, false);
+      }
+
+      function captureTableCard(card, btn) {
+        const table = card.querySelector('table');
+        if (!table) {
+          showToast('No se encontró la tabla para capturar.');
+          return;
+        }
+
+        const modInfo = getModuleInfo(card);
+        const h3 = card.querySelector('.table-header h3');
+        const cleanTitle = h3 ? h3.innerText.trim() : 'Tabla de Detalle';
+
+        // Capturar encabezados limpios (removiendo controles/botones/inputs)
+        const headers = Array.from(table.querySelectorAll('thead tr th')).map(th => {
+          const clone = sanitizeSnapshotFragment(th);
+          const align = th.classList.contains('num')
+            ? 'right'
+            : (th.style.textAlign || 'left');
+          return {
+            text: clone.innerText.replace(/\s+/g, ' ').trim(),
+            align,
+            color: th.style.color || ''
+          };
+        });
+
+        const extractRowData = (tr, forceTotal = false) => {
+          const firstText = (tr.cells && tr.cells[0]) ? tr.cells[0].innerText.trim() : '';
+          const isTotal = forceTotal ||
+            tr.classList.contains('total-row') ||
+            tr.dataset.total === 'true' ||
+            /^total\b/i.test(firstText);
+
+          const cells = Array.from(tr.querySelectorAll('td, th')).map(td => {
+            const clone = sanitizeSnapshotFragment(td);
+            const align = td.classList.contains('num')
+              ? 'right'
+              : (td.style.textAlign || 'left');
+            return {
+              html: clone.innerHTML.trim(),
+              text: clone.innerText.replace(/\s+/g, ' ').trim(),
+              align,
+              colspan: td.colSpan > 1 ? td.colSpan : 1,
+              color: td.style.color || '',
+              bg: td.style.backgroundColor || '',
+              fontWeight: td.style.fontWeight || ''
+            };
+          });
+
+          return {
+            cells,
+            rowBg: tr.style.backgroundColor || '',
+            rowFontWeight: tr.style.fontWeight || '',
+            isTotal
+          };
+        };
+
+        // Filas visibles de tbody respetando el filtro y orden activos (incluyendo siempre fila TOTAL si existiera)
+        const visibleBodyRows = Array.from(table.querySelectorAll('tbody tr'))
+          .filter(tr => {
+            const firstTxt = (tr.cells && tr.cells[0]) ? tr.cells[0].innerText.trim() : '';
+            const isTot = tr.classList.contains('total-row') || tr.dataset.total === 'true' || /^total\b/i.test(firstTxt);
+            if (isTot) return true;
+            return !tr.hidden && tr.style.display !== 'none' && getComputedStyle(tr).display !== 'none';
+          })
+          .map(tr => extractRowData(tr, false));
+
+        // Incluir siempre filas TOTAL de tfoot si existen
+        const tfootRows = Array.from(table.querySelectorAll('tfoot tr'))
+          .map(tr => extractRowData(tr, true));
+
+        const rows = visibleBodyRows.concat(tfootRows);
+
+        if (!rows.length) {
+          showToast('No hay filas visibles en la tabla con el filtro actual.');
+          return;
+        }
+
+        const item = {
+          id: uid(),
+          type: 'table',
+          title: cleanTitle,
+          defaultTitle: cleanTitle,
+          titleEdited: false,
+          note: '',
+          moduleName: modInfo.name,
+          source: modInfo.source,
+          headers,
+          rows
+        };
+        addItem(item, `Tabla "${cleanTitle}" (${rows.length} filas) agregada`);
+        flashAddedButton(btn, false);
+      }
+
+      function addItem(item, toastMsg) {
+        state.items.push(item);
+        saveState();
+        updateHeaderCounter(true);
+        if (isDrawerOpen) renderDrawer();
+        if (toastMsg) showToast(toastMsg);
+      }
+
+      // --------------------------------------------------------------------
+      // MOTOR DE PAGINACIÓN Y DIAGRAMACIÓN 16:9 (REGLAS ESTRICTAS)
+      // --------------------------------------------------------------------
+      function getTableColDensityClass(colCount) {
+        if (colCount >= 12) return 'cols-wide';
+        if (colCount >= 9) return 'cols-medium';
+        return 'cols-normal';
+      }
+
+      function renderTableMarkup(headers, rows) {
+        const density = getTableColDensityClass(headers.length);
+        const theadHtml = headers.map(h => {
+          const st = [
+            `text-align:${h.align || 'left'}`,
+            h.color ? `color:${h.color}` : ''
+          ].filter(Boolean).join(';');
+          return `<th style="${st}">${escapeHtml(h.text)}</th>`;
+        }).join('');
+
+        const tbodyHtml = rows.map(r => {
+          const trClass = r.isTotal ? ' class="deck-row-total"' : '';
+          const rowSt = [
+            r.rowBg ? `background-color:${r.rowBg}` : '',
+            r.rowFontWeight ? `font-weight:${r.rowFontWeight}` : ''
+          ].filter(Boolean).join(';');
+
+          const tds = r.cells.map(c => {
+            const cellSt = [
+              `text-align:${c.align || 'left'}`,
+              c.color ? `color:${c.color}` : '',
+              c.bg ? `background-color:${c.bg}` : '',
+              c.fontWeight ? `font-weight:${c.fontWeight}` : ''
+            ].filter(Boolean).join(';');
+            const colspanAttr = c.colspan && c.colspan > 1 ? ` colspan="${c.colspan}"` : '';
+            return `<td${colspanAttr} style="${cellSt}">${c.html}</td>`;
+          }).join('');
+
+          return `<tr${trClass}${rowSt ? ` style="${rowSt}"` : ''}>${tds}</tr>`;
+        }).join('');
+
+        return `<table class="deck-slide-table ${density}"><thead><tr>${theadHtml}</tr></thead><tbody>${tbodyHtml}</tbody></table>`;
+      }
+
+      // Mide en el contenedor oculto exacto de 297mm x 167mm cuántas filas caben por página sin cortar filas
+      function paginateTableRows(item) {
+        const allRows = item.rows || [];
+        if (!allRows.length) return [[]];
+
+        const host = document.getElementById('deck_measure_host');
+        if (!host) {
+          const fallbackPages = [];
+          for (let i = 0; i < allRows.length; i += 12) fallbackPages.push(allRows.slice(i, i + 12));
+          return fallbackPages;
+        }
+
+        const measureAvailableHeight = (withNote) => {
+          const noteHtml = (withNote && item.note && item.note.trim())
+            ? `<div class="deck-exec-note"><strong>Nota ejecutiva:</strong> ${escapeHtml(item.note.trim())}</div>`
+            : '';
+          host.innerHTML = `
+            <section class="deck-slide deck-slide-interior">
+              <div class="deck-slide-top-accent"></div>
+              <header class="deck-slide-header">
+                <div class="deck-logo-badge-sm"><span class="dot"></span>LA SEGUNDA</div>
+                <h2 class="deck-slide-title">${escapeHtml(item.title)}</h2>
+              </header>
+              <div class="deck-slide-body">
+                <div class="deck-slide-content-area">
+                  <div class="deck-table-stage" id="deck_measure_stage">
+                    ${renderTableMarkup(item.headers, allRows)}
+                  </div>
+                </div>
+                ${noteHtml}
+              </div>
+              <footer class="deck-slide-footer">
+                <span class="deck-slide-footer-source">${escapeHtml(item.source || '')}</span>
+                <span class="deck-slide-footer-page">Diapositiva 1 / 1</span>
+              </footer>
+            </section>
+          `;
+          const stage = host.querySelector('#deck_measure_stage');
+          const thead = stage.querySelector('thead');
+          const trs = Array.from(stage.querySelectorAll('tbody tr'));
+          const stageH = stage.getBoundingClientRect().height;
+          const theadH = thead ? thead.getBoundingClientRect().height : 34;
+          const rowHeights = trs.map(tr => tr.getBoundingClientRect().height || 26);
+          return { stageH, theadH, rowHeights };
+        };
+
+        const hasNote = Boolean(item.note && item.note.trim());
+        const firstMeasure = measureAvailableHeight(hasNote);
+        const nextMeasure = hasNote ? measureAvailableHeight(false) : firstMeasure;
+        host.innerHTML = '';
+
+        const pages = [];
+        let cursor = 0;
+        let pageIdx = 0;
+
+        while (cursor < allRows.length) {
+          const m = pageIdx === 0 ? firstMeasure : nextMeasure;
+          const maxBodyH = Math.max(40, m.stageH - m.theadH - 4);
+          let accH = 0;
+          const chunk = [];
+
+          while (cursor < allRows.length) {
+            const rh = firstMeasure.rowHeights[cursor] || 26;
+            if (chunk.length > 0 && (accH + rh) > maxBodyH) {
+              break;
+            }
+            chunk.push(allRows[cursor]);
+            accH += rh;
+            cursor++;
+          }
+          pages.push(chunk);
+          pageIdx++;
+        }
+
+        return pages;
+      }
+
+      // Construye la lista final de diapositivas y el mapeo de qué slide ocupa cada ítem del drawer
+      function buildSlidesAndMapping() {
+        const slides = [];
+        const itemSlideRanges = {};
+
+        // 1. Portada institucional (Diapositiva 1)
+        if (state.coverEnabled) {
+          slides.push({
+            kind: 'cover',
+            title: state.coverTitle.trim() || DEFAULT_STATE.coverTitle,
+            subtitle: state.coverSubtitle.trim()
+          });
+        }
+
+        // 2. Diapositivas interiores
+        let idx = 0;
+        const items = state.items;
+
+        while (idx < items.length) {
+          const it = items[idx];
+
+          // Agrupar tarjetas KPI sueltas consecutivas en slides de hasta 4 KPIs
+          if (it.type === 'kpi-single' && state.groupLooseKpis) {
+            const looseGroup = [];
+            let j = idx;
+            while (j < items.length && items[j].type === 'kpi-single') {
+              looseGroup.push({ item: items[j], itemIdx: j });
+              j++;
+            }
+
+            for (let c = 0; c < looseGroup.length; c += 4) {
+              const slice = looseGroup.slice(c, c + 4);
+              const slideNum = slides.length + 1;
+              slice.forEach(entry => {
+                itemSlideRanges[entry.item.id] = {
+                  start: slideNum,
+                  end: slideNum,
+                  groupedCount: slice.length,
+                  isGroupLeader: entry === slice[0]
+                };
+              });
+
+              let slideTitle = slice[0].item.title;
+              if (slice.length > 1) {
+                const editedEntry = slice.find(e => e.item.titleEdited);
+                if (editedEntry) {
+                  slideTitle = editedEntry.item.title;
+                } else {
+                  const sameModule = slice.every(e => e.item.moduleName === slice[0].item.moduleName);
+                  slideTitle = sameModule
+                    ? (slice[0].item.panelTitle || `Indicadores Clave — ${slice[0].item.moduleName}`)
+                    : 'Indicadores Ejecutivos Seleccionados';
+                }
+              }
+
+              const combinedNotes = slice
+                .map(e => (e.item.note || '').trim())
+                .filter(Boolean)
+                .join(' • ');
+
+              slides.push({
+                kind: 'kpi',
+                title: slideTitle,
+                cards: slice.map(e => e.item.cards[0]),
+                note: combinedNotes,
+                source: slice[0].item.source
+              });
+            }
+
+            idx = j;
+            continue;
+          }
+
+          // Panel KPI o KPI individual sin agrupar -> dividir automáticamente en bloques de hasta 4 KPIs
+          if (it.type === 'kpi-panel' || it.type === 'kpi-single') {
+            const cards = it.cards || [];
+            const startSlide = slides.length + 1;
+            for (let c = 0; c < cards.length; c += 4) {
+              const chunk = cards.slice(c, c + 4);
+              slides.push({
+                kind: 'kpi',
+                title: it.title,
+                cards: chunk,
+                note: c === 0 ? (it.note || '').trim() : '',
+                source: it.source
+              });
+            }
+            const endSlide = slides.length;
+            itemSlideRanges[it.id] = { start: startSlide, end: endSlide };
+            idx++;
+            continue;
+          }
+
+          // Gráfico HD 2x
+          if (it.type === 'chart') {
+            const sNum = slides.length + 1;
+            slides.push({
+              kind: 'chart',
+              title: it.title,
+              imgDataUrl: it.imgDataUrl,
+              chartNotes: it.chartNotes || [],
+              note: (it.note || '').trim(),
+              source: it.source
+            });
+            itemSlideRanges[it.id] = { start: sNum, end: sNum };
+            idx++;
+            continue;
+          }
+
+          // Tabla con paginación automática 16:9 y repetición de thead
+          if (it.type === 'table') {
+            const rowPages = paginateTableRows(it);
+            const startSlide = slides.length + 1;
+            rowPages.forEach((rowsChunk, pIdx) => {
+              slides.push({
+                kind: 'table',
+                title: it.title,
+                headers: it.headers || [],
+                rows: rowsChunk,
+                note: pIdx === 0 ? (it.note || '').trim() : '',
+                source: it.source
+              });
+            });
+            const endSlide = slides.length;
+            itemSlideRanges[it.id] = { start: startSlide, end: endSlide, pageCount: rowPages.length };
+            idx++;
+            continue;
+          }
+
+          idx++;
+        }
+
+        return { slides, itemSlideRanges };
+      }
+
+      // Renderiza el HTML exacto de una diapositiva 16:9
+      function renderSlideHtml(slide, indexZero, totalSlides) {
+        if (slide.kind === 'cover') {
+          // Portada institucional limpia: logo, título y subtítulo (SIN cantidad de slides NI fecha Generado)
+          return `
+            <section class="deck-slide deck-slide-cover">
+              <div class="deck-cover-left-stripe"></div>
+              <div class="deck-cover-decor-shape"></div>
+              <div class="deck-cover-decor-corner"></div>
+
+              <div class="deck-cover-top">
+                <div class="deck-logo-badge-lg">
+                  <span class="dot"></span>
+                  LA SEGUNDA
+                </div>
+                <span class="deck-logo-subbrand">Seguros de Personas</span>
+              </div>
+
+              <div class="deck-cover-center">
+                <div class="deck-cover-rule"></div>
+                <h1 class="deck-cover-title">${escapeHtml(slide.title)}</h1>
+                ${slide.subtitle ? `<p class="deck-cover-subtitle">${escapeHtml(slide.subtitle)}</p>` : ''}
+              </div>
+
+              <div class="deck-cover-bottom">
+                <span class="deck-cover-org">La Segunda Seguros • Grupo Asegurador</span>
+                <span class="deck-cover-claim">Primero las personas. Lo primero sos vos.</span>
+              </div>
+            </section>
+          `;
+        }
+
+        // Diapositiva interior limpia: logo + SOLO título (sin subtítulo ni píldoras de filtros/contexto)
+        let bodyContentHtml = '';
+
+        if (slide.kind === 'kpi') {
+          const cards = slide.cards || [];
+          const kCount = Math.min(4, Math.max(1, cards.length));
+          const cardsHtml = cards.map(c => {
+            const hasExtra = Boolean(c.extraHtml && c.extraHtml.trim());
+            const valStyle = c.valueColor ? ` style="color:${c.valueColor}"` : '';
+            return `
+              <div class="deck-slide-kpi-card${hasExtra ? ' has-extra' : ''}">
+                <span class="deck-kpi-accent" style="background:${c.accentColor || '#e20039'}"></span>
+                <div class="dk-title">${escapeHtml(c.title)}</div>
+                <div class="dk-value"${valStyle}>${escapeHtml(c.value)}</div>
+                ${c.subHtml ? `<div class="dk-sub">${c.subHtml}</div>` : ''}
+                ${hasExtra ? `<div class="dk-extra">${c.extraHtml}</div>` : ''}
+              </div>
+            `;
+          }).join('');
+
+          bodyContentHtml = `<div class="deck-kpi-stage" data-count="${kCount}">${cardsHtml}</div>`;
+        } else if (slide.kind === 'chart') {
+          const notesHtml = (slide.chartNotes && slide.chartNotes.length)
+            ? `<div class="deck-chart-notes">${slide.chartNotes.map(n => `<span class="deck-chart-note-item">&#9432; ${escapeHtml(n)}</span>`).join('')}</div>`
+            : '';
+          bodyContentHtml = `
+            <div class="deck-chart-stage">
+              <div class="deck-chart-img-wrap">
+                <img src="${slide.imgDataUrl}" alt="${escapeHtml(slide.title)}" />
+              </div>
+              ${notesHtml}
+            </div>
+          `;
+        } else if (slide.kind === 'table') {
+          bodyContentHtml = `
+            <div class="deck-table-stage">
+              ${renderTableMarkup(slide.headers, slide.rows)}
+            </div>
+          `;
+        }
+
+        const execNoteHtml = slide.note
+          ? `<div class="deck-exec-note"><strong>Nota ejecutiva:</strong> ${escapeHtml(slide.note)}</div>`
+          : '';
+
+        const slideNumber = indexZero + 1;
+
+        return `
+          <section class="deck-slide deck-slide-interior">
+            <div class="deck-slide-top-accent"></div>
+
+            <header class="deck-slide-header">
+              <div class="deck-logo-badge-sm">
+                <span class="dot"></span>
+                LA SEGUNDA
+              </div>
+              <h2 class="deck-slide-title">${escapeHtml(slide.title)}</h2>
+            </header>
+
+            <div class="deck-slide-body">
+              <div class="deck-slide-content-area">
+                ${bodyContentHtml}
+              </div>
+              ${execNoteHtml}
+            </div>
+
+            <footer class="deck-slide-footer">
+              <span class="deck-slide-footer-source">${escapeHtml(slide.source || 'Fuente: La Segunda Seguros')}</span>
+              <span class="deck-slide-footer-page">Diapositiva ${slideNumber} / ${totalSlides}</span>
+            </footer>
+          </section>
+        `;
+      }
+
+      // --------------------------------------------------------------------
+      // DRAWER LATERAL DERECHO Y MINIATURAS REALES
+      // --------------------------------------------------------------------
+      function updateHeaderCounter(animate = false) {
+        const cntEl = document.getElementById('deck_live_count');
+        const btnEl = document.getElementById('btn_open_deck');
+        const count = state.items.length;
+        if (cntEl) cntEl.textContent = String(count);
+        if (btnEl) {
+          btnEl.classList.toggle('has-items', count > 0);
+          if (animate) {
+            btnEl.classList.add('bump');
+            setTimeout(() => btnEl.classList.remove('bump'), 220);
+          }
+        }
+      }
+
+      function renderItemThumbnailHtml(item) {
+        if (item.type === 'chart') {
+          return `<img src="${item.imgDataUrl}" alt="Miniatura gráfico" />`;
+        }
+        if (item.type === 'kpi-single' || item.type === 'kpi-panel') {
+          const cards = item.cards || [];
+          const visible = cards.slice(0, 4);
+          const kClass = 'k' + Math.max(1, visible.length);
+          const minis = visible.map(c => `
+            <div class="deck-thumb-kpi-mini">
+              <span class="bar" style="background:${c.accentColor || '#e20039'}"></span>
+              <div class="t">${escapeHtml(c.title)}</div>
+              <div class="v">${escapeHtml(c.value)}</div>
+            </div>
+          `).join('');
+          const more = cards.length > 4
+            ? `<span class="deck-thumb-more-badge">+${cards.length - 4}</span>`
+            : '';
+          return `<div class="deck-thumb-kpi-grid ${kClass}">${minis}</div>${more}`;
+        }
+        if (item.type === 'table') {
+          const cols = (item.headers || []).slice(0, 5);
+          const topRows = (item.rows || []).slice(0, 5);
+          const ths = cols.map(h => `<th>${escapeHtml(h.text)}</th>`).join('');
+          const trs = topRows.map(r => {
+            const tds = r.cells.slice(0, 5).map(c => `<td style="text-align:${c.align || 'left'}">${escapeHtml(c.text)}</td>`).join('');
+            return `<tr>${tds}</tr>`;
+          }).join('');
+          return `<div class="deck-thumb-table-mini"><table><thead><tr>${ths}</tr></thead><tbody>${trs}</tbody></table></div>`;
+        }
+        return '';
+      }
+
+      function getTypeAndSlideLabel(item, rangeInfo) {
+        let typeStr = 'Elemento';
+        if (item.type === 'kpi-single') typeStr = 'KPI';
+        else if (item.type === 'kpi-panel') typeStr = `Panel (${(item.cards || []).length} KPIs)`;
+        else if (item.type === 'chart') typeStr = 'Gráfico 2x';
+        else if (item.type === 'table') typeStr = `Tabla (${(item.rows || []).length} filas)`;
+
+        if (!rangeInfo) return typeStr;
+        if (rangeInfo.start === rangeInfo.end) {
+          return `${typeStr} • Diap. ${rangeInfo.start}`;
+        }
+        return `${typeStr} • Diap. ${rangeInfo.start}–${rangeInfo.end}`;
+      }
+
+      function syncDrawerSummaryAndBadges() {
+        const { slides, itemSlideRanges } = buildSlidesAndMapping();
+        const summaryEl = document.getElementById('deck_drawer_summary');
+        if (summaryEl) {
+          const nItems = state.items.length;
+          const nSlides = slides.length;
+          summaryEl.textContent = `${nItems} ${nItems === 1 ? 'elemento capturado' : 'elementos capturados'} • ${nSlides} ${nSlides === 1 ? 'diapositiva' : 'diapositivas'} (16:9)`;
+        }
+        const clearBtn = document.getElementById('btn_deck_clear');
+        if (clearBtn) clearBtn.disabled = state.items.length === 0;
+
+        document.querySelectorAll('#deck_items_list .deck-item-card').forEach(cardEl => {
+          const id = cardEl.dataset.itemId;
+          const item = state.items.find(x => x.id === id);
+          if (!item) return;
+          const tagEl = cardEl.querySelector('.deck-item-type-tag');
+          if (tagEl) tagEl.textContent = getTypeAndSlideLabel(item, itemSlideRanges[id]);
+        });
+      }
+
+      function renderDrawer() {
+        const chkCover = document.getElementById('chk_deck_cover');
+        const coverFields = document.getElementById('deck_cover_fields');
+        const inpTitle = document.getElementById('inp_deck_cover_title');
+        const inpSub = document.getElementById('inp_deck_cover_subtitle');
+        const chkGroup = document.getElementById('chk_deck_group_kpis');
+
+        if (chkCover) chkCover.checked = state.coverEnabled;
+        if (coverFields) coverFields.classList.toggle('hidden', !state.coverEnabled);
+        if (inpTitle && document.activeElement !== inpTitle) inpTitle.value = state.coverTitle;
+        if (inpSub && document.activeElement !== inpSub) inpSub.value = state.coverSubtitle;
+        if (chkGroup) chkGroup.checked = state.groupLooseKpis;
+
+        const { slides, itemSlideRanges } = buildSlidesAndMapping();
+
+        const summaryEl = document.getElementById('deck_drawer_summary');
+        if (summaryEl) {
+          const nItems = state.items.length;
+          const nSlides = slides.length;
+          summaryEl.textContent = `${nItems} ${nItems === 1 ? 'elemento capturado' : 'elementos capturados'} • ${nSlides} ${nSlides === 1 ? 'diapositiva' : 'diapositivas'} (16:9)`;
+        }
+
+        const clearBtn = document.getElementById('btn_deck_clear');
+        if (clearBtn) clearBtn.disabled = state.items.length === 0;
+
+        const listEl = document.getElementById('deck_items_list');
+        if (!listEl) return;
+
+        if (state.items.length === 0) {
+          listEl.innerHTML = `
+            <div class="deck-empty-state">
+              <h4>Tu presentación aún no tiene capturas</h4>
+              <p>
+                Hacé click en el botón <strong>+</strong> de cualquier tarjeta KPI, gráfico o tabla, o usá
+                <strong>+ Agregar panel KPI a presentación</strong> para congelar instantáneas con los filtros activos.
+              </p>
+            </div>
+          `;
+          return;
+        }
+
+        listEl.innerHTML = '';
+
+        state.items.forEach((item, idx) => {
+          const rangeInfo = itemSlideRanges[item.id];
+          const card = document.createElement('div');
+          card.className = 'deck-item-card';
+          card.dataset.index = String(idx);
+          card.dataset.itemId = item.id;
+          card.draggable = true;
+
+          const groupHintHtml = (rangeInfo && rangeInfo.groupedCount > 1)
+            ? `<div class="deck-group-hint">${rangeInfo.isGroupLeader ? `Agrupado (${rangeInfo.groupedCount} KPIs en Diap. ${rangeInfo.start})` : `Integrado en grupo de Diap. ${rangeInfo.start}`}</div>`
+            : '';
+
+          const targetSlideIdx = rangeInfo ? Math.max(0, rangeInfo.start - 1) : 0;
+
+          card.innerHTML = `
+            <div class="deck-item-top">
+              <div class="deck-item-meta-left">
+                <span class="deck-drag-handle" title="Arrastrar para reordenar">&#8942;&#8942;</span>
+                <span class="deck-item-num">${idx + 1}</span>
+                <span class="deck-item-type-tag">${escapeHtml(getTypeAndSlideLabel(item, rangeInfo))}</span>
+              </div>
+              <div class="deck-item-controls">
+                <button type="button" class="deck-ctrl-btn" data-action="up" ${idx === 0 ? 'disabled' : ''} title="Subir (↑)">&#8593;</button>
+                <button type="button" class="deck-ctrl-btn" data-action="down" ${idx === state.items.length - 1 ? 'disabled' : ''} title="Bajar (↓)">&#8595;</button>
+                <button type="button" class="deck-ctrl-btn remove" data-action="remove" title="Quitar ítem">&#10005;</button>
+              </div>
+            </div>
+
+            <div class="deck-item-main">
+              <div class="deck-thumb-box" data-action="preview" title="Ver diapositiva en pantalla completa">
+                ${renderItemThumbnailHtml(item)}
+              </div>
+              <div class="deck-item-inputs">
+                <input type="text" class="deck-input deck-item-title-inp" value="${escapeHtml(item.title)}" placeholder="Título de la diapositiva" />
+                <textarea class="deck-textarea deck-item-note-inp" rows="2" placeholder="Nota o conclusión ejecutiva opcional...">${escapeHtml(item.note || '')}</textarea>
+                ${groupHintHtml}
+              </div>
+            </div>
+          `;
+
+          // Evitar que draggable interfiera con edición de texto en inputs/textareas
+          card.addEventListener('mousedown', (ev) => {
+            if (ev.target.closest('input, textarea, button')) {
+              card.draggable = false;
+            } else {
+              card.draggable = true;
+            }
+          });
+          card.addEventListener('mouseup', () => {
+            card.draggable = true;
+          });
+
+          // Eventos de controles
+          card.querySelector('[data-action="up"]').addEventListener('click', () => moveItem(idx, -1));
+          card.querySelector('[data-action="down"]').addEventListener('click', () => moveItem(idx, 1));
+          card.querySelector('[data-action="remove"]').addEventListener('click', () => removeItem(idx));
+          card.querySelector('[data-action="preview"]').addEventListener('click', () => openPreview(targetSlideIdx));
+
+          // Edición en vivo de título y nota ejecutiva
+          const titleInp = card.querySelector('.deck-item-title-inp');
+          titleInp.addEventListener('input', (ev) => {
+            item.title = ev.target.value;
+            item.titleEdited = item.title.trim() !== (item.defaultTitle || '').trim();
+            saveState();
+          });
+
+          const noteInp = card.querySelector('.deck-item-note-inp');
+          noteInp.addEventListener('input', (ev) => {
+            item.note = ev.target.value;
+            saveState();
+            if (item.type === 'table') {
+              syncDrawerSummaryAndBadges();
+            }
+          });
+
+          // Drag & Drop nativo para reordenar
+          card.addEventListener('dragstart', (ev) => {
+            dragSrcIndex = idx;
+            card.classList.add('dragging');
+            if (ev.dataTransfer) {
+              ev.dataTransfer.effectAllowed = 'move';
+              ev.dataTransfer.setData('text/plain', String(idx));
+            }
+          });
+
+          card.addEventListener('dragover', (ev) => {
+            ev.preventDefault();
+            if (dragSrcIndex === null || dragSrcIndex === idx) return;
+            const rect = card.getBoundingClientRect();
+            const isTopHalf = (ev.clientY - rect.top) < (rect.height / 2);
+            card.classList.toggle('drag-over-top', isTopHalf);
+            card.classList.toggle('drag-over-bottom', !isTopHalf);
+          });
+
+          card.addEventListener('dragleave', () => {
+            card.classList.remove('drag-over-top', 'drag-over-bottom');
+          });
+
+          card.addEventListener('drop', (ev) => {
+            ev.preventDefault();
+            const isBottom = card.classList.contains('drag-over-bottom');
+            card.classList.remove('drag-over-top', 'drag-over-bottom');
+            if (dragSrcIndex === null || dragSrcIndex === idx) return;
+
+            const moved = state.items.splice(dragSrcIndex, 1)[0];
+            let destIdx = idx;
+            if (dragSrcIndex < idx) destIdx -= 1;
+            if (isBottom) destIdx += 1;
+            destIdx = Math.max(0, Math.min(state.items.length, destIdx));
+            state.items.splice(destIdx, 0, moved);
+            dragSrcIndex = null;
+            saveState();
+            renderDrawer();
+          });
+
+          card.addEventListener('dragend', () => {
+            dragSrcIndex = null;
+            listEl.querySelectorAll('.deck-item-card').forEach(c => {
+              c.classList.remove('dragging', 'drag-over-top', 'drag-over-bottom');
+            });
+          });
+
+          listEl.appendChild(card);
+        });
+      }
+
+      function moveItem(idx, delta) {
+        const target = idx + delta;
+        if (target < 0 || target >= state.items.length) return;
+        const tmp = state.items[idx];
+        state.items[idx] = state.items[target];
+        state.items[target] = tmp;
+        saveState();
+        renderDrawer();
+      }
+
+      function removeItem(idx) {
+        if (idx < 0 || idx >= state.items.length) return;
+        state.items.splice(idx, 1);
+        saveState();
+        updateHeaderCounter(false);
+        renderDrawer();
+      }
+
+      function clearAll() {
+        if (!state.items.length) return;
+        if (!window.confirm('¿Deseás vaciar todos los elementos capturados de la presentación?')) return;
+        state.items = [];
+        saveState();
+        updateHeaderCounter(false);
+        renderDrawer();
+        showToast('Lista de presentación vaciada');
+      }
+
+      function onCoverToggle(enabled) {
+        state.coverEnabled = Boolean(enabled);
+        saveState();
+        renderDrawer();
+      }
+
+      function onCoverFieldChange() {
+        const inpTitle = document.getElementById('inp_deck_cover_title');
+        const inpSub = document.getElementById('inp_deck_cover_subtitle');
+        if (inpTitle) state.coverTitle = inpTitle.value;
+        if (inpSub) state.coverSubtitle = inpSub.value;
+        saveState();
+      }
+
+      function onGroupKpisToggle(enabled) {
+        state.groupLooseKpis = Boolean(enabled);
+        saveState();
+        renderDrawer();
+      }
+
+      function openDrawer() {
+        isDrawerOpen = true;
+        document.getElementById('deck_drawer')?.classList.add('open');
+        document.getElementById('deck_drawer_backdrop')?.classList.add('open');
+        renderDrawer();
+      }
+
+      function closeDrawer() {
+        isDrawerOpen = false;
+        document.getElementById('deck_drawer')?.classList.remove('open');
+        document.getElementById('deck_drawer_backdrop')?.classList.remove('open');
+      }
+
+      function toggleDrawer() {
+        if (isDrawerOpen) closeDrawer();
+        else openDrawer();
+      }
+
+      // --------------------------------------------------------------------
+      // VISTA PREVIA INTERACTIVA A PANTALLA COMPLETA (← / → / Esc)
+      // --------------------------------------------------------------------
+      function openPreview(startIdx = 0) {
+        const { slides } = buildSlidesAndMapping();
+        if (!slides.length) {
+          showToast('Agregá al menos un elemento o activá la portada para ver la vista previa.');
+          return;
+        }
+        previewSlidesCache = slides;
+        currentPreviewIdx = Math.max(0, Math.min(slides.length - 1, startIdx));
+        isPreviewOpen = true;
+
+        const modal = document.getElementById('deck_preview_modal');
+        if (modal) modal.classList.add('open');
+
+        renderCurrentPreviewSlide();
+        fitPreviewSlideToScreen();
+      }
+
+      function closePreview() {
+        isPreviewOpen = false;
+        const modal = document.getElementById('deck_preview_modal');
+        if (modal) modal.classList.remove('open');
+      }
+
+      function stepPreview(delta) {
+        if (!isPreviewOpen || !previewSlidesCache.length) return;
+        const next = currentPreviewIdx + delta;
+        if (next < 0 || next >= previewSlidesCache.length) return;
+        currentPreviewIdx = next;
+        renderCurrentPreviewSlide();
+        fitPreviewSlideToScreen();
+      }
+
+      function renderCurrentPreviewSlide() {
+        const viewport = document.getElementById('deck_preview_viewport');
+        const counter = document.getElementById('deck_preview_counter');
+        const prevBtn = document.getElementById('btn_preview_prev');
+        const nextBtn = document.getElementById('btn_preview_next');
+        if (!viewport || !previewSlidesCache.length) return;
+
+        const total = previewSlidesCache.length;
+        viewport.innerHTML = renderSlideHtml(previewSlidesCache[currentPreviewIdx], currentPreviewIdx, total);
+        if (counter) counter.textContent = `Diapositiva ${currentPreviewIdx + 1} / ${total}`;
+        if (prevBtn) prevBtn.disabled = currentPreviewIdx <= 0;
+        if (nextBtn) nextBtn.disabled = currentPreviewIdx >= total - 1;
+      }
+
+      function fitPreviewSlideToScreen() {
+        if (!isPreviewOpen) return;
+        const stage = document.getElementById('deck_preview_stage');
+        const slideEl = document.querySelector('#deck_preview_viewport .deck-slide');
+        if (!stage || !slideEl) return;
+
+        const availW = Math.max(280, stage.clientWidth - 140);
+        const availH = Math.max(180, stage.clientHeight - 44);
+        const natW = slideEl.offsetWidth || 1122.5;
+        const natH = slideEl.offsetHeight || 631.2;
+        const scale = Math.min(availW / natW, availH / natH);
+        slideEl.style.transform = `scale(${scale})`;
+      }
+
+      // --------------------------------------------------------------------
+      // EXPORTACIÓN A PDF VECTORIAL NATIVO (@media print + window.print)
+      // --------------------------------------------------------------------
+      function populatePrintRoot() {
+        const { slides } = buildSlidesAndMapping();
+        const printRoot = document.getElementById('deck_print_root');
+        if (!printRoot || !slides.length) return 0;
+        printRoot.innerHTML = slides.map((sl, idx) => renderSlideHtml(sl, idx, slides.length)).join('');
+        return slides.length;
+      }
+
+      async function exportPDF() {
+        if (state.items.length === 0 && !state.coverEnabled) {
+          showToast('Agregá al menos un elemento del tablero antes de generar el PDF.');
+          return;
+        }
+        const count = populatePrintRoot();
+        if (!count) {
+          showToast('No hay diapositivas para exportar.');
+          return;
+        }
+
+        const printRoot = document.getElementById('deck_print_root');
+        document.body.classList.add('deck-printing');
+
+        savedDocTitle = document.title;
+        const cleanFileTitle = (state.coverTitle || 'Presentacion_La_Segunda')
+          .replace(/[\\/:*?"<>|]+/g, ' ')
+          .trim();
+        if (cleanFileTitle) document.title = cleanFileTitle;
+
+        // Decodificar imágenes PNG de alta resolución antes de abrir el diálogo nativo de impresión
+        const imgs = Array.from(printRoot.querySelectorAll('img'));
+        await Promise.all(imgs.map(img => {
+          if (typeof img.decode === 'function') {
+            return img.decode().catch(() => {});
+          }
+          return Promise.resolve();
+        }));
+
+        setTimeout(() => {
+          window.print();
+        }, 60);
+      }
+
+      function cleanupAfterPrint() {
+        if (document.body.classList.contains('deck-printing')) {
+          document.body.classList.remove('deck-printing');
+          if (savedDocTitle !== null) {
+            document.title = savedDocTitle;
+            savedDocTitle = null;
+          }
+        }
+      }
+
+      function init() {
+        injectCaptureButtons();
+        updateHeaderCounter(false);
+
+        window.addEventListener('resize', () => {
+          if (isPreviewOpen) fitPreviewSlideToScreen();
+        });
+
+        document.addEventListener('keydown', (ev) => {
+          if (isPreviewOpen) {
+            if (ev.key === 'Escape') {
+              ev.preventDefault();
+              closePreview();
+            } else if (ev.key === 'ArrowRight' || ev.key === 'PageDown') {
+              ev.preventDefault();
+              stepPreview(1);
+            } else if (ev.key === 'ArrowLeft' || ev.key === 'PageUp') {
+              ev.preventDefault();
+              stepPreview(-1);
+            }
+            return;
+          }
+          if (isDrawerOpen && ev.key === 'Escape') {
+            const activeTag = document.activeElement ? document.activeElement.tagName : '';
+            if (activeTag !== 'INPUT' && activeTag !== 'TEXTAREA') {
+              ev.preventDefault();
+              closeDrawer();
+            }
+          }
+        });
+
+        // Soporte si el usuario presiona Cmd+P / Ctrl+P con la Vista Previa o el Drawer abiertos
+        window.addEventListener('beforeprint', () => {
+          if (isPreviewOpen || isDrawerOpen || document.body.classList.contains('deck-printing')) {
+            const printRoot = document.getElementById('deck_print_root');
+            if (!document.body.classList.contains('deck-printing') || (printRoot && !printRoot.children.length)) {
+              const n = populatePrintRoot();
+              if (n > 0) {
+                document.body.classList.add('deck-printing');
+              }
+            }
+          }
+        });
+
+        window.addEventListener('afterprint', cleanupAfterPrint);
+      }
+
+      return {
+        init,
+        openDrawer,
+        closeDrawer,
+        toggleDrawer,
+        clearAll,
+        onCoverToggle,
+        onCoverFieldChange,
+        onGroupKpisToggle,
+        openPreview,
+        closePreview,
+        stepPreview,
+        exportPDF
+      };
+    })();
+
+    document.addEventListener('DOMContentLoaded', () => {
+      DeckBuilder.init();
+    });
+  </script>
+
 </body>
 </html>
